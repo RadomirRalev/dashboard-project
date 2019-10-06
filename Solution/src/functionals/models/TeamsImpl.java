@@ -1,7 +1,5 @@
 package functionals.models;
 
-import functionals.contracts.Board;
-import functionals.contracts.Person;
 import functionals.contracts.Team;
 
 import java.util.ArrayList;
@@ -11,7 +9,7 @@ public class TeamsImpl implements Team {
 
     private String name;
     private List<MemberImpl> members;
-    private List<Board> boards;
+    private List<BoardImpl> boards;
 
     public TeamsImpl(String name) {
         setName(name);
@@ -19,7 +17,7 @@ public class TeamsImpl implements Team {
         boards = new ArrayList<>();
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -39,13 +37,18 @@ public class TeamsImpl implements Team {
     }
 
     @Override
-    public void addBoard() {
-
+    public void addBoard(BoardImpl board) {
+        boards.add(board);
     }
 
     @Override
-    public void removeBoard() {
+    public void removeBoard(BoardImpl board) {
+        boards.remove(board);
+    }
 
+    @Override
+    public List showBoards() {
+        return boards;
     }
 
     @Override
