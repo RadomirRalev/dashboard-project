@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43de10bd-22a6-436b-b802-86dc2ca29b80" name="Default Changelist" comment="&quot;Adds interfaces and classes in the functionals package which &#10;establishes the main functional elements of the app -- persons, &#10;teams, members and boards.&quot;">
-      <change beforePath="$PROJECT_DIR$/src/functionals/contracts/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/functionals/contracts/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functionals/models/BoardImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/functionals/models/BoardImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/models/MemberImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/functionals/models/MemberImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/models/PersonImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/functionals/models/PersonImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functionals/models/TeamsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/functionals/models/TeamsImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,19 +26,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/enums/Status.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Team.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="323">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,25 +37,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/functionals/models/TeamsImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="841">
+              <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#581#582#0" expanded="true" />
-                <element signature="e#609#610#0" expanded="true" />
-                <element signature="e#698#699#0" expanded="true" />
-                <element signature="e#720#721#0" expanded="true" />
-                <element signature="e#787#788#0" expanded="true" />
-                <element signature="e#816#817#0" expanded="true" />
-                <element signature="e#877#878#0" expanded="true" />
-                <element signature="e#898#899#0" expanded="true" />
-                <element signature="e#957#958#0" expanded="true" />
-                <element signature="e#978#979#0" expanded="true" />
-                <element signature="e#1063#1064#0" expanded="true" />
-                <element signature="e#1093#1094#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/functionals/models/PersonImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="646">
+              <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#570#571#0" expanded="true" />
@@ -85,7 +66,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="204">
               <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -97,51 +78,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/functionals/models/MemberImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            <state relative-caret-position="629">
+              <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#399#400#0" expanded="true" />
-                <element signature="e#440#441#0" expanded="true" />
-                <element signature="e#519#520#0" expanded="true" />
-                <element signature="e#582#583#0" expanded="true" />
-                <element signature="e#640#641#0" expanded="true" />
-                <element signature="e#662#663#0" expanded="true" />
                 <element signature="e#859#860#0" expanded="true" />
                 <element signature="e#898#899#0" expanded="true" />
-                <element signature="e#965#966#0" expanded="true" />
-                <element signature="e#989#990#0" expanded="true" />
                 <element signature="e#1076#1077#0" expanded="true" />
-                <element signature="e#1107#1108#0" expanded="true" />
+                <element signature="e#1108#1109#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/functionals/models/BoardImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/functionals/models/BoardImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Functionals.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#485#486#0" expanded="true" />
-                <element signature="e#517#518#0" expanded="true" />
-                <element signature="e#583#584#0" expanded="true" />
-                <element signature="e#653#654#0" expanded="true" />
-                <element signature="e#703#704#0" expanded="true" />
-                <element signature="e#776#777#0" expanded="true" />
-                <element signature="e#824#825#0" expanded="true" />
-                <element signature="e#862#863#0" expanded="true" />
-                <element signature="e#946#947#0" expanded="true" />
-                <element signature="e#985#986#0" expanded="true" />
-                <element signature="e#1072#1073#0" expanded="true" />
-                <element signature="e#1114#1115#0" expanded="true" />
-                <element signature="e#1163#1164#0" expanded="true" />
-                <element signature="e#1195#1196#0" expanded="true" />
-                <element signature="e#647#648#0" expanded="true" />
-                <element signature="e#674#675#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -149,7 +115,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/functionals/contracts/BoardAndPerson.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
+            <state relative-caret-position="68">
               <caret line="4" column="31" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="31" />
             </state>
           </provider>
@@ -158,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="153">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -200,18 +166,18 @@
         <option value="$PROJECT_DIR$/src/functionals/BoardAndPerson.java" />
         <option value="$PROJECT_DIR$/src/functionals/Board.java" />
         <option value="$PROJECT_DIR$/src/functionals/contracts/Board.java" />
-        <option value="$PROJECT_DIR$/src/functionals/models/PersonImpl.java" />
         <option value="$PROJECT_DIR$/src/functionals/contracts/Person.java" />
         <option value="$PROJECT_DIR$/src/functionals/models/ActivityHistory.java" />
         <option value="$PROJECT_DIR$/src/functionals/contracts/BoardAndPerson.java" />
-        <option value="$PROJECT_DIR$/src/functionals/models/MemberImpl.java" />
-        <option value="$PROJECT_DIR$/src/functionals/models/BoardImpl.java" />
         <option value="$PROJECT_DIR$/src/functionals/contracts/Team.java" />
         <option value="$PROJECT_DIR$/src/functionals/models/TeamsImpl.java" />
+        <option value="$PROJECT_DIR$/src/functionals/models/PersonImpl.java" />
+        <option value="$PROJECT_DIR$/src/functionals/models/MemberImpl.java" />
+        <option value="$PROJECT_DIR$/src/functionals/models/BoardImpl.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
     <option name="y" value="12" />
     <option name="width" value="1647" />
@@ -223,7 +189,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -266,12 +231,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../TEST" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -339,7 +305,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21695095" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21908316" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -418,46 +384,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Functionals.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Startup.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/ActivityHistory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#111#112#0" expanded="true" />
-            <element signature="e#165#166#0" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/enums/Status.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/functionals/models/ActivityHistory.java" />
     <entry file="file://$PROJECT_DIR$/src/enums/WorkItemType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -469,58 +396,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/BoardImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/enums/Status.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+        <state relative-caret-position="425">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Team.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#485#486#0" expanded="true" />
-            <element signature="e#517#518#0" expanded="true" />
-            <element signature="e#583#584#0" expanded="true" />
-            <element signature="e#653#654#0" expanded="true" />
-            <element signature="e#703#704#0" expanded="true" />
-            <element signature="e#776#777#0" expanded="true" />
-            <element signature="e#824#825#0" expanded="true" />
-            <element signature="e#862#863#0" expanded="true" />
-            <element signature="e#946#947#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1072#1073#0" expanded="true" />
-            <element signature="e#1114#1115#0" expanded="true" />
-            <element signature="e#1163#1164#0" expanded="true" />
-            <element signature="e#1195#1196#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/MemberImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        <state relative-caret-position="204">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#640#641#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/BoardAndPerson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Startup.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/functionals/models/MemberImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#859#860#0" expanded="true" />
             <element signature="e#898#899#0" expanded="true" />
-            <element signature="e#965#966#0" expanded="true" />
-            <element signature="e#989#990#0" expanded="true" />
             <element signature="e#1076#1077#0" expanded="true" />
-            <element signature="e#1107#1108#0" expanded="true" />
+            <element signature="e#1108#1109#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Functionals.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/functionals/models/PersonImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        <state relative-caret-position="646">
+          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#570#571#0" expanded="true" />
@@ -529,48 +473,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/BoardAndPerson.java">
+    <entry file="file://$PROJECT_DIR$/src/functionals/models/TeamsImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Team.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="841">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/TeamsImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/functionals/models/BoardImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="408">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#698#699#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#816#817#0" expanded="true" />
-            <element signature="e#877#878#0" expanded="true" />
-            <element signature="e#898#899#0" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
-            <element signature="e#978#979#0" expanded="true" />
-            <element signature="e#1063#1064#0" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
           </folding>
         </state>
       </provider>

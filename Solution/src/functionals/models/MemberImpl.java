@@ -44,4 +44,15 @@ public class MemberImpl extends PersonImpl implements BoardAndPerson {
     public List listWorkItems() {
         return workItems;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Member name: %s\n" +
+                        " Activity history: %s" +
+                        " Work items:%s\n",
+                getName(),
+                showActivity(),
+                listWorkItems().toString()
+        );
+    }
 }

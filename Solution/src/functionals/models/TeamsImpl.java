@@ -55,4 +55,14 @@ public class TeamsImpl implements Team {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Team name: %s\n" +
+                        " Members: %s\n" +
+                        " Boards: %s",
+                getName(),
+                showTeamMembers(),
+                showBoards());
+    }
 }

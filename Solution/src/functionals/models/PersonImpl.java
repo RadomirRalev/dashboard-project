@@ -41,4 +41,13 @@ public class PersonImpl implements Person {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Person name: %s\n" +
+                        " Work assigned: %s",
+                getName(),
+                listAssignedWork()
+        );
+    }
 }
