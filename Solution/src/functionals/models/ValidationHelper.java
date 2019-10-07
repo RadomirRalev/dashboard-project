@@ -7,8 +7,8 @@ public class ValidationHelper {
     private static final String NULL_ERROR = "Value cannot be null!";
     private static final String VALUE_OUT_OF_BOUNDS_ERROR = "Value is out of bounds!";
 
-    public static void checkIfNull(String string) {
-        if(string == null){
+    public static void checkIfNull(Object object) {
+        if(object == null){
             throw new IllegalArgumentException(NULL_ERROR);
         }
     }
