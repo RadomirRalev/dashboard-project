@@ -1,12 +1,13 @@
 package functionals.models;
 
 import enums.Status;
-import functionals.contracts.WorkItem;
+import functionals.contracts.WorkItems;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class WorkItemImpl implements WorkItem {
+public abstract class WorkItemsImpl implements WorkItems {
+    //TODO make the toString method;
     private static final int TITLE_LENGTH_MIN_VALUE = 10;
     private static final int TITLE_LENGTH_MAX_VALUE = 50;
     private static final int DESCRIPTION_LENGTH_MIN_VALUE = 10;
@@ -21,8 +22,8 @@ public abstract class WorkItemImpl implements WorkItem {
     private List<String> comments;
     private List<String> history;
 
-    //making the constructor protected, so that you cannot create a WorkItemImpl object
-    protected WorkItemImpl(String title, String description) {
+    //making the constructor protected, so that you cannot create a WorkItemsImpl object (can be created only through sub-classes)
+    protected WorkItemsImpl(String title, String description) {
         setId();
         setTitle(title);
         setDescription(description);
@@ -34,7 +35,7 @@ public abstract class WorkItemImpl implements WorkItem {
 
     @Override
     public int getId() {
-        return 0;
+        return id;
     }
 
     @Override
@@ -67,14 +68,17 @@ public abstract class WorkItemImpl implements WorkItem {
         this.status = status;
     }
 
+    @Override
     public String toString() {
         return null;
     }
 
+    @Override
     public void addComment(String comment) {
         comments.add(comment);
     }
 
+    @Override
     public void addHistory(String history) {
         this.history.add(history);
     }

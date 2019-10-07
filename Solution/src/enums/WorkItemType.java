@@ -1,7 +1,7 @@
 package enums;
 
 public enum WorkItemType {
-    BUG ("Bug"),
+    BUG ("BugImpl"),
     STORY ("Story"),
     FEEDBACK ("Feedback");
 

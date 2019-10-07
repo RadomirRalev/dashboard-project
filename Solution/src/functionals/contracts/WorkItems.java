@@ -4,7 +4,7 @@ import enums.*;
 
 import java.util.List;
 
-public interface WorkItem {
+public interface WorkItems {
     int getId();
     String getTitle();
     String getDescription();
@@ -12,5 +12,8 @@ public interface WorkItem {
     List<String> getComments();
     List<String> getHistory();
     void setStatus(Status status);
+    void addHistory(String history);
+    void addComment(String comment);
+    @Override
     String toString();
 }

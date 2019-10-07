@@ -3,9 +3,9 @@ package functionals.models;
 import enums.Priority;
 import functionals.contracts.BugAndStory;
 import functionals.contracts.Person;
-import functionals.contracts.WorkItem;
+import functionals.contracts.WorkItems;
 
-public abstract class BugAndStoryImpl extends WorkItemImpl implements BugAndStory, WorkItem {
+public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndStory, WorkItems {
     private Priority priority;
     private Person assignee;
 
@@ -23,14 +23,16 @@ public abstract class BugAndStoryImpl extends WorkItemImpl implements BugAndStor
         return assignee;
     }
 
-    //setAssignee can be public so that you can set it after the WorkItem has been created;
-    public void setAssignee(Person assignee){
+    //setAssignee can be public so that you can set it after the WorkItems has been created;
+    @Override
+    public void setAssignee(Person assignee) {
         ValidationHelper.checkIfNull(assignee);
         this.assignee = assignee;
     }
 
-    //setPriority can be public so that you can set it after the WorkItem has been created;
-    public void setPriority(Priority priority){
+    //setPriority can be public so that you can set it after the WorkItems has been created;
+    @Override
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 
