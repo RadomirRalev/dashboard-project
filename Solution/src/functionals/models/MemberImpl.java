@@ -47,7 +47,7 @@ public class MemberImpl extends PersonImpl implements BoardAndPerson {
 
     @Override
     public String toString() {
-        return String.format("Member name: %s\n" +
+        return String.format("MemberImpl name: %s\n" +
                         " Activity history: %s" +
                         " Work items:%s\n",
                 getName(),
