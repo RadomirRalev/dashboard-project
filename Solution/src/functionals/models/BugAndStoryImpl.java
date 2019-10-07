@@ -37,6 +37,13 @@ public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndSto
     }
 
     @Override
-    protected abstract String getItemName();
+    public String toString() {
+        return String.format("%sPriority: %s\n" +
+                        "Person assigned: %s\n", super.toString(),
+                getPriority(), assignee.getName());
+    }
+
+    @Override
+    protected abstract String getItemType();
 
 }

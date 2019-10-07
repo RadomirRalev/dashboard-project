@@ -30,7 +30,7 @@ public abstract class WorkItemsImpl implements WorkItems {
         setStatus(Status.NEW);
         this.comments = new ArrayList<>();
         this.history = new ArrayList<>();
-        addHistory(String.format(ITEM_CREATED,getItemName()));
+        addHistory(String.format(ITEM_CREATED, getItemType()));
     }
 
     @Override
@@ -69,11 +69,6 @@ public abstract class WorkItemsImpl implements WorkItems {
     }
 
     @Override
-    public String toString() {
-        return null;
-    }
-
-    @Override
     public void addComment(String comment) {
         comments.add(comment);
     }
@@ -83,8 +78,17 @@ public abstract class WorkItemsImpl implements WorkItems {
         this.history.add(history);
     }
 
-    //abstract method that will return the Item name, so we can pass it as a parameter
-    protected abstract String getItemName();
+    @Override
+    public String toString() {
+        return String.format("%s with ID:%d\n" +
+                        "Title: %s\n" +
+                        "Description: %s\n" +
+                        "Status: %s\n", getItemType(),
+                        getId(), getTitle(), getDescription(), getStatus());
+    }
+
+    //abstract method that will return the ItemType, so we can pass it as a parameter when an Item is created.
+    protected abstract String getItemType();
 
     //Id can be an internal parameter, so there is no need to pass it as a parameter in the constructor
     private void setId() {
@@ -94,13 +98,13 @@ public abstract class WorkItemsImpl implements WorkItems {
 
     private void setTitle(String title) {
         ValidationHelper.checkIfNull(title);
-        ValidationHelper.checkNumberInBounds(title, TITLE_LENGTH_MIN_VALUE, TITLE_LENGTH_MAX_VALUE);
+        ValidationHelper.checkStringLengthInBounds(title, TITLE_LENGTH_MIN_VALUE, TITLE_LENGTH_MAX_VALUE);
         this.title = title;
     }
 
     private void setDescription(String description) {
         ValidationHelper.checkIfNull(description);
-        ValidationHelper.checkNumberInBounds(description, DESCRIPTION_LENGTH_MIN_VALUE, DESCRIPTION_LENGTH_MAX_VALUE);
+        ValidationHelper.checkStringLengthInBounds(description, DESCRIPTION_LENGTH_MIN_VALUE, DESCRIPTION_LENGTH_MAX_VALUE);
         this.description = description;
     }
 }

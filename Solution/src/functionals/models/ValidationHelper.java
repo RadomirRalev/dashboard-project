@@ -13,8 +13,15 @@ public class ValidationHelper {
         }
     }
 
-    public static void checkNumberInBounds(String title, int minNumber, int maxNumber) {
+    public static void checkStringLengthInBounds(String title, int minNumber, int maxNumber) {
         if(title.length() < minNumber || title.length() > maxNumber){
+            throw new IllegalArgumentException(VALUE_OUT_OF_BOUNDS_ERROR);
+        }
+    }
+
+    //check is inclusive
+    public static void checkNumberInBounds(int number, int minValue, int maxValue){
+        if(number <= minValue || number >= maxValue){
             throw new IllegalArgumentException(VALUE_OUT_OF_BOUNDS_ERROR);
         }
     }
