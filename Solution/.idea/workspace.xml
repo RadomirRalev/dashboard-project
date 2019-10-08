@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ab50e2d-88c8-4a45-a321-903196db6f87" name="Default Changelist" comment="&quot;Repackaged the Workitems classes and interfaces.&quot;">
+    <list default="true" id="5ab50e2d-88c8-4a45-a321-903196db6f87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/actions/CommandsConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/actions/CommandsConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/FunctionalsRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/FunctionalsRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/factories/CommandFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/factories/CommandFactoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/factories/FunctionalsFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/factories/FunctionalsFactoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enums/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/CommandType.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -393,12 +388,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570473040020</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="&quot;Adds functions for assignment of work to persons, resolves git conflicts&quot;">
+      <created>1570548770336</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1570548770336</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -416,7 +417,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067115" side_tool="true" weight="0.33994335" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.2112676" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.2112676" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -476,7 +477,8 @@
     <MESSAGE value="&quot;Created the BugAndStoryImpl class and the BugAndStory interface&quot;" />
     <MESSAGE value="&quot;Created the Bug interface and the BugImpl class&quot;" />
     <MESSAGE value="&quot;Repackaged the Workitems classes and interfaces.&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Repackaged the Workitems classes and interfaces.&quot;" />
+    <MESSAGE value="&quot;Adds functions for assignment of work to persons, resolves git conflicts&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Adds functions for assignment of work to persons, resolves git conflicts&quot;" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/enums/Priority.java">
