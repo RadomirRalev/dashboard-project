@@ -9,6 +9,6 @@ public class CommandsConstants {
     public static final String PERSONSLIST_IS_EMPTY = "Persons list is empty!";
     public static final String PERSONSLIST_INCLUDES = "Persons list includes: \n%s";
     public static final String PERSON_DOES_NOT_EXIST_ERROR_MSG = "Person %s does not exist!";
-
+    public static final String WORK_ADDED_MSG = "Work %s assigned to %s.";
 
 }

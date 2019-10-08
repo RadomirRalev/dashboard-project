@@ -28,5 +28,4 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
         this.persons.remove(name);
     }
 
-
 }

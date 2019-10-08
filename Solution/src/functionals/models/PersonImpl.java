@@ -18,18 +18,14 @@ public class PersonImpl implements Person {
         this.name = name;
     }
 
-    private void setAssignedWork(List<String> assignedWork) {
-        this.assignedWork = assignedWork;
-    }
-
     @Override
     public List listAssignedWork() {
-        return assignedWork;     //String should come from engine
+        return assignedWork;
     }
 
     @Override
-    public void assignWork() {
-            //String should come from engine
+    public void assignWork(String workToBeAdded) {
+            assignedWork.add(workToBeAdded);
     }
 
     @Override

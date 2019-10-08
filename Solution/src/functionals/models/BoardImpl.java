@@ -11,7 +11,7 @@ public class BoardImpl implements BoardAndPerson {
     private List<String> activityHistory;
     private List workItems;
 
-    public BoardImpl(String name, List activityHistory, List workItems) {
+    public BoardImpl(String name) {
         setName(name);
         activityHistory = new ArrayList();
         workItems = new ArrayList();

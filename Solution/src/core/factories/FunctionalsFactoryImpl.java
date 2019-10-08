@@ -10,5 +10,7 @@ public class FunctionalsFactoryImpl implements FunctionalsFactory {
     public Person createPerson(String name) {
         return new PersonImpl(name);
     }
+
+
 }
 
