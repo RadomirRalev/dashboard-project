@@ -1,9 +1,9 @@
-package functionals.models;
+package workitems.models;
 
 import enums.Size;
-import functionals.contracts.BugAndStory;
-import functionals.contracts.Story;
-import functionals.contracts.WorkItems;
+import workitems.contracts.BugAndStory;
+import workitems.contracts.Story;
+import workitems.contracts.WorkItems;
 
 public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, WorkItems {
     private static final String ITEM_TYPE = "Story";

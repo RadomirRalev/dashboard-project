@@ -1,7 +1,8 @@
-package functionals.models;
+package workitems.models;
 
-import functionals.contracts.Feedback;
-import functionals.contracts.WorkItems;
+import workitems.contracts.Feedback;
+import workitems.contracts.WorkItems;
+import functionals.models.ValidationHelper;
 
 public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
     private static final String ITEM_TYPE = "Feedback";

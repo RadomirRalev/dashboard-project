@@ -1,6 +1,7 @@
 package functionals.models;
 
 import functionals.contracts.BoardAndPerson;
+import workitems.models.WorkItemsImpl;
 
 import java.util.ArrayList;
 import java.util.List;

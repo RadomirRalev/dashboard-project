@@ -1,4 +1,4 @@
-package functionals.contracts;
+package workitems.contracts;
 
 import enums.*;
 

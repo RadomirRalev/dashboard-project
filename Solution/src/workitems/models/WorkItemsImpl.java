@@ -1,7 +1,8 @@
-package functionals.models;
+package workitems.models;
 
 import enums.Status;
-import functionals.contracts.WorkItems;
+import workitems.contracts.WorkItems;
+import functionals.models.ValidationHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ public abstract class WorkItemsImpl implements WorkItems {
     private static final String ITEM_CREATED = "%s created!";
 
     private int id;
-    private int currentId;
+    private static int currentId;
     private String title;
     private String description;
     private Status status;
@@ -28,8 +29,8 @@ public abstract class WorkItemsImpl implements WorkItems {
         setTitle(title);
         setDescription(description);
         setStatus(Status.NEW);
-        this.comments = new ArrayList<>();
-        this.history = new ArrayList<>();
+        comments = new ArrayList<>();
+        history = new ArrayList<>();
         addHistory(String.format(ITEM_CREATED, getItemType()));
     }
 

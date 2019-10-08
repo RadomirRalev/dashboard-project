@@ -1,6 +1,6 @@
 package functionals.contracts;
 
-import functionals.models.WorkItemsImpl;
+import workitems.models.WorkItemsImpl;
 
 import java.util.List;
 

@@ -1,9 +1,10 @@
-package functionals.models;
+package workitems.models;
 
 import enums.Severity;
-import functionals.contracts.Bug;
-import functionals.contracts.BugAndStory;
-import functionals.contracts.WorkItems;
+import workitems.contracts.Bug;
+import workitems.contracts.BugAndStory;
+import workitems.contracts.WorkItems;
+import functionals.models.ValidationHelper;
 
 import java.util.ArrayList;
 import java.util.List;

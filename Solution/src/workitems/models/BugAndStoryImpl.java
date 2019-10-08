@@ -1,9 +1,10 @@
-package functionals.models;
+package workitems.models;
 
 import enums.Priority;
-import functionals.contracts.BugAndStory;
+import workitems.contracts.BugAndStory;
 import functionals.contracts.Person;
-import functionals.contracts.WorkItems;
+import workitems.contracts.WorkItems;
+import functionals.models.ValidationHelper;
 
 public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndStory, WorkItems {
     private Priority priority;

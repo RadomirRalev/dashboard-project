@@ -1,6 +1,7 @@
-package functionals.contracts;
+package workitems.contracts;
 
 import enums.Priority;
+import functionals.contracts.Person;
 
 public interface BugAndStory extends WorkItems {
     Priority getPriority();

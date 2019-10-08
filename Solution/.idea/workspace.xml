@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43de10bd-22a6-436b-b802-86dc2ca29b80" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/commands/actions/CommandsConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commands/actions/CreateNewPerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commands/contracts/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/EngineImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/FunctionalsRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/contracts/CommandFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/contracts/CommandParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/contracts/Engine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/contracts/FunctionalsFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/contracts/FunctionalsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/contracts/Reader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/contracts/Writer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/factories/CommandFactoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/factories/FunctionalsFactoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/providers/CommandParserImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/providers/ConsoleReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/providers/ConsoleWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/enums/CommandType.java" afterDir="false" />
+    <list default="true" id="5ab50e2d-88c8-4a45-a321-903196db6f87" name="Default Changelist" comment="&quot;Repackaged the Workitems classes and interfaces.&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Solution/Enums/Priority.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Solution/Enums/Priority.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Solution/Enums/Severity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Solution/Enums/Severity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Solution/Enums/Size.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Solution/Enums/Size.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Solution/Enums/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Solution/Enums/Status.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Solution/Enums/WorkItemType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Solution/Enums/WorkItemType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/META-INF/Solution.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Solution/Startup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Solution/Startup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Startup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Startup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/contracts/BoardAndPerson.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Solution/functionals/contracts/BoardAndPerson.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/contracts/Bug.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/contracts/BugAndStory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/contracts/Feedback.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/contracts/Story.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/contracts/WorkItems.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/models/BoardImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Solution/functionals/models/BoardImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/models/BugAndStoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/models/BugImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/models/FeedbackImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/models/MemberImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Solution/functionals/models/MemberImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/models/StoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solution/functionals/models/WorkItemsImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functionals/contracts/BoardAndPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/functionals/contracts/BoardAndPerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/contracts/Bug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/workitems/contracts/Bug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/contracts/BugAndStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/workitems/contracts/BugAndStory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/contracts/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/workitems/contracts/Feedback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/contracts/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/workitems/contracts/Story.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/contracts/WorkItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/workitems/contracts/WorkItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functionals/models/BoardImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/functionals/models/BoardImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/models/BugAndStoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/workitems/models/BugAndStoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/models/BugImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/workitems/models/BugImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/models/FeedbackImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/workitems/models/FeedbackImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functionals/models/MemberImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/functionals/models/MemberImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functionals/models/PersonImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/functionals/models/PersonImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/models/StoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/workitems/models/StoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functionals/models/WorkItemsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/workitems/models/WorkItemsImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,53 +48,12 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/factories/CommandFactoryImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/workitems/models/BugAndStoryImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/functionals/models/BoardImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#938#939#0" expanded="true" />
-                <element signature="e#977#978#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/enums/CommandType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-              <folding>
-                <element signature="e#146#147#0" expanded="true" />
-                <element signature="e#184#185#0" expanded="true" />
-                <element signature="e#230#231#0" expanded="true" />
-                <element signature="e#260#261#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/contracts/CommandFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="240">
+              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,34 +68,47 @@
               <caret line="24" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#859#860#0" expanded="true" />
-                <element signature="e#898#899#0" expanded="true" />
-                <element signature="e#1076#1077#0" expanded="true" />
-                <element signature="e#1108#1109#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/functionals/models/PersonImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/enums/Severity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+            <state relative-caret-position="180">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="11" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/enums/Size.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#570#571#0" expanded="true" />
-                <element signature="e#642#643#0" expanded="true" />
+                <element signature="e#233#234#0" expanded="true" />
+                <element signature="e#260#261#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/functionals/models/StoryImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/enums/Status.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="424">
+              <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/commands/actions/CommandsConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -141,8 +116,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/commands/actions/CreateNewPerson.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="-40">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -151,22 +126,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Startup.java">
+        <entry file="file://$PROJECT_DIR$/src/core/contracts/FunctionalsFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="100">
+              <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/functionals/contracts/BoardAndPerson.java">
+        <entry file="file://$PROJECT_DIR$/src/workitems/contracts/WorkItems.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="120">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Startup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -193,10 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Enums/WorkItemType.java" />
-        <option value="$PROJECT_DIR$/src/Enums/Status.java" />
-        <option value="$PROJECT_DIR$/src/enums/Status.java" />
-        <option value="$PROJECT_DIR$/src/functionals/Person.java" />
         <option value="$PROJECT_DIR$/src/functionals/Team.java" />
         <option value="$PROJECT_DIR$/src/functionals/Functionals.java" />
         <option value="$PROJECT_DIR$/src/functionals/BoardAndPerson.java" />
@@ -216,7 +196,6 @@
         <option value="$PROJECT_DIR$/src/functionals/contracts/Story.java" />
         <option value="$PROJECT_DIR$/src/functionals/contracts/Feedback.java" />
         <option value="$PROJECT_DIR$/src/functionals/models/ValidationHelper.java" />
-        <option value="$PROJECT_DIR$/src/functionals/models/WorkItemsImpl.java" />
         <option value="$PROJECT_DIR$/src/functionals/models/BugImpl.java" />
         <option value="$PROJECT_DIR$/src/functionals/models/BugAndStoryImpl.java" />
         <option value="$PROJECT_DIR$/src/functionals/models/FeedbackImpl.java" />
@@ -244,6 +223,11 @@
         <option value="$PROJECT_DIR$/src/functionals/models/BoardImpl.java" />
         <option value="$PROJECT_DIR$/src/functionals/models/MemberImpl.java" />
         <option value="$PROJECT_DIR$/src/functionals/models/PersonImpl.java" />
+        <option value="$PROJECT_DIR$/src/functionals/models/WorkItemsImpl.java" />
+        <option value="$PROJECT_DIR$/src/workitems/WorkItemsImpl.java" />
+        <option value="$PROJECT_DIR$/src/workitems/models/WorkItemsImpl.java" />
+        <option value="$PROJECT_DIR$/src/workitems/contracts/Bug.java" />
+        <option value="$PROJECT_DIR$/src/enums/Status.java" />
       </list>
     </option>
   </component>
@@ -259,7 +243,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -272,6 +255,52 @@
               <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="Solution" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="factories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="enums" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
@@ -293,16 +322,37 @@
               <item name="functionals" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="workitems" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="workitems" type="462c0819:PsiDirectoryNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WorkItemManagementApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="workitems" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="extract.method.default.visibility" value="public" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../TEST" />
+    <property name="last_opened_file_path" value="G:/TEST" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -398,10 +448,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23081024" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -410,13 +460,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719547" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32827735" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.33994335" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067115" side_tool="true" weight="0.33994335" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -436,28 +486,15 @@
     <MESSAGE value="&quot;Created WorkItemImpl class and a ValidationHelper class&quot;" />
     <MESSAGE value="&quot;Created the BugAndStoryImpl class and the BugAndStory interface&quot;" />
     <MESSAGE value="&quot;Created the Bug interface and the BugImpl class&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Created the Bug interface and the BugImpl class&quot;" />
+    <MESSAGE value="&quot;Repackaged the Workitems classes and interfaces.&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Repackaged the Workitems classes and interfaces.&quot;" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/Boards.java" />
     <entry file="file://$PROJECT_DIR$/src/Members.java" />
     <entry file="file://$PROJECT_DIR$/src/MembersInt.java" />
     <entry file="file://$PROJECT_DIR$/src/BaseInterface.java" />
     <entry file="file://$PROJECT_DIR$/src/Teams.java" />
-    <entry file="file://$PROJECT_DIR$/src/enums/Severity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="11" selection-end-column="5" />
-          <folding>
-            <element signature="e#106#107#0" expanded="true" />
-            <element signature="e#146#147#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-            <element signature="e#296#297#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/enums/Priority.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -467,19 +504,6 @@
             <element signature="e#169#170#0" expanded="true" />
             <element signature="e#251#252#0" expanded="true" />
             <element signature="e#290#291#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/enums/Size.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding>
-            <element signature="e#167#168#0" expanded="true" />
-            <element signature="e#207#208#0" expanded="true" />
-            <element signature="e#233#234#0" expanded="true" />
-            <element signature="e#256#257#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -495,33 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/WorkItems.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Story.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Feedback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/ValidationHelper.java" />
-    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/BugAndStory.java" />
-    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Bug.java" />
     <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Functionals.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -546,34 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/BugAndStoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/WorkItemsImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/BugImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/FeedbackImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/functionals/models/TeamsImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -581,34 +550,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/enums/WorkItemType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/enums/Status.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" column="87" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/actions/CommandsConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/contracts/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -647,25 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/contracts/FunctionalsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/factories/FunctionalsFactoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#294#295#0" expanded="true" />
-            <element signature="e#337#338#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -734,16 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/actions/CreateNewPerson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/enums/CommandType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -753,16 +665,6 @@
             <element signature="e#184#185#0" expanded="true" />
             <element signature="e#230#231#0" expanded="true" />
             <element signature="e#260#261#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/factories/CommandFactoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -789,20 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/MemberImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#859#860#0" expanded="true" />
-            <element signature="e#898#899#0" expanded="true" />
-            <element signature="e#1076#1077#0" expanded="true" />
-            <element signature="e#1108#1109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/functionals/models/PersonImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
@@ -815,17 +703,195 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/StoryImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/commands/contracts/Command.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="100">
+          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/factories/FunctionalsFactoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/factories/CommandFactoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enums/WorkItemType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workitems/models/FeedbackImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/functionals/models/ValidationHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workitems/models/BugImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-202">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workitems/models/WorkItemsImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workitems/models/StoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workitems/contracts/Bug.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workitems/contracts/BugAndStory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workitems/contracts/Feedback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workitems/contracts/Story.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workitems/contracts/WorkItems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Startup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="40">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workitems/models/BugAndStoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/functionals/models/MemberImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enums/Severity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enums/Size.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding>
+            <element signature="e#233#234#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enums/Status.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commands/actions/CommandsConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commands/actions/CreateNewPerson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/contracts/FunctionalsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
         </state>
       </provider>
     </entry>
