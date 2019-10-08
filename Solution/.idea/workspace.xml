@@ -388,6 +388,8 @@
       <list>
         <item itemvalue="Application.Startup" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Startup" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
