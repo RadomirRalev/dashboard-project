@@ -1,8 +1,6 @@
 package core.factories;
 
-import commands.actions.CreateNewPerson;
-import commands.actions.DeletePersonFromList;
-import commands.actions.ListPersons;
+import commands.actions.*;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.CommandFactory;
@@ -23,6 +21,12 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ListPersons(functionalsFactory, functionalsRepository);
             case DELETEPERSON:
                 return new DeletePersonFromList(functionalsFactory, functionalsRepository);
+            case ASSIGNWORK:
+                return new AssignWorkToPerson(functionalsFactory, functionalsRepository);
+            case LISTASSIGNEDWORK:
+                return new ListAssignedWork(functionalsFactory, functionalsRepository);
+            case CREATETEAM:
+                return new CreateTeam(functionalsFactory, functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }
