@@ -29,12 +29,12 @@ public class PersonImpl implements Person {
 
     @Override
     public void assignWork() {
-        assignedWork.add();     //String should come from engine
+            //String should come from engine
     }
 
     @Override
     public void unassignWork() {
-        assignedWork.remove();  //String should come from engine
+          //String should come from engine
     }
 
     @Override

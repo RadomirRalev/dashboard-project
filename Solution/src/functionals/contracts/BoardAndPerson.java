@@ -1,5 +1,7 @@
 package functionals.contracts;
 
+import functionals.models.WorkItemsImpl;
+
 import java.util.List;
 
 public interface BoardAndPerson extends Functionals {

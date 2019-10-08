@@ -22,12 +22,11 @@ public class BoardImpl implements BoardAndPerson {
 
     @Override
     public void addActivity() {
-        activityHistory.add(); //String should come from engine
+        //String should come from engine
     }
 
     @Override
     public void removeActivity() { //String should come from engine
-        activityHistory.remove();
     }
 
     @Override
