@@ -10,7 +10,7 @@ public class MemberImpl extends PersonImpl implements BoardAndPerson {
     private List<String> activityHistory;
     private List workItems;
 
-    public MemberImpl(String name, List activityHistory, List workItems) {
+    public MemberImpl(String name) {
         super(name);
         activityHistory = new ArrayList();
         workItems = new ArrayList();

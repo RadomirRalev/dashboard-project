@@ -14,6 +14,7 @@ public class CommandsConstants {
     public static final String WORK_ADDED_MSG = "Work %s was added to %s!";
     public static final String WORK_NOT_EXIST_MSG = "Work with number %d does not exist!";
     public static final String WORK_UNASSIGNED = "Work with number %d was unassigned from %s!";
-
+    public static final String TEAM_DOES_NOT_EXIST_ERROR_MSG = "Team %s does not exist!";
+    public static final String MEMBER_ADDED_MSG = "%s has joined team %s!";
 
 }

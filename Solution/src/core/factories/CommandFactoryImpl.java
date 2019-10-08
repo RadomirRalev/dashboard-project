@@ -1,5 +1,6 @@
 package core.factories;
 
+import commands.actions.member.CreateMember;
 import commands.actions.person.*;
 import commands.actions.team.CreateTeam;
 import commands.contracts.Command;
@@ -30,6 +31,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new CreateTeam(functionalsFactory, functionalsRepository);
             case UNASSIGNWORK:
                 return new UnassignWorkFromPerson(functionalsFactory, functionalsRepository);
+            case ADDMEMBER:
+                return new CreateMember(functionalsFactory, functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }
