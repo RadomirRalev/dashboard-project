@@ -6,7 +6,8 @@ public enum CommandType {
     DELETEPERSON ("Delete person"),
     ASSIGNWORK ("Assign work"),
     LISTASSIGNEDWORK ("List assigned work"),
-    CREATETEAM ("Create team");
+    CREATETEAM ("Create team"),
+    UNASSIGNWORK ("Unassign work");
 
 
     private final String command;

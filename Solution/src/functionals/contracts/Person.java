@@ -8,7 +8,7 @@ public interface Person extends Functionals {
 
     void assignWork(String workToBeAdded);
 
-    void unassignWork();
+    void unassignWork(int workToBeUnassigned);
 
     List listAssignedWork();
 }

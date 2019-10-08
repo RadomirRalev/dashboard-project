@@ -1,4 +1,4 @@
-package commands.actions;
+package commands.actions.person;
 
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -17,8 +17,6 @@ public class AssignWorkToPerson implements Command {
     private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
-
-
 
     public AssignWorkToPerson(FunctionalsFactory functionalsFactory, FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsFactory = functionalsFactory;

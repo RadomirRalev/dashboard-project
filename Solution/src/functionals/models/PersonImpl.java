@@ -29,8 +29,8 @@ public class PersonImpl implements Person {
     }
 
     @Override
-    public void unassignWork() {
-          //String should come from engine
+    public void unassignWork(int workToBeUnassigned) {
+          assignedWork.remove(workToBeUnassigned);
     }
 
     @Override

@@ -1,27 +1,26 @@
-package commands.actions;
+package commands.actions.person;
 
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.FunctionalsFactory;
+import core.contracts.Reader;
+import core.providers.ConsoleReader;
 import functionals.contracts.Person;
 
 import java.util.List;
-import java.util.Set;
-import java.util.StringJoiner;
-import java.util.stream.Collectors;
 
-import static commands.actions.CommandsConstants.INVALID_NUMBER_OF_ARGUMENTS;
-import static commands.actions.CommandsConstants.PERSON_DOES_NOT_EXIST_ERROR_MSG;
+import static commands.actions.CommandsConstants.*;
 
-public class ListAssignedWork implements Command {
+public class UnassignWorkFromPerson implements Command {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 1;
     private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
+    private Reader reader;
 
-
-    public ListAssignedWork(FunctionalsFactory functionalsFactory, FunctionalsRepositoryImpl functionalsRepository) {
+    public UnassignWorkFromPerson(FunctionalsFactory functionalsFactory, FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsFactory = functionalsFactory;
         this.functionalsRepository = functionalsRepository;
+        reader = new ConsoleReader();
     }
 
     @Override
@@ -30,13 +29,15 @@ public class ListAssignedWork implements Command {
             throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
         }
         String personName = parameters.get(0);
+        int workToBeUnassigned = Integer.parseInt(reader.readLine());
         if (!functionalsRepository.getPersons().containsKey(personName)) {
             return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
         }
         Person person = functionalsRepository.getPersons().get(personName);
-        String work = String.valueOf(person.listAssignedWork().stream()
-                .map( n -> n.toString() )
-                .collect( Collectors.joining( "; " ) ));
-        return work;
+        if (workToBeUnassigned > person.listAssignedWork().size()) {
+            return String.format(WORK_NOT_EXIST_MSG, workToBeUnassigned);
+        }
+        person.unassignWork(workToBeUnassigned - 1);
+        return String.format(WORK_UNASSIGNED, workToBeUnassigned, personName);
     }
 }
