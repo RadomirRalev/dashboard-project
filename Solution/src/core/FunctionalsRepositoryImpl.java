@@ -24,4 +24,9 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
         this.persons.put(name, person);
     }
 
+    public void deletePerson(String name) {
+        this.persons.remove(name);
+    }
+
+
 }

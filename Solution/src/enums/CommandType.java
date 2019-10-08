@@ -2,7 +2,9 @@ package enums;
 
 public enum CommandType {
     CREATEPERSON ("Create person"),
-    LISTPERSONS ("List persons");
+    LISTPERSONS ("List persons"),
+    DELETEPERSON ("Delete person");
+
 
     private final String command;
 
@@ -16,3 +18,4 @@ public enum CommandType {
     }
 
 }
+
