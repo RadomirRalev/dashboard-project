@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class WorkItemsImpl implements WorkItems {
-    //TODO make the toString method;
     private static final int TITLE_LENGTH_MIN_VALUE = 10;
     private static final int TITLE_LENGTH_MAX_VALUE = 50;
     private static final int DESCRIPTION_LENGTH_MIN_VALUE = 10;

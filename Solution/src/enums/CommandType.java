@@ -3,9 +3,7 @@ package enums;
 public enum CommandType {
     CREATEPERSON ("Create person"),
     LISTPERSONS ("List persons"),
-    DELETEPERSON ("Delete person"),
-    ASSIGNWORK ("Assign work"),
-    LISTASSIGNEDWORK ("List assigned work");
+    DELETEPERSON ("Delete person");
 
 
     private final String command;
