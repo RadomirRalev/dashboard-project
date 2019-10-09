@@ -9,7 +9,8 @@ public enum CommandType {
     CREATETEAM ("Create team"),
     UNASSIGNWORK ("Unassign work"),
     ADDMEMBER ("Add member"),
-    LISTTEAMS ("List teams");
+    LISTTEAMS ("List teams"),
+    CREATEBOARD ("Create board");
 
     private final String command;
 

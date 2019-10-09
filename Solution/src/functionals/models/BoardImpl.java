@@ -1,12 +1,14 @@
 package functionals.models;
 
+import functionals.contracts.Board;
 import functionals.contracts.BoardAndPerson;
 import workitems.models.WorkItemsImpl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoardImpl implements BoardAndPerson {
+public class BoardImpl implements BoardAndPerson, Board {
+    //TODO implement the methods from the Board interface
     private String name;
     private List<String> activityHistory;
     private List workItems;
@@ -64,5 +66,35 @@ public class BoardImpl implements BoardAndPerson {
                 showActivity(),
                 listWorkItems().toString()
         );
+    }
+
+    @Override
+    public void addBug() {
+
+    }
+
+    @Override
+    public void removeBug() {
+
+    }
+
+    @Override
+    public void addStory() {
+
+    }
+
+    @Override
+    public void removeStory() {
+
+    }
+
+    @Override
+    public void addFeedback() {
+
+    }
+
+    @Override
+    public void removeFeedback() {
+
     }
 }

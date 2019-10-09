@@ -2,7 +2,6 @@ package commands.actions.team;
 
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
-import core.contracts.FunctionalsFactory;
 
 import java.util.List;
 import java.util.Set;
