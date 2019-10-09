@@ -14,7 +14,7 @@ public class CommandParserImpl implements CommandParser {
 
     @Override
     public List<String> parseParameters(String fullCommand) {
-        String[] commandParts = fullCommand.split(" ", 2);
+        String[] commandParts = fullCommand.split(" ");
         ArrayList<String> parameters = new ArrayList<>();
         for (int i = 1; i < commandParts.length; i++) {
             parameters.add(commandParts[i]);

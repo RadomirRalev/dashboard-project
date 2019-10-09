@@ -13,12 +13,10 @@ import static commands.actions.CommandsConstants.*;
 
 public class ListPersons implements Command {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
-    private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
 
 
-    public ListPersons(FunctionalsFactory functionalsFactory, FunctionalsRepositoryImpl functionalsRepository) {
-        this.functionalsFactory = functionalsFactory;
+    public ListPersons(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
     }
 

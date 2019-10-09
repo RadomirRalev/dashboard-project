@@ -11,18 +11,16 @@ import functionals.contracts.Person;
 import functionals.models.PersonImpl;
 
 import java.util.List;
+import java.util.StringJoiner;
 
 import static commands.actions.CommandsConstants.*;
 
 public class AssignWorkToPerson implements Command {
-    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 1;
-    private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
     private Writer writer;
 
-    public AssignWorkToPerson(FunctionalsFactory functionalsFactory, FunctionalsRepositoryImpl functionalsRepository) {
-        this.functionalsFactory = functionalsFactory;
+    public AssignWorkToPerson(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
         reader = new ConsoleReader();
         writer = new ConsoleWriter();
@@ -30,10 +28,11 @@ public class AssignWorkToPerson implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
-            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
+        StringJoiner str = new StringJoiner(" ");
+        for (String parameter : parameters) {
+            str.add(parameter);
         }
-        String personName = parameters.get(0);
+        String personName = str.toString();
         writer.writeLine("What work will be added?");
         String workToBeAdded = reader.readLine();
         if (!functionalsRepository.getPersons().containsKey(personName)) {
