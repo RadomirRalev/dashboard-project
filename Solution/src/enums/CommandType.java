@@ -3,7 +3,13 @@ package enums;
 public enum CommandType {
     CREATEPERSON ("Create person"),
     LISTPERSONS ("List persons"),
-    CREATETEAM ("Create team");
+    DELETEPERSON ("Delete person"),
+    ASSIGNWORK ("Assign work"),
+    LISTASSIGNEDWORK ("List assigned work"),
+    CREATETEAM ("Create team"),
+    UNASSIGNWORK ("Unassign work"),
+    ADDMEMBER ("Add member"),
+    LISTTEAMS ("List teams");
 
     private final String command;
 
