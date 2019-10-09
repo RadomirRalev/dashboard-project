@@ -17,6 +17,6 @@ public interface Team extends Functionals {
 
     void removeBoard(Board board);
 
-    List showBoards();
+    String showBoards();
 
 }

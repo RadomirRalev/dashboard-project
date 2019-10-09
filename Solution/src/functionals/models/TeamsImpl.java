@@ -48,8 +48,14 @@ public class TeamsImpl implements Team {
     }
 
     @Override
-    public List showBoards() {
-        return boards;
+    public String showBoards() {
+        StringBuilder str = new StringBuilder();
+        str.append(String.format("Team - %s has the following boards:\n", getName()));
+
+        for (Board board: boards) {
+            str.append(board + System.lineSeparator());
+        }
+        return str.toString().trim();
     }
 
     @Override

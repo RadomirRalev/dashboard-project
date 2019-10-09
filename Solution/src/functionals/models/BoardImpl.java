@@ -62,7 +62,7 @@ public class BoardImpl implements BoardAndPerson, Board {
     public String toString() {
         return String.format("Board name: %s\n" +
                         " Activity history: %s" +
-                        " Work items:%s\n",
+                        " Work items:%s",
                 getName(),
                 showActivity(),
                 listWorkItems().toString()

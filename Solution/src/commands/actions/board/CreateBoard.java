@@ -30,7 +30,7 @@ public class CreateBoard implements Command {
 
     private String createBoard(String name) {
 
-        if (functionalsRepository.getTeams().containsKey(name)) {
+        if (functionalsRepository.getBoards().containsKey(name)) {
             return String.format(BOARD_EXISTS_ERROR_MSG, name);
         }
 
