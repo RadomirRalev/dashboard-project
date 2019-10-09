@@ -13,9 +13,9 @@ public interface Team extends Functionals {
 
     List showTeamMembers();
 
-    void addBoard(BoardImpl board);
+    void addBoard(Board board);
 
-    void removeBoard(BoardImpl board);
+    void removeBoard(Board board);
 
     List showBoards();
 

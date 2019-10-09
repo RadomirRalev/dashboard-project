@@ -1,5 +1,6 @@
 package core.factories;
 
+import commands.actions.board.AddBoardToTeam;
 import commands.actions.board.CreateBoard;
 import commands.actions.team.ListTeams;
 import commands.actions.member.CreateMember;
@@ -39,6 +40,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ListTeams(functionalsRepository);
             case CREATEBOARD:
                 return new CreateBoard(functionalsFactory, functionalsRepository);
+            case ADDBOARDTOTEAM:
+                return new AddBoardToTeam(functionalsFactory, functionalsRepository);
 
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));

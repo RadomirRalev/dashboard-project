@@ -20,6 +20,8 @@ public class CommandsConstants {
     public static final String TEAMSLIST_INCLUDES = "Teams list includes: \n%s";
     public static final String BOARD_EXISTS_ERROR_MSG = "Board %s already exists!";
     public static final String BOARD_CREATED_MSG = "Board %s was created!";
+    public static final String BOARD_DOES_NOT_EXIST_ERROR_MSG = "Board %s does not exist!";
+    public static final String BOARD_ADDED_SUCCESS_MESSAGE = "Board %s has been successfully added to Team %s";
 
 
 }

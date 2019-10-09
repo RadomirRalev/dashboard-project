@@ -1,5 +1,6 @@
 package functionals.models;
 
+import functionals.contracts.Board;
 import functionals.contracts.Team;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ public class TeamsImpl implements Team {
 
     private String name;
     private List<MemberImpl> members;
-    private List<BoardImpl> boards;
+    private List<Board> boards;
 
     public TeamsImpl(String name) {
         setName(name);
@@ -37,12 +38,12 @@ public class TeamsImpl implements Team {
     }
 
     @Override
-    public void addBoard(BoardImpl board) {
+    public void addBoard(Board board) {
         boards.add(board);
     }
 
     @Override
-    public void removeBoard(BoardImpl board) {
+    public void removeBoard(Board board) {
         boards.remove(board);
     }
 
