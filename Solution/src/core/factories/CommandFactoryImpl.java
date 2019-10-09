@@ -1,6 +1,6 @@
 package core.factories;
 
-import commands.actions.ListTeams;
+import commands.actions.team.ListTeams;
 import commands.actions.member.CreateMember;
 import commands.actions.person.*;
 import commands.actions.team.CreateTeam;
