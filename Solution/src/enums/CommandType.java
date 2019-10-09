@@ -11,7 +11,8 @@ public enum CommandType {
     ADDMEMBER ("Add member"),
     LISTTEAMS ("List teams"),
     CREATEBOARD ("Create board"),
-    ADDBOARDTOTEAM ("Add board to team");
+    ADDBOARDTOTEAM ("Add board to team"),
+    SHOWTEAMBOARDS ("Show team boards");
 
     private final String command;
 
