@@ -3,6 +3,7 @@ package core.factories;
 import commands.actions.CreateNewPerson;
 import commands.actions.CreateTeam;
 import commands.actions.ListPersons;
+import commands.actions.ListTeams;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.CommandFactory;
@@ -23,6 +24,8 @@ import enums.CommandType;
                     return new ListPersons(functionalsFactory, functionalsRepository);
                 case CREATETEAM:
                     return new CreateTeam(functionalsFactory, functionalsRepository);
+                case LISTTEAMS:
+                    return new ListTeams(functionalsRepository);
             }
             throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
         }
