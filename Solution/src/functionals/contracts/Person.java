@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface Person extends Functionals {
 
-    void assignWork();
+    void assignWork(String workToBeAdded);
 
-    void unassignWork();
+    void unassignWork(int workToBeUnassigned);
 
     List listAssignedWork();
 }

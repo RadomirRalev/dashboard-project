@@ -13,9 +13,11 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
     private Map<String, Person> persons;
     private Map<String, Team> teams;
 
+
     public FunctionalsRepositoryImpl() {
         this.persons = new TreeMap<>();
         this.teams = new TreeMap<>();
+
     }
 
     @Override
@@ -24,7 +26,7 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
     }
 
     @Override
-    public Map<String, Team> getTeams(){
+    public Map<String, Team> getTeams() {
         return new TreeMap<>(teams);
     }
 
@@ -35,5 +37,10 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
     public void addTeam(String name, Team team){
         this.teams.put(name,team);
     }
+
+    public void deletePerson(String name) {
+        this.persons.remove(name);
+    }
+
 
 }

@@ -17,5 +17,6 @@ public class FunctionalsFactoryImpl implements FunctionalsFactory {
     public Team createTeam(String name){
         return new TeamsImpl(name);
     }
+
 }
 

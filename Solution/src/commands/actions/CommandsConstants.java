@@ -9,7 +9,7 @@ public class CommandsConstants {
     public static final String PERSONSLIST_INCLUDES = "Persons list includes: \n%s";
     public static final String TEAM_EXISTS_ERROR_MSG = "Team %s already exists!";
     public static final String TEAM_CREATED_MSG = "Team %s was created!";
-    public static final String TEAMSLIST_IS_EMPTY = "Teams list is empty!";
-    public static final String TEAMSLIST_INCLUDES = "Teams list includes: \n%s";
+
+
 
 }

@@ -1,4 +1,4 @@
-package commands.actions;
+package commands.actions.person;
 
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
