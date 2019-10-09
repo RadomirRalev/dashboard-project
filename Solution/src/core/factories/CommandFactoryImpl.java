@@ -6,6 +6,7 @@ import commands.actions.team.ListTeams;
 import commands.actions.member.CreateMember;
 import commands.actions.person.*;
 import commands.actions.team.CreateTeam;
+import commands.actions.team.ShowTeamBoards;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.CommandFactory;
@@ -42,6 +43,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new CreateBoard(functionalsFactory, functionalsRepository);
             case ADDBOARDTOTEAM:
                 return new AddBoardToTeam(functionalsFactory, functionalsRepository);
+            case SHOWTEAMBOARDS:
+                return new ShowTeamBoards(functionalsRepository);
 
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));

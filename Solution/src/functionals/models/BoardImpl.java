@@ -2,6 +2,7 @@ package functionals.models;
 
 import functionals.contracts.Board;
 import functionals.contracts.BoardAndPerson;
+import workitems.contracts.WorkItems;
 import workitems.models.WorkItemsImpl;
 
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class BoardImpl implements BoardAndPerson, Board {
 
     @Override
     public List listWorkItems() {
-        return workItems;
+        return new ArrayList(workItems);
     }
 
     @Override
