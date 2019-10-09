@@ -5,7 +5,9 @@ public class CommandsConstants {
     public static final String PERSON_CREATED_MSG = "Person %s was created!";
     public static final String PERSON_DELETED_MSG = "Person %s was deleted!";
     public static final String PERSON_EXISTS_ERROR_MSG = "Name %s already exists in the database " +
-            "but you can add a family name or some identifier to create this person. Please change name: \n";
+            "but you can add a family name or some identifier to create this person. " +
+            "Please type cancel to abort or change name: \n";
+    public static final String TYPE_ANOTHER_COMMAND = "Please type command.";
     public static final String INVALID_NUMBER_OF_ARGUMENTS = "Invalid number of arguments!";
     public static final String PERSONSLIST_IS_EMPTY = "Persons list is empty!";
     public static final String PERSONSLIST_INCLUDES = "Persons list includes: \n%s";

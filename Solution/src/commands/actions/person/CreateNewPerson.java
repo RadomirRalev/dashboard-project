@@ -12,11 +12,9 @@ import java.util.List;
 import static commands.actions.CommandsConstants.*;
 
 public class CreateNewPerson implements Command {
-    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 1;
     private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
-
 
     public CreateNewPerson(FunctionalsFactory functionalsFactory, FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsFactory = functionalsFactory;
@@ -26,19 +24,18 @@ public class CreateNewPerson implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
-            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
-        }
-        String personName = parameters.get(0);
+        String personName = NameJoiner.joiner(parameters);
         while (checkName(personName)) {
             System.out.printf(PERSON_EXISTS_ERROR_MSG, personName);
             personName = reader.readLine();
+            if (personName.equalsIgnoreCase("cancel")) {
+                return TYPE_ANOTHER_COMMAND;
+            }
         }
         return createPerson(personName);
     }
 
     private String createPerson(String name) {
-
         Person person = functionalsFactory.createPerson(name);
         functionalsRepository.addPerson(name, person);
         return String.format(PERSON_CREATED_MSG, name);
@@ -47,5 +44,4 @@ public class CreateNewPerson implements Command {
     private boolean checkName(String personName) {
         return functionalsRepository.getPersons().containsKey(personName);
     }
-
 }

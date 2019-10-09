@@ -24,19 +24,19 @@ public class CommandFactoryImpl implements CommandFactory {
             case CREATEPERSON:
                 return new CreateNewPerson(functionalsFactory, functionalsRepository);
             case LISTPERSONS:
-                return new ListPersons(functionalsFactory, functionalsRepository);
+                return new ListPersons(functionalsRepository);
             case DELETEPERSON:
-                return new DeletePersonFromList(functionalsFactory, functionalsRepository);
+                return new DeletePersonFromList(functionalsRepository);
             case ASSIGNWORK:
-                return new AssignWorkToPerson(functionalsFactory, functionalsRepository);
+                return new AssignWorkToPerson(functionalsRepository);
             case LISTASSIGNEDWORK:
-                return new ListAssignedWork(functionalsFactory, functionalsRepository);
+                return new ListAssignedWork(functionalsRepository);
             case CREATETEAM:
                 return new CreateTeam(functionalsFactory, functionalsRepository);
             case UNASSIGNWORK:
-                return new UnassignWorkFromPerson(functionalsFactory, functionalsRepository);
+                return new UnassignWorkFromPerson(functionalsRepository);
             case ADDMEMBER:
-                return new CreateMember(functionalsFactory, functionalsRepository);
+                return new CreateMember(functionalsRepository);
             case LISTTEAMS:
                 return new ListTeams(functionalsRepository);
             case CREATEBOARD:
