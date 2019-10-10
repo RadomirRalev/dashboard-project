@@ -7,6 +7,7 @@ import core.contracts.Reader;
 import core.providers.ConsoleReader;
 import functionals.contracts.Person;
 
+
 import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
@@ -24,10 +25,12 @@ public class CreateNewPerson implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        String personName = NameJoiner.joiner(parameters);
+        String personName = NameJoiner.joinerList(parameters);
         while (checkName(personName)) {
             System.out.printf(PERSON_EXISTS_ERROR_MSG, personName);
             personName = reader.readLine();
+            String[] personNameArr = personName.split(" ");
+            personName = NameJoiner.joinerArr(personNameArr);
             if (personName.equalsIgnoreCase("cancel")) {
                 return TYPE_ANOTHER_COMMAND;
             }

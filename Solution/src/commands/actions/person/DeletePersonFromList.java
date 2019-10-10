@@ -17,7 +17,7 @@ public class DeletePersonFromList implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        String personName = NameJoiner.joiner(parameters);
+        String personName = NameJoiner.joinerList(parameters);
         return deletePerson(personName);
     }
 

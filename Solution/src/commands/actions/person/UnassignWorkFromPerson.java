@@ -21,7 +21,7 @@ public class UnassignWorkFromPerson implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        String personName = NameJoiner.joiner(parameters);
+        String personName = NameJoiner.joinerList(parameters);
         int workToBeUnassigned = Integer.parseInt(reader.readLine());
         if (!functionalsRepository.getPersons().containsKey(personName)) {
             return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);

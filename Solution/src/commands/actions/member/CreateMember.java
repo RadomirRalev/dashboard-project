@@ -2,16 +2,13 @@ package commands.actions.member;
 
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
-import core.contracts.FunctionalsFactory;
 import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
-import functionals.contracts.Person;
 import functionals.contracts.Team;
 import functionals.models.MemberImpl;
 
-import java.lang.reflect.Member;
 import java.util.List;
 
 import static commands.actions.CommandsConstants.*;

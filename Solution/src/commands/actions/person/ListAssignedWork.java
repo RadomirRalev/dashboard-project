@@ -2,7 +2,6 @@ package commands.actions.person;
 
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
-import core.contracts.FunctionalsFactory;
 import functionals.contracts.Person;
 
 import java.util.List;
@@ -20,7 +19,7 @@ public class ListAssignedWork implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        String personName = NameJoiner.joiner(parameters);
+        String personName = NameJoiner.joinerList(parameters);
         if (!functionalsRepository.getPersons().containsKey(personName)) {
             return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
         }
