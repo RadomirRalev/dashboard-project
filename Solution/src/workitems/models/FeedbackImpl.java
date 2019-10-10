@@ -23,7 +23,10 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
 
     @Override
     public String toString() {
-        return String.format("%sRating: %d", super.toString(), getRating());
+        StringBuilder str = new StringBuilder();
+        str.append(super.toString());
+        str.append(String.format("Rating: %d",getRating()));
+        return str.toString();
     }
 
     @Override

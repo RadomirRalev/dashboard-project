@@ -22,7 +22,10 @@ public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, Wo
 
     @Override
     public String toString() {
-        return String.format("%sSize: %s", super.toString(), getSize());
+        StringBuilder str = new StringBuilder();
+        str.append(super.toString());
+        str.append(String.format("Size: %s\n", getSize()));
+        return str.toString();
     }
 
     @Override

@@ -39,9 +39,12 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
 
     @Override
     public String toString() {
-        return String.format("%sSeverity: %s\n" +
-                        "Steps needed to reproduce the bug: %s\n", super.toString(),
-                getSeverity(), getStepsToReproduce());
+        StringBuilder str = new StringBuilder();
+        str.append(super.toString());
+        str.append(String.format("Severity: %s\n" +
+                        "Steps needed to reproduce the bug: %s\n",
+                getSeverity(), getStepsToReproduce()));
+        return str.toString();
     }
 
     @Override
