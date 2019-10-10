@@ -7,6 +7,7 @@ import functionals.contracts.Board;
 import functionals.contracts.Person;
 import functionals.models.BoardImpl;
 import functionals.models.PersonImpl;
+import workitems.contracts.Bug;
 import workitems.contracts.WorkItems;
 import workitems.models.*;
 
@@ -22,20 +23,20 @@ public class Startup {
         list.add("56");
         list.add("57");
         list.add("55");
-        BugImpl bug1 = new BugImpl("namepeshopicha", "descriptionpeshopicha", Severity.MINOR, list);
+        Bug bug1 = new BugImpl("namepeshopicha", "descriptionpeshopicha", Severity.MINOR, list);
         StoryImpl story1 = new StoryImpl("namepeshopicha", "descriptionpeshopicha", Size.SMALL);
         Person pesho = new PersonImpl("Pesho");
         FeedbackImpl feedback1 = new FeedbackImpl("feedbackpeshkawo", "iwjaskahsakhk",4);
 
         Board board = new BoardImpl("bordche");
-        board.addWorkItems(bug1);
+        board.addWorkItems((BugImpl)bug1);
         board.addWorkItems(story1);
         board.addWorkItems(feedback1);
-        bug1.setAssignee(pesho);
+        //bug1.setAssignee(pesho);
         story1.setAssignee(pesho);
-        bug1.setPriority(Priority.LOW);
+       // bug1.setPriority(Priority.LOW);
         story1.setPriority(Priority.MEDIUM);
-        bug1.setStatus(Status.ACTIVE);
+       // bug1.setStatus(Status.ACTIVE);
         story1.setStatus(Status.ACTIVE);
 
         for(Object item: board.listWorkItems()){
