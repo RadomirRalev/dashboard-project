@@ -23,11 +23,6 @@ public class PersonImpl implements Person {
     }
 
     @Override
-    public void removeActivity() { //String should come from engine
-
-    }
-
-    @Override
     public List showActivity() {
         return activityHistory;
     }

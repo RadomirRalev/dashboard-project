@@ -1,5 +1,6 @@
 package core.factories;
 
+import commands.actions.ShowActivityHistory;
 import commands.actions.board.AddBoardToTeam;
 import commands.actions.board.CreateBoard;
 import commands.actions.member.ListAllTeamMembers;
@@ -48,6 +49,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ShowTeamBoards(functionalsRepository);
             case LISTALLMEMBERS:
                 return new ListAllTeamMembers(functionalsRepository);
+            case SHOWACTIVITYHISTORY:
+                return new ShowActivityHistory(functionalsRepository);
 
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));

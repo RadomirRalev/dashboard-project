@@ -4,6 +4,7 @@ import core.contracts.FunctionalsRepository;
 import functionals.contracts.Board;
 import functionals.contracts.Person;
 import functionals.contracts.Team;
+import functionals.models.MemberImpl;
 
 import java.util.*;
 
@@ -12,13 +13,13 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
     private Map<String, Person> persons;
     private Map<String, Team> teams;
     private Map<String, Board> boards;
-    private List<String> membersList;
+    private Map<String, MemberImpl> members;
 
     public FunctionalsRepositoryImpl() {
         this.persons = new TreeMap<>();
         this.teams = new TreeMap<>();
         this.boards = new TreeMap<>();
-        this.membersList = new ArrayList();
+        this.members = new TreeMap<>();
     }
 
     @Override
@@ -36,8 +37,8 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
         return new TreeMap<>(boards);
     }
 
-    public List<String> getMembersList() {
-        return membersList;
+    public Map<String, MemberImpl> getMembers() {
+        return new TreeMap<>(members);
     }
 
     public void addPerson(String name, Person person) {
@@ -50,6 +51,10 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
 
     public void addBoard(String name, Board board) {
         this.boards.put(name, board);
+    }
+
+    public void addMember(String name, MemberImpl member) {
+        this.members.put(name, member);
     }
 
     public void deletePerson(String name) {

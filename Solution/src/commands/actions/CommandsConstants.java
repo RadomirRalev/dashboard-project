@@ -7,6 +7,9 @@ public class CommandsConstants {
     public static final String PERSON_EXISTS_ERROR_MSG = "Name %s already exists in the database " +
             "but you can add a family name or some identifier to create this person. " +
             "Please type cancel to abort or change name: \n";
+    public static final String MEMBER_DOES_NOT_EXIST_MSG = "Member %s does not exist in the database " +
+            "but you can write a new name to correct your search. " +
+            "Please type cancel to abort or change name: \n";
     public static final String TYPE_ANOTHER_COMMAND = "Please type command.";
     public static final String INVALID_NUMBER_OF_ARGUMENTS = "Invalid number of arguments!";
     public static final String PERSONSLIST_IS_EMPTY = "Persons list is empty!";
@@ -26,5 +29,9 @@ public class CommandsConstants {
     public static final String BOARD_DOES_NOT_EXIST_ERROR_MSG = "Board %s does not exist!";
     public static final String BOARD_ADDED_SUCCESS_MESSAGE = "Board %s has been successfully added to Team %s!";
     public static final String MEMBERSLIST_INCLUDES = "Members list includes: \n%s";
+    public static final String SHOW_ACTIVITY_HISTORY_QUESTION = "Show activity history of a member or a board?";
+    public static final String WHICH_MEMBER = "Which member?";
+
+
 
 }

@@ -32,12 +32,12 @@ public class CreateMember implements Command {
         String personName = getPersonName();
         if (checkIfPersonExists(personName)) return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
         MemberImpl member = addMemberToTeam(teamToAddTo, personName);
-        addToMembersList(teamToAddTo, personName);
+        addToMembersList(personName, member);
         return addToActivityHistory(teamToAddTo, personName, member);
     }
 
-    private void addToMembersList(String teamToAddTo, String personName) {
-        functionalsRepository.getMembersList().add(personName + " (" + teamToAddTo + ")");
+    private void addToMembersList(String personName, MemberImpl member) {
+        functionalsRepository.addMember(personName, member);
     }
 
     private String addToActivityHistory(String teamToAddTo, String personName, MemberImpl member) {

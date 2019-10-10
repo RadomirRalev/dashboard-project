@@ -30,10 +30,6 @@ public class BoardImpl implements BoardAndPerson, Board {
     }
 
     @Override
-    public void removeActivity() { //String should come from engine
-    }
-
-    @Override
     public List showActivity() {
         return activityHistory;
     }
