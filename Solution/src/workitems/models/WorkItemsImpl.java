@@ -22,12 +22,16 @@ public abstract class WorkItemsImpl implements WorkItems {
     private List<String> comments;
     private List<String> history;
 
+    static {
+        currentId = 1;
+    }
+
     //making the constructor protected, so that you cannot create a WorkItemsImpl object (can be created only through sub-classes)
     protected WorkItemsImpl(String title, String description) {
         setId();
         setTitle(title);
         setDescription(description);
-        setStatus(Status.NEW);
+        //setStatus(Status.NEW);
         comments = new ArrayList<>();
         history = new ArrayList<>();
         addHistory(String.format(ITEM_CREATED, getItemType()));
@@ -80,11 +84,16 @@ public abstract class WorkItemsImpl implements WorkItems {
 
     @Override
     public String toString() {
-        return String.format("%s with ID:%d\n" +
+        StringBuilder str = new StringBuilder();
+        str.append(String.format("%s with ID:%d\n" +
                         "Title: %s\n" +
-                        "Description: %s\n" +
-                        "Status: %s\n", getItemType(),
-                        getId(), getTitle(), getDescription(), getStatus());
+                        "Description: %s\n", getItemType(),
+                getId(), getTitle(), getDescription()));
+        if(getStatus() != null){
+            str.append(String.format("Status: %s\n", getStatus()));
+        }
+        return str.toString();
+
     }
 
     //abstract method that will return the ItemType, so we can pass it as a parameter when an Item is created.

@@ -39,9 +39,15 @@ public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndSto
 
     @Override
     public String toString() {
-        return String.format("%sPriority: %s\n" +
-                        "Person assigned: %s\n", super.toString(),
-                getPriority(), assignee.getName());
+        StringBuilder str = new StringBuilder();
+        str.append(super.toString());
+        if(getPriority() != null){
+            str.append(String.format("Priority: %s\n",getPriority()));
+        }
+        if(getAssignee() != null){
+            str.append(String.format("Person assigned: %s\n",assignee.getName()));
+        }
+        return str.toString();
     }
 
     @Override
