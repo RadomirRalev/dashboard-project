@@ -4,6 +4,7 @@ import core.contracts.FunctionalsRepository;
 import functionals.contracts.Board;
 import functionals.contracts.Person;
 import functionals.contracts.Team;
+import functionals.models.MemberImpl;
 import workitems.contracts.WorkItems;
 
 import java.util.*;
@@ -13,14 +14,14 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
     private Map<String, Person> persons;
     private Map<String, Team> teams;
     private Map<String, Board> boards;
-    private List<String> membersList;
+    private Map<String, MemberImpl> members;
     private Map<Integer, WorkItems> workItems;
 
     public FunctionalsRepositoryImpl() {
         this.persons = new TreeMap<>();
         this.teams = new TreeMap<>();
         this.boards = new TreeMap<>();
-        this.membersList = new ArrayList();
+        this.members = new TreeMap<>();
         this.workItems = new TreeMap<>();
     }
 
@@ -39,12 +40,13 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
         return new TreeMap<>(boards);
     }
 
-    public List<String> getMembersList() {
-        return membersList;
+    @Override
+    public Map<Integer, WorkItems> getWorkItems() {
+        return new TreeMap<>(workItems);
     }
 
-    public Map<Integer, WorkItems> getWorkItems() {
-        return workItems;
+    public Map<String, MemberImpl> getMembers() {
+        return new TreeMap<>(members);
     }
 
     public void addPerson(String name, Person person) {
@@ -63,9 +65,12 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
         this.persons.remove(name);
     }
 
+    public void addMember(String name, MemberImpl member) {
+        this.members.put(name, member);
+    }
+
+    @Override
     public void addWorkItem(Integer id, WorkItems workItems) {
         this.workItems.put(id, workItems);
     }
-
-
 }

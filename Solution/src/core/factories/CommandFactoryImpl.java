@@ -50,7 +50,7 @@ public class CommandFactoryImpl implements CommandFactory {
             case LISTALLMEMBERS:
                 return new ListAllTeamMembers(functionalsRepository);
             case CREATEBUG:
-                return new CreateBug(functionalsFactory, functionalsRepository);
+                return new CreateBug(functionalsFactory,functionalsRepository);
 
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));

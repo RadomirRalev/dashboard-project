@@ -25,8 +25,8 @@ public class ListAllTeamMembers implements Command {
 
     public StringJoiner prepareMembersList() {
         StringJoiner str = new StringJoiner(", ");
-        Collection c = functionalsRepository.getMembersList();
-        c.forEach (e -> str.add(e.toString()) );
+        Set<String> keys = functionalsRepository.getPersons().keySet();
+        keys.forEach (e -> str.add(e) );
         return str;
     }
 
@@ -37,7 +37,7 @@ public class ListAllTeamMembers implements Command {
     }
 
     private String membersList(String membersList) {
-        if (functionalsRepository.getMembersList().size() == 0) {
+        if (functionalsRepository.getMembers().size() == 0) {
             return PERSONSLIST_IS_EMPTY;
         }
         return String.format(MEMBERSLIST_INCLUDES, membersList);
