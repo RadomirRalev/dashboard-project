@@ -5,20 +5,20 @@ import functionals.contracts.Board;
 import functionals.contracts.Person;
 import functionals.contracts.Team;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class FunctionalsRepositoryImpl implements FunctionalsRepository {
 
     private Map<String, Person> persons;
     private Map<String, Team> teams;
     private Map<String, Board> boards;
+    private List<String> membersList;
 
     public FunctionalsRepositoryImpl() {
         this.persons = new TreeMap<>();
         this.teams = new TreeMap<>();
         this.boards = new TreeMap<>();
+        this.membersList = new ArrayList();
     }
 
     @Override
@@ -34,6 +34,10 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
     @Override
     public Map<String, Board> getBoards() {
         return new TreeMap<>(boards);
+    }
+
+    public List<String> getMembersList() {
+        return membersList;
     }
 
     public void addPerson(String name, Person person) {

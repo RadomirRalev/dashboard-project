@@ -1,0 +1,37 @@
+package commands.actions.member;
+
+import commands.contracts.Command;
+import core.FunctionalsRepositoryImpl;
+
+import java.util.*;
+
+import static commands.actions.CommandsConstants.*;
+
+public class ListAllTeamMembers implements Command {
+    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
+    private final FunctionalsRepositoryImpl functionalsRepository;
+
+
+    public ListAllTeamMembers(FunctionalsRepositoryImpl functionalsRepository) {
+        this.functionalsRepository = functionalsRepository;
+    }
+
+    @Override
+    public String execute(List<String> parameters) {
+        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
+            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
+        }
+        StringJoiner str = new StringJoiner(", ");
+        Collection c = functionalsRepository.getMembersList();
+        c.forEach (e -> str.add(e.toString()) );
+        return membersList(str.toString());
+    }
+
+    private String membersList(String membersList) {
+
+        if (functionalsRepository.getMembersList().size() == 0) {
+            return PERSONSLIST_IS_EMPTY;
+        }
+        return String.format(MEMBERSLIST_INCLUDES, membersList);
+    }
+}

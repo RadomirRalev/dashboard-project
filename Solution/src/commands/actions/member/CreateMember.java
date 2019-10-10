@@ -27,17 +27,18 @@ public class CreateMember implements Command {
     @Override
     public String execute(List<String> parameters) {
         String teamToAddTo = parameters.get(0);
+        if (!functionalsRepository.getTeams().containsKey(teamToAddTo)) {
+            return String.format(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamToAddTo);
+        }
         writer.writeLine("Who should join this team?");
         String personName = reader.readLine();
         if (!functionalsRepository.getPersons().containsKey(personName)) {
             return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
         }
-        if (!functionalsRepository.getTeams().containsKey(teamToAddTo)) {
-            return String.format(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamToAddTo);
-        }
         Team team = functionalsRepository.getTeams().get(teamToAddTo);
         MemberImpl member = new MemberImpl(personName);
         team.addMember(member);
+        functionalsRepository.getMembersList().add(personName + " (" + teamToAddTo + ")");
         return String.format(MEMBER_ADDED_MSG, personName, teamToAddTo);
     }
 }

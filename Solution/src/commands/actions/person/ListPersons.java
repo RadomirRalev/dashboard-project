@@ -27,9 +27,7 @@ public class ListPersons implements Command {
         }
         StringJoiner str = new StringJoiner(", ");
         Set<String> keys = functionalsRepository.getPersons().keySet();
-        for (String k : keys) {
-            str.add(k);
-        }
+        keys.forEach (e -> str.add(e) );
         String personsList = str.toString(); //in alphabetical order
         return listPersons(personsList);
     }
