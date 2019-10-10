@@ -18,17 +18,25 @@ public class ListAllTeamMembers implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
-            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
-        }
-        StringJoiner str = new StringJoiner(", ");
-        Collection c = functionalsRepository.getMembersList();
-        c.forEach (e -> str.add(e.toString()) );
+        checkArgumentsNumber(parameters);
+        StringJoiner str = prepareMembersList();
         return membersList(str.toString());
     }
 
-    private String membersList(String membersList) {
+    public StringJoiner prepareMembersList() {
+        StringJoiner str = new StringJoiner(", ");
+        Collection c = functionalsRepository.getMembersList();
+        c.forEach (e -> str.add(e.toString()) );
+        return str;
+    }
 
+    public void checkArgumentsNumber(List<String> parameters) {
+        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
+            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
+        }
+    }
+
+    private String membersList(String membersList) {
         if (functionalsRepository.getMembersList().size() == 0) {
             return PERSONSLIST_IS_EMPTY;
         }

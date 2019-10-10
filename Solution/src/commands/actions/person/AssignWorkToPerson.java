@@ -26,14 +26,30 @@ public class AssignWorkToPerson implements Command {
     @Override
     public String execute(List<String> parameters) {
         String personName = NameJoiner.joinerList(parameters);
-        writer.writeLine("What work will be added?");
-        String workToBeAdded = reader.readLine();
-        if (!functionalsRepository.getPersons().containsKey(personName)) {
-            return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
-        }
+        String workToBeAdded = asksAboutWorkToBeAdded();
+        if (checkIfPersonExists(personName)) return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
+        Person person = addsWorkToPerson(personName, workToBeAdded);
+        return addsWorkToActivityHistory(personName, workToBeAdded, person);
+    }
+
+    private String addsWorkToActivityHistory(String personName, String workToBeAdded, Person person) {
+        String activity = String.format(WORK_ADDED_MSG, workToBeAdded, personName);
+        person.addActivity(activity);
+        return activity;
+    }
+
+    private Person addsWorkToPerson(String personName, String workToBeAdded) {
         Person person = functionalsRepository.getPersons().get(personName);
         person.assignWork(workToBeAdded);
-
-        return String.format(WORK_ADDED_MSG, workToBeAdded, personName);
+        return person;
     }
- }
+
+    private boolean checkIfPersonExists(String personName) {
+        return !functionalsRepository.getPersons().containsKey(personName);
+    }
+
+    private String asksAboutWorkToBeAdded() {
+        writer.writeLine("What work will be added?");
+        return reader.readLine();
+    }
+}

@@ -2,7 +2,6 @@ package functionals.models;
 
 import functionals.contracts.Board;
 import functionals.contracts.BoardAndPerson;
-import workitems.contracts.WorkItems;
 import workitems.models.WorkItemsImpl;
 
 import java.util.ArrayList;
@@ -24,9 +23,10 @@ public class BoardImpl implements BoardAndPerson, Board {
         this.name = name;
     }
 
+
     @Override
-    public void addActivity() {
-        //String should come from engine
+    public void addActivity(String activity) {
+
     }
 
     @Override
@@ -38,17 +38,14 @@ public class BoardImpl implements BoardAndPerson, Board {
         return activityHistory;
     }
 
-    @Override
     public <T extends WorkItemsImpl> void addWorkItems(T workItem) {
         workItems.add(workItem);
     }
 
-    @Override
     public <T extends WorkItemsImpl> void removeWorkItems(T workItem) {
         workItems.remove(workItem);
     }
 
-    @Override
     public List listWorkItems() {
         return new ArrayList(workItems);
     }

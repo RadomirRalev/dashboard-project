@@ -1,10 +1,9 @@
 package functionals.contracts;
 
-import functionals.contracts.BoardAndPerson;
 
 import java.util.List;
 
-public interface Person extends Functionals {
+public interface Person extends BoardAndPerson {
 
     void assignWork(String workToBeAdded);
 

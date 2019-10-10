@@ -8,10 +8,28 @@ import java.util.List;
 public class PersonImpl implements Person {
     private String name;
     private List<String> assignedWork;
+    private List<String> activityHistory;
+
 
     public PersonImpl(String name) {
         setName(name);
         assignedWork = new ArrayList<>();
+        activityHistory = new ArrayList();
+    }
+
+    @Override
+    public void addActivity(String activity) {
+        activityHistory.add(activity);
+    }
+
+    @Override
+    public void removeActivity() { //String should come from engine
+
+    }
+
+    @Override
+    public List showActivity() {
+        return activityHistory;
     }
 
     private void setName(String name) {
