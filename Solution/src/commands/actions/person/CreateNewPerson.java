@@ -41,7 +41,9 @@ public class CreateNewPerson implements Command {
     private String createPerson(String name) {
         Person person = functionalsFactory.createPerson(name);
         functionalsRepository.addPerson(name, person);
-        return String.format(PERSON_CREATED_MSG, name);
+        String activity = String.format(PERSON_CREATED_MSG, name);
+        person.addActivity(activity);
+        return activity;
     }
 
     private boolean checkName(String personName) {

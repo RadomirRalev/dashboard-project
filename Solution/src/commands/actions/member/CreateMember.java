@@ -1,5 +1,6 @@
 package commands.actions.member;
 
+import commands.actions.person.NameJoiner;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
@@ -27,18 +28,47 @@ public class CreateMember implements Command {
     @Override
     public String execute(List<String> parameters) {
         String teamToAddTo = parameters.get(0);
-        if (!functionalsRepository.getTeams().containsKey(teamToAddTo)) {
-            return String.format(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamToAddTo);
-        }
-        writer.writeLine("Who should join this team?");
-        String personName = reader.readLine();
-        if (!functionalsRepository.getPersons().containsKey(personName)) {
-            return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
-        }
+        if (checkIfTeamExists(teamToAddTo)) return String.format(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamToAddTo);
+        String personName = getPersonName();
+        if (checkIfPersonExists(personName)) return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
+        MemberImpl member = addMemberToTeam(teamToAddTo, personName);
+        addToMembersList(teamToAddTo, personName);
+        return addToActivityHistory(teamToAddTo, personName, member);
+    }
+
+    private void addToMembersList(String teamToAddTo, String personName) {
+        functionalsRepository.getMembersList().add(personName + " (" + teamToAddTo + ")");
+    }
+
+    private String addToActivityHistory(String teamToAddTo, String personName, MemberImpl member) {
+        String activity = String.format(MEMBER_ADDED_MSG, personName, teamToAddTo);
+        member.addActivity(activity);
+        return activity;
+    }
+
+    private MemberImpl addMemberToTeam(String teamToAddTo, String personName) {
         Team team = functionalsRepository.getTeams().get(teamToAddTo);
         MemberImpl member = new MemberImpl(personName);
         team.addMember(member);
-        functionalsRepository.getMembersList().add(personName + " (" + teamToAddTo + ")");
-        return String.format(MEMBER_ADDED_MSG, personName, teamToAddTo);
+        return member;
+    }
+
+    private boolean checkIfPersonExists(String personName) {
+        return !functionalsRepository.getPersons().containsKey(personName);
+    }
+
+    private String getPersonName() {
+        String personName = reader.readLine();
+        String[] personNameArr = personName.split(" ");
+        personName = NameJoiner.joinerArr(personNameArr);
+        return personName;
+    }
+
+    private boolean checkIfTeamExists(String teamToAddTo) {
+        if (!functionalsRepository.getTeams().containsKey(teamToAddTo)) {
+            return true;
+        }
+        writer.writeLine("Who should join this team?");
+        return false;
     }
 }

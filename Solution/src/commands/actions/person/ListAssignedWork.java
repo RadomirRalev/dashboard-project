@@ -20,13 +20,18 @@ public class ListAssignedWork implements Command {
     @Override
     public String execute(List<String> parameters) {
         String personName = NameJoiner.joinerList(parameters);
-        if (!functionalsRepository.getPersons().containsKey(personName)) {
-            return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
-        }
+        if (checkIfPersonExists(personName)) return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
+        return prepareAssignedWorkList(personName);
+    }
+
+    private String prepareAssignedWorkList(String personName) {
         Person person = functionalsRepository.getPersons().get(personName);
-        String work = String.valueOf(person.listAssignedWork().stream()
+        return String.valueOf(person.listAssignedWork().stream()
                 .map( n -> n.toString() )
                 .collect( Collectors.joining( "; " ) ));
-        return work;
+    }
+
+    private boolean checkIfPersonExists(String personName) {
+        return !functionalsRepository.getPersons().containsKey(personName);
     }
 }
