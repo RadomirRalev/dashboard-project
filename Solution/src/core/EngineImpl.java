@@ -1,7 +1,6 @@
 package core;
 
 import commands.contracts.Command;
-import core.FunctionalsRepositoryImpl;
 import core.contracts.*;
 import core.factories.CommandFactoryImpl;
 import core.factories.FunctionalsFactoryImpl;

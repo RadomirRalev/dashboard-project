@@ -9,8 +9,6 @@ import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
 import functionals.contracts.Team;
-import functionals.models.PersonImpl;
-
 import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
@@ -49,7 +47,7 @@ public class CreateMember implements Command {
 
     private Person addMemberToTeam(String teamToAddTo, String personName) {
         Team team = functionalsRepository.getTeams().get(teamToAddTo);
-        Person person = new PersonImpl(personName);
+        Person person = functionalsRepository.getPersons().get(personName);
         team.addMember(person);
         return person;
     }

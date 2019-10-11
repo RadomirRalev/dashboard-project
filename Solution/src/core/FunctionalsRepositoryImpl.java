@@ -4,7 +4,6 @@ import core.contracts.FunctionalsRepository;
 import functionals.contracts.Board;
 import functionals.contracts.Person;
 import functionals.contracts.Team;
-import functionals.models.MemberImpl;
 import workitems.contracts.WorkItems;
 
 import java.util.*;

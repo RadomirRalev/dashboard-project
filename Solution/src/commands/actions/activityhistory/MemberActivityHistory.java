@@ -6,10 +6,10 @@ import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
-import functionals.contracts.Person;
 import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;
+import static commands.actions.activityhistory.ActHistory.getMembersActivity;
 
 public class MemberActivityHistory {
     private Reader reader;
@@ -37,10 +37,8 @@ public class MemberActivityHistory {
     }
 
     private String showActivity(String memberActivityHistory) {
-        Person member = functionalsRepository.getMembers().get(memberActivityHistory);
-        return String.valueOf(member.showActivity().stream()
-               .map( n -> n.toString() )
-               .collect( Collectors.joining( " " ) ));
+        return String.valueOf(getMembersActivity().get(memberActivityHistory).stream()
+                .collect( Collectors.joining( "\n" ) ));
     }
 
     private String asksWhichMember() {

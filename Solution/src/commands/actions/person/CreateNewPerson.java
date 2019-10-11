@@ -1,5 +1,6 @@
 package commands.actions.person;
 
+import commands.actions.activityhistory.ActHistory;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.FunctionalsFactory;
@@ -8,6 +9,7 @@ import core.providers.ConsoleReader;
 import functionals.contracts.Person;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
@@ -35,6 +37,9 @@ public class CreateNewPerson implements Command {
                 return TYPE_ANOTHER_COMMAND;
             }
         }
+        //ActHistory.setActivityHistory();
+        //getMembersActivity().get("member").put(personName, new ArrayList<>());
+        ActHistory.getMembersActivity().put(personName, new ArrayList<>());
         return createPerson(personName);
     }
 
