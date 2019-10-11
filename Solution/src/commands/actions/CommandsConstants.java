@@ -49,4 +49,5 @@ public class CommandsConstants {
     public static final String WORK_ITEM_SUCCESS_REMOVAL_MESSAGE = "Workitem %s with id %d successfully removed";
     public static final String WORKITEM_DOES_NOT_EXIST_IN_BOARD_MSG = "Workitem %s with id %d does not exist in board %s";
     public static final String WORKITEM_ID_DOES_NOT_MATCH_NAME_MSG = "The Workitem id does not match the name";
+    public static final String STATUS_SUCCESSFULLY_CHANGED_MSG = "The status of %s was successfully changed to %s";
 }

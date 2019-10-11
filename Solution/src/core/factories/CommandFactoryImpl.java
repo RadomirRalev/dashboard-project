@@ -10,10 +10,7 @@ import commands.actions.member.CreateMember;
 import commands.actions.person.*;
 import commands.actions.team.CreateTeam;
 import commands.actions.team.ShowTeamBoards;
-import commands.actions.workitem.CreateBug;
-import commands.actions.workitem.CreateFeedback;
-import commands.actions.workitem.CreateStory;
-import commands.actions.workitem.RemoveWorkItem;
+import commands.actions.workitem.*;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.CommandFactory;
@@ -62,6 +59,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new CreateFeedback(functionalsFactory, functionalsRepository);
             case REMOVEWORKITEM:
                 return new RemoveWorkItem(functionalsRepository);
+            case CHANGESTATUS:
+                return new ChangeStatus(functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }

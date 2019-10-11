@@ -1,8 +1,11 @@
 package workitems.models;
 
+import enums.Status;
 import workitems.contracts.Feedback;
 import workitems.contracts.WorkItems;
 import functionals.models.ValidationHelper;
+
+import java.util.EnumSet;
 
 public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
     private static final String ITEM_TYPE = "Feedback";
@@ -10,9 +13,11 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
     private static final int MAX_RATING_VALUE = 5;
 
     private int rating;
+    private EnumSet<Status> feedbackStatus;
 
     public FeedbackImpl(String title, String description, int rating) {
         super(title, description);
+        feedbackStatus = EnumSet.of(Status.NEW, Status.UNSCHEDULED, Status.SCHEDULED, Status.DONE);
         setRating(rating);
         setId();
     }
@@ -30,14 +35,20 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
         return str.toString();
     }
 
+    //rating can be a whole number between 1 and 5 inclusive
+    public void setRating(int rating) {
+        ValidationHelper.checkNumberInBounds(rating, MIN_RATING_VALUE, MAX_RATING_VALUE);
+        this.rating = rating;
+    }
+
+    public EnumSet<Status> getStatus(){
+        return feedbackStatus;
+    }
+
     @Override
     protected String getItemType() {
         return ITEM_TYPE;
     }
 
-    //rating can be a whole number between 1 and 5 inclusive
-    private void setRating(int rating) {
-        ValidationHelper.checkNumberInBounds(rating, MIN_RATING_VALUE, MAX_RATING_VALUE);
-        this.rating = rating;
-    }
+
 }

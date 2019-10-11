@@ -5,7 +5,10 @@ import workitems.contracts.WorkItems;
 import functionals.models.ValidationHelper;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
+
+import static workitems.Constants.INVALID_ENUM_ERROR_MSG;
 
 public abstract class WorkItemsImpl implements WorkItems {
     private static final int TITLE_LENGTH_MIN_VALUE = 10;
@@ -53,7 +56,9 @@ public abstract class WorkItemsImpl implements WorkItems {
     }
 
     @Override
-    public Status getStatus() {
+    public abstract EnumSet<Status> getStatus();
+
+    public Status getCurrentStatus(){
         return status;
     }
 
@@ -69,6 +74,9 @@ public abstract class WorkItemsImpl implements WorkItems {
 
     @Override
     public void setStatus(Status status) {
+        if(!getStatus().contains(status)){
+            throw new IllegalArgumentException(String.format(INVALID_ENUM_ERROR_MSG,getItemType(),status));
+        }
         this.status = status;
     }
 
@@ -89,8 +97,8 @@ public abstract class WorkItemsImpl implements WorkItems {
                         "Title: %s\n" +
                         "Description: %s\n", getItemType(),
                 getId(), getTitle(), getDescription()));
-        if(getStatus() != null){
-            str.append(String.format("Status: %s\n", getStatus()));
+        if(getCurrentStatus() != null){
+            str.append(String.format("Status: %s\n", getCurrentStatus()));
         }
         return str.toString();
 

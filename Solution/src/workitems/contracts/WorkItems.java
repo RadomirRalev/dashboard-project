@@ -2,13 +2,14 @@ package workitems.contracts;
 
 import enums.*;
 
+import java.util.EnumSet;
 import java.util.List;
 
 public interface WorkItems {
     int getId();
     String getTitle();
     String getDescription();
-    Status getStatus();
+    public abstract EnumSet<Status> getStatus();
     List<String> getComments();
     List<String> getHistory();
     void setStatus(Status status);

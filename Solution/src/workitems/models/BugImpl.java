@@ -1,22 +1,30 @@
 package workitems.models;
 
 import enums.Severity;
+import enums.Status;
 import workitems.contracts.Bug;
 import workitems.contracts.BugAndStory;
 import workitems.contracts.WorkItems;
 import functionals.models.ValidationHelper;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
+
+import static workitems.Constants.INVALID_ENUM_ERROR_MSG;
 
 public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkItems {
     private static final String ITEM_TYPE = "Bug";
 
     private Severity severity;
     private List<String> stepsToReproduce;
+    EnumSet<Status> bugStatus;
+    EnumSet<Severity> severities;
 
     public BugImpl(String title, String description, Severity severity, List<String> stepsToReproduce) {
         super(title, description);
+        bugStatus = EnumSet.of(Status.ACTIVE, Status.FIXED);
+        severities = EnumSet.of(Severity.CRITICAL, Severity.MAJOR, Severity.MINOR);
         setSeverity(severity);
         setStepsToReproduce(stepsToReproduce);
         setId();
@@ -35,7 +43,14 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
     //setSeverity can be public so it can be changed after creation;
     @Override
     public void setSeverity(Severity severity) {
+        if(!severities.contains(severity)){
+            throw new IllegalArgumentException(String.format(INVALID_ENUM_ERROR_MSG, severity, getItemType()));
+        }
         this.severity = severity;
+    }
+
+    public EnumSet<Status> getStatus(){
+        return bugStatus;
     }
 
     @Override
