@@ -41,6 +41,7 @@ public class CommandsConstants {
             "Type a new command:";
     public static final String BUG_CREATED_SUCCESS_MESSAGE = "Bug %s was created!";
     public static final String STORY_CREATED_SUCCESS_MESSAGE = "Story %s was created!";
+    public static final String FEEDBACK_CREATED_SUCCESS_MESSAGE = "Feedback %s was created!";
     public static final String FAILED_TO_PARSE_COMMAND_PARAMETERS = "Failed to parse command parameters";
     public static final String WHICH_BOARD = "Which board?";
     public static final String WHICH_TEAM = "Which team?";

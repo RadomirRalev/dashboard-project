@@ -19,9 +19,9 @@ public class ValidationHelper {
         }
     }
 
-    //check is inclusive
+    
     public static void checkNumberInBounds(int number, int minValue, int maxValue){
-        if(number <= minValue || number >= maxValue){
+        if(number < minValue || number > maxValue){
             throw new IllegalArgumentException(VALUE_OUT_OF_BOUNDS_ERROR);
         }
     }

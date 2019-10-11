@@ -11,6 +11,7 @@ import commands.actions.person.*;
 import commands.actions.team.CreateTeam;
 import commands.actions.team.ShowTeamBoards;
 import commands.actions.workitem.CreateBug;
+import commands.actions.workitem.CreateFeedback;
 import commands.actions.workitem.CreateStory;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -46,8 +47,6 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ListTeams(functionalsRepository);
             case CREATEBOARD:
                 return new CreateBoard(functionalsFactory, functionalsRepository);
-//            case ADDBOARDTOTEAM:
-//                return new AddBoardToTeam(functionalsFactory, functionalsRepository);
             case SHOWTEAMBOARDS:
                 return new ShowTeamBoards(functionalsRepository);
             case LISTALLMEMBERS:
@@ -58,6 +57,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new CreateStory(functionalsFactory, functionalsRepository);
             case SHOWACTIVITYHISTORY:
                 return new ShowActivityHistory(functionalsRepository);
+            case CREATEFEEDBACK:
+                return new CreateFeedback(functionalsFactory, functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }

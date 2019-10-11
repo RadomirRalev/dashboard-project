@@ -28,7 +28,7 @@ public abstract class WorkItemsImpl implements WorkItems {
 
     //making the constructor protected, so that you cannot create a WorkItemsImpl object (can be created only through sub-classes)
     protected WorkItemsImpl(String title, String description) {
-        setId();
+        //setId();
         setTitle(title);
         setDescription(description);
         //setStatus(Status.NEW);
@@ -100,7 +100,7 @@ public abstract class WorkItemsImpl implements WorkItems {
     protected abstract String getItemType();
 
     //Id can be an internal parameter, so there is no need to pass it as a parameter in the constructor
-    private void setId() {
+    protected void setId() {
         this.id = currentId;
         currentId++;
     }
