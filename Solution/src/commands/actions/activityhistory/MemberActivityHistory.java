@@ -7,8 +7,6 @@ import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
-import functionals.models.MemberImpl;
-
 import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;

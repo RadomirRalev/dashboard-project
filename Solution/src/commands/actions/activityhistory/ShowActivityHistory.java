@@ -1,7 +1,5 @@
 package commands.actions.activityhistory;
 
-import com.sun.xml.internal.bind.v2.TODO;
-import commands.actions.activityhistory.MemberActivityHistory;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
@@ -35,8 +33,14 @@ public class ShowActivityHistory implements Command {
         if (activityHistoryOf.equalsIgnoreCase("member")) {
             MemberActivityHistory memberActivityHistory = new MemberActivityHistory(functionalsRepository);
             return memberActivityHistory.execute();
-        } else if (activityHistoryOf.equalsIgnoreCase("board")) {
-            return null; //TODO add functionality for showing activity history of a board;
+        }
+        if (activityHistoryOf.equalsIgnoreCase("board")) {
+            BoardActivityHistory boardActivityHistory = new BoardActivityHistory(functionalsRepository);
+            return boardActivityHistory.execute();
+        }
+        if (activityHistoryOf.equalsIgnoreCase("team")) {
+            TeamActivityHistory teamActivityHistory = new TeamActivityHistory(functionalsRepository);
+            return teamActivityHistory.execute();
         }
         return null;
     }
@@ -44,6 +48,7 @@ public class ShowActivityHistory implements Command {
 
     private boolean checkIfCommandIsCorrect(String activityHistoryOf) {
         return !activityHistoryOf.equalsIgnoreCase("member") &&
+                !activityHistoryOf.equalsIgnoreCase("team") &&
                 !activityHistoryOf.equalsIgnoreCase("board");
     }
 

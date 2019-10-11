@@ -20,4 +20,8 @@ public interface Team extends Functionals {
 
     String showBoards();
 
+    void addActivity(String activity);
+
+    List showActivity();
+
 }

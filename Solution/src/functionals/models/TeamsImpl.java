@@ -12,11 +12,13 @@ public class TeamsImpl implements Team {
     private String name;
     private List<Person> members;
     private List<Board> boards;
+    private List<String> activityHistory;
 
     public TeamsImpl(String name) {
         setName(name);
         members = new ArrayList<>();
         boards = new ArrayList<>();
+        activityHistory = new ArrayList();
     }
 
     private void setName(String name) {
@@ -46,6 +48,14 @@ public class TeamsImpl implements Team {
     @Override
     public void removeBoard(Board board) {
         boards.remove(board);
+    }
+
+    public void addActivity(String activity) {
+
+    }
+
+    public List showActivity() {
+        return activityHistory;
     }
 
     @Override
