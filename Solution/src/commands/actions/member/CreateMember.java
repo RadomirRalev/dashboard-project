@@ -7,8 +7,9 @@ import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
+import functionals.contracts.Person;
 import functionals.contracts.Team;
-import functionals.models.MemberImpl;
+import functionals.models.PersonImpl;
 
 import java.util.List;
 
@@ -31,26 +32,26 @@ public class CreateMember implements Command {
         if (checkIfTeamExists(teamToAddTo)) return String.format(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamToAddTo);
         String personName = getPersonName();
         if (checkIfPersonExists(personName)) return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
-        MemberImpl member = addMemberToTeam(teamToAddTo, personName);
-        addToMembersList(personName, member);
-        return addToActivityHistory(teamToAddTo, personName, member);
+        Person person = addMemberToTeam(teamToAddTo, personName);
+        addToMembersList(personName, person);
+        return addToActivityHistory(teamToAddTo, personName, person);
     }
 
-    private void addToMembersList(String personName, MemberImpl member) {
-        functionalsRepository.addMember(personName, member);
+    private void addToMembersList(String personName, Person person) {
+        functionalsRepository.addMember(personName, person);
     }
 
-    private String addToActivityHistory(String teamToAddTo, String personName, MemberImpl member) {
+    private String addToActivityHistory(String teamToAddTo, String personName, Person person) {
         String activity = String.format(MEMBER_ADDED_MSG, personName, teamToAddTo);
-        member.addActivity(activity);
+        person.addActivity(activity);
         return activity;
     }
 
-    private MemberImpl addMemberToTeam(String teamToAddTo, String personName) {
+    private Person addMemberToTeam(String teamToAddTo, String personName) {
         Team team = functionalsRepository.getTeams().get(teamToAddTo);
-        MemberImpl member = new MemberImpl(personName);
-        team.addMember(member);
-        return member;
+        Person person = new PersonImpl(personName);
+        team.addMember(person);
+        return person;
     }
 
     private boolean checkIfPersonExists(String personName) {

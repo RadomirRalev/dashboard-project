@@ -14,7 +14,7 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
     private Map<String, Person> persons;
     private Map<String, Team> teams;
     private Map<String, Board> boards;
-    private Map<String, MemberImpl> members;
+    private Map<String, Person> members;
     private Map<Integer, WorkItems> workItems;
 
     public FunctionalsRepositoryImpl() {
@@ -45,7 +45,7 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
         return new TreeMap<>(workItems);
     }
 
-    public Map<String, MemberImpl> getMembers() {
+    public Map<String, Person> getMembers() {
         return new TreeMap<>(members);
     }
 
@@ -65,8 +65,8 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
         this.persons.remove(name);
     }
 
-    public void addMember(String name, MemberImpl member) {
-        this.members.put(name, member);
+    public void addMember(String name, Person person) {
+        this.members.put(name, person);
     }
 
     @Override

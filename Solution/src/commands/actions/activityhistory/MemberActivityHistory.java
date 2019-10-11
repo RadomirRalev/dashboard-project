@@ -1,4 +1,4 @@
-package commands.actions;
+package commands.actions.activityhistory;
 
 import commands.actions.person.NameJoiner;
 import core.FunctionalsRepositoryImpl;
@@ -7,8 +7,6 @@ import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
-import functionals.models.MemberImpl;
-
 import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;
@@ -39,10 +37,10 @@ public class MemberActivityHistory {
     }
 
     private String showActivity(String memberActivityHistory) {
-        MemberImpl member = functionalsRepository.getMembers().get(memberActivityHistory);
+        Person member = functionalsRepository.getMembers().get(memberActivityHistory);
         return String.valueOf(member.showActivity().stream()
-                .map( n -> n.toString() )
-                .collect( Collectors.joining( "\n" ) ));
+               .map( n -> n.toString() )
+               .collect( Collectors.joining( " " ) ));
     }
 
     private String asksWhichMember() {

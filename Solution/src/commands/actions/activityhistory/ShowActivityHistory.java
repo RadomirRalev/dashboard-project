@@ -1,4 +1,4 @@
-package commands.actions;
+package commands.actions.activityhistory;
 
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -9,8 +9,7 @@ import core.providers.ConsoleWriter;
 
 import java.util.List;
 
-import static commands.actions.CommandsConstants.INVALID_NUMBER_OF_ARGUMENTS;
-import static commands.actions.CommandsConstants.SHOW_ACTIVITY_HISTORY_QUESTION;
+import static commands.actions.CommandsConstants.*;
 
 public class ShowActivityHistory implements Command {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
@@ -30,10 +29,18 @@ public class ShowActivityHistory implements Command {
         checkNumberOfArguments(parameters);
         String activityHistoryOf = asksAboutMemberOrBoard();
         if (checkIfCommandIsCorrect(activityHistoryOf))
-            return "Activity history is available only for members or boards!";
+            return HISTORY_UNAVAILABLE;
         if (activityHistoryOf.equalsIgnoreCase("member")) {
             MemberActivityHistory memberActivityHistory = new MemberActivityHistory(functionalsRepository);
             return memberActivityHistory.execute();
+        }
+        if (activityHistoryOf.equalsIgnoreCase("board")) {
+            BoardActivityHistory boardActivityHistory = new BoardActivityHistory(functionalsRepository);
+            return boardActivityHistory.execute();
+        }
+        if (activityHistoryOf.equalsIgnoreCase("team")) {
+            TeamActivityHistory teamActivityHistory = new TeamActivityHistory(functionalsRepository);
+            return teamActivityHistory.execute();
         }
         return null;
     }
@@ -41,6 +48,7 @@ public class ShowActivityHistory implements Command {
 
     private boolean checkIfCommandIsCorrect(String activityHistoryOf) {
         return !activityHistoryOf.equalsIgnoreCase("member") &&
+                !activityHistoryOf.equalsIgnoreCase("team") &&
                 !activityHistoryOf.equalsIgnoreCase("board");
     }
 
