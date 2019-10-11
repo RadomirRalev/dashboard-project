@@ -35,7 +35,7 @@ public class BoardImpl implements BoardAndPerson, Board {
         return activityHistory;
     }
 
-    public <T extends WorkItemsImpl> void addWorkItems(T workItem) {
+    public <T extends WorkItems> void addWorkItems(T workItem) {
 //        String workItemName = workItem.getTitle();
 //        if (listWorkItems().contains(workItem.getTitle().equals(workItemName))) {
 //            throw new IllegalArgumentException("You cannot add a WorkItem with the same name in the same board");
@@ -43,7 +43,7 @@ public class BoardImpl implements BoardAndPerson, Board {
         workItems.add(workItem);
     }
 
-    public <T extends WorkItemsImpl> void removeWorkItems(T workItem) {
+    public <T extends WorkItems> void removeWorkItems(T workItem) {
         workItems.remove(workItem);
     }
 

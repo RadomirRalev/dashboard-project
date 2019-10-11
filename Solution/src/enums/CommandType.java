@@ -16,7 +16,8 @@ public enum CommandType {
     CREATEBUG ("Create bug"),
  	CREATESTORY ("Create story"),
     SHOWACTIVITYHISTORY ("Show activity history"),
-    CREATEFEEDBACK ("Create feedbak");
+    CREATEFEEDBACK ("Create feedbak"),
+    REMOVEWORKITEM ("Remove workitem");
 
     private final String command;
 

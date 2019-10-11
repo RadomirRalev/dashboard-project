@@ -61,7 +61,7 @@ public class CreateBug implements Command {
     private String createBug(String title, String description, String severity, List<String> steps){
         //adding the Bug to a specific board
         Bug bug = functionalsFactory.createBug(title, description, severity, steps);
-        functionalsRepository.getBoards().get(boardName).addWorkItems((BugImpl)bug);
+        functionalsRepository.getBoards().get(boardName).addWorkItems(bug);
 
         //adding the Bug to the WorkItem Map.
         functionalsRepository.addWorkItem(bug.getId(), bug);

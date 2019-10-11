@@ -13,6 +13,7 @@ import commands.actions.team.ShowTeamBoards;
 import commands.actions.workitem.CreateBug;
 import commands.actions.workitem.CreateFeedback;
 import commands.actions.workitem.CreateStory;
+import commands.actions.workitem.RemoveWorkItem;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.CommandFactory;
@@ -59,6 +60,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ShowActivityHistory(functionalsRepository);
             case CREATEFEEDBACK:
                 return new CreateFeedback(functionalsFactory, functionalsRepository);
+            case REMOVEWORKITEM:
+                return new RemoveWorkItem(functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }

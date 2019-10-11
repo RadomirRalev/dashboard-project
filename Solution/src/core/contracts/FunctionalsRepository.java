@@ -13,4 +13,10 @@ public interface FunctionalsRepository {
     Map<String, Board> getBoards();
     Map<Integer, WorkItems> getWorkItems();
     void addWorkItem(Integer id, WorkItems workItems);
+    void addBoard(String name, Board board);
+    void addTeam(String name, Team team);
+    void addPerson(String name, Person person);
+    void deletePerson(String name);
+    void addMember(String name, Person person);
+    void removeWorkItem(Integer id);
 }

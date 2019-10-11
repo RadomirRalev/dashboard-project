@@ -12,6 +12,7 @@ import java.util.List;
 import static commands.actions.CommandsConstants.*;
 
 public class CreateFeedback implements Command {
+    //creates feedback inside a board object. Cannot create feedback outside of boards (just like in Trello)
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 4;
 
     private final FunctionalsRepository functionalsRepository;
@@ -42,7 +43,7 @@ public class CreateFeedback implements Command {
 
     private String createFeedback(String title, String description, int rating){
         Feedback feedback = functionalsFactory.createFeedback(title, description, rating);
-        functionalsRepository.getBoards().get(boardName).addWorkItems((FeedbackImpl)feedback);
+        functionalsRepository.getBoards().get(boardName).addWorkItems(feedback);
 
         functionalsRepository.addWorkItem(feedback.getId(), feedback);
 

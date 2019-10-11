@@ -13,7 +13,7 @@ import java.util.List;
 import static commands.actions.CommandsConstants.*;
 
 public class CreateStory implements Command {
-
+    //creates a story inside a board object. Cannot create stories outside of boards (just like in Trello)
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 4;
     private final FunctionalsRepository functionalsRepository;
     private final FunctionalsFactory functionalsFactory;
@@ -44,7 +44,7 @@ public class CreateStory implements Command {
     private String createStory(String title, String description, String size) {
         //adding the Story to a specific board
         Story story = functionalsFactory.createStory(title, description, size);
-        functionalsRepository.getBoards().get(boardName).addWorkItems((StoryImpl) story);
+        functionalsRepository.getBoards().get(boardName).addWorkItems(story);
 
         //adding the Story to the WorkItem Map.
         functionalsRepository.addWorkItem(story.getId(), story);
