@@ -1,14 +1,16 @@
 package functionals.models;
-
 import functionals.contracts.Person;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static commands.actions.activityhistory.ActHistory.getMembersActivity;
+
 public class PersonImpl implements Person {
     private String name;
     private List<String> assignedWork;
-    private List<String> activityHistory;
+    private ArrayList<String> activityHistory;
+
 
 
     public PersonImpl(String name) {
@@ -19,7 +21,7 @@ public class PersonImpl implements Person {
 
     @Override
     public void addActivity(String activity) {
-        activityHistory.add(activity);
+        getMembersActivity().get(name).add(activity);
     }
 
     @Override

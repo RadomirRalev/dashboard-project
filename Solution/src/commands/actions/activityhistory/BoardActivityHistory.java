@@ -7,11 +7,11 @@ import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.contracts.Board;
-import functionals.contracts.Person;
 
 import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;
+import static commands.actions.activityhistory.ActHistory.getBoardsActivity;
 
 public class BoardActivityHistory {
     private Reader reader;
@@ -38,10 +38,8 @@ public class BoardActivityHistory {
     }
 
     private String showActivity(String boardActivityHistory) {
-        Board board = functionalsRepository.getBoards().get(boardActivityHistory);
-        return String.valueOf(board.showActivity().stream()
-                .map( n -> n.toString() )
-                .collect( Collectors.joining( " " ) ));
+        return String.valueOf(getBoardsActivity().get(boardActivityHistory).stream()
+                .collect( Collectors.joining( "\n" ) ));
     }
 
     private String asksWhichBoard() {

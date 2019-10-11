@@ -11,6 +11,7 @@ import functionals.contracts.Team;
 import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;
+import static commands.actions.activityhistory.ActHistory.getTeamsActivity;
 
 public class TeamActivityHistory {
     private Reader reader;
@@ -38,11 +39,8 @@ public class TeamActivityHistory {
     }
 
     private String showActivity(String teamActivityHistory) {
-        Team team = functionalsRepository.getTeams().get(teamActivityHistory);
-        return String.valueOf(team.showActivity()
-                .stream()
-                .map( n -> n.toString() )
-                .collect( Collectors.joining( " " ) ));
+        return String.valueOf(getTeamsActivity().get(teamActivityHistory).stream()
+                .collect( Collectors.joining( "\n" ) ));
     }
 
     private String asksWhichTeam() {
