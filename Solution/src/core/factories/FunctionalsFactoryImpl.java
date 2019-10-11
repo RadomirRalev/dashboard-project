@@ -39,7 +39,7 @@ public class FunctionalsFactoryImpl implements FunctionalsFactory {
     public Bug createBug(String title, String description, String severity, List<String> steps) {
         return new BugImpl(title, description, getSeverity(severity), steps);
     }
-
+    
     @Override
     public Story createStory(String title, String description, String size){
         return new StoryImpl(title, description, getSize(size));
