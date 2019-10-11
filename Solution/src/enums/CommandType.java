@@ -14,7 +14,8 @@ public enum CommandType {
     ADDBOARDTOTEAM ("Add board to team"),
     SHOWTEAMBOARDS ("Show team boards"),
     LISTALLMEMBERS ("List all members"),
-    CREATEBUG ("Create bug");
+    CREATEBUG ("Create bug"),
+    CREATESTORY ("Create story");
 
     private final String command;
 
