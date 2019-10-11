@@ -14,6 +14,7 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
     public FeedbackImpl(String title, String description, int rating) {
         super(title, description);
         setRating(rating);
+        setId();
     }
 
     @Override

@@ -2,6 +2,7 @@ package functionals.models;
 
 import functionals.contracts.Board;
 import functionals.contracts.BoardAndPerson;
+import workitems.contracts.WorkItems;
 import workitems.models.WorkItemsImpl;
 
 import java.util.ArrayList;
@@ -34,11 +35,15 @@ public class BoardImpl implements BoardAndPerson, Board {
         return activityHistory;
     }
 
-    public <T extends WorkItemsImpl> void addWorkItems(T workItem) {
+    public <T extends WorkItems> void addWorkItems(T workItem) {
+//        String workItemName = workItem.getTitle();
+//        if (listWorkItems().contains(workItem.getTitle().equals(workItemName))) {
+//            throw new IllegalArgumentException("You cannot add a WorkItem with the same name in the same board");
+//        }
         workItems.add(workItem);
     }
 
-    public <T extends WorkItemsImpl> void removeWorkItems(T workItem) {
+    public <T extends WorkItems> void removeWorkItems(T workItem) {
         workItems.remove(workItem);
     }
 
@@ -53,13 +58,16 @@ public class BoardImpl implements BoardAndPerson, Board {
 
     @Override
     public String toString() {
-        return String.format("Board name: %s\n" +
-                        " Activity history: %s" +
-                        " Work items:%s",
+        StringBuilder str = new StringBuilder();
+        str.append(String.format("Board name: %s\n" +
+                        "Activity history: %s\n" +
+                        "Work items:\n",
                 getName(),
-                showActivity(),
-                listWorkItems().toString()
-        );
+                showActivity()));
+        for (Object object : listWorkItems()) {
+            str.append(String.format("%s\n", object));
+        }
+        return str.toString();
     }
 
     @Override

@@ -13,6 +13,7 @@ public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, Wo
     public StoryImpl(String title, String description, Size size) {
         super(title, description);
         setSize(size);
+        setId();
     }
 
     @Override

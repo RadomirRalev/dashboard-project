@@ -2,7 +2,7 @@ package core.factories;
 
 
 import commands.actions.activityhistory.ShowActivityHistory;
-import commands.actions.board.AddBoardToTeam;
+//import commands.actions.board.AddBoardToTeam;
 import commands.actions.board.CreateBoard;
 import commands.actions.member.ListAllTeamMembers;
 import commands.actions.team.ListTeams;
@@ -11,6 +11,9 @@ import commands.actions.person.*;
 import commands.actions.team.CreateTeam;
 import commands.actions.team.ShowTeamBoards;
 import commands.actions.workitem.CreateBug;
+import commands.actions.workitem.CreateFeedback;
+import commands.actions.workitem.CreateStory;
+import commands.actions.workitem.RemoveWorkItem;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.CommandFactory;
@@ -45,17 +48,20 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ListTeams(functionalsRepository);
             case CREATEBOARD:
                 return new CreateBoard(functionalsFactory, functionalsRepository);
-            case ADDBOARDTOTEAM:
-                return new AddBoardToTeam(functionalsFactory, functionalsRepository);
             case SHOWTEAMBOARDS:
                 return new ShowTeamBoards(functionalsRepository);
             case LISTALLMEMBERS:
                 return new ListAllTeamMembers(functionalsRepository);
             case CREATEBUG:
-                return new CreateBug(functionalsFactory,functionalsRepository);
+                return new CreateBug(functionalsFactory, functionalsRepository);
+            case CREATESTORY:
+                return new CreateStory(functionalsFactory, functionalsRepository);
             case SHOWACTIVITYHISTORY:
                 return new ShowActivityHistory(functionalsRepository);
-
+            case CREATEFEEDBACK:
+                return new CreateFeedback(functionalsFactory, functionalsRepository);
+            case REMOVEWORKITEM:
+                return new RemoveWorkItem(functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }

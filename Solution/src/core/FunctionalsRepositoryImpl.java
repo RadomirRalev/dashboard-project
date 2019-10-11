@@ -48,22 +48,27 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
         return new TreeMap<>(members);
     }
 
+    @Override
     public void addPerson(String name, Person person) {
         this.persons.put(name, person);
     }
 
+    @Override
     public void addTeam(String name, Team team) {
         this.teams.put(name, team);
     }
 
+    @Override
     public void addBoard(String name, Board board) {
         this.boards.put(name, board);
     }
 
+    @Override
     public void deletePerson(String name) {
         this.persons.remove(name);
     }
 
+    @Override
     public void addMember(String name, Person person) {
         this.members.put(name, person);
     }
@@ -71,5 +76,10 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
     @Override
     public void addWorkItem(Integer id, WorkItems workItems) {
         this.workItems.put(id, workItems);
+    }
+
+    @Override
+    public void removeWorkItem(Integer id){
+        workItems.remove(id);
     }
 }

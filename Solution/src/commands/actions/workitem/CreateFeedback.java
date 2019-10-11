@@ -4,26 +4,26 @@ import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.contracts.FunctionalsFactory;
 import core.contracts.FunctionalsRepository;
-import workitems.contracts.Story;
-import workitems.models.StoryImpl;
-import workitems.models.WorkItemsImpl;
+import workitems.contracts.Feedback;
+import workitems.models.FeedbackImpl;
 
 import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class CreateStory implements Command {
-    //creates a story inside a board object. Cannot create stories outside of boards (just like in Trello)
+public class CreateFeedback implements Command {
+    //creates feedback inside a board object. Cannot create feedback outside of boards (just like in Trello)
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 4;
+
     private final FunctionalsRepository functionalsRepository;
     private final FunctionalsFactory functionalsFactory;
 
     private String boardName;
     private String title;
     private String description;
-    private String size;
+    private int rating;
 
-    public CreateStory(FunctionalsFactory functionalsFactory, FunctionalsRepository functionalsRepository) {
+    public CreateFeedback(FunctionalsFactory functionalsFactory, FunctionalsRepository functionalsRepository){
         this.functionalsFactory = functionalsFactory;
         this.functionalsRepository = functionalsRepository;
     }
@@ -34,31 +34,29 @@ public class CreateStory implements Command {
 
         parseParameters(parameters);
 
-        if (!functionalsRepository.getBoards().containsKey(boardName)) {
+        if(!functionalsRepository.getBoards().containsKey(boardName)){
             throw new IllegalArgumentException(String.format(BOARD_DOES_NOT_EXIST_ERROR_MSG, boardName));
         }
 
-        return createStory(title, description, size);
+        return createFeedback(title, description, rating);
     }
 
-    private String createStory(String title, String description, String size) {
-        //adding the Story to a specific board
-        Story story = functionalsFactory.createStory(title, description, size);
-        functionalsRepository.getBoards().get(boardName).addWorkItems(story);
+    private String createFeedback(String title, String description, int rating){
+        Feedback feedback = functionalsFactory.createFeedback(title, description, rating);
+        functionalsRepository.getBoards().get(boardName).addWorkItems(feedback);
 
-        //adding the Story to the WorkItem Map.
-        functionalsRepository.addWorkItem(story.getId(), story);
+        functionalsRepository.addWorkItem(feedback.getId(), feedback);
 
-        return String.format(STORY_CREATED_SUCCESS_MESSAGE, title);
+        return String.format(FEEDBACK_CREATED_SUCCESS_MESSAGE, title);
     }
 
-    private void parseParameters(List<String> parameters) {
-        try {
+    private void parseParameters(List<String> parameters){
+        try{
             boardName = parameters.get(0);
             title = parameters.get(1);
             description = parameters.get(2);
-            size = parameters.get(3);
-        } catch (Exception e) {
+            rating = Integer.parseInt(parameters.get(3));
+        } catch (Exception e){
             throw new IllegalArgumentException(FAILED_TO_PARSE_COMMAND_PARAMETERS);
         }
     }

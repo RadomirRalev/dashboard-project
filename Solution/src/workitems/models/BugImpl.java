@@ -19,6 +19,7 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
         super(title, description);
         setSeverity(severity);
         setStepsToReproduce(stepsToReproduce);
+        setId();
     }
 
     @Override
