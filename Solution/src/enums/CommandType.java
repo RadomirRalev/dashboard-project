@@ -14,7 +14,10 @@ public enum CommandType {
     ADDBOARDTOTEAM ("Add board to team"),
     SHOWTEAMBOARDS ("Show team boards"),
     LISTALLMEMBERS ("List all members"),
- 	CREATESTORY ("Create story");  	SHOWACTIVITYHISTORY ("Show activity history");
+    CREATEBUG ("Create bug"),
+ 	CREATESTORY ("Create story"),
+    SHOWACTIVITYHISTORY ("Show activity history");
+
     private final String command;
 
     CommandType(String command) {

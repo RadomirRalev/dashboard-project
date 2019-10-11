@@ -2,7 +2,7 @@ package core.factories;
 
 
 import commands.actions.activityhistory.ShowActivityHistory;
-import commands.actions.board.AddBoardToTeam;
+//import commands.actions.board.AddBoardToTeam;
 import commands.actions.board.CreateBoard;
 import commands.actions.member.ListAllTeamMembers;
 import commands.actions.team.ListTeams;
@@ -46,16 +46,17 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ListTeams(functionalsRepository);
             case CREATEBOARD:
                 return new CreateBoard(functionalsFactory, functionalsRepository);
-            case ADDBOARDTOTEAM:
-                return new AddBoardToTeam(functionalsFactory, functionalsRepository);
+//            case ADDBOARDTOTEAM:
+//                return new AddBoardToTeam(functionalsFactory, functionalsRepository);
             case SHOWTEAMBOARDS:
                 return new ShowTeamBoards(functionalsRepository);
             case LISTALLMEMBERS:
                 return new ListAllTeamMembers(functionalsRepository);
             case CREATEBUG:
-                return new CreateBug(functionalsFactory,functionalsRepository);
-			case CREATESTORY:
-                return new CreateStory(functionalsFactory,functionalsRepository);			case SHOWACTIVITYHISTORY:
+                return new CreateBug(functionalsFactory, functionalsRepository);
+            case CREATESTORY:
+                return new CreateStory(functionalsFactory, functionalsRepository);
+            case SHOWACTIVITYHISTORY:
                 return new ShowActivityHistory(functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));

@@ -34,6 +34,6 @@ public class ShowTeamBoards implements Command {
             return String.format(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamName);
         }
 
-        return functionalsRepository.getTeams().get(teamName).showBoards().toString();
+        return functionalsRepository.getTeams().get(teamName).showBoards();
     }
 }

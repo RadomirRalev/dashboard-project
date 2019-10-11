@@ -53,13 +53,16 @@ public class BoardImpl implements BoardAndPerson, Board {
 
     @Override
     public String toString() {
-        return String.format("Board name: %s\n" +
-                        " Activity history: %s" +
-                        " Work items:%s",
+        StringBuilder str = new StringBuilder();
+        str.append(String.format("Board name: %s\n" +
+                        "Activity history: %s\n" +
+                        "Work items:\n",
                 getName(),
-                showActivity(),
-                listWorkItems().toString()
-        );
+                showActivity()));
+        for (Object object : listWorkItems()) {
+            str.append(String.format("%s\n", object));
+        }
+        return str.toString();
     }
 
     @Override
