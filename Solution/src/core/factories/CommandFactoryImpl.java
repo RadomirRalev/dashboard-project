@@ -1,5 +1,6 @@
 package core.factories;
 
+
 import commands.actions.activityhistory.ShowActivityHistory;
 import commands.actions.board.AddBoardToTeam;
 import commands.actions.board.CreateBoard;
@@ -9,6 +10,7 @@ import commands.actions.member.CreateMember;
 import commands.actions.person.*;
 import commands.actions.team.CreateTeam;
 import commands.actions.team.ShowTeamBoards;
+import commands.actions.workitem.CreateBug;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.CommandFactory;
@@ -49,6 +51,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ShowTeamBoards(functionalsRepository);
             case LISTALLMEMBERS:
                 return new ListAllTeamMembers(functionalsRepository);
+            case CREATEBUG:
+                return new CreateBug(functionalsFactory,functionalsRepository);
             case SHOWACTIVITYHISTORY:
                 return new ShowActivityHistory(functionalsRepository);
 

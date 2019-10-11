@@ -7,6 +7,7 @@ import functionals.contracts.Board;
 import functionals.contracts.Person;
 import functionals.models.BoardImpl;
 import functionals.models.PersonImpl;
+import workitems.contracts.Bug;
 import workitems.contracts.WorkItems;
 import workitems.models.*;
 

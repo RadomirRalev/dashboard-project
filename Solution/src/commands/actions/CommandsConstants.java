@@ -33,6 +33,7 @@ public class CommandsConstants {
     public static final String WHICH_MEMBER = "Which member?";
     public static final String HISTORY_UNAVAILABLE = "Activity history is available only for members or boards! " +
             "Type a new command:";
-
+    public static final String BUG_CREATED_SUCCESS_MESSAGE = "Bug %s was created!";
+    public static final String FAILED_TO_PARSE_COMMAND_PARAMETERS = "Failed to parse command parameters";
 
 }
