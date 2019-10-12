@@ -4,7 +4,9 @@ import functionals.contracts.BoardAndPerson;
 import workitems.models.WorkItemsImpl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MemberImpl extends PersonImpl implements BoardAndPerson {
     private List workItems;
@@ -32,7 +34,6 @@ public class MemberImpl extends PersonImpl implements BoardAndPerson {
                         " Activity history: %s" +
                         " Work items:%s\n",
                 getName(),
-                showActivity(),
                 listWorkItems().toString()
         );
     }

@@ -2,31 +2,29 @@ package functionals.models;
 import functionals.contracts.Person;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import static commands.actions.activityhistory.ActHistory.getMembersActivity;
+//import static commands.actions.activityhistory.ActHistory.getMembersActivity;
 
 public class PersonImpl implements Person {
+    private static final Map<String, ArrayList<String>> membersActivity = new HashMap<>();
     private String name;
     private List<String> assignedWork;
-    private ArrayList<String> activityHistory;
-
-
 
     public PersonImpl(String name) {
         setName(name);
         assignedWork = new ArrayList<>();
-        activityHistory = new ArrayList();
+    }
+
+    public static Map<String, ArrayList<String>> getMembersActivity() {
+        return membersActivity;
     }
 
     @Override
     public void addActivity(String activity) {
         getMembersActivity().get(name).add(activity);
-    }
-
-    @Override
-    public List showActivity() {
-        return activityHistory;
     }
 
     private void setName(String name) {

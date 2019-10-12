@@ -3,13 +3,14 @@ package functionals.models;
 import functionals.contracts.Board;
 import functionals.contracts.BoardAndPerson;
 import workitems.contracts.WorkItems;
-import workitems.models.WorkItemsImpl;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BoardImpl implements BoardAndPerson, Board {
     //TODO implement the methods from the Board interface
+    private static final Map<String, ArrayList<String>> boardsActivity = new HashMap<>();
     private String name;
     private List<String> activityHistory;
     private List workItems;
@@ -20,19 +21,18 @@ public class BoardImpl implements BoardAndPerson, Board {
         workItems = new ArrayList();
     }
 
+    public static Map<String, ArrayList<String>> getBoardsActivity() {
+        return boardsActivity;
+    }
+
+
     private void setName(String name) {
         this.name = name;
     }
 
-
     @Override
     public void addActivity(String activity) {
-
-    }
-
-    @Override
-    public List showActivity() {
-        return activityHistory;
+        getBoardsActivity().get(name).add(activity);
     }
 
     public <T extends WorkItems> void addWorkItems(T workItem) {
@@ -56,19 +56,18 @@ public class BoardImpl implements BoardAndPerson, Board {
         return name;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         StringBuilder str = new StringBuilder();
         str.append(String.format("Board name: %s\n" +
                         "Activity history: %s\n" +
                         "Work items:\n",
                 getName(),
-                showActivity()));
         for (Object object : listWorkItems()) {
             str.append(String.format("%s\n", object));
         }
         return str.toString();
-    }
+    }*/
 
     @Override
     public void addBug() {

@@ -8,6 +8,4 @@ public interface BoardAndPerson extends Functionals {
 
     void addActivity(String activity);
 
-    List showActivity();
-
 }

@@ -9,7 +9,8 @@ import core.providers.ConsoleWriter;
 import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;
-import static commands.actions.activityhistory.ActHistory.getMembersActivity;
+import static functionals.models.PersonImpl.getMembersActivity;
+//import static commands.actions.activityhistory.ActHistory.getMembersActivity;
 
 public class MemberActivityHistory {
     private Reader reader;

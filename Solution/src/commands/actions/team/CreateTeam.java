@@ -1,11 +1,14 @@
 package commands.actions.team;
 
+import commands.actions.activityhistory.ActHistory;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.FunctionalsFactory;
 import functionals.contracts.Person;
 import functionals.contracts.Team;
+import functionals.models.TeamsImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
@@ -26,6 +29,7 @@ public class CreateTeam implements Command {
             throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
         }
         String teamName = parameters.get(0);
+        TeamsImpl.getTeamsActivity().put(teamName, new ArrayList<>());
         return createTeam(teamName);
     }
 
@@ -37,6 +41,8 @@ public class CreateTeam implements Command {
 
         Team team = functionalsFactory.createTeam(name);
         functionalsRepository.addTeam(name, team);
+        String activity = String.format(TEAM_CREATED_MSG, name);
+        team.addActivity(activity);
         return String.format(TEAM_CREATED_MSG, name);
     }
 }

@@ -42,6 +42,7 @@ public class CreateMember implements Command {
     private String addToActivityHistory(String teamToAddTo, String personName, Person person) {
         String activity = String.format(MEMBER_ADDED_MSG, personName, teamToAddTo);
         person.addActivity(activity);
+        //TODO Add to team activity history - SHOULD INITIALISE ARRAYLIST IN CREATETEAM!!! The same goes for board.
         return activity;
     }
 

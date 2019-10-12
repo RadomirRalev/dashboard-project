@@ -22,6 +22,4 @@ public interface Team extends Functionals {
 
     void addActivity(String activity);
 
-    List showActivity();
-
 }

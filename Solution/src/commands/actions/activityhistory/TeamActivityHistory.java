@@ -6,12 +6,10 @@ import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
-import functionals.contracts.Team;
-
 import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;
-import static commands.actions.activityhistory.ActHistory.getTeamsActivity;
+import static functionals.models.TeamsImpl.getTeamsActivity;
 
 public class TeamActivityHistory {
     private Reader reader;

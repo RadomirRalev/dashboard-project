@@ -11,7 +11,7 @@ import functionals.contracts.Board;
 import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;
-import static commands.actions.activityhistory.ActHistory.getBoardsActivity;
+import static functionals.models.BoardImpl.getBoardsActivity;
 
 public class BoardActivityHistory {
     private Reader reader;
