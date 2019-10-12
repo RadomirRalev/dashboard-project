@@ -23,14 +23,14 @@ public class ListAllTeamMembers implements Command {
         return membersList(str.toString());
     }
 
-    public StringJoiner prepareMembersList() {
+    private StringJoiner prepareMembersList() {
         StringJoiner str = new StringJoiner(", ");
         Set<String> keys = functionalsRepository.getPersons().keySet();
         keys.forEach (e -> str.add(e) );
         return str;
     }
 
-    public void checkArgumentsNumber(List<String> parameters) {
+    private void checkArgumentsNumber(List<String> parameters) {
         if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
             throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
         }

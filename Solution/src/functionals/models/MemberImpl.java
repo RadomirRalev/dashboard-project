@@ -4,6 +4,7 @@ import workitems.models.WorkItemsImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MemberImpl extends PersonImpl {
     private List workItems;
@@ -21,16 +22,22 @@ public class MemberImpl extends PersonImpl {
         workItems.remove(workItem);
     }
 
-    public List listWorkItems() {
+    private List listWorkItems() {
         return workItems;
+    }
+
+    public String showActivity(String name) {
+        return String.valueOf(getMembersActivity().get(name).stream()
+                .collect( Collectors.joining( "\n" ) ));
     }
 
     @Override
     public String toString() {
         return String.format("MemberImpl name: %s\n" +
-                        " Activity history: %s" +
+                        " Activity history: %s\n" +
                         " Work items:%s\n",
                 getName(),
+                showActivity(getName()),
                 listWorkItems().toString()
         );
     }

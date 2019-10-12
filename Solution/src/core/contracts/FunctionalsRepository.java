@@ -3,6 +3,7 @@ package core.contracts;
 import functionals.contracts.Board;
 import functionals.contracts.Person;
 import functionals.contracts.Team;
+import functionals.models.MemberImpl;
 import workitems.contracts.WorkItems;
 
 import java.util.Map;
@@ -17,6 +18,6 @@ public interface FunctionalsRepository {
     void addTeam(String name, Team team);
     void addPerson(String name, Person person);
     void deletePerson(String name);
-    void addMember(String name, Person person);
+    void addMember(String name, MemberImpl member);
     void removeWorkItem(Integer id);
 }

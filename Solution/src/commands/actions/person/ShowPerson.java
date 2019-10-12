@@ -2,7 +2,6 @@ package commands.actions.person;
 
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
-import core.contracts.FunctionalsFactory;
 import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
@@ -15,6 +14,7 @@ import static commands.actions.CommandsConstants.*;
 
 public class ShowPerson implements Command {
 
+    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
     private Writer writer;
@@ -27,6 +27,7 @@ public class ShowPerson implements Command {
 
     @Override
     public String execute(List<String> parameters) {
+        checkArgumentsNumber(parameters);
         writer.writeLine(WHICH_PERSON);
         String personName = asksWhichPerson();
         while (checkIfPersonExists(personName)) {
@@ -51,5 +52,11 @@ public class ShowPerson implements Command {
     private String asksWhichPerson() {
         String[] personName = reader.readLine().split(" ");
         return NameJoiner.joinerArr(personName);
+    }
+
+    private void checkArgumentsNumber(List<String> parameters) {
+        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
+            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
+        }
     }
 }

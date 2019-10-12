@@ -6,10 +6,9 @@ import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
-import java.util.stream.Collectors;
+import functionals.models.MemberImpl;
 
 import static commands.actions.CommandsConstants.*;
-import static functionals.models.PersonImpl.getMembersActivity;
 
 public class MemberActivityHistory {
     private Reader reader;
@@ -37,8 +36,8 @@ public class MemberActivityHistory {
     }
 
     private String showActivity(String memberActivityHistory) {
-        return String.valueOf(getMembersActivity().get(memberActivityHistory).stream()
-                .collect( Collectors.joining( "\n" ) ));
+        MemberImpl member = functionalsRepository.getMembers().get(memberActivityHistory);
+        return member.showActivity(memberActivityHistory);
     }
 
     private String asksWhichMember() {

@@ -19,6 +19,7 @@ public enum CommandType {
     CREATEFEEDBACK ("Create feedbak"),
     REMOVEWORKITEM ("Remove workitem"),
     SHOWPERSON ("Show person"),
+    SHOWMEMBER ("Show person"),
     CHANGESTATUS ("Change status");
 
     private final String command;

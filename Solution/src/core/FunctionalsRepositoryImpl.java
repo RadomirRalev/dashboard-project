@@ -4,6 +4,7 @@ import core.contracts.FunctionalsRepository;
 import functionals.contracts.Board;
 import functionals.contracts.Person;
 import functionals.contracts.Team;
+import functionals.models.MemberImpl;
 import workitems.contracts.WorkItems;
 
 import java.util.*;
@@ -13,7 +14,7 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
     private Map<String, Person> persons;
     private Map<String, Team> teams;
     private Map<String, Board> boards;
-    private Map<String, Person> members;
+    private Map<String, MemberImpl> members;
     private Map<Integer, WorkItems> workItems;
 
     public FunctionalsRepositoryImpl() {
@@ -44,7 +45,7 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
         return new TreeMap<>(workItems);
     }
 
-    public Map<String, Person> getMembers() {
+    public Map<String, MemberImpl> getMembers() {
         return new TreeMap<>(members);
     }
 
@@ -69,8 +70,8 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
     }
 
     @Override
-    public void addMember(String name, Person person) {
-        this.members.put(name, person);
+    public void addMember(String name, MemberImpl member) {
+        this.members.put(name, member);
     }
 
     @Override
