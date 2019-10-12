@@ -14,6 +14,7 @@ import static functionals.models.TeamsImpl.getTeamsActivity;
 public class TeamActivityHistory {
     private Reader reader;
     private Writer writer;
+    private String teamActivityHistory;
     private final FunctionalsRepositoryImpl functionalsRepository;
 
 
@@ -25,7 +26,7 @@ public class TeamActivityHistory {
 
     public String execute() {
         writer.writeLine(WHICH_TEAM);
-        String teamActivityHistory = asksWhichTeam();
+        teamActivityHistory = asksWhichTeam();
         while (!checkIfTeamExists(teamActivityHistory)) {
             System.out.printf(TEAM_DOES_NOT_EXIST_MSG, teamActivityHistory);
             teamActivityHistory = asksWhichTeam();
@@ -42,11 +43,10 @@ public class TeamActivityHistory {
     }
 
     private String asksWhichTeam() {
-        String[] teamActivityHistory = reader.readLine().split(" ");
-        return NameJoiner.joinerArr(teamActivityHistory);
+        return teamActivityHistory = reader.readLine();
     }
 
     private boolean checkIfTeamExists(String teamActivityHistory) {
-        return functionalsRepository.getMembers().containsKey(teamActivityHistory);
+        return functionalsRepository.getTeams().containsKey(teamActivityHistory);
     }
 }

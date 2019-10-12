@@ -36,11 +36,10 @@ public class CreateTeam implements Command {
         if (functionalsRepository.getTeams().containsKey(name)) {
             return String.format(TEAM_EXISTS_ERROR_MSG, name);
         }
-
         Team team = functionalsFactory.createTeam(name);
         functionalsRepository.addTeam(name, team);
         String activity = String.format(TEAM_CREATED_MSG, name);
-        team.addActivity(activity);
+        TeamsImpl.addActivity(activity, name);
         return String.format(TEAM_CREATED_MSG, name);
     }
 }

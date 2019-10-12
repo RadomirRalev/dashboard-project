@@ -1,14 +1,11 @@
 package functionals.models;
 
-import functionals.contracts.BoardAndPerson;
 import workitems.models.WorkItemsImpl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class MemberImpl extends PersonImpl implements BoardAndPerson {
+public class MemberImpl extends PersonImpl {
     private List workItems;
 
     public MemberImpl(String name) {

@@ -1,14 +1,13 @@
 package functionals.models;
 
 import functionals.contracts.Board;
-import functionals.contracts.BoardAndPerson;
 import workitems.contracts.WorkItems;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BoardImpl implements BoardAndPerson, Board {
+public class BoardImpl implements Board {
     //TODO implement the methods from the Board interface
     private static final Map<String, ArrayList<String>> boardsActivity = new HashMap<>();
     private String name;
@@ -25,14 +24,12 @@ public class BoardImpl implements BoardAndPerson, Board {
         return boardsActivity;
     }
 
+    public static void addActivity(String activity, String name) {
+        getBoardsActivity().get(name).add(activity);
+    }
 
     private void setName(String name) {
         this.name = name;
-    }
-
-    @Override
-    public void addActivity(String activity) {
-        getBoardsActivity().get(name).add(activity);
     }
 
     public <T extends WorkItems> void addWorkItems(T workItem) {

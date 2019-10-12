@@ -3,7 +3,7 @@ package functionals.contracts;
 
 import java.util.List;
 
-public interface Person extends BoardAndPerson {
+public interface Person extends Functionals {
 
     void assignWork(String workToBeAdded);
 

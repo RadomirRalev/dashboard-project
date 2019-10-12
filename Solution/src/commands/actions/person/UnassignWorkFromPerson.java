@@ -7,6 +7,7 @@ import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
+import functionals.models.PersonImpl;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class UnassignWorkFromPerson implements Command {
 
     private String addUnassignWorkToActivityHistory(String personName, int workToBeUnassigned, Person person) {
         String activity = String.format(WORK_UNASSIGNED, workToBeUnassigned, personName);
-        person.addActivity(activity);
+        PersonImpl.addActivity(activity, personName);
         return activity;
     }
 

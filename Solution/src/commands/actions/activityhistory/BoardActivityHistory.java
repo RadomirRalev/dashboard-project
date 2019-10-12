@@ -16,6 +16,7 @@ import static functionals.models.BoardImpl.getBoardsActivity;
 public class BoardActivityHistory {
     private Reader reader;
     private Writer writer;
+    private String boardActivityHistory;
     private final FunctionalsRepositoryImpl functionalsRepository;
 
     public BoardActivityHistory(FunctionalsRepositoryImpl functionalsRepository) {
@@ -26,7 +27,7 @@ public class BoardActivityHistory {
 
     public String execute() {
         writer.writeLine(WHICH_BOARD);
-        String boardActivityHistory = asksWhichBoard();
+        boardActivityHistory = asksWhichBoard();
         while (!checkIfBoardExists(boardActivityHistory)) {
             System.out.printf(BOARD_DOES_NOT_EXIST_MSG, boardActivityHistory);
             boardActivityHistory = asksWhichBoard();
@@ -43,12 +44,11 @@ public class BoardActivityHistory {
     }
 
     private String asksWhichBoard() {
-        String[] boardActivityHistory = reader.readLine().split(" ");
-        return NameJoiner.joinerArr(boardActivityHistory);
+        return boardActivityHistory = reader.readLine();
     }
 
     private boolean checkIfBoardExists(String boardActivityHistory) {
-        return functionalsRepository.getMembers().containsKey(boardActivityHistory);
+        return functionalsRepository.getBoards().containsKey(boardActivityHistory);
     }
 
 }

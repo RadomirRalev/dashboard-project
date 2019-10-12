@@ -5,7 +5,7 @@ import workitems.models.WorkItemsImpl;
 
 import java.util.List;
 
-public interface Board extends BoardAndPerson {
+public interface Board extends Functionals {
     <T extends WorkItems> void addWorkItems(T workItem);
 
     <T extends WorkItems> void removeWorkItems(T workItem);

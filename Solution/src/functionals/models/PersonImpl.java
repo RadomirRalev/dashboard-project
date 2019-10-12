@@ -21,8 +21,7 @@ public class PersonImpl implements Person {
         return membersActivity;
     }
 
-    @Override
-    public void addActivity(String activity) {
+    public static void addActivity(String activity, String name) {
         getMembersActivity().get(name).add(activity);
     }
 

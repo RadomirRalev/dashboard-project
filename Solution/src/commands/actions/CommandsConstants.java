@@ -35,7 +35,7 @@ public class CommandsConstants {
     public static final String BOARD_DOES_NOT_EXIST_ERROR_MSG = "Board %s does not exist!";
     public static final String BOARD_ADDED_SUCCESS_MESSAGE = "Board %s has been successfully added to Team %s!";
     public static final String MEMBERSLIST_INCLUDES = "Members list includes: \n%s";
-    public static final String SHOW_ACTIVITY_HISTORY_QUESTION = "Show activity history of a member or a board?";
+    public static final String SHOW_ACTIVITY_HISTORY_QUESTION = "Show activity history of a member, a team, or a board?";
     public static final String WHICH_MEMBER = "Which member?";
     public static final String HISTORY_UNAVAILABLE = "Activity history is available only for members, teams or boards! " +
             "Type a new command:";

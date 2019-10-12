@@ -44,7 +44,7 @@ public class CreateNewPerson implements Command {
         Person person = functionalsFactory.createPerson(name);
         functionalsRepository.addPerson(name, person);
         String activity = String.format(PERSON_CREATED_MSG, name);
-        person.addActivity(activity);
+        PersonImpl.addActivity(activity, name);
         return activity;
     }
 

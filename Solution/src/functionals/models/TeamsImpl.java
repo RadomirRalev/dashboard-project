@@ -57,9 +57,10 @@ public class TeamsImpl implements Team {
         boards.remove(board);
     }
 
-    public void addActivity(String activity) {
+    public static void addActivity(String activity, String name) {
         getTeamsActivity().get(name).add(activity);
     }
+
     @Override
     public String showBoards() {
         StringBuilder str = new StringBuilder();

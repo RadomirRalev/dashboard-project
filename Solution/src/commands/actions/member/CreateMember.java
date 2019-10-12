@@ -9,6 +9,9 @@ import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
 import functionals.contracts.Team;
+import functionals.models.PersonImpl;
+import functionals.models.TeamsImpl;
+
 import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
@@ -41,8 +44,8 @@ public class CreateMember implements Command {
 
     private String addToActivityHistory(String teamToAddTo, String personName, Person person) {
         String activity = String.format(MEMBER_ADDED_MSG, personName, teamToAddTo);
-        person.addActivity(activity);
-        //TODO Add to team activity history - SHOULD INITIALISE ARRAYLIST IN CREATETEAM!!! The same goes for board.
+        PersonImpl.addActivity(activity, personName);
+        TeamsImpl.addActivity(activity, teamToAddTo);
         return activity;
     }
 
