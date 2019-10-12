@@ -42,7 +42,7 @@ public class UnassignWorkFromPerson implements Command {
     }
 
     private boolean checkIfWorkExists(int workToBeUnassigned, Person person) {
-        return workToBeUnassigned > person.listAssignedWork().size();
+        return workToBeUnassigned > person.getAssignedWork().size();
     }
 
     private boolean checkIfPersonExists(String personName) {

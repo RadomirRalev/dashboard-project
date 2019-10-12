@@ -59,6 +59,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new CreateFeedback(functionalsFactory, functionalsRepository);
             case REMOVEWORKITEM:
                 return new RemoveWorkItem(functionalsRepository);
+            case SHOWPERSON:
+                return new ShowPerson(functionalsRepository);
             case CHANGESTATUS:
                 return new ChangeStatus(functionalsRepository);
         }

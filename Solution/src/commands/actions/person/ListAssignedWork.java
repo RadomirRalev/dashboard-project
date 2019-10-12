@@ -3,6 +3,7 @@ package commands.actions.person;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import functionals.contracts.Person;
+import functionals.models.PersonImpl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,9 +27,7 @@ public class ListAssignedWork implements Command {
 
     private String prepareAssignedWorkList(String personName) {
         Person person = functionalsRepository.getPersons().get(personName);
-        return String.valueOf(person.listAssignedWork().stream()
-                .map( n -> n.toString() )
-                .collect( Collectors.joining( "; " ) ));
+        return person.listAssignedWork();
     }
 
     private boolean checkIfPersonExists(String personName) {

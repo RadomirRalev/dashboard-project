@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class PersonImpl implements Person {
@@ -29,9 +30,14 @@ public class PersonImpl implements Person {
         this.name = name;
     }
 
-    @Override
-    public List listAssignedWork() {
+    public List getAssignedWork() {
         return assignedWork;
+    }
+
+    @Override
+    public String listAssignedWork() {
+        return String.valueOf(this.assignedWork.stream()
+                .collect(Collectors.joining( "; " ) ));
     }
 
     @Override

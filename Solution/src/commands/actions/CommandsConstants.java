@@ -10,6 +10,9 @@ public class CommandsConstants {
     public static final String MEMBER_DOES_NOT_EXIST_MSG = "Member %s does not exist in the database " +
             "but you can write a new name to correct your search. " +
             "Please type cancel to abort or change name: \n";
+    public static final String PERSON_DOES_NOT_EXIST_MSG = "Person %s does not exist in the database " +
+            "but you can write a new name to correct your search. " +
+            "Please type cancel to abort or change name: \n";
     public static final String TEAM_DOES_NOT_EXIST_MSG = "Team %s does not exist in the database " +
             "but you can write a new team name to correct your search. " +
             "Please type cancel to abort or change team name: \n";
@@ -36,15 +39,16 @@ public class CommandsConstants {
     public static final String BOARD_ADDED_SUCCESS_MESSAGE = "Board %s has been successfully added to Team %s!";
     public static final String MEMBERSLIST_INCLUDES = "Members list includes: \n%s";
     public static final String SHOW_ACTIVITY_HISTORY_QUESTION = "Show activity history of a member, a team, or a board?";
-    public static final String WHICH_MEMBER = "Which member?";
     public static final String HISTORY_UNAVAILABLE = "Activity history is available only for members, teams or boards! " +
             "Type a new command:";
     public static final String BUG_CREATED_SUCCESS_MESSAGE = "Bug %s was created!";
     public static final String STORY_CREATED_SUCCESS_MESSAGE = "Story %s was created!";
     public static final String FEEDBACK_CREATED_SUCCESS_MESSAGE = "Feedback %s was created!";
     public static final String FAILED_TO_PARSE_COMMAND_PARAMETERS = "Failed to parse command parameters";
+    public static final String WHICH_MEMBER = "Which member?";
     public static final String WHICH_BOARD = "Which board?";
     public static final String WHICH_TEAM = "Which team?";
+    public static final String WHICH_PERSON = "Which person?";
     public static final String WORKITEM_DOES_NOT_EXIST_ERROR_MSG = "Workitem %s with id %d does not exist!";
     public static final String WORK_ITEM_SUCCESS_REMOVAL_MESSAGE = "Workitem %s with id %d successfully removed";
     public static final String WORKITEM_DOES_NOT_EXIST_IN_BOARD_MSG = "Workitem %s with id %d does not exist in board %s";

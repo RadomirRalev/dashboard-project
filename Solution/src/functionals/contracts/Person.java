@@ -1,6 +1,5 @@
 package functionals.contracts;
 
-
 import java.util.List;
 
 public interface Person extends Functionals {
@@ -9,5 +8,7 @@ public interface Person extends Functionals {
 
     void unassignWork(int workToBeUnassigned);
 
-    List listAssignedWork();
+    String listAssignedWork();
+
+    List getAssignedWork();
 }

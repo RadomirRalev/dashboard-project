@@ -6,4 +6,5 @@ public interface Functionals {
 
     @Override
     String toString();
+
 }

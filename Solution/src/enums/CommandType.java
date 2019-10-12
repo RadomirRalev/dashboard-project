@@ -18,6 +18,7 @@ public enum CommandType {
     SHOWACTIVITYHISTORY ("Show activity history"),
     CREATEFEEDBACK ("Create feedbak"),
     REMOVEWORKITEM ("Remove workitem"),
+    SHOWPERSON ("Show person"),
     CHANGESTATUS ("Change status");
 
     private final String command;
