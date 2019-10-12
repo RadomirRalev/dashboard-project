@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//import static commands.actions.activityhistory.ActHistory.getMembersActivity;
 
 public class PersonImpl implements Person {
     private static final Map<String, ArrayList<String>> membersActivity = new HashMap<>();

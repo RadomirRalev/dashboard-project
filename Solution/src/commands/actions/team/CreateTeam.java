@@ -1,10 +1,8 @@
 package commands.actions.team;
 
-import commands.actions.activityhistory.ActHistory;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.FunctionalsFactory;
-import functionals.contracts.Person;
 import functionals.contracts.Team;
 import functionals.models.TeamsImpl;
 

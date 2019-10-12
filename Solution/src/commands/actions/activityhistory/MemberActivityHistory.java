@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;
 import static functionals.models.PersonImpl.getMembersActivity;
-//import static commands.actions.activityhistory.ActHistory.getMembersActivity;
 
 public class MemberActivityHistory {
     private Reader reader;
