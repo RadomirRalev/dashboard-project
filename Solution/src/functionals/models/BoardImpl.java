@@ -33,10 +33,10 @@ public class BoardImpl implements Board {
     }
 
     public <T extends WorkItems> void addWorkItems(T workItem) {
-//        String workItemName = workItem.getTitle();
-//        if (listWorkItems().contains(workItem.getTitle().equals(workItemName))) {
-//            throw new IllegalArgumentException("You cannot add a WorkItem with the same name in the same board");
-//        }
+        String workItemName = workItem.getTitle();
+        if (listWorkItems().contains(workItem.getTitle().equals(workItemName))) {
+            throw new IllegalArgumentException("You cannot add a WorkItem with the same name in the same board");
+        }
         workItems.add(workItem);
     }
 
@@ -53,18 +53,18 @@ public class BoardImpl implements Board {
         return name;
     }
 
-    /*@Override
+    @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
         str.append(String.format("Board name: %s\n" +
                         "Activity history: %s\n" +
                         "Work items:\n",
-                getName(),
+                getName(), getBoardsActivity()));
         for (Object object : listWorkItems()) {
             str.append(String.format("%s\n", object));
         }
         return str.toString();
-    }*/
+    }
 
     @Override
     public void addBug() {

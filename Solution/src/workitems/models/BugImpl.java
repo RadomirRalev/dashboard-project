@@ -16,15 +16,19 @@ import static workitems.Constants.INVALID_ENUM_ERROR_MSG;
 public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkItems {
     private static final String ITEM_TYPE = "Bug";
 
+    private static EnumSet<Status> bugStatus;
+    private static EnumSet<Severity> severities;
+
     private Severity severity;
     private List<String> stepsToReproduce;
-    EnumSet<Status> bugStatus;
-    EnumSet<Severity> severities;
+
+    static {
+        bugStatus = EnumSet.of(Status.ACTIVE, Status.FIXED);
+        severities = EnumSet.allOf(Severity.class);
+    }
 
     public BugImpl(String title, String description, Severity severity, List<String> stepsToReproduce) {
         super(title, description);
-        bugStatus = EnumSet.of(Status.ACTIVE, Status.FIXED);
-        severities = EnumSet.of(Severity.CRITICAL, Severity.MAJOR, Severity.MINOR);
         setSeverity(severity);
         setStepsToReproduce(stepsToReproduce);
         setId();
@@ -43,13 +47,13 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
     //setSeverity can be public so it can be changed after creation;
     @Override
     public void setSeverity(Severity severity) {
-        if(!severities.contains(severity)){
+        if (!severities.contains(severity)) {
             throw new IllegalArgumentException(String.format(INVALID_ENUM_ERROR_MSG, severity, getItemType()));
         }
         this.severity = severity;
     }
 
-    public EnumSet<Status> getStatus(){
+    public EnumSet<Status> getStatus() {
         return bugStatus;
     }
 

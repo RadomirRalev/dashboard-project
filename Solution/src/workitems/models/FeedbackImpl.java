@@ -1,5 +1,6 @@
 package workitems.models;
 
+import enums.Severity;
 import enums.Status;
 import workitems.contracts.Feedback;
 import workitems.contracts.WorkItems;
@@ -12,12 +13,16 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
     private static final int MIN_RATING_VALUE = 1;
     private static final int MAX_RATING_VALUE = 5;
 
+    private static EnumSet<Status> feedbackStatus;
+
     private int rating;
-    private EnumSet<Status> feedbackStatus;
+
+    static {
+        feedbackStatus = EnumSet.of(Status.NEW, Status.UNSCHEDULED, Status.SCHEDULED, Status.DONE);
+    }
 
     public FeedbackImpl(String title, String description, int rating) {
         super(title, description);
-        feedbackStatus = EnumSet.of(Status.NEW, Status.UNSCHEDULED, Status.SCHEDULED, Status.DONE);
         setRating(rating);
         setId();
     }
@@ -31,7 +36,7 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
     public String toString() {
         StringBuilder str = new StringBuilder();
         str.append(super.toString());
-        str.append(String.format("Rating: %d",getRating()));
+        str.append(String.format("Rating: %d", getRating()));
         return str.toString();
     }
 
@@ -41,7 +46,7 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
         this.rating = rating;
     }
 
-    public EnumSet<Status> getStatus(){
+    public EnumSet<Status> getStatus() {
         return feedbackStatus;
     }
 

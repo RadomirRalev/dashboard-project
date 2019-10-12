@@ -75,7 +75,7 @@ public abstract class WorkItemsImpl implements WorkItems {
     @Override
     public void setStatus(Status status) {
         if(!getStatus().contains(status)){
-            throw new IllegalArgumentException(String.format(INVALID_ENUM_ERROR_MSG,getItemType(),status));
+            throw new IllegalArgumentException(String.format(INVALID_ENUM_ERROR_MSG,status, getItemType()));
         }
         this.status = status;
     }
