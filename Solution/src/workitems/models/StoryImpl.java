@@ -11,12 +11,16 @@ import java.util.EnumSet;
 public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, WorkItems {
     private static final String ITEM_TYPE = "Story";
 
+    private static EnumSet<Status> storyStatus;
+
     private Size size;
-    private EnumSet<Status> storyStatus;
+
+    static {
+        storyStatus = EnumSet.of(Status.NOTDONE, Status.IN_PROGRESS, Status.DONE);
+    }
 
     public StoryImpl(String title, String description, Size size) {
         super(title, description);
-        storyStatus = EnumSet.of(Status.NOTDONE, Status.IN_PROGRESS, Status.DONE);
         setSize(size);
         setId();
     }
@@ -40,7 +44,7 @@ public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, Wo
     }
 
     @Override
-    public EnumSet<Status> getStatus(){
+    public EnumSet<Status> getStatus() {
         return storyStatus;
     }
 

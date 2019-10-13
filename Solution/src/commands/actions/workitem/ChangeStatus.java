@@ -30,40 +30,31 @@ public class ChangeStatus implements Command {
 
         parseParameters(parameters);
 
-        if (!functionalsRepository.getBoards().containsKey(boardName)) {
-            throw new IllegalArgumentException(String.format(BOARD_DOES_NOT_EXIST_ERROR_MSG, boardName));
-        }
-
-        if (!functionalsRepository.getWorkItems().containsKey(id)) {
-            throw new IllegalArgumentException(String.format(WORKITEM_DOES_NOT_EXIST_ERROR_MSG, workitemName, id));
-        }
-
         WorkItems workitem = functionalsRepository.getWorkItems().get(id);
+        Board board = functionalsRepository.getBoards().get(boardName);
 
-        if (!functionalsRepository.getBoards().get(boardName).listWorkItems().contains(workitem)) {
-            throw new IllegalArgumentException(String.format(WORKITEM_DOES_NOT_EXIST_IN_BOARD_MSG, workitemName, id,
-                    boardName));
-        }
+        ValidationCommands.checkIfItemExists(functionalsRepository.getBoards(), boardName);
 
-        if(!workitem.getTitle().equals(workitemName)){
-            throw new IllegalArgumentException(WORKITEM_ID_DOES_NOT_MATCH_NAME_MSG);
-        }
+        ValidationCommands.checkIfItemExists(functionalsRepository.getWorkItems(), id);
+
+        ValidationCommands.checkIfItemContainsAnother(board.listWorkItems(), workitem, workitemName, boardName);
+
+        //checks if the Name passed from the console, actually matches the name of the Item with the passed ID
+        ValidationCommands.checkIfNamesMatch(workitem.getTitle(), workitemName);
 
         return changeStatus(boardName, workitemName, id, newStatus);
-
-
     }
 
-    private String changeStatus(String boardName, String workitemName, int id, String newStatus){
+    private String changeStatus(String boardName, String workitemName, int id, String newStatus) {
         WorkItems workItem = functionalsRepository.getWorkItems().get(id);
 
         workItem.setStatus(getStatus(newStatus));
 
-        return String.format(STATUS_SUCCESSFULLY_CHANGED_MSG,workitemName, newStatus);
+        return String.format(STATUS_SUCCESSFULLY_CHANGED_MSG, workitemName, newStatus);
     }
 
-    private void parseParameters(List<String> parameters){
-        try{
+    private void parseParameters(List<String> parameters) {
+        try {
             workitemName = parameters.get(0);
             id = Integer.parseInt(parameters.get(1));
             boardName = parameters.get(2);
@@ -73,7 +64,7 @@ public class ChangeStatus implements Command {
         }
     }
 
-    private Status getStatus(String newStatus){
+    private Status getStatus(String newStatus) {
         return Status.valueOf(newStatus.toUpperCase());
     }
 }

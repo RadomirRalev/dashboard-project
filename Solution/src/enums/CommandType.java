@@ -20,7 +20,8 @@ public enum CommandType {
     REMOVEWORKITEM ("Remove workitem"),
     SHOWPERSON ("Show person"),
     SHOWMEMBER ("Show person"),
-    CHANGESTATUS ("Change status");
+    CHANGESTATUS ("Change status"),
+    CHANGEPRIORITY ("Change priority");
 
     private final String command;
 

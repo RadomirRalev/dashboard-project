@@ -66,6 +66,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ShowMember(functionalsRepository);
             case CHANGESTATUS:
                 return new ChangeStatus(functionalsRepository);
+            case CHANGEPRIORITY:
+                return new ChangePriority(functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }

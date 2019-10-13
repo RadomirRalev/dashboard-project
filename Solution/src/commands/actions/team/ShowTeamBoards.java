@@ -10,7 +10,6 @@ import static commands.actions.CommandsConstants.INVALID_NUMBER_OF_ARGUMENTS;
 import static commands.actions.CommandsConstants.TEAM_DOES_NOT_EXIST_ERROR_MSG;
 
 public class ShowTeamBoards implements Command {
-    //TODO Finish implementation of this class
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 1;
 
     private final FunctionalsRepository functionalsRepository;
