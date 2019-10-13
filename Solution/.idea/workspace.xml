@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ab50e2d-88c8-4a45-a321-903196db6f87" name="Default Changelist" comment="&quot;Adds functions for assignment of work to persons, resolves git conflicts&quot;">
-      <change afterPath="$PROJECT_DIR$/src/commands/actions/member/ShowMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/actions/activityhistory/MemberActivityHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/actions/activityhistory/MemberActivityHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/actions/member/CreateMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/actions/member/CreateMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/actions/member/ListAllTeamMembers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/actions/member/ListAllTeamMembers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/actions/person/ShowPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/actions/person/ShowPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/FunctionalsRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/FunctionalsRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/contracts/FunctionalsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/contracts/FunctionalsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/factories/CommandFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/factories/CommandFactoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enums/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/CommandType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functionals/models/MemberImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/functionals/models/MemberImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="5ab50e2d-88c8-4a45-a321-903196db6f87" name="Default Changelist" comment="&quot;Adds functions for assignment of work to persons, resolves git conflicts&quot;" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,8 +101,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/commands/actions/activityhistory/MemberActivityHistory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1024">
-              <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
+            <state relative-caret-position="-223">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -295,6 +283,29 @@
               <item name="Solution" type="b2602c69:ProjectViewProjectNode" />
               <item name="Solution" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+              <item name="team" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Solution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+              <item name="workitem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Solution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Solution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -469,9 +480,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21215352" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21215352" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -480,7 +490,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719395" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.2156013" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.2156013" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1002,8 +1012,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/commands/actions/activityhistory/MemberActivityHistory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1024">
-          <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
+        <state relative-caret-position="-223">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
