@@ -1,8 +1,12 @@
 package commands.actions;
 
-import core.contracts.FunctionalsRepository;
-import functionals.contracts.Board;
-import workitems.contracts.WorkItems;
+import commands.actions.person.NameJoiner;
+import core.FunctionalsRepositoryImpl;
+import core.contracts.Reader;
+import core.contracts.Writer;
+import core.providers.ConsoleReader;
+import core.providers.ConsoleWriter;
+import functionals.contracts.Person;
 
 import java.util.List;
 import java.util.Map;
@@ -10,6 +14,10 @@ import java.util.Map;
 import static commands.actions.CommandsConstants.*;
 
 public class ValidationCommands {
+    private static Reader reader = new ConsoleReader();
+    private static Writer writer = new ConsoleWriter();
+
+
     public static void validateInput(List<String> parameters, int expectedNumber) {
         if (parameters.size() != expectedNumber) {
             throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
@@ -37,5 +45,21 @@ public class ValidationCommands {
             throw new IllegalArgumentException(String.format(ITEM_DOES_NOT_EXIST_IN_ANOTHER_MSG, itemName,
                     secondItemName));
         }
+    }
+
+    public static boolean checkIfWorkExists(int workToBeUnassigned, Person person) {
+        return workToBeUnassigned > person.getAssignedWork().size();
+    }
+
+    public static String checkIfPersonExists(String personName, FunctionalsRepositoryImpl functionalsRepository) {
+        while (!functionalsRepository.getPersons().containsKey(personName)) {
+            System.out.printf(PERSON_DOES_NOT_EXIST_MSG, personName);
+            String[] name = reader.readLine().split(" ");
+            personName = NameJoiner.joinerArr(name);
+            if (personName.equalsIgnoreCase("cancel")) {
+                return TYPE_ANOTHER_COMMAND;
+            }
+        }
+        return personName;
     }
 }

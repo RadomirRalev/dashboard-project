@@ -1,5 +1,6 @@
 package commands.actions.person;
 
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
@@ -27,10 +28,10 @@ public class UnassignWorkFromPerson implements Command {
     @Override
     public String execute(List<String> parameters) {
         String personName = NameJoiner.joinerList(parameters);
-        if (checkIfPersonExists(personName)) return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
-        int workToBeUnassigned = Integer.parseInt(reader.readLine());
+        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        int workToBeUnassigned = asksAboutWorkToBeUnassigned();
         Person person = functionalsRepository.getPersons().get(personName);
-        if (checkIfWorkExists(workToBeUnassigned, person)) return String.format(WORK_NOT_EXIST_MSG, workToBeUnassigned);
+        if (ValidationCommands.checkIfWorkExists(workToBeUnassigned, person)) return String.format(WORK_NOT_EXIST_MSG, workToBeUnassigned);
         person.unassignWork(workToBeUnassigned - 1);
         return addUnassignWorkToActivityHistory(personName, workToBeUnassigned, person);
     }
@@ -41,15 +42,8 @@ public class UnassignWorkFromPerson implements Command {
         return activity;
     }
 
-    private boolean checkIfWorkExists(int workToBeUnassigned, Person person) {
-        return workToBeUnassigned > person.getAssignedWork().size();
-    }
-
-    private boolean checkIfPersonExists(String personName) {
-        if (!functionalsRepository.getPersons().containsKey(personName)) {
-            return true;
-        }
+    private int asksAboutWorkToBeUnassigned() {
         writer.writeLine("What number of assigned work to be removed?");
-        return false;
+        return Integer.parseInt(reader.readLine());
     }
 }

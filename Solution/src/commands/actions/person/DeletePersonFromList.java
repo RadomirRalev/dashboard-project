@@ -1,7 +1,9 @@
 package commands.actions.person;
 
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
+import functionals.contracts.Person;
 
 import java.util.List;
 
@@ -18,13 +20,11 @@ public class DeletePersonFromList implements Command {
     @Override
     public String execute(List<String> parameters) {
         String personName = NameJoiner.joinerList(parameters);
+        personName = ValidationCommands.checkIfPersonExists(personName,functionalsRepository);
         return deletePerson(personName);
     }
 
     private String deletePerson(String name) {
-        if (!functionalsRepository.getPersons().containsKey(name)) {
-            return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, name);
-        }
         functionalsRepository.deletePerson(name);
         return String.format(PERSON_DELETED_MSG, name);
     }

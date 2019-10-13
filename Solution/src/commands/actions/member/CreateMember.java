@@ -1,5 +1,6 @@
 package commands.actions.member;
 
+import commands.actions.ValidationCommands;
 import commands.actions.person.NameJoiner;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -33,7 +34,7 @@ public class CreateMember implements Command {
         String teamToAddTo = parameters.get(0);
         if (checkIfTeamExists(teamToAddTo)) return String.format(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamToAddTo);
         String personName = getPersonName();
-        if (checkIfPersonExists(personName)) return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
+        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
         MemberImpl member = addMemberToTeam(teamToAddTo, personName);
         addToMembersList(personName, member);
         return addToActivityHistory(teamToAddTo, personName);
@@ -55,10 +56,6 @@ public class CreateMember implements Command {
         MemberImpl member = new MemberImpl(personName);
         team.addMember(member);
         return member;
-    }
-
-    private boolean checkIfPersonExists(String personName) {
-        return !functionalsRepository.getPersons().containsKey(personName);
     }
 
     private String getPersonName() {

@@ -1,5 +1,6 @@
 package commands.actions.person;
 
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
@@ -30,18 +31,8 @@ public class ShowPerson implements Command {
         checkArgumentsNumber(parameters);
         writer.writeLine(WHICH_PERSON);
         String personName = asksWhichPerson();
-        while (checkIfPersonExists(personName)) {
-            System.out.printf(PERSON_DOES_NOT_EXIST_MSG, personName);
-            personName = asksWhichPerson();
-            if (personName.equalsIgnoreCase("cancel")) {
-                return TYPE_ANOTHER_COMMAND;
-            }
-        }
+        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
         return showPerson(personName);
-    }
-
-    private boolean checkIfPersonExists(String personName) {
-        return !functionalsRepository.getPersons().containsKey(personName);
     }
 
     private String showPerson(String personName) {

@@ -1,5 +1,6 @@
 package commands.actions.person;
 
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import functionals.contracts.Person;
@@ -21,16 +22,12 @@ public class ListAssignedWork implements Command {
     @Override
     public String execute(List<String> parameters) {
         String personName = NameJoiner.joinerList(parameters);
-        if (checkIfPersonExists(personName)) return String.format(PERSON_DOES_NOT_EXIST_ERROR_MSG, personName);
+        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
         return prepareAssignedWorkList(personName);
     }
 
     private String prepareAssignedWorkList(String personName) {
         Person person = functionalsRepository.getPersons().get(personName);
         return person.listAssignedWork();
-    }
-
-    private boolean checkIfPersonExists(String personName) {
-        return !functionalsRepository.getPersons().containsKey(personName);
     }
 }
