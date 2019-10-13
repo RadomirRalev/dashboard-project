@@ -10,7 +10,7 @@ public interface Team extends Functionals {
 
     void addMember(Person member);
 
-    void removeMember(Person member);
+    void removeMember(MemberImpl member);
 
     List showTeamMembers();
 

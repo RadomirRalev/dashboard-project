@@ -1,5 +1,4 @@
 package commands.actions.member;
-
 import commands.actions.ValidationCommands;
 import commands.actions.person.NameJoiner;
 import commands.contracts.Command;
@@ -9,11 +8,7 @@ import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
-import functionals.models.MemberImpl;
-
-import java.lang.reflect.Member;
 import java.util.List;
-
 import static commands.actions.CommandsConstants.*;
 import static commands.actions.CommandsConstants.INVALID_NUMBER_OF_ARGUMENTS;
 

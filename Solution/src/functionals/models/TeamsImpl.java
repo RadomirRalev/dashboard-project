@@ -38,7 +38,7 @@ public class TeamsImpl implements Team {
     }
 
     @Override
-    public void removeMember(Person member) {
+    public void removeMember(MemberImpl member) {
         members.remove(member);
     }
 

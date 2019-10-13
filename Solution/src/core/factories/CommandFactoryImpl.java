@@ -5,6 +5,7 @@ import commands.actions.activityhistory.ShowActivityHistory;
 //import commands.actions.board.AddBoardToTeam;
 import commands.actions.board.CreateBoard;
 import commands.actions.member.ListAllTeamMembers;
+import commands.actions.member.RemoveMember;
 import commands.actions.member.ShowMember;
 import commands.actions.team.ListTeams;
 import commands.actions.member.CreateMember;
@@ -66,6 +67,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ShowMember(functionalsRepository);
             case CHANGESTATUS:
                 return new ChangeStatus(functionalsRepository);
+            case REMOVEMEMBER:
+                return new RemoveMember(functionalsRepository);
             case CHANGEPRIORITY:
                 return new ChangePriority(functionalsRepository);
         }
