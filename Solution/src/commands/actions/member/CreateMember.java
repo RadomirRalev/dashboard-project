@@ -8,7 +8,6 @@ import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
-import functionals.contracts.Person;
 import functionals.contracts.Team;
 import functionals.models.MemberImpl;
 import functionals.models.PersonImpl;
@@ -35,9 +34,14 @@ public class CreateMember implements Command {
         if (checkIfTeamExists(teamToAddTo)) return String.format(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamToAddTo);
         String personName = getPersonName();
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        if (typeAnotherCommand(personName)) return TYPE_ANOTHER_COMMAND;
         MemberImpl member = addMemberToTeam(teamToAddTo, personName);
         addToMembersList(personName, member);
         return addToActivityHistory(teamToAddTo, personName);
+    }
+
+    private boolean typeAnotherCommand(String personName) {
+        return personName.equalsIgnoreCase("cancel");
     }
 
     private void addToMembersList(String personName, MemberImpl member) {

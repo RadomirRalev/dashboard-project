@@ -32,7 +32,12 @@ public class ShowPerson implements Command {
         writer.writeLine(WHICH_PERSON);
         String personName = asksWhichPerson();
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        if (typeAnotherCommand(personName)) return TYPE_ANOTHER_COMMAND;
         return showPerson(personName);
+    }
+
+    private boolean typeAnotherCommand(String personName) {
+        return personName.equalsIgnoreCase("cancel");
     }
 
     private String showPerson(String personName) {

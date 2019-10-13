@@ -1,13 +1,10 @@
 package commands.actions.person;
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.FunctionalsFactory;
-import core.contracts.Reader;
-import core.providers.ConsoleReader;
 import functionals.contracts.Person;
 import functionals.models.PersonImpl;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,28 +13,23 @@ import static commands.actions.CommandsConstants.*;
 public class CreateNewPerson implements Command {
     private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
-    private Reader reader;
 
     public CreateNewPerson(FunctionalsFactory functionalsFactory, FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsFactory = functionalsFactory;
         this.functionalsRepository = functionalsRepository;
-        reader = new ConsoleReader();
     }
 
     @Override
     public String execute(List<String> parameters) {
         String personName = NameJoiner.joinerList(parameters);
-        while (checkName(personName)) {
-            System.out.printf(PERSON_EXISTS_ERROR_MSG, personName);
-            personName = reader.readLine();
-            String[] personNameArr = personName.split(" ");
-            personName = NameJoiner.joinerArr(personNameArr);
-            if (personName.equalsIgnoreCase("cancel")) {
-                return TYPE_ANOTHER_COMMAND;
-            }
-        }
+        personName = ValidationCommands.checkNameOfNewPerson(personName, functionalsRepository);
+        if (typeAnotherCommand(personName)) return TYPE_ANOTHER_COMMAND;
         PersonImpl.getMembersActivity().put(personName, new ArrayList<>());
         return createPerson(personName);
+    }
+
+    private boolean typeAnotherCommand(String personName) {
+        return personName.equalsIgnoreCase("cancel");
     }
 
     private String createPerson(String name) {
@@ -46,9 +38,5 @@ public class CreateNewPerson implements Command {
         String activity = String.format(PERSON_CREATED_MSG, name);
         PersonImpl.addActivity(activity, name);
         return activity;
-    }
-
-    private boolean checkName(String personName) {
-        return functionalsRepository.getPersons().containsKey(personName);
     }
 }

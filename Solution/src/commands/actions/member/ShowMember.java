@@ -1,5 +1,6 @@
 package commands.actions.member;
 
+import commands.actions.ValidationCommands;
 import commands.actions.person.NameJoiner;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -33,18 +34,13 @@ public class ShowMember implements Command {
         checkArgumentsNumber(parameters);
         writer.writeLine(WHICH_MEMBER);
         String memberName = asksWhichMember();
-        while (!checkIfMemberExists(memberName)) {
-            System.out.printf(MEMBER_DOES_NOT_EXIST_MSG, memberName);
-            memberName = asksWhichMember();
-            if (memberName.equalsIgnoreCase("cancel")) {
-                return TYPE_ANOTHER_COMMAND;
-            }
-        }
+        memberName = ValidationCommands.checkIfMemberExists(memberName, functionalsRepository);
+        if (typeAnotherCommand(memberName)) return TYPE_ANOTHER_COMMAND;
         return showMember(memberName);
     }
 
-    private boolean checkIfMemberExists(String activityHistoryOfMember) {
-        return functionalsRepository.getMembers().containsKey(activityHistoryOfMember);
+    private boolean typeAnotherCommand(String memberName) {
+        return memberName.equalsIgnoreCase("cancel");
     }
 
     private String showMember(String memberName) {

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.PERSON_DOES_NOT_EXIST_ERROR_MSG;
+import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
 
 public class ListAssignedWork implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
@@ -23,7 +24,12 @@ public class ListAssignedWork implements Command {
     public String execute(List<String> parameters) {
         String personName = NameJoiner.joinerList(parameters);
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        if (typeAnotherCommand(personName)) return TYPE_ANOTHER_COMMAND;
         return prepareAssignedWorkList(personName);
+    }
+
+    private boolean typeAnotherCommand(String personName) {
+        return personName.equalsIgnoreCase("cancel");
     }
 
     private String prepareAssignedWorkList(String personName) {

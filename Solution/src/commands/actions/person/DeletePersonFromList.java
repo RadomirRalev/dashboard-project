@@ -21,7 +21,12 @@ public class DeletePersonFromList implements Command {
     public String execute(List<String> parameters) {
         String personName = NameJoiner.joinerList(parameters);
         personName = ValidationCommands.checkIfPersonExists(personName,functionalsRepository);
+        if (typeAnotherCommand(personName)) return TYPE_ANOTHER_COMMAND;
         return deletePerson(personName);
+    }
+
+    private boolean typeAnotherCommand(String personName) {
+        return personName.equalsIgnoreCase("cancel");
     }
 
     private String deletePerson(String name) {

@@ -57,7 +57,31 @@ public class ValidationCommands {
             String[] name = reader.readLine().split(" ");
             personName = NameJoiner.joinerArr(name);
             if (personName.equalsIgnoreCase("cancel")) {
-                return TYPE_ANOTHER_COMMAND;
+                return personName;
+            }
+        }
+        return personName;
+    }
+
+    public static String checkIfMemberExists(String memberName, FunctionalsRepositoryImpl functionalsRepository) {
+        while (!functionalsRepository.getPersons().containsKey(memberName)) {
+            System.out.printf(MEMBER_DOES_NOT_EXIST_MSG, memberName);
+            String[] name = reader.readLine().split(" ");
+            memberName = NameJoiner.joinerArr(name);
+            if (memberName.equalsIgnoreCase("cancel")) {
+                return memberName;
+            }
+        }
+        return memberName;
+    }
+
+    public static String checkNameOfNewPerson(String personName, FunctionalsRepositoryImpl functionalsRepository) {
+        while (functionalsRepository.getPersons().containsKey(personName)) {
+            System.out.printf(PERSON_EXISTS_ERROR_MSG, personName);
+            String[] name = reader.readLine().split(" ");
+            personName = NameJoiner.joinerArr(name);
+            if (personName.equalsIgnoreCase("cancel")) {
+                return personName;
             }
         }
         return personName;
