@@ -86,4 +86,9 @@ public class ValidationCommands {
         }
         return personName;
     }
+
+    public static boolean typeAnotherCommand(String personName) {
+        return personName.equalsIgnoreCase("cancel");
+    }
+
 }

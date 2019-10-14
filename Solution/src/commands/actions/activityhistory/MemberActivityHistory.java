@@ -1,5 +1,5 @@
 package commands.actions.activityhistory;
-
+import commands.actions.ValidationCommands;
 import commands.actions.person.NameJoiner;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
@@ -24,28 +24,23 @@ public class MemberActivityHistory {
 
     public String execute() {
         writer.writeLine(WHICH_MEMBER);
-        String memberActivityHistory = asksWhichMember();
-        while (!checkIfMemberExists(memberActivityHistory)) {
-            System.out.printf(MEMBER_DOES_NOT_EXIST_MSG, memberActivityHistory);
-            memberActivityHistory = asksWhichMember();
-            if (memberActivityHistory.equalsIgnoreCase("cancel")) {
-                return TYPE_ANOTHER_COMMAND;
-            }
-        }
-        return showActivity(memberActivityHistory);
+        String memberName = asksWhichMember();
+        memberName = ValidationCommands.checkIfMemberExists(memberName, functionalsRepository);
+        if (typeAnotherCommand(memberName)) return TYPE_ANOTHER_COMMAND;
+        return showActivity(memberName);
     }
 
-    private String showActivity(String memberActivityHistory) {
-        MemberImpl member = functionalsRepository.getMembers().get(memberActivityHistory);
-        return member.showActivity(memberActivityHistory);
+    private boolean typeAnotherCommand(String memberName) {
+        return memberName.equalsIgnoreCase("cancel");
+    }
+
+    private String showActivity(String memberName) {
+        MemberImpl member = functionalsRepository.getMembers().get(memberName);
+        return member.showActivity(memberName);
     }
 
     private String asksWhichMember() {
         String[] activityHistoryOfMember = reader.readLine().split(" ");
         return NameJoiner.joinerArr(activityHistoryOfMember);
-    }
-
-    private boolean checkIfMemberExists(String activityHistoryOfMember) {
-        return functionalsRepository.getMembers().containsKey(activityHistoryOfMember);
     }
 }
