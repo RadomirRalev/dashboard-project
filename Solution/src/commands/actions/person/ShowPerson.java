@@ -1,5 +1,4 @@
 package commands.actions.person;
-
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -27,17 +26,12 @@ public class ShowPerson implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) {
-        checkArgumentsNumber(parameters);
+    public String execute(List<String> parameters) throws Exception {
+        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
         writer.writeLine(WHICH_PERSON);
         String personName = asksWhichPerson();
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        if (typeAnotherCommand(personName)) return TYPE_ANOTHER_COMMAND;
         return showPerson(personName);
-    }
-
-    private boolean typeAnotherCommand(String personName) {
-        return personName.equalsIgnoreCase("cancel");
     }
 
     private String showPerson(String personName) {
@@ -48,11 +42,5 @@ public class ShowPerson implements Command {
     private String asksWhichPerson() {
         String[] personName = reader.readLine().split(" ");
         return NameJoiner.joinerArr(personName);
-    }
-
-    private void checkArgumentsNumber(List<String> parameters) {
-        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
-            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
-        }
     }
 }

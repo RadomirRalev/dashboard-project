@@ -20,16 +20,11 @@ public class CreateNewPerson implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) {
+    public String execute(List<String> parameters) throws Exception {
         String personName = NameJoiner.joinerList(parameters);
         personName = ValidationCommands.checkNameOfNewPerson(personName, functionalsRepository);
-        if (typeAnotherCommand(personName)) return TYPE_ANOTHER_COMMAND;
         PersonImpl.getMembersActivity().put(personName, new ArrayList<>());
         return createPerson(personName);
-    }
-
-    private boolean typeAnotherCommand(String personName) {
-        return personName.equalsIgnoreCase("cancel");
     }
 
     private String createPerson(String name) {

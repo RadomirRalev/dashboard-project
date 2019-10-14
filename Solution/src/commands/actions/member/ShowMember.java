@@ -10,7 +10,6 @@ import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
 import java.util.List;
 import static commands.actions.CommandsConstants.*;
-import static commands.actions.CommandsConstants.INVALID_NUMBER_OF_ARGUMENTS;
 
 public class ShowMember implements Command {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
@@ -25,8 +24,8 @@ public class ShowMember implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) {
-        checkArgumentsNumber(parameters);
+    public String execute(List<String> parameters) throws Exception {
+        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
         writer.writeLine(WHICH_MEMBER);
         String memberName = asksWhichMember();
         memberName = ValidationCommands.checkIfMemberExists(memberName, functionalsRepository);
@@ -46,11 +45,5 @@ public class ShowMember implements Command {
     private String asksWhichMember() {
         String[] activityHistoryOfMember = reader.readLine().split(" ");
         return NameJoiner.joinerArr(activityHistoryOfMember);
-    }
-
-    private void checkArgumentsNumber(List<String> parameters) {
-        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
-            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
-        }
     }
 }

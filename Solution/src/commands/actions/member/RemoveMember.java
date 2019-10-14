@@ -1,5 +1,4 @@
 package commands.actions.member;
-
 import commands.actions.ValidationCommands;
 import commands.actions.person.NameJoiner;
 import commands.contracts.Command;
@@ -27,30 +26,26 @@ public class RemoveMember implements Command {
         writer = new ConsoleWriter();
     }
 
-    public String execute(List<String> parameters) {
-        checkArgumentsNumber(parameters);
+    public String execute(List<String> parameters) throws Exception {
+        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
         writer.writeLine(WHICH_MEMBER);
         String memberName = asksWhichMember();
         memberName = ValidationCommands.checkIfMemberExists(memberName, functionalsRepository);
-        if (typeAnotherCommand(memberName)) return TYPE_ANOTHER_COMMAND;
         ArrayList<String> str = getTheTeamsOfTheMember(memberName);
         return removeMember(memberName, str);
     }
 
-    private String removeMember(String memberName, ArrayList<String> str) {
-        System.out.println("From which team do you wish to remove this member?");
+    private String removeMember(String memberName, ArrayList<String> str) throws Exception {
+        writer.writeLine(WHICH_TEAM);
         String teamToRemoveMemberFrom = reader.readLine();
-        if (!str.contains(teamToRemoveMemberFrom)) {
-            System.out.println("%s is not a member of this team!");
-        } else {
-            MemberImpl member = functionalsRepository.getMembers().get(memberName);
-            functionalsRepository.getTeams().get(teamToRemoveMemberFrom).removeMember(member);
-        }
-        return "%s was removed!";
+        ValidationCommands.checkIfMemberOfTeam(memberName, teamToRemoveMemberFrom, str);
+        MemberImpl member = functionalsRepository.getMembers().get(memberName);
+        functionalsRepository.getTeams().get(teamToRemoveMemberFrom).removeMember(member);
+        return String.format(MEMBER_REMOVED_FROM_TEAM, memberName, teamToRemoveMemberFrom);
     }
 
-    public ArrayList<String> getTheTeamsOfTheMember(String memberName) {
-        System.out.println("%s is a member of: ");
+    private ArrayList<String> getTheTeamsOfTheMember(String memberName) {
+        System.out.printf(MEMBER_OF_TEAMS, memberName);
         MemberImpl memberN = functionalsRepository.getMembers().get(memberName);
         ArrayList<String> str = new ArrayList<>();
         functionalsRepository.getTeams().forEach((k, v) -> {
@@ -58,22 +53,12 @@ public class RemoveMember implements Command {
                 str.add(functionalsRepository.getTeams().get(k).getName());
             }
         });
-        System.out.println(str.toString());
+        System.out.println(str.toString(). replace("[", "").replace("]", ""));
         return str;
-    }
-
-    private boolean typeAnotherCommand(String memberName) {
-        return memberName.equalsIgnoreCase("cancel");
     }
 
     private String asksWhichMember() {
         String[] activityHistoryOfMember = reader.readLine().split(" ");
         return NameJoiner.joinerArr(activityHistoryOfMember);
-    }
-
-    private void checkArgumentsNumber(List<String> parameters) {
-        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
-            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
-        }
     }
 }

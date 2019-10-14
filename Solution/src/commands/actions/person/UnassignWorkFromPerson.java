@@ -26,19 +26,14 @@ public class UnassignWorkFromPerson implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) {
+    public String execute(List<String> parameters) throws Exception {
         String personName = NameJoiner.joinerList(parameters);
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        if (typeAnotherCommand(personName)) return TYPE_ANOTHER_COMMAND;
         int workToBeUnassigned = asksAboutWorkToBeUnassigned();
         Person person = functionalsRepository.getPersons().get(personName);
         if (ValidationCommands.checkIfWorkExists(workToBeUnassigned, person)) return String.format(WORK_NOT_EXIST_MSG, workToBeUnassigned);
         person.unassignWork(workToBeUnassigned - 1);
         return addUnassignWorkToActivityHistory(personName, workToBeUnassigned, person);
-    }
-
-    private boolean typeAnotherCommand(String personName) {
-        return personName.equalsIgnoreCase("cancel");
     }
 
     private String addUnassignWorkToActivityHistory(String personName, int workToBeUnassigned, Person person) {

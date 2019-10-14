@@ -1,5 +1,6 @@
 package commands.actions.team;
 
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 
@@ -20,9 +21,7 @@ public class ListTeams implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
-            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
-        }
+        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
         StringJoiner str = new StringJoiner(", ");
         Set<String> keys = functionalsRepository.getTeams().keySet();
         for (String k : keys) {

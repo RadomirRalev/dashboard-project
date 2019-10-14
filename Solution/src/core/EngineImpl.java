@@ -45,7 +45,7 @@ public class EngineImpl implements Engine {
         }
     }
 
-    private void processCommand(String commandAsString) {
+    private void processCommand(String commandAsString) throws Exception {
         if (commandAsString == null || commandAsString.trim().equals("")) {
             throw new IllegalArgumentException("Command cannot be null or empty.");
         }

@@ -22,7 +22,7 @@ public class MemberActivityHistory {
         writer = new ConsoleWriter();
     }
 
-    public String execute() {
+    public String execute() throws Exception {
         writer.writeLine(WHICH_MEMBER);
         String memberName = asksWhichMember();
         memberName = ValidationCommands.checkIfMemberExists(memberName, functionalsRepository);

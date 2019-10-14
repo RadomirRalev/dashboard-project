@@ -1,5 +1,6 @@
 package commands.actions.activityhistory;
 
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
@@ -25,8 +26,8 @@ public class ShowActivityHistory implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) {
-        checkNumberOfArguments(parameters);
+    public String execute(List<String> parameters) throws Exception {
+        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
         String activityHistoryOf = asksAboutMemberOrBoard();
         if (checkIfCommandIsCorrect(activityHistoryOf))
             return HISTORY_UNAVAILABLE;
@@ -50,12 +51,6 @@ public class ShowActivityHistory implements Command {
         return !activityHistoryOf.equalsIgnoreCase("member") &&
                 !activityHistoryOf.equalsIgnoreCase("team") &&
                 !activityHistoryOf.equalsIgnoreCase("board");
-    }
-
-    private void checkNumberOfArguments(List<String> parameters) {
-        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
-            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
-        }
     }
 
     private String asksAboutMemberOrBoard() {

@@ -21,15 +21,10 @@ public class ListAssignedWork implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) {
+    public String execute(List<String> parameters) throws Exception {
         String personName = NameJoiner.joinerList(parameters);
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        if (typeAnotherCommand(personName)) return TYPE_ANOTHER_COMMAND;
         return prepareAssignedWorkList(personName);
-    }
-
-    private boolean typeAnotherCommand(String personName) {
-        return personName.equalsIgnoreCase("cancel");
     }
 
     private String prepareAssignedWorkList(String personName) {

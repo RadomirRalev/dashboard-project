@@ -8,6 +8,7 @@ import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,8 +25,8 @@ public class ValidationCommands {
         }
     }
 
-    public static void checkIfNamesMatch(String name1, String name2){
-        if(!name1.equals(name2)){
+    public static void checkIfNamesMatch(String name1, String name2) {
+        if (!name1.equals(name2)) {
             throw new IllegalArgumentException(WORKITEM_ID_DOES_NOT_MATCH_NAME_MSG);
         }
     }
@@ -51,44 +52,50 @@ public class ValidationCommands {
         return workToBeUnassigned > person.getAssignedWork().size();
     }
 
-    public static String checkIfPersonExists(String personName, FunctionalsRepositoryImpl functionalsRepository) {
+    public static String checkIfPersonExists(String personName, FunctionalsRepositoryImpl functionalsRepository) throws Exception {
         while (!functionalsRepository.getPersons().containsKey(personName)) {
             System.out.printf(PERSON_DOES_NOT_EXIST_MSG, personName);
             String[] name = reader.readLine().split(" ");
             personName = NameJoiner.joinerArr(name);
             if (personName.equalsIgnoreCase("cancel")) {
-                return personName;
+                throw new Exception(TYPE_ANOTHER_COMMAND);
             }
         }
         return personName;
     }
 
-    public static String checkIfMemberExists(String memberName, FunctionalsRepositoryImpl functionalsRepository) {
+    public static String checkIfMemberExists(String memberName, FunctionalsRepositoryImpl functionalsRepository) throws Exception {
         while (!functionalsRepository.getPersons().containsKey(memberName)) {
             System.out.printf(MEMBER_DOES_NOT_EXIST_MSG, memberName);
             String[] name = reader.readLine().split(" ");
             memberName = NameJoiner.joinerArr(name);
             if (memberName.equalsIgnoreCase("cancel")) {
-                return memberName;
+                throw new Exception(TYPE_ANOTHER_COMMAND);
             }
         }
         return memberName;
     }
 
-    public static String checkNameOfNewPerson(String personName, FunctionalsRepositoryImpl functionalsRepository) {
+    public static String checkNameOfNewPerson(String personName, FunctionalsRepositoryImpl functionalsRepository) throws Exception {
         while (functionalsRepository.getPersons().containsKey(personName)) {
             System.out.printf(PERSON_EXISTS_ERROR_MSG, personName);
             String[] name = reader.readLine().split(" ");
             personName = NameJoiner.joinerArr(name);
             if (personName.equalsIgnoreCase("cancel")) {
-                return personName;
+                throw new Exception(TYPE_ANOTHER_COMMAND);
             }
         }
         return personName;
     }
 
-    public static boolean typeAnotherCommand(String personName) {
-        return personName.equalsIgnoreCase("cancel");
+    public static String checkIfMemberOfTeam(String memberName, String teamToRemoveMemberFrom, ArrayList<String> str) throws Exception {
+        while (!str.contains(teamToRemoveMemberFrom)) {
+            System.out.printf(NOT_A_MEMBER_OF_THIS_TEAM, memberName);
+            teamToRemoveMemberFrom = reader.readLine();
+            if (teamToRemoveMemberFrom.equalsIgnoreCase("cancel")) {
+                throw new Exception(TYPE_ANOTHER_COMMAND);
+            }
+        }
+        return teamToRemoveMemberFrom;
     }
-
 }

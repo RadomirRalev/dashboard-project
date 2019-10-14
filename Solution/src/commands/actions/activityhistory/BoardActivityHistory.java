@@ -1,13 +1,9 @@
 package commands.actions.activityhistory;
-
-import commands.actions.person.NameJoiner;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
-import functionals.contracts.Board;
-
 import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;

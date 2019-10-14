@@ -26,18 +26,14 @@ public class AssignWorkToPerson implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) {
+    public String execute(List<String> parameters) throws Exception {
         String personName = NameJoiner.joinerList(parameters);
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        if (typeAnotherCommand(personName)) return TYPE_ANOTHER_COMMAND;
         String workToBeAdded = asksAboutWorkToBeAdded();
         Person person = addsWorkToPerson(personName, workToBeAdded);
         return addsWorkToActivityHistory(personName, workToBeAdded, person);
     }
 
-    private boolean typeAnotherCommand(String personName) {
-        return personName.equalsIgnoreCase("cancel");
-    }
 
     private String addsWorkToActivityHistory(String personName, String workToBeAdded, Person person) {
         String activity = String.format(WORK_ADDED_MSG, workToBeAdded, personName);

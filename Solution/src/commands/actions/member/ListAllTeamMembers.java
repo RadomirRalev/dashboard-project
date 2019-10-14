@@ -1,5 +1,6 @@
 package commands.actions.member;
 
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 
@@ -18,7 +19,7 @@ public class ListAllTeamMembers implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        checkArgumentsNumber(parameters);
+        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
         StringJoiner str = prepareMembersList();
         return membersList(str.toString());
     }
@@ -28,12 +29,6 @@ public class ListAllTeamMembers implements Command {
         Set<String> keys = functionalsRepository.getPersons().keySet();
         keys.forEach (e -> str.add(e) );
         return str;
-    }
-
-    private void checkArgumentsNumber(List<String> parameters) {
-        if (parameters.size() != CORRECT_NUMBER_OF_ARGUMENTS) {
-            throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
-        }
     }
 
     private String membersList(String membersList) {
