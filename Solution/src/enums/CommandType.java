@@ -24,7 +24,8 @@ public enum CommandType {
     REMOVEMEMBER ("Remove member"),
     CHANGEPRIORITY ("Change priority"),
     CHANGERATING ("Change rating"),
-    CHANGESEVERITY ("Change severity");
+    CHANGESEVERITY ("Change severity"),
+    CHANGESIZE ("Change size");
 
     private final String command;
 
