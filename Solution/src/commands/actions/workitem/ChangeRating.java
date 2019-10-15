@@ -16,12 +16,12 @@ public class ChangeRating implements Command {
     //TODO make a validation for the casting of feedback
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 4;
 
+    private final FunctionalsRepository functionalsRepository;
+
     private String workitemName;
     private int id;
     private String boardName;
     private int newRating;
-
-    private FunctionalsRepository functionalsRepository;
 
     public ChangeRating(FunctionalsRepository functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
