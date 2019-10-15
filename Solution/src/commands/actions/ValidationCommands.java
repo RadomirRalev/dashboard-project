@@ -118,4 +118,10 @@ public class ValidationCommands {
         }
         return boardName;
     }
+
+    public static String asksWhichPerson() {
+        writer.writeLine(WHICH_PERSON);
+        String[] personName = reader.readLine().split(" ");
+        return NameJoiner.joinerArr(personName);
+    }
 }

@@ -31,7 +31,7 @@ public class RemoveMember implements Command {
     public String execute(List<String> parameters) throws Exception {
         ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
         writer.writeLine(WHICH_MEMBER);
-        String memberName = asksWhichMember();
+        String memberName = ValidationCommands.asksWhichPerson();
         memberName = ValidationCommands.checkIfMemberExists(memberName, functionalsRepository);
         ArrayList<String> str = getTheTeamsOfTheMember(memberName);
         return removeMember(memberName, str);
@@ -58,11 +58,6 @@ public class RemoveMember implements Command {
         });
         System.out.println(str.toString(). replace("[", "").replace("]", ""));
         return str;
-    }
-
-    private String asksWhichMember() {
-        String[] activityHistoryOfMember = reader.readLine().split(" ");
-        return NameJoiner.joinerArr(activityHistoryOfMember);
     }
 
     private String addToActivityHistory(String teamToRemoveMemberFrom, String memberName) {

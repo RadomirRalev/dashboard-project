@@ -1,5 +1,4 @@
 package commands.actions.person;
-
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
