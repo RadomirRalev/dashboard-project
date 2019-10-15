@@ -33,12 +33,12 @@ public class ChangePriority implements Command {
 
         parseParameters(parameters);
 
-        WorkItems workItem = functionalsRepository.getWorkItems().get(id);
-        Board board = functionalsRepository.getBoards().get(boardName);
-
         ValidationCommands.checkIfItemExists(functionalsRepository.getBoards(), boardName);
 
         ValidationCommands.checkIfItemExists(functionalsRepository.getWorkItems(), id);
+
+        WorkItems workItem = functionalsRepository.getWorkItems().get(id);
+        Board board = functionalsRepository.getBoards().get(boardName);
 
         //checks if this board contains this workitem
         ValidationCommands.checkIfItemContainsAnother(board.listWorkItems(), workItem, workitemName, boardName);

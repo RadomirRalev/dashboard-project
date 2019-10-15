@@ -55,6 +55,7 @@ public class CommandsConstants {
     public static final String WORKITEM_ID_DOES_NOT_MATCH_NAME_MSG = "The Workitem id does not match the name";
     public static final String STATUS_SUCCESSFULLY_CHANGED_MSG = "The status of %s was successfully changed to %s";
     public static final String PRIORITY_SUCCESSFULLY_CHANGED_MSG = "The priority of %s was successfully changed to %s";
+    public static final String RATING_SUCCESSFULLY_CHANGED_MSG = "The rating of %s was successfully changed to %d";
     public static final String ITEM_DOES_NOT_EXIST_ERROR_MSG = "Item %s does not exist!";
     public static final String NOT_A_MEMBER_OF_THIS_TEAM = "%s is not a member of this team!";
     public static final String MEMBER_REMOVED_FROM_TEAM = "%s was removed from team %s!";
