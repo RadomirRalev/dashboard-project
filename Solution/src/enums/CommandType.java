@@ -22,7 +22,10 @@ public enum CommandType {
     SHOWMEMBER ("Show person"),
     CHANGESTATUS ("Change status"),
     REMOVEMEMBER ("Remove member"),
-    CHANGEPRIORITY ("Change priority");
+    CHANGEPRIORITY ("Change priority"),
+    CHANGERATING ("Change rating"),
+    CHANGESEVERITY ("Change severity"),
+    CHANGESIZE ("Change size");
 
     private final String command;
 

@@ -1,5 +1,6 @@
 package workitems.models;
 
+import enums.Priority;
 import enums.Severity;
 import enums.Status;
 import workitems.contracts.Bug;

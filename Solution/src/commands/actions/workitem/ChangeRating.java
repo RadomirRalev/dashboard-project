@@ -3,15 +3,17 @@ package commands.actions.workitem;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
-import enums.Status;
 import functionals.contracts.Board;
+import workitems.contracts.Feedback;
 import workitems.contracts.WorkItems;
 
 import java.util.List;
 
-import static commands.actions.CommandsConstants.*;
+import static commands.actions.CommandsConstants.FAILED_TO_PARSE_COMMAND_PARAMETERS;
+import static commands.actions.CommandsConstants.RATING_SUCCESSFULLY_CHANGED_MSG;
 
-public class ChangeStatus implements Command {
+public class ChangeRating implements Command {
+    //TODO make a validation for the casting of feedback
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 4;
 
     private final FunctionalsRepository functionalsRepository;
@@ -19,13 +21,14 @@ public class ChangeStatus implements Command {
     private String workitemName;
     private int id;
     private String boardName;
-    private String newStatus;
+    private int newRating;
 
-    public ChangeStatus(FunctionalsRepository functionalsRepository) {
+    public ChangeRating(FunctionalsRepository functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
     }
 
-    public String execute(List<String> parameters) {
+    @Override
+    public String execute(List<String> parameters) throws Exception {
         ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
 
         parseParameters(parameters);
@@ -42,15 +45,15 @@ public class ChangeStatus implements Command {
         //checks if the Name passed from the console, actually matches the name of the Item with the passed ID
         ValidationCommands.checkIfNamesMatch(workitem.getTitle(), workitemName);
 
-        return changeStatus(boardName, workitemName, id, newStatus);
+        return changeRating(workitemName, id, boardName, newRating);
     }
 
-    private String changeStatus(String boardName, String workitemName, int id, String newStatus) {
-        WorkItems workItem = functionalsRepository.getWorkItems().get(id);
+    private String changeRating(String workitemName, int id, String boardName, int newRating) {
+        Feedback feedback = (Feedback) functionalsRepository.getWorkItems().get(id);
 
-        workItem.setStatus(getStatus(newStatus));
+        feedback.setRating(newRating);
 
-        return String.format(STATUS_SUCCESSFULLY_CHANGED_MSG, workitemName, newStatus);
+        return String.format(RATING_SUCCESSFULLY_CHANGED_MSG, workitemName, newRating);
     }
 
     private void parseParameters(List<String> parameters) {
@@ -58,14 +61,9 @@ public class ChangeStatus implements Command {
             workitemName = parameters.get(0);
             id = Integer.parseInt(parameters.get(1));
             boardName = parameters.get(2);
-            newStatus = parameters.get(3);
-        } catch (Exception E) {
+            newRating = Integer.parseInt(parameters.get(3));
+        } catch (Exception e) {
             throw new IllegalArgumentException(FAILED_TO_PARSE_COMMAND_PARAMETERS);
         }
     }
-
-    private Status getStatus(String newStatus) {
-        return Status.valueOf(newStatus.toUpperCase());
-    }
 }
-
