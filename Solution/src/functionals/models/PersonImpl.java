@@ -1,6 +1,5 @@
 package functionals.models;
 import functionals.contracts.Person;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +27,11 @@ public class PersonImpl implements Person {
 
     private void setName(String name) {
         this.name = name;
+    }
+
+    public String showActivity(String name) {
+        return String.valueOf(getMembersActivity().get(name).stream()
+                .collect( Collectors.joining( "\n" ) ));
     }
 
     public List getAssignedWork() {

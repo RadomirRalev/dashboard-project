@@ -31,9 +31,9 @@ public class ShowActivityHistory implements Command {
         String activityHistoryOf = asksAboutMemberOrBoard();
         if (checkIfCommandIsCorrect(activityHistoryOf))
             return HISTORY_UNAVAILABLE;
-        if (activityHistoryOf.equalsIgnoreCase("member")) {
-            MemberActivityHistory memberActivityHistory = new MemberActivityHistory(functionalsRepository);
-            return memberActivityHistory.execute();
+        if (activityHistoryOf.equalsIgnoreCase("person")) {
+            PersonActivityHistory personActivityHistory = new PersonActivityHistory(functionalsRepository);
+            return personActivityHistory.execute();
         }
         if (activityHistoryOf.equalsIgnoreCase("board")) {
             BoardActivityHistory boardActivityHistory = new BoardActivityHistory(functionalsRepository);
@@ -48,7 +48,7 @@ public class ShowActivityHistory implements Command {
 
 
     private boolean checkIfCommandIsCorrect(String activityHistoryOf) {
-        return !activityHistoryOf.equalsIgnoreCase("member") &&
+        return !activityHistoryOf.equalsIgnoreCase("person") &&
                 !activityHistoryOf.equalsIgnoreCase("team") &&
                 !activityHistoryOf.equalsIgnoreCase("board");
     }

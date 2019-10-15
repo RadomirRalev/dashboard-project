@@ -1,5 +1,4 @@
 package commands.actions;
-
 import commands.actions.person.NameJoiner;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
@@ -7,7 +6,6 @@ import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -97,5 +95,27 @@ public class ValidationCommands {
             }
         }
         return teamToRemoveMemberFrom;
+    }
+
+    public static String checkIfTeamExists(String teamName, FunctionalsRepositoryImpl functionalsRepository) throws Exception {
+        while (!functionalsRepository.getTeams().containsKey(teamName)) {
+            System.out.printf(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamName);
+            teamName = reader.readLine();
+            if (teamName.equalsIgnoreCase("cancel")) {
+                throw new Exception(TYPE_ANOTHER_COMMAND);
+            }
+        }
+        return teamName;
+    }
+
+    public static String checkIfBoardExists(String boardName, FunctionalsRepositoryImpl functionalsRepository) throws Exception {
+        while (!functionalsRepository.getBoards().containsKey(boardName)) {
+            System.out.printf(BOARD_DOES_NOT_EXIST_ERROR_MSG, boardName);
+            boardName = reader.readLine();
+            if (boardName.equalsIgnoreCase("cancel")) {
+                throw new Exception(TYPE_ANOTHER_COMMAND);
+            }
+        }
+        return boardName;
     }
 }

@@ -11,4 +11,6 @@ public interface Person extends Functionals {
     String listAssignedWork();
 
     List getAssignedWork();
+
+    String showActivity(String name);
 }

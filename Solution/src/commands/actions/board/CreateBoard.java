@@ -7,8 +7,6 @@ import core.contracts.FunctionalsFactory;
 import functionals.contracts.Board;
 import functionals.contracts.Team;
 import functionals.models.BoardImpl;
-import functionals.models.TeamsImpl;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,8 +29,8 @@ public class CreateBoard implements Command {
     public String execute(List<String> parameters) {
         ValidationCommands.validateInput(parameters,CORRECT_NUMBER_OF_ARGUMENTS);
 
-         boardName = parameters.get(0);
-         teamName = parameters.get(1);
+        boardName = parameters.get(0);
+        teamName = parameters.get(1);
 
         if(!functionalsRepository.getTeams().containsKey(teamName)){
             throw new IllegalArgumentException(TEAM_DOES_NOT_EXIST_ERROR_MSG);
@@ -56,7 +54,7 @@ public class CreateBoard implements Command {
         String activity = String.format(BOARD_CREATED_MSG, boardName);
         BoardImpl.addActivity(activity, boardName);
         return String.format(BOARD_CREATED_MSG + "\n"
-        + BOARD_ADDED_SUCCESS_MESSAGE,
+                        + BOARD_ADDED_SUCCESS_MESSAGE,
                 boardName,
                 boardName,
                 teamName

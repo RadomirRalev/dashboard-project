@@ -8,13 +8,15 @@ import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.models.MemberImpl;
+import functionals.models.PersonImpl;
+import functionals.models.TeamsImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
 public class RemoveMember implements Command {
-    //TODO Complete development of RemoveMember class
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
@@ -41,6 +43,7 @@ public class RemoveMember implements Command {
         ValidationCommands.checkIfMemberOfTeam(memberName, teamToRemoveMemberFrom, str);
         MemberImpl member = functionalsRepository.getMembers().get(memberName);
         functionalsRepository.getTeams().get(teamToRemoveMemberFrom).removeMember(member);
+        addToActivityHistory(teamToRemoveMemberFrom, memberName);
         return String.format(MEMBER_REMOVED_FROM_TEAM, memberName, teamToRemoveMemberFrom);
     }
 
@@ -60,5 +63,12 @@ public class RemoveMember implements Command {
     private String asksWhichMember() {
         String[] activityHistoryOfMember = reader.readLine().split(" ");
         return NameJoiner.joinerArr(activityHistoryOfMember);
+    }
+
+    private String addToActivityHistory(String teamToRemoveMemberFrom, String memberName) {
+        String activity = String.format(MEMBER_REMOVED_FROM_TEAM, memberName, teamToRemoveMemberFrom);
+        PersonImpl.addActivity(activity, memberName);
+        TeamsImpl.addActivity(activity, teamToRemoveMemberFrom);
+        return activity;
     }
 }

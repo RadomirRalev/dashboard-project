@@ -1,18 +1,18 @@
 package commands.actions.activityhistory;
+import commands.actions.ValidationCommands;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import java.util.stream.Collectors;
-
 import static commands.actions.CommandsConstants.*;
 import static functionals.models.BoardImpl.getBoardsActivity;
 
 public class BoardActivityHistory {
     private Reader reader;
     private Writer writer;
-    private String boardActivityHistory;
+    private String boardName;
     private final FunctionalsRepositoryImpl functionalsRepository;
 
     public BoardActivityHistory(FunctionalsRepositoryImpl functionalsRepository) {
@@ -21,17 +21,11 @@ public class BoardActivityHistory {
         writer = new ConsoleWriter();
     }
 
-    public String execute() {
+    public String execute() throws Exception {
         writer.writeLine(WHICH_BOARD);
-        boardActivityHistory = asksWhichBoard();
-        while (!checkIfBoardExists(boardActivityHistory)) {
-            System.out.printf(BOARD_DOES_NOT_EXIST_MSG, boardActivityHistory);
-            boardActivityHistory = asksWhichBoard();
-            if (boardActivityHistory.equalsIgnoreCase("cancel")) {
-                return TYPE_ANOTHER_COMMAND;
-            }
-        }
-        return showActivity(boardActivityHistory);
+        boardName = asksWhichBoard();
+        boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
+        return showActivity(boardName);
     }
 
     private String showActivity(String boardActivityHistory) {
@@ -40,11 +34,6 @@ public class BoardActivityHistory {
     }
 
     private String asksWhichBoard() {
-        return boardActivityHistory = reader.readLine();
+        return boardName = reader.readLine();
     }
-
-    private boolean checkIfBoardExists(String boardActivityHistory) {
-        return functionalsRepository.getBoards().containsKey(boardActivityHistory);
-    }
-
 }
