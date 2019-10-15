@@ -14,7 +14,7 @@ import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
 
 public class ListAssignedWork implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
-
+    private String personName;
 
     public ListAssignedWork(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -22,13 +22,21 @@ public class ListAssignedWork implements Command {
 
     @Override
     public String execute(List<String> parameters) throws Exception {
-        String personName = NameJoiner.joinerList(parameters);
-        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        setPersonName();
+        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
         return prepareAssignedWorkList(personName);
     }
 
     private String prepareAssignedWorkList(String personName) {
         Person person = functionalsRepository.getPersons().get(personName);
         return person.listAssignedWork();
+    }
+
+    private String getPersonName() {
+        return personName;
+    }
+
+    private void setPersonName() {
+        this.personName = ValidationCommands.asksWhichPerson();
     }
 }

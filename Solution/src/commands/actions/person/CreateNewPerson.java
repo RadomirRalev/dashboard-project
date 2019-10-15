@@ -13,6 +13,7 @@ import static commands.actions.CommandsConstants.*;
 public class CreateNewPerson implements Command {
     private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
+    private String personName;
 
     public CreateNewPerson(FunctionalsFactory functionalsFactory, FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsFactory = functionalsFactory;

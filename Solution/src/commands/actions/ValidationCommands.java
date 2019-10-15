@@ -124,4 +124,10 @@ public class ValidationCommands {
         String[] personName = reader.readLine().split(" ");
         return NameJoiner.joinerArr(personName);
     }
+
+    public static String asksWhichTeam() {
+        writer.writeLine("To which team?");
+        String[] personName = reader.readLine().split(" ");
+        return NameJoiner.joinerArr(personName);
+    }
 }

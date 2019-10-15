@@ -51,7 +51,12 @@ public class CreateBoard implements Command {
 
         functionalsRepository.addBoard(boardName, board);
         team.addBoard(board);
-        String activity = String.format(BOARD_CREATED_MSG, boardName);
+        String activity = String.format(BOARD_CREATED_MSG + "\n"
+                        + BOARD_ADDED_SUCCESS_MESSAGE,
+                boardName,
+                boardName,
+                teamName
+        );
         BoardImpl.addActivity(activity, boardName);
         return String.format(BOARD_CREATED_MSG + "\n"
                         + BOARD_ADDED_SUCCESS_MESSAGE,

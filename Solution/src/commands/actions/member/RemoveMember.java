@@ -1,6 +1,5 @@
 package commands.actions.member;
 import commands.actions.ValidationCommands;
-import commands.actions.person.NameJoiner;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
@@ -10,7 +9,6 @@ import core.providers.ConsoleWriter;
 import functionals.models.MemberImpl;
 import functionals.models.PersonImpl;
 import functionals.models.TeamsImpl;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +19,8 @@ public class RemoveMember implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
     private Writer writer;
+    private String memberName;
+
 
     public RemoveMember(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -30,11 +30,9 @@ public class RemoveMember implements Command {
 
     public String execute(List<String> parameters) throws Exception {
         ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
-        writer.writeLine(WHICH_MEMBER);
-        String memberName = ValidationCommands.asksWhichPerson();
-        memberName = ValidationCommands.checkIfMemberExists(memberName, functionalsRepository);
-        ArrayList<String> str = getTheTeamsOfTheMember(memberName);
-        return removeMember(memberName, str);
+        setMemberName();
+        ValidationCommands.checkIfPersonExists(getMemberName(), functionalsRepository);
+        return removeMember(getMemberName(), getTheTeamsOfTheMember(getMemberName()));
     }
 
     private String removeMember(String memberName, ArrayList<String> str) throws Exception {
@@ -49,15 +47,9 @@ public class RemoveMember implements Command {
 
     private ArrayList<String> getTheTeamsOfTheMember(String memberName) {
         System.out.printf(MEMBER_OF_TEAMS, memberName);
-        MemberImpl memberN = functionalsRepository.getMembers().get(memberName);
-        ArrayList<String> str = new ArrayList<>();
-        functionalsRepository.getTeams().forEach((k, v) -> {
-            if (functionalsRepository.getTeams().get(k).showTeamMembers().contains(memberN)) {
-                str.add(functionalsRepository.getTeams().get(k).getName());
-            }
-        });
-        System.out.println(str.toString(). replace("[", "").replace("]", ""));
-        return str;
+        MemberImpl member = functionalsRepository.getMembers().get(memberName);
+        System.out.println(member.getTheTeamsOfTheMember().toString().replace("[", "").replace("]", ""));
+        return member.getTheTeamsOfTheMember();
     }
 
     private String addToActivityHistory(String teamToRemoveMemberFrom, String memberName) {
@@ -65,5 +57,13 @@ public class RemoveMember implements Command {
         PersonImpl.addActivity(activity, memberName);
         TeamsImpl.addActivity(activity, teamToRemoveMemberFrom);
         return activity;
+    }
+
+    private String getMemberName() {
+        return memberName;
+    }
+
+    private void setMemberName() {
+        this.memberName = ValidationCommands.asksWhichPerson();
     }
 }
