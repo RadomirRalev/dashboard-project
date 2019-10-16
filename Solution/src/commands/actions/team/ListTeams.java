@@ -1,5 +1,6 @@
 package commands.actions.team;
 
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -10,10 +11,8 @@ import java.util.StringJoiner;
 
 import static commands.actions.CommandsConstants.*;
 
-public class ListTeams implements Command {
-    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
+public class ListTeams extends ConsoleInteraction implements Command {
     private FunctionalsRepositoryImpl functionalsRepository;
-
 
     public ListTeams(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -21,7 +20,11 @@ public class ListTeams implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
+        ConsoleInteraction.validateInput(parameters.size());
+        return listTeams();
+    }
+
+    private String listTeams() {
         StringJoiner str = new StringJoiner(", ");
         Set<String> keys = functionalsRepository.getTeams().keySet();
         for (String k : keys) {
@@ -32,7 +35,6 @@ public class ListTeams implements Command {
     }
 
     private String listTeams(String teamsList) {
-
         if (functionalsRepository.getTeams().size() == 0) {
             return TEAMSLIST_IS_EMPTY;
         }

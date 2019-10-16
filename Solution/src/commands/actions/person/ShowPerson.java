@@ -1,5 +1,6 @@
 package commands.actions.person;
 
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -7,7 +8,7 @@ import functionals.contracts.Person;
 
 import java.util.List;
 
-public class ShowPerson extends PersonName implements Command {
+public class ShowPerson extends ConsoleInteraction implements Command {
 
     private final FunctionalsRepositoryImpl functionalsRepository;
 
@@ -17,6 +18,7 @@ public class ShowPerson extends PersonName implements Command {
 
     @Override
     public String execute(List<String> parameters) throws Exception {
+        ConsoleInteraction.validateInput(parameters.size());
         setPersonName();
         ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
         return showPerson(getPersonName());

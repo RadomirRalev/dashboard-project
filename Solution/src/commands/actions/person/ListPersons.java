@@ -1,11 +1,8 @@
 package commands.actions.person;
 
 import commands.actions.ConsoleInteraction;
-import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
-import core.contracts.FunctionalsFactory;
-import functionals.contracts.Person;
 
 import java.util.List;
 import java.util.Set;
@@ -23,6 +20,7 @@ public class ListPersons extends ConsoleInteraction implements Command{
 
     @Override
     public String execute(List<String> parameters) {
+        ConsoleInteraction.validateInput(parameters.size());
         return prepareListOfPersons();
     }
 

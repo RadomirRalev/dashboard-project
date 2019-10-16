@@ -15,9 +15,9 @@ public class TeamActivityHistory extends ConsoleInteraction {
     }
 
     public String execute() throws Exception {
-        setTeamName();
-        ValidationCommands.checkIfTeamExists(getTeamName(), functionalsRepository);
-        return showActivity(getTeamName());
+        setName();
+        ValidationCommands.checkIfTeamExists(getName(), functionalsRepository);
+        return showActivity(getName());
     }
 
     private String showActivity(String teamActivityHistory) {
@@ -25,11 +25,7 @@ public class TeamActivityHistory extends ConsoleInteraction {
                 .collect( Collectors.joining( "\n" ) ));
     }
 
-    private String getTeamName() {
-        return teamName;
-    }
-
-    private void setTeamName() {
-        this.teamName = asksWhich("team");
+    private void setName() {
+        this.teamName = asksWhat("team");
     }
 }

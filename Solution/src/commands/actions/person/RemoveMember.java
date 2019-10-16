@@ -15,12 +15,10 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class RemoveMember extends PersonName implements Command {
-    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
+public class RemoveMember extends ConsoleInteraction implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
     private Writer writer;
-    private String memberName;
 
 
     public RemoveMember(FunctionalsRepositoryImpl functionalsRepository) {
@@ -30,7 +28,7 @@ public class RemoveMember extends PersonName implements Command {
     }
 
     public String execute(List<String> parameters) throws Exception {
-        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
+        ConsoleInteraction.validateInput(parameters.size());
         setPersonName();
         ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
         return removeMember(getPersonName(), getTheTeamsOfTheMember(getPersonName()));

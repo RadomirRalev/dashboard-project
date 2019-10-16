@@ -1,5 +1,6 @@
 package commands.actions.team;
 
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -12,8 +13,7 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class CreateTeam implements Command {
-    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 1;
+public class CreateTeam extends ConsoleInteraction implements Command {
     private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
 
@@ -24,18 +24,15 @@ public class CreateTeam implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) {
-        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
-        String teamName = parameters.get(0);
-        TeamsImpl.getTeamsActivity().put(teamName, new ArrayList<>());
-        return createTeam(teamName);
+    public String execute(List<String> parameters) throws Exception {
+        ConsoleInteraction.validateInput(parameters.size());
+        setName("Team");
+        ValidationCommands.checkNameOfNewTeam(getName(), functionalsRepository);
+        TeamsImpl.getTeamsActivity().put(getName(), new ArrayList<>());
+        return createTeam(getName());
     }
 
     private String createTeam(String name) {
-
-        if (functionalsRepository.getTeams().containsKey(name)) {
-            return String.format(TEAM_EXISTS_ERROR_MSG, name);
-        }
         Team team = functionalsFactory.createTeam(name);
         functionalsRepository.addTeam(name, team);
         String activity = String.format(TEAM_CREATED_MSG, name);

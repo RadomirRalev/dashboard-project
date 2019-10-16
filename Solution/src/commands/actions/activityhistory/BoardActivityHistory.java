@@ -29,6 +29,6 @@ public class BoardActivityHistory extends ConsoleInteraction {
     }
 
     private void setBoardName() {
-        this.boardName = asksWhich("board");
+        this.boardName = asksWhat("board");
     }
 }

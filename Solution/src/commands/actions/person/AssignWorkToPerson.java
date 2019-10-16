@@ -15,11 +15,10 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class AssignWorkToPerson extends PersonName implements Command {
+public class AssignWorkToPerson extends ConsoleInteraction implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
     private Writer writer;
-    private String personName;
     private String workToBeAdded;
 
 
@@ -31,6 +30,7 @@ public class AssignWorkToPerson extends PersonName implements Command {
 
     @Override
     public String execute(List<String> parameters) throws Exception {
+        ConsoleInteraction.validateInput(parameters.size());
         setPersonName();
         ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
         asksAboutWorkToBeAdded();

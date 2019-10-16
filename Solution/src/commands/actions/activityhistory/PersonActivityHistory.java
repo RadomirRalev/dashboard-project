@@ -7,8 +7,6 @@ import functionals.models.MemberImpl;
 
 public class PersonActivityHistory extends ConsoleInteraction {
     private final FunctionalsRepositoryImpl functionalsRepository;
-    private String personName;
-
 
     public PersonActivityHistory(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -27,13 +25,5 @@ public class PersonActivityHistory extends ConsoleInteraction {
         }
         Person person = functionalsRepository.getPersons().get(getPersonName());
         return person.showActivity(getPersonName());
-    }
-
-    private String getPersonName() {
-        return personName;
-    }
-
-    private void setPersonName() {
-        this.personName = asksWhat();
     }
 }

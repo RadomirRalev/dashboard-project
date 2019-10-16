@@ -3,6 +3,7 @@ import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
+import core.contracts.FunctionalsRepository;
 import functionals.contracts.Team;
 import functionals.models.MemberImpl;
 import functionals.models.PersonImpl;
@@ -12,23 +13,24 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class AddPersonToTeam extends PersonName implements Command {
+public class AddPersonToTeam extends ConsoleInteraction implements Command {
 
-    private final FunctionalsRepositoryImpl functionalsRepository;
+    private final FunctionalsRepository functionalsRepository;
 
-    public AddPersonToTeam(FunctionalsRepositoryImpl functionalsRepository) {
+    public AddPersonToTeam(FunctionalsRepository functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
     }
 
     @Override
     public String execute(List<String> parameters) throws Exception {
-        setTeamName();
-        ValidationCommands.checkIfTeamExists(getTeamName(), functionalsRepository);
+        ConsoleInteraction.validateInput(parameters.size());
+        setName("Team");
+        ValidationCommands.checkIfTeamExists(getName(), functionalsRepository);
         setPersonName();
         ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
-        MemberImpl member = addMemberToTeam(getTeamName(), getPersonName());
+        MemberImpl member = addMemberToTeam(getName(), getPersonName());
         addToMembersList(getPersonName(), member);
-        return addToActivityHistory(getTeamName(), getPersonName());
+        return addToActivityHistory(getName(), getPersonName());
     }
 
     private void addToMembersList(String personName, MemberImpl member) {
