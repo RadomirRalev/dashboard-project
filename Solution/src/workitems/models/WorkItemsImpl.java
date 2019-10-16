@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
+import static workitems.Constants.EMPTY_COMMENT_LIST_MSG;
 import static workitems.Constants.INVALID_ENUM_ERROR_MSG;
 
 public abstract class WorkItemsImpl implements WorkItems {
@@ -58,6 +59,7 @@ public abstract class WorkItemsImpl implements WorkItems {
     @Override
     public abstract EnumSet<Status> getStatus();
 
+    @Override
     public Status getCurrentStatus(){
         return status;
     }
@@ -65,6 +67,18 @@ public abstract class WorkItemsImpl implements WorkItems {
     @Override
     public List<String> getComments() {
         return new ArrayList<>(comments);
+    }
+
+    @Override
+    public String showComments(){
+        StringBuilder str = new StringBuilder();
+        if(getComments().isEmpty()){
+            throw new IllegalArgumentException(EMPTY_COMMENT_LIST_MSG);
+        }
+        for (String element: getComments()) {
+            str.append(element + "\n");
+        }
+        return str.toString();
     }
 
     @Override
@@ -82,6 +96,9 @@ public abstract class WorkItemsImpl implements WorkItems {
 
     @Override
     public void addComment(String comment) {
+        if(comment.isEmpty()){
+            throw new IllegalArgumentException("Cannot add an empty comment");
+        }
         comments.add(comment);
     }
 

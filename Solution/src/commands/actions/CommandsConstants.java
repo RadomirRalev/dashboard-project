@@ -67,4 +67,6 @@ public class CommandsConstants {
     public static final String MEMBER_OF_TEAMS = "%s is a member of: \n";
     public static final String WHAT_NAME = "What name?";
     public static final String ITEM_DOES_NOT_EXIST_IN_ANOTHER_MSG = "Item %s does not exist in %s!";
+    public static final String ADD_COMMENT_MSG = "Please write the comment you wish to add to %s in %s";
+    public static final String COMMENT_SUCCESSFULLY_ADDED_MSG = "The comment was successfully added to %s";
 }
