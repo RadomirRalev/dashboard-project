@@ -25,7 +25,8 @@ public enum CommandType {
     CHANGEPRIORITY ("Change priority"),
     CHANGERATING ("Change rating"),
     CHANGESEVERITY ("Change severity"),
-    CHANGESIZE ("Change size");
+    CHANGESIZE ("Change size"),
+    ADDCOMMENT ("Add comment");
 
     private final String command;
 
