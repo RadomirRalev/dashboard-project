@@ -1,6 +1,5 @@
 package commands.actions.person;
 import commands.actions.ValidationCommands;
-import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
 import core.contracts.Writer;
@@ -13,7 +12,7 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class UnassignWorkFromPerson extends Persons implements Command {
+public class UnassignWorkFromPerson extends Persons {
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
     private Writer writer;

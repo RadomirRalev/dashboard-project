@@ -12,16 +12,4 @@ public interface Board extends Functionals {
 
     List listWorkItems();
 
-    void addBug();
-
-    void removeBug();
-
-    void addStory();
-
-    void removeStory();
-
-    void addFeedback();
-
-    void removeFeedback();
-
 }

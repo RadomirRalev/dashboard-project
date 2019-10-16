@@ -6,6 +6,7 @@ import functionals.models.MemberImpl;
 
 public class PersonActivityHistory {
     private final FunctionalsRepositoryImpl functionalsRepository;
+    private String personName;
 
 
     public PersonActivityHistory(FunctionalsRepositoryImpl functionalsRepository) {
@@ -13,17 +14,25 @@ public class PersonActivityHistory {
     }
 
     public String execute() throws Exception {
-        String personName = ValidationCommands.asksWhichPerson();
-        personName = ValidationCommands.checkIfMemberExists(personName, functionalsRepository);
-        return showActivity(personName);
+        setPersonName();
+        ValidationCommands.checkIfMemberExists(getPersonName(), functionalsRepository);
+        return showActivity();
     }
 
-    private String showActivity(String personName) {
-        MemberImpl member = functionalsRepository.getMembers().get(personName);
+    private String showActivity() {
+        MemberImpl member = functionalsRepository.getMembers().get(getPersonName());
         if (member != null) {
-            return member.showActivity(personName);
+            return member.showActivity(getPersonName());
         }
-        Person person = functionalsRepository.getPersons().get(personName);
-        return person.showActivity(personName);
+        Person person = functionalsRepository.getPersons().get(getPersonName());
+        return person.showActivity(getPersonName());
+    }
+
+    private String getPersonName() {
+        return personName;
+    }
+
+    private void setPersonName() {
+        this.personName = ValidationCommands.asksWhatName();
     }
 }

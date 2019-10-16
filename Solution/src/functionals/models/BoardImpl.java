@@ -1,26 +1,22 @@
 package functionals.models;
 
 import functionals.contracts.Board;
-import workitems.contracts.Bug;
 import workitems.contracts.WorkItems;
-import workitems.models.BugImpl;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class BoardImpl implements Board {
-    //TODO implement the methods from the Board interface
     private static final Map<String, ArrayList<String>> boardsActivity = new HashMap<>();
     private String name;
     private List<String> activityHistory;
-    private List workItems;
+    private List<WorkItems> workItems;
 
     public BoardImpl(String name) {
         setName(name);
-        activityHistory = new ArrayList();
-        workItems = new ArrayList();
+        activityHistory = new ArrayList<>();
+        workItems = new ArrayList<>();
     }
 
     public static Map<String, ArrayList<String>> getBoardsActivity() {
@@ -48,7 +44,7 @@ public class BoardImpl implements Board {
     }
 
     public List listWorkItems() {
-        return new ArrayList(workItems);
+        return new ArrayList<>(workItems);
     }
 
     @Override
@@ -67,36 +63,5 @@ public class BoardImpl implements Board {
             str.append(String.format("%s\n", object));
         }
         return str.toString();
-    }
-
-    @Override
-    public void addBug() {
-
-
-    }
-
-    @Override
-    public void removeBug() {
-
-    }
-
-    @Override
-    public void addStory() {
-
-    }
-
-    @Override
-    public void removeStory() {
-
-    }
-
-    @Override
-    public void addFeedback() {
-
-    }
-
-    @Override
-    public void removeFeedback() {
-
     }
 }

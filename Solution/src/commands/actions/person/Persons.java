@@ -6,6 +6,8 @@ import commands.contracts.Command;
 import java.util.List;
 
 abstract class Persons implements Command {
+
+
     private String personName;
 
     String getPersonName() {

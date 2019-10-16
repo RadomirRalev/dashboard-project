@@ -125,6 +125,11 @@ public class ValidationCommands {
         return NameJoiner.joinerArr(personName);
     }
 
+    public static String asksWhichBoard() {
+        writer.writeLine(WHICH_BOARD);
+        return reader.readLine();
+    }
+
     public static String asksWhatName() {
         writer.writeLine(WHAT_NAME);
         String[] personName = reader.readLine().split(" ");
@@ -132,8 +137,7 @@ public class ValidationCommands {
     }
 
     public static String asksWhichTeam() {
-        writer.writeLine("To which team?");
-        String[] personName = reader.readLine().split(" ");
-        return NameJoiner.joinerArr(personName);
+        writer.writeLine(WHICH_TEAM);
+        return reader.readLine();
     }
 }

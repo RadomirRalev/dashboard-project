@@ -23,9 +23,9 @@ public class BoardActivityHistory {
 
     public String execute() throws Exception {
         writer.writeLine(WHICH_BOARD);
-        boardName = asksWhichBoard();
-        boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
-        return showActivity(boardName);
+        setBoardName();
+        ValidationCommands.checkIfBoardExists(getBoardName(), functionalsRepository);
+        return showActivity(getBoardName());
     }
 
     private String showActivity(String boardActivityHistory) {
@@ -33,7 +33,11 @@ public class BoardActivityHistory {
                 .collect( Collectors.joining( "\n" ) ));
     }
 
-    private String asksWhichBoard() {
-        return boardName = reader.readLine();
+    private String getBoardName() {
+        return boardName;
+    }
+
+    private void setBoardName() {
+        this.boardName = ValidationCommands.asksWhichBoard();
     }
 }
