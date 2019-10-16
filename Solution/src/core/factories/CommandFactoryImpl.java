@@ -79,6 +79,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ChangeSize(functionalsRepository);
             case ADDCOMMENT:
                 return new AddComment(functionalsRepository);
+            case SHOWCOMMENTS:
+                return new ShowComments(functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }

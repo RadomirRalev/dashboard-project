@@ -14,7 +14,7 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class AddComment implements Command {
+public class ShowComments implements Command {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 3;
 
     private final FunctionalsRepository functionalsRepository;
@@ -24,9 +24,8 @@ public class AddComment implements Command {
     private String workitemName;
     private int id;
     private String boardName;
-    private String comment;
 
-    public AddComment(FunctionalsRepository functionalsRepository){
+    public ShowComments(FunctionalsRepository functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
         reader = new ConsoleReader();
         writer = new ConsoleWriter();
@@ -50,15 +49,13 @@ public class AddComment implements Command {
 
         ValidationCommands.checkIfNamesMatch(workItem.getTitle(), workitemName);
 
-        return addComment(workitemName, id, boardName, comment);
+        return showComments(workitemName, id, boardName);
     }
 
-    private String addComment(String workitemName, int id, String boardName, String comment){
+    public String showComments(String workitemName, int id, String boardName){
         WorkItems workItem = functionalsRepository.getWorkItems().get(id);
 
-        workItem.addComment(comment);
-
-        return String.format(COMMENT_SUCCESSFULLY_ADDED_MSG, workitemName);
+        return workItem.showComments();
     }
 
     private void parseParameters(List<String> parameters) {
@@ -66,8 +63,6 @@ public class AddComment implements Command {
             workitemName = parameters.get(0);
             id = Integer.parseInt(parameters.get(1));
             boardName = parameters.get(2);
-            writer.writeLine(String.format(ADD_COMMENT_MSG, workitemName, boardName));
-            comment = reader.readLine();
         } catch (Exception e) {
             throw new IllegalArgumentException(FAILED_TO_PARSE_COMMAND_PARAMETERS);
         }

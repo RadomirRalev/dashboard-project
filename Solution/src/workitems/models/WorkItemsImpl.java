@@ -59,6 +59,7 @@ public abstract class WorkItemsImpl implements WorkItems {
     @Override
     public abstract EnumSet<Status> getStatus();
 
+    @Override
     public Status getCurrentStatus(){
         return status;
     }
@@ -68,6 +69,7 @@ public abstract class WorkItemsImpl implements WorkItems {
         return new ArrayList<>(comments);
     }
 
+    @Override
     public String showComments(){
         StringBuilder str = new StringBuilder();
         if(getComments().isEmpty()){
