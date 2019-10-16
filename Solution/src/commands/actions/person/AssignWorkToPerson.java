@@ -1,5 +1,6 @@
 package commands.actions.person;
 
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -14,7 +15,7 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class AssignWorkToPerson implements Command {
+public class AssignWorkToPerson extends PersonName implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
     private Writer writer;
@@ -60,13 +61,5 @@ public class AssignWorkToPerson implements Command {
 
     private String getWorkToBeAdded() {
         return workToBeAdded;
-    }
-
-    private String getPersonName() {
-        return personName;
-    }
-
-    private void setPersonName() {
-        this.personName = ValidationCommands.asksWhichPerson();
     }
 }

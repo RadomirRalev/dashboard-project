@@ -125,11 +125,6 @@ public class ValidationCommands {
         return NameJoiner.joinerArr(personName);
     }
 
-    public static String asksWhichBoard() {
-        writer.writeLine(WHICH_BOARD);
-        return reader.readLine();
-    }
-
     public static String asksWhatName() {
         writer.writeLine(WHAT_NAME);
         String[] personName = reader.readLine().split(" ");

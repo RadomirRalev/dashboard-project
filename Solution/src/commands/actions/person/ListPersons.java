@@ -1,5 +1,6 @@
 package commands.actions.person;
 
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -12,8 +13,7 @@ import java.util.StringJoiner;
 
 import static commands.actions.CommandsConstants.*;
 
-public class ListPersons implements Command {
-    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
+public class ListPersons extends ConsoleInteraction implements Command{
     private final FunctionalsRepositoryImpl functionalsRepository;
 
 
@@ -23,7 +23,6 @@ public class ListPersons implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
         return prepareListOfPersons();
     }
 

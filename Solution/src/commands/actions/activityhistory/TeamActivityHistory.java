@@ -1,10 +1,11 @@
 package commands.actions.activityhistory;
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import core.FunctionalsRepositoryImpl;
 import java.util.stream.Collectors;
 import static functionals.models.TeamsImpl.getTeamsActivity;
 
-public class TeamActivityHistory {
+public class TeamActivityHistory extends ConsoleInteraction {
     private String teamName;
     private final FunctionalsRepositoryImpl functionalsRepository;
 
@@ -29,6 +30,6 @@ public class TeamActivityHistory {
     }
 
     private void setTeamName() {
-        this.teamName = ValidationCommands.asksWhichTeam();
+        this.teamName = asksWhich("team");
     }
 }

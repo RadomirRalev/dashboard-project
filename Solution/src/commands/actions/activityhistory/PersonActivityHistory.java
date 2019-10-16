@@ -1,10 +1,11 @@
 package commands.actions.activityhistory;
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import core.FunctionalsRepositoryImpl;
 import functionals.contracts.Person;
 import functionals.models.MemberImpl;
 
-public class PersonActivityHistory {
+public class PersonActivityHistory extends ConsoleInteraction {
     private final FunctionalsRepositoryImpl functionalsRepository;
     private String personName;
 
@@ -33,6 +34,6 @@ public class PersonActivityHistory {
     }
 
     private void setPersonName() {
-        this.personName = ValidationCommands.asksWhatName();
+        this.personName = asksWhat();
     }
 }

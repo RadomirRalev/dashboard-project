@@ -1,4 +1,5 @@
-package commands.actions.member;
+package commands.actions.person;
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -11,10 +12,9 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class AddPersonToTeam implements Command {
+public class AddPersonToTeam extends PersonName implements Command {
+
     private final FunctionalsRepositoryImpl functionalsRepository;
-    private String teamName;
-    private String personName;
 
     public AddPersonToTeam(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -47,21 +47,5 @@ public class AddPersonToTeam implements Command {
         MemberImpl member = new MemberImpl(personName, functionalsRepository);
         team.addMember(member);
         return member;
-    }
-
-    private String getTeamName() {
-        return teamName;
-    }
-
-    private void setTeamName() {
-        this.teamName = ValidationCommands.asksWhichTeam();
-    }
-
-    private String getPersonName() {
-        return personName;
-    }
-
-    private void setPersonName() {
-        this.personName = ValidationCommands.asksWhichPerson();
     }
 }

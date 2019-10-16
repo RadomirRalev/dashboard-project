@@ -1,5 +1,6 @@
 package commands.actions.person;
 
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -12,8 +13,10 @@ import java.util.stream.Collectors;
 import static commands.actions.CommandsConstants.PERSON_DOES_NOT_EXIST_ERROR_MSG;
 import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
 
-public class ListAssignedWork extends Persons {
+public class ListAssignedWork extends PersonName implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
+    private String personName;
+
 
     public ListAssignedWork(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;

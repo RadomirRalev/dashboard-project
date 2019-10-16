@@ -1,5 +1,6 @@
-package commands.actions.member;
+package commands.actions.person;
 
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -8,7 +9,7 @@ import java.util.*;
 
 import static commands.actions.CommandsConstants.*;
 
-public class ListAllTeamMembers implements Command {
+public class ListAllTeamMembers extends ConsoleInteraction implements Command {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
     private final FunctionalsRepositoryImpl functionalsRepository;
 

@@ -47,9 +47,9 @@ public class CommandsConstants {
     public static final String STORY_CREATED_SUCCESS_MESSAGE = "Story %s was created!";
     public static final String FEEDBACK_CREATED_SUCCESS_MESSAGE = "Feedback %s was created!";
     public static final String FAILED_TO_PARSE_COMMAND_PARAMETERS = "Failed to parse command parameters";
-    public static final String WHICH_MEMBER = "Which member?";
-    public static final String WHICH_BOARD = "Which board?";
     public static final String WHICH_TEAM = "Which team?";
+    public static final String WHICH = "Which %s?\n";
+    public static final String WHAT = "What person %s?\n";
     public static final String WHICH_PERSON = "Which person?";
     public static final String WORKITEM_DOES_NOT_EXIST_ERROR_MSG = "Workitem %s with id %d does not exist!";
     public static final String WORK_ITEM_SUCCESS_REMOVAL_MESSAGE = "Workitem %s with id %d successfully removed";

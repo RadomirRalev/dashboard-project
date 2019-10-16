@@ -1,14 +1,17 @@
 package commands.actions.person;
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
+import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.FunctionalsFactory;
 import functionals.contracts.Person;
 import functionals.models.PersonImpl;
 import java.util.ArrayList;
 import java.util.List;
+
 import static commands.actions.CommandsConstants.*;
 
-public class CreateNewPerson extends Persons {
+public class CreateNewPerson extends PersonName implements Command {
     private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
 
@@ -32,5 +35,4 @@ public class CreateNewPerson extends Persons {
         PersonImpl.addActivity(activity, name);
         return activity;
     }
-
 }
