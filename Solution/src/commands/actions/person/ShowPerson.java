@@ -1,16 +1,14 @@
 package commands.actions.person;
 import commands.actions.ValidationCommands;
-import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import functionals.contracts.Person;
 
 import java.util.List;
 
-public class ShowPerson implements Command {
+public class ShowPerson extends Persons {
 
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
     private final FunctionalsRepositoryImpl functionalsRepository;
-    private String personName;
 
     public ShowPerson(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -27,13 +25,5 @@ public class ShowPerson implements Command {
     private String showPerson(String personName) {
         Person person = functionalsRepository.getPersons().get(personName);
         return person.toString();
-    }
-
-    private String getPersonName() {
-        return personName;
-    }
-
-    private void setPersonName() {
-        this.personName = ValidationCommands.asksWhichPerson();
     }
 }

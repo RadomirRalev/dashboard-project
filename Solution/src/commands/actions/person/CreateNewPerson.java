@@ -1,6 +1,5 @@
 package commands.actions.person;
 import commands.actions.ValidationCommands;
-import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.FunctionalsFactory;
 import functionals.contracts.Person;
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import static commands.actions.CommandsConstants.*;
 
-public class CreateNewPerson extends Persons implements Command {
+public class CreateNewPerson extends Persons {
     private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
 

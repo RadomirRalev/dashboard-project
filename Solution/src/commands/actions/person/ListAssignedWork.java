@@ -12,9 +12,8 @@ import java.util.stream.Collectors;
 import static commands.actions.CommandsConstants.PERSON_DOES_NOT_EXIST_ERROR_MSG;
 import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
 
-public class ListAssignedWork implements Command {
+public class ListAssignedWork extends Persons {
     private final FunctionalsRepositoryImpl functionalsRepository;
-    private String personName;
 
     public ListAssignedWork(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -24,19 +23,11 @@ public class ListAssignedWork implements Command {
     public String execute(List<String> parameters) throws Exception {
         setPersonName();
         ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
-        return prepareAssignedWorkList(personName);
+        return prepareAssignedWorkList(getPersonName());
     }
 
     private String prepareAssignedWorkList(String personName) {
         Person person = functionalsRepository.getPersons().get(personName);
         return person.listAssignedWork();
-    }
-
-    private String getPersonName() {
-        return personName;
-    }
-
-    private void setPersonName() {
-        this.personName = ValidationCommands.asksWhichPerson();
     }
 }
