@@ -34,11 +34,11 @@ public class AssignWorkToPerson implements Command {
         ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
         asksAboutWorkToBeAdded();
         Person person = getPerson();
-        return addsWorkToActivityHistory(personName, getWorkToBeAdded(), person);
+        return addsWorkToActivityHistory(getPersonName(), getWorkToBeAdded(), person);
     }
 
     private Person getPerson() {
-        return addsWorkToPerson(personName, getWorkToBeAdded());
+        return addsWorkToPerson(getPersonName(), getWorkToBeAdded());
     }
 
     private String addsWorkToActivityHistory(String personName, String workToBeAdded, Person person) {

@@ -65,5 +65,6 @@ public class CommandsConstants {
             "Add a new team name or type cancel to abort:\n";
     public static final String MEMBER_REMOVED_FROM_TEAM = "%s was removed from team %s!";
     public static final String MEMBER_OF_TEAMS = "%s is a member of: \n";
+    public static final String WHAT_NAME = "What name?";
     public static final String ITEM_DOES_NOT_EXIST_IN_ANOTHER_MSG = "Item %s does not exist in %s!";
 }
