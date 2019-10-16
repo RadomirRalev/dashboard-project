@@ -18,6 +18,9 @@ public class AssignWorkToPerson implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
     private Writer writer;
+    private String personName;
+    private String workToBeAdded;
+
 
     public AssignWorkToPerson(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -27,13 +30,16 @@ public class AssignWorkToPerson implements Command {
 
     @Override
     public String execute(List<String> parameters) throws Exception {
-        String personName = NameJoiner.joinerList(parameters);
-        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        String workToBeAdded = asksAboutWorkToBeAdded();
-        Person person = addsWorkToPerson(personName, workToBeAdded);
-        return addsWorkToActivityHistory(personName, workToBeAdded, person);
+        setPersonName();
+        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
+        asksAboutWorkToBeAdded();
+        Person person = getPerson();
+        return addsWorkToActivityHistory(getPersonName(), getWorkToBeAdded(), person);
     }
 
+    private Person getPerson() {
+        return addsWorkToPerson(getPersonName(), getWorkToBeAdded());
+    }
 
     private String addsWorkToActivityHistory(String personName, String workToBeAdded, Person person) {
         String activity = String.format(WORK_ADDED_MSG, workToBeAdded, personName);
@@ -47,8 +53,20 @@ public class AssignWorkToPerson implements Command {
         return person;
     }
 
-    private String asksAboutWorkToBeAdded() {
+    private void asksAboutWorkToBeAdded() {
         writer.writeLine("What work will be added?");
-        return reader.readLine();
+        this.workToBeAdded = reader.readLine();
+    }
+
+    private String getWorkToBeAdded() {
+        return workToBeAdded;
+    }
+
+    private String getPersonName() {
+        return personName;
+    }
+
+    private void setPersonName() {
+        this.personName = ValidationCommands.asksWhichPerson();
     }
 }

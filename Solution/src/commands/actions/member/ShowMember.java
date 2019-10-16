@@ -1,40 +1,25 @@
 package commands.actions.member;
 import commands.actions.ValidationCommands;
-import commands.actions.person.NameJoiner;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
-import core.contracts.Reader;
-import core.contracts.Writer;
-import core.providers.ConsoleReader;
-import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
 import java.util.List;
-import static commands.actions.CommandsConstants.*;
 
 public class ShowMember implements Command {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
     private final FunctionalsRepositoryImpl functionalsRepository;
-    private Reader reader;
-    private Writer writer;
+    private String memberName;
 
     public ShowMember(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
-        reader = new ConsoleReader();
-        writer = new ConsoleWriter();
     }
 
     @Override
     public String execute(List<String> parameters) throws Exception {
         ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
-        writer.writeLine(WHICH_MEMBER);
-        String memberName = asksWhichMember();
-        memberName = ValidationCommands.checkIfMemberExists(memberName, functionalsRepository);
-        if (typeAnotherCommand(memberName)) return TYPE_ANOTHER_COMMAND;
+        setMemberName();
+        ValidationCommands.checkIfPersonExists(getMemberName(), functionalsRepository);
         return showMember(memberName);
-    }
-
-    private boolean typeAnotherCommand(String memberName) {
-        return memberName.equalsIgnoreCase("cancel");
     }
 
     private String showMember(String memberName) {
@@ -42,8 +27,11 @@ public class ShowMember implements Command {
         return member.toString();
     }
 
-    private String asksWhichMember() {
-        String[] activityHistoryOfMember = reader.readLine().split(" ");
-        return NameJoiner.joinerArr(activityHistoryOfMember);
+    private String getMemberName() {
+        return memberName;
+    }
+
+    private void setMemberName() {
+        this.memberName = ValidationCommands.asksWhichPerson();
     }
 }

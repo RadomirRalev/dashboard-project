@@ -17,6 +17,7 @@ public class CreateTeam implements Command {
     private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
 
+
     public CreateTeam(FunctionalsFactory functionalsFactory, FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsFactory = functionalsFactory;
         this.functionalsRepository = functionalsRepository;

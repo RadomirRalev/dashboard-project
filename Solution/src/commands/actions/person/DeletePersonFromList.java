@@ -7,9 +7,8 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class DeletePersonFromList implements Command {
+public class DeletePersonFromList extends Persons implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
-
 
     public DeletePersonFromList(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -17,9 +16,9 @@ public class DeletePersonFromList implements Command {
 
     @Override
     public String execute(List<String> parameters) throws Exception {
-        String personName = NameJoiner.joinerList(parameters);
-        personName = ValidationCommands.checkIfPersonExists(personName,functionalsRepository);
-        return deletePerson(personName);
+        setPersonName();
+        ValidationCommands.checkIfPersonExists(getPersonName(),functionalsRepository);
+        return deletePerson(getPersonName());
     }
 
     private String deletePerson(String name) {

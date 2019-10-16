@@ -20,8 +20,7 @@ public class ListAllTeamMembers implements Command {
     @Override
     public String execute(List<String> parameters) {
         ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
-        StringJoiner str = prepareMembersList();
-        return membersList(str.toString());
+        return membersList(prepareMembersList().toString());
     }
 
     private StringJoiner prepareMembersList() {
@@ -33,7 +32,7 @@ public class ListAllTeamMembers implements Command {
 
     private String membersList(String membersList) {
         if (functionalsRepository.getMembers().size() == 0) {
-            return PERSONSLIST_IS_EMPTY;
+            return MEMBERSLIST_IS_EMPTY;
         }
         return String.format(MEMBERSLIST_INCLUDES, membersList);
     }

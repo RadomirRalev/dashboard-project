@@ -1,7 +1,10 @@
 package functionals.models;
 
 import functionals.contracts.Board;
+import workitems.contracts.Bug;
 import workitems.contracts.WorkItems;
+import workitems.models.BugImpl;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -68,6 +71,7 @@ public class BoardImpl implements Board {
 
     @Override
     public void addBug() {
+
 
     }
 

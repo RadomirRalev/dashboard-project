@@ -8,7 +8,7 @@ import commands.actions.member.ListAllTeamMembers;
 import commands.actions.member.RemoveMember;
 import commands.actions.member.ShowMember;
 import commands.actions.team.ListTeams;
-import commands.actions.member.CreateMember;
+import commands.actions.member.AddPersonToTeam;
 import commands.actions.person.*;
 import commands.actions.team.CreateTeam;
 import commands.actions.team.ShowTeamBoards;
@@ -42,7 +42,7 @@ public class CommandFactoryImpl implements CommandFactory {
             case UNASSIGNWORK:
                 return new UnassignWorkFromPerson(functionalsRepository);
             case ADDMEMBER:
-                return new CreateMember(functionalsRepository);
+                return new AddPersonToTeam(functionalsRepository);
             case LISTTEAMS:
                 return new ListTeams(functionalsRepository);
             case CREATEBOARD:

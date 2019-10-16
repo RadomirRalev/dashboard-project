@@ -7,10 +7,9 @@ import functionals.contracts.Person;
 import functionals.models.PersonImpl;
 import java.util.ArrayList;
 import java.util.List;
-
 import static commands.actions.CommandsConstants.*;
 
-public class CreateNewPerson implements Command {
+public class CreateNewPerson extends Persons implements Command {
     private final FunctionalsFactory functionalsFactory;
     private final FunctionalsRepositoryImpl functionalsRepository;
 
@@ -21,10 +20,10 @@ public class CreateNewPerson implements Command {
 
     @Override
     public String execute(List<String> parameters) throws Exception {
-        String personName = NameJoiner.joinerList(parameters);
-        personName = ValidationCommands.checkNameOfNewPerson(personName, functionalsRepository);
-        PersonImpl.getMembersActivity().put(personName, new ArrayList<>());
-        return createPerson(personName);
+        setPersonName();
+        ValidationCommands.checkNameOfNewPerson(getPersonName(), functionalsRepository);
+        PersonImpl.getMembersActivity().put(getPersonName(), new ArrayList<>());
+        return createPerson(getPersonName());
     }
 
     private String createPerson(String name) {
@@ -34,4 +33,5 @@ public class CreateNewPerson implements Command {
         PersonImpl.addActivity(activity, name);
         return activity;
     }
+
 }

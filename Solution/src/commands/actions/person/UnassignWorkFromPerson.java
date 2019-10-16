@@ -1,5 +1,4 @@
 package commands.actions.person;
-
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
@@ -14,7 +13,7 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class UnassignWorkFromPerson implements Command {
+public class UnassignWorkFromPerson extends Persons implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
     private Writer writer;
@@ -27,13 +26,19 @@ public class UnassignWorkFromPerson implements Command {
 
     @Override
     public String execute(List<String> parameters) throws Exception {
-        String personName = NameJoiner.joinerList(parameters);
-        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        int workToBeUnassigned = asksAboutWorkToBeUnassigned();
-        Person person = functionalsRepository.getPersons().get(personName);
-        if (ValidationCommands.checkIfWorkExists(workToBeUnassigned, person)) return String.format(WORK_NOT_EXIST_MSG, workToBeUnassigned);
-        person.unassignWork(workToBeUnassigned - 1);
-        return addUnassignWorkToActivityHistory(personName, workToBeUnassigned, person);
+        setPersonName();
+        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
+        asksAboutWorkToBeUnassigned();
+        Person person = getPerson();
+        if (ValidationCommands.checkIfWorkExists(asksAboutWorkToBeUnassigned(), person)) {
+            return String.format(WORK_NOT_EXIST_MSG, asksAboutWorkToBeUnassigned());
+        }
+        person.unassignWork(asksAboutWorkToBeUnassigned() - 1);
+        return addUnassignWorkToActivityHistory(getPersonName(), asksAboutWorkToBeUnassigned(), person);
+    }
+
+    private Person getPerson() {
+        return functionalsRepository.getPersons().get(getPersonName());
     }
 
     private String addUnassignWorkToActivityHistory(String personName, int workToBeUnassigned, Person person) {

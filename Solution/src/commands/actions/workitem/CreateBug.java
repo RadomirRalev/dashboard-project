@@ -12,9 +12,11 @@ import workitems.contracts.Bug;
 import workitems.models.BugImpl;
 import workitems.models.WorkItemsImpl;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static commands.actions.CommandsConstants.*;
 
@@ -23,7 +25,6 @@ public class CreateBug implements Command {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 4;
     private final FunctionalsRepository functionalsRepository;
     private final FunctionalsFactory functionalsFactory;
-
     private String boardName;
     private String title;
     private String description;
@@ -48,8 +49,8 @@ public class CreateBug implements Command {
         writer.writeLine("Please add the steps to reproduce this bug. Your steps will be split by the \".\" sign.");
 
         //Gets the steps to reproduce for a bug
-        steps = Arrays.stream(reader.readLine().trim().split("[.]"))
-                .collect(Collectors.toList());
+        ArrayList<String> steps = Stream.of(reader.readLine().trim().split("[.]"))
+                .collect(Collectors.toCollection(ArrayList::new));
 
         if(!functionalsRepository.getBoards().containsKey(boardName)){
             throw new IllegalArgumentException(String.format(BOARD_DOES_NOT_EXIST_ERROR_MSG, boardName));
