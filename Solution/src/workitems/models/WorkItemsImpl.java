@@ -82,6 +82,9 @@ public abstract class WorkItemsImpl implements WorkItems {
 
     @Override
     public void addComment(String comment) {
+        if(comment.isEmpty()){
+            throw new IllegalArgumentException("Cannot add an empty comment");
+        }
         comments.add(comment);
     }
 
