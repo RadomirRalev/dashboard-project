@@ -27,7 +27,8 @@ public enum CommandType {
     CHANGESEVERITY("Change severity"),
     CHANGESIZE("Change size"),
     ADDCOMMENT("Add comment"),
-    SHOWCOMMENTS("Show comments");
+    SHOWCOMMENTS("Show comments"),
+    LISTWORKITEMS("List workitems");
 
     private final String command;
 

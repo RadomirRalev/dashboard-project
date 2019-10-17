@@ -9,8 +9,8 @@ public interface WorkItems {
     int getId();
     String getTitle();
     String getDescription();
-    public abstract EnumSet<Status> getStatus();
-    Status getCurrentStatus();
+    public abstract EnumSet<Status> getStatusList();
+    Status getStatus();
     List<String> getComments();
     List<String> getHistory();
     void setStatus(Status status);
@@ -19,4 +19,5 @@ public interface WorkItems {
     @Override
     String toString();
     String showComments();
+    String getItemType();
 }

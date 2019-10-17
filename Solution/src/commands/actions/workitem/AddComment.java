@@ -15,6 +15,7 @@ import java.util.List;
 import static commands.actions.CommandsConstants.*;
 
 public class AddComment implements Command {
+    //TODO make it so you can see which person wrote a Comment
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 3;
 
     private final FunctionalsRepository functionalsRepository;
