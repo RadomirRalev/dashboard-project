@@ -1,13 +1,15 @@
 package commands.actions.person;
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
+
 
 import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class DeletePersonFromList extends Persons implements Command {
+public class DeletePersonFromList extends ConsoleInteraction implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
 
     public DeletePersonFromList(FunctionalsRepositoryImpl functionalsRepository) {
@@ -16,8 +18,9 @@ public class DeletePersonFromList extends Persons implements Command {
 
     @Override
     public String execute(List<String> parameters) throws Exception {
+        ConsoleInteraction.validateInput(parameters.size());
         setPersonName();
-        ValidationCommands.checkIfPersonExists(getPersonName(),functionalsRepository);
+        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
         return deletePerson(getPersonName());
     }
 

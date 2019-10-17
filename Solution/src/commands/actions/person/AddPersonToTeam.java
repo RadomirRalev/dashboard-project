@@ -1,7 +1,9 @@
-package commands.actions.member;
+package commands.actions.person;
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
+import core.contracts.FunctionalsRepository;
 import functionals.contracts.Team;
 import functionals.models.MemberImpl;
 import functionals.models.PersonImpl;
@@ -11,24 +13,24 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class AddPersonToTeam implements Command {
-    private final FunctionalsRepositoryImpl functionalsRepository;
-    private String teamName;
-    private String personName;
+public class AddPersonToTeam extends ConsoleInteraction implements Command {
 
-    public AddPersonToTeam(FunctionalsRepositoryImpl functionalsRepository) {
+    private final FunctionalsRepository functionalsRepository;
+
+    public AddPersonToTeam(FunctionalsRepository functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
     }
 
     @Override
     public String execute(List<String> parameters) throws Exception {
-        setTeamName();
-        ValidationCommands.checkIfTeamExists(getTeamName(), functionalsRepository);
+        ConsoleInteraction.validateInput(parameters.size());
+        setName("Team");
+        ValidationCommands.checkIfTeamExists(getName(), functionalsRepository);
         setPersonName();
         ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
-        MemberImpl member = addMemberToTeam(getTeamName(), getPersonName());
+        MemberImpl member = addMemberToTeam(getName(), getPersonName());
         addToMembersList(getPersonName(), member);
-        return addToActivityHistory(getTeamName(), getPersonName());
+        return addToActivityHistory(getName(), getPersonName());
     }
 
     private void addToMembersList(String personName, MemberImpl member) {
@@ -47,21 +49,5 @@ public class AddPersonToTeam implements Command {
         MemberImpl member = new MemberImpl(personName, functionalsRepository);
         team.addMember(member);
         return member;
-    }
-
-    private String getTeamName() {
-        return teamName;
-    }
-
-    private void setTeamName() {
-        this.teamName = ValidationCommands.asksWhichTeam();
-    }
-
-    private String getPersonName() {
-        return personName;
-    }
-
-    private void setPersonName() {
-        this.personName = ValidationCommands.asksWhichPerson();
     }
 }

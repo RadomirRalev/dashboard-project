@@ -7,6 +7,8 @@ public class CommandsConstants {
     public static final String PERSON_EXISTS_ERROR_MSG = "Name %s already exists in the database " +
             "but you can add a family name or some identifier to create this person. " +
             "Please type cancel to abort or change name: \n";
+    public static final String TEAM_EXISTS_ERROR_MSG = "Team %s already exists in the database " +
+            "Please type cancel to abort or change name: \n";
     public static final String BOARD_EXISTS_ERROR_MSG = "Board %s already exists in the database.";
     public static final String MEMBER_DOES_NOT_EXIST_MSG = "Member %s does not exist in the database " +
             "but you can write a new name to correct your search. " +
@@ -26,7 +28,6 @@ public class CommandsConstants {
     public static final String MEMBERSLIST_IS_EMPTY = "Persons list is empty!";
     public static final String PERSONSLIST_INCLUDES = "Persons list includes: \n%s";
     public static final String PERSON_DOES_NOT_EXIST_ERROR_MSG = "Person %s does not exist!";
-    public static final String TEAM_EXISTS_ERROR_MSG = "Team %s already exists!";
     public static final String TEAM_CREATED_MSG = "Team %s was created!";
     public static final String WORK_ADDED_MSG = "Work %s was added to %s!";
     public static final String WORK_NOT_EXIST_MSG = "Work with number %d does not exist!";
@@ -47,9 +48,9 @@ public class CommandsConstants {
     public static final String STORY_CREATED_SUCCESS_MESSAGE = "Story %s was created!";
     public static final String FEEDBACK_CREATED_SUCCESS_MESSAGE = "Feedback %s was created!";
     public static final String FAILED_TO_PARSE_COMMAND_PARAMETERS = "Failed to parse command parameters";
-    public static final String WHICH_MEMBER = "Which member?";
-    public static final String WHICH_BOARD = "Which board?";
     public static final String WHICH_TEAM = "Which team?";
+    public static final String WHICH = "Which %s?\n";
+    public static final String WHAT = "%s name?\n";
     public static final String WHICH_PERSON = "Which person?";
     public static final String WORKITEM_DOES_NOT_EXIST_ERROR_MSG = "Workitem %s with id %d does not exist!";
     public static final String WORK_ITEM_SUCCESS_REMOVAL_MESSAGE = "Workitem %s with id %d successfully removed";

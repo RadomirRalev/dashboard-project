@@ -1,13 +1,12 @@
 package commands.actions.activityhistory;
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import core.FunctionalsRepositoryImpl;
 import functionals.contracts.Person;
 import functionals.models.MemberImpl;
 
-public class PersonActivityHistory {
+public class PersonActivityHistory extends ConsoleInteraction {
     private final FunctionalsRepositoryImpl functionalsRepository;
-    private String personName;
-
 
     public PersonActivityHistory(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -26,13 +25,5 @@ public class PersonActivityHistory {
         }
         Person person = functionalsRepository.getPersons().get(getPersonName());
         return person.showActivity(getPersonName());
-    }
-
-    private String getPersonName() {
-        return personName;
-    }
-
-    private void setPersonName() {
-        this.personName = ValidationCommands.asksWhatName();
     }
 }

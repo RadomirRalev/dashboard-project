@@ -1,6 +1,7 @@
 package commands.actions;
 import commands.actions.person.NameJoiner;
 import core.FunctionalsRepositoryImpl;
+import core.contracts.FunctionalsRepository;
 import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
@@ -50,7 +51,7 @@ public class ValidationCommands {
         return workToBeUnassigned > person.getAssignedWork().size();
     }
 
-    public static String checkIfPersonExists(String personName, FunctionalsRepositoryImpl functionalsRepository) throws Exception {
+    public static String checkIfPersonExists(String personName, FunctionalsRepository functionalsRepository) throws Exception {
         while (!functionalsRepository.getPersons().containsKey(personName)) {
             System.out.printf(PERSON_DOES_NOT_EXIST_MSG, personName);
             String[] name = reader.readLine().split(" ");
@@ -62,7 +63,7 @@ public class ValidationCommands {
         return personName;
     }
 
-    public static String checkIfMemberExists(String memberName, FunctionalsRepositoryImpl functionalsRepository) throws Exception {
+    public static String checkIfMemberExists(String memberName, FunctionalsRepository functionalsRepository) throws Exception {
         while (!functionalsRepository.getPersons().containsKey(memberName)) {
             System.out.printf(MEMBER_DOES_NOT_EXIST_MSG, memberName);
             String[] name = reader.readLine().split(" ");
@@ -74,7 +75,7 @@ public class ValidationCommands {
         return memberName;
     }
 
-    public static String checkNameOfNewPerson(String personName, FunctionalsRepositoryImpl functionalsRepository) throws Exception {
+    public static String checkNameOfNewPerson(String personName, FunctionalsRepository functionalsRepository) throws Exception {
         while (functionalsRepository.getPersons().containsKey(personName)) {
             System.out.printf(PERSON_EXISTS_ERROR_MSG, personName);
             String[] name = reader.readLine().split(" ");
@@ -84,6 +85,17 @@ public class ValidationCommands {
             }
         }
         return personName;
+    }
+
+    public static String checkNameOfNewTeam(String name, FunctionalsRepositoryImpl functionalsRepository) throws Exception {
+        while (functionalsRepository.getTeams().containsKey(name)) {
+            System.out.printf(TEAM_EXISTS_ERROR_MSG, name);
+            name = reader.readLine();
+            if (name.equalsIgnoreCase("cancel")) {
+                throw new Exception(TYPE_ANOTHER_COMMAND);
+            }
+        }
+        return name;
     }
 
     public static String checkIfMemberOfTeam(String memberName, String teamToRemoveMemberFrom, ArrayList<String> str) throws Exception {
@@ -97,7 +109,7 @@ public class ValidationCommands {
         return teamToRemoveMemberFrom;
     }
 
-    public static String checkIfTeamExists(String teamName, FunctionalsRepositoryImpl functionalsRepository) throws Exception {
+    public static String checkIfTeamExists(String teamName, FunctionalsRepository functionalsRepository) throws Exception {
         while (!functionalsRepository.getTeams().containsKey(teamName)) {
             System.out.printf(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamName);
             teamName = reader.readLine();
@@ -117,27 +129,5 @@ public class ValidationCommands {
             }
         }
         return boardName;
-    }
-
-    public static String asksWhichPerson() {
-        writer.writeLine(WHICH_PERSON);
-        String[] personName = reader.readLine().split(" ");
-        return NameJoiner.joinerArr(personName);
-    }
-
-    public static String asksWhichBoard() {
-        writer.writeLine(WHICH_BOARD);
-        return reader.readLine();
-    }
-
-    public static String asksWhatName() {
-        writer.writeLine(WHAT_NAME);
-        String[] personName = reader.readLine().split(" ");
-        return NameJoiner.joinerArr(personName);
-    }
-
-    public static String asksWhichTeam() {
-        writer.writeLine(WHICH_TEAM);
-        return reader.readLine();
     }
 }

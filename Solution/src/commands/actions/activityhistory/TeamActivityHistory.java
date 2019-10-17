@@ -1,10 +1,11 @@
 package commands.actions.activityhistory;
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import core.FunctionalsRepositoryImpl;
 import java.util.stream.Collectors;
 import static functionals.models.TeamsImpl.getTeamsActivity;
 
-public class TeamActivityHistory {
+public class TeamActivityHistory extends ConsoleInteraction {
     private String teamName;
     private final FunctionalsRepositoryImpl functionalsRepository;
 
@@ -14,9 +15,9 @@ public class TeamActivityHistory {
     }
 
     public String execute() throws Exception {
-        setTeamName();
-        ValidationCommands.checkIfTeamExists(getTeamName(), functionalsRepository);
-        return showActivity(getTeamName());
+        setName();
+        ValidationCommands.checkIfTeamExists(getName(), functionalsRepository);
+        return showActivity(getName());
     }
 
     private String showActivity(String teamActivityHistory) {
@@ -24,11 +25,7 @@ public class TeamActivityHistory {
                 .collect( Collectors.joining( "\n" ) ));
     }
 
-    private String getTeamName() {
-        return teamName;
-    }
-
-    private void setTeamName() {
-        this.teamName = ValidationCommands.asksWhichTeam();
+    private void setName() {
+        this.teamName = asksWhat("team");
     }
 }

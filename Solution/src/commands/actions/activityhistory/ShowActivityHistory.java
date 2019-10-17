@@ -1,30 +1,21 @@
 package commands.actions.activityhistory;
-import commands.actions.ValidationCommands;
+import commands.actions.ConsoleInteraction;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
-import core.contracts.Reader;
-import core.contracts.Writer;
-import core.providers.ConsoleReader;
-import core.providers.ConsoleWriter;
+
 import java.util.List;
+
 import static commands.actions.CommandsConstants.*;
 
-public class ShowActivityHistory implements Command {
-    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
-    private Reader reader;
-    private Writer writer;
+public class ShowActivityHistory extends ConsoleInteraction implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
 
 
     public ShowActivityHistory(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
-        reader = new ConsoleReader();
-        writer = new ConsoleWriter();
     }
 
-    @Override
     public String execute(List<String> parameters) throws Exception {
-        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
         return choose(asksAboutMemberOrBoard());
     }
 
@@ -44,9 +35,5 @@ public class ShowActivityHistory implements Command {
         }
     }
 
-    private String asksAboutMemberOrBoard() {
-        writer.writeLine(SHOW_ACTIVITY_HISTORY_QUESTION);
-        return reader.readLine().toLowerCase();
-    }
 }
 

@@ -1,19 +1,16 @@
 package commands.actions.person;
 
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import functionals.contracts.Person;
-import functionals.models.PersonImpl;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static commands.actions.CommandsConstants.PERSON_DOES_NOT_EXIST_ERROR_MSG;
-import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
-
-public class ListAssignedWork extends Persons {
+public class ListAssignedWork extends ConsoleInteraction implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
+
 
     public ListAssignedWork(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -21,13 +18,14 @@ public class ListAssignedWork extends Persons {
 
     @Override
     public String execute(List<String> parameters) throws Exception {
+        ConsoleInteraction.validateInput(parameters.size());
         setPersonName();
         ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
-        return prepareAssignedWorkList(getPersonName());
+        return prepareAssignedWorkList();
     }
 
-    private String prepareAssignedWorkList(String personName) {
-        Person person = functionalsRepository.getPersons().get(personName);
+    private String prepareAssignedWorkList() {
+        Person person = functionalsRepository.getPersons().get(getPersonName());
         return person.listAssignedWork();
     }
 }

@@ -1,5 +1,5 @@
 package functionals.models;
-import core.FunctionalsRepositoryImpl;
+import core.contracts.FunctionalsRepository;
 import workitems.models.WorkItemsImpl;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 
 
 public class MemberImpl extends PersonImpl {
-    private final FunctionalsRepositoryImpl functionalsRepository;
+    private final FunctionalsRepository functionalsRepository;
     private List workItems;
 
 
-    public MemberImpl(String name, FunctionalsRepositoryImpl functionalsRepository) {
+    public MemberImpl(String name, FunctionalsRepository functionalsRepository) {
         super(name);
         this.functionalsRepository = functionalsRepository;
         workItems = new ArrayList();

@@ -1,5 +1,7 @@
 package commands.actions.person;
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
+import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.Reader;
 import core.contracts.Writer;
@@ -12,10 +14,11 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class UnassignWorkFromPerson extends Persons {
+public class UnassignWorkFromPerson extends ConsoleInteraction implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
     private Writer writer;
+
 
     public UnassignWorkFromPerson(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -25,6 +28,7 @@ public class UnassignWorkFromPerson extends Persons {
 
     @Override
     public String execute(List<String> parameters) throws Exception {
+        ConsoleInteraction.validateInput(parameters.size());
         setPersonName();
         ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
         asksAboutWorkToBeUnassigned();
