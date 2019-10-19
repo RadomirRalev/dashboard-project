@@ -3,6 +3,8 @@ import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import core.FunctionalsRepositoryImpl;
 import java.util.stream.Collectors;
+
+import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
 import static functionals.models.BoardImpl.getBoardsActivity;
 
 public class BoardActivityHistory extends ConsoleInteraction {
@@ -13,9 +15,10 @@ public class BoardActivityHistory extends ConsoleInteraction {
         this.functionalsRepository = functionalsRepository;
     }
 
-    public String execute() throws Exception {
+    public String execute() {
         setBoardName();
-        ValidationCommands.checkIfBoardExists(getBoardName(), functionalsRepository);
+        ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
+        if (isCancel(boardName)) return TYPE_ANOTHER_COMMAND;
         return showActivity(getBoardName());
     }
 

@@ -8,6 +8,8 @@ import functionals.contracts.Person;
 
 import java.util.List;
 
+import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
+
 public class ShowPerson extends ConsoleInteraction implements Command {
 
     private final FunctionalsRepositoryImpl functionalsRepository;
@@ -19,9 +21,10 @@ public class ShowPerson extends ConsoleInteraction implements Command {
     @Override
     public String execute(List<String> parameters) throws Exception {
         ConsoleInteraction.validateInput(parameters.size());
-        setPersonName();
-        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
-        return showPerson(getPersonName());
+        personName = asksAboutPersonName();
+        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
+        return showPerson(personName);
     }
 
     private String showPerson(String personName) {
@@ -29,3 +32,4 @@ public class ShowPerson extends ConsoleInteraction implements Command {
         return person.toString();
     }
 }
+

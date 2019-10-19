@@ -4,6 +4,7 @@ import commands.actions.ValidationCommands;
 import core.FunctionalsRepositoryImpl;
 import functionals.contracts.Person;
 import functionals.models.MemberImpl;
+import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
 
 public class PersonActivityHistory extends ConsoleInteraction {
     private final FunctionalsRepositoryImpl functionalsRepository;
@@ -12,18 +13,19 @@ public class PersonActivityHistory extends ConsoleInteraction {
         this.functionalsRepository = functionalsRepository;
     }
 
-    public String execute() throws Exception {
-        setPersonName();
-        ValidationCommands.checkIfMemberExists(getPersonName(), functionalsRepository);
+    public String execute() {
+        personName = asksAboutPersonName();
+        personName = ValidationCommands.checkIfMemberExists(personName, functionalsRepository);
+        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
         return showActivity();
     }
 
     private String showActivity() {
-        MemberImpl member = functionalsRepository.getMembers().get(getPersonName());
+        MemberImpl member = functionalsRepository.getMembers().get(personName);
         if (member != null) {
-            return member.showActivity(getPersonName());
+            return member.showActivity(personName);
         }
-        Person person = functionalsRepository.getPersons().get(getPersonName());
-        return person.showActivity(getPersonName());
+        Person person = functionalsRepository.getPersons().get(personName);
+        return person.showActivity(personName);
     }
 }

@@ -29,19 +29,20 @@ public class UnassignWorkFromPerson extends ConsoleInteraction implements Comman
     @Override
     public String execute(List<String> parameters) throws Exception {
         ConsoleInteraction.validateInput(parameters.size());
-        setPersonName();
-        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
-        asksAboutWorkToBeUnassigned();
+        personName = asksAboutPersonName();
+        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
+        workToBeUnassigned = asksAboutWorkToBeUnassigned();
         Person person = getPerson();
-        if (ValidationCommands.checkIfWorkExists(asksAboutWorkToBeUnassigned(), person)) {
-            return String.format(WORK_NOT_EXIST_MSG, asksAboutWorkToBeUnassigned());
+        if (ValidationCommands.checkIfWorkExists(workToBeUnassigned, person)) {
+            return String.format(WORK_NOT_EXIST_MSG, workToBeUnassigned);
         }
-        person.unassignWork(asksAboutWorkToBeUnassigned() - 1);
-        return addUnassignWorkToActivityHistory(getPersonName(), asksAboutWorkToBeUnassigned(), person);
+        person.unassignWork(workToBeUnassigned - 1);
+        return addUnassignWorkToActivityHistory(personName, workToBeUnassigned, person);
     }
 
     private Person getPerson() {
-        return functionalsRepository.getPersons().get(getPersonName());
+        return functionalsRepository.getPersons().get(personName);
     }
 
     private String addUnassignWorkToActivityHistory(String personName, int workToBeUnassigned, Person person) {

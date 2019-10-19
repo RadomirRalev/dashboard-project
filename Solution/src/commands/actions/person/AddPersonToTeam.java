@@ -2,7 +2,6 @@ package commands.actions.person;
 import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
-import core.FunctionalsRepositoryImpl;
 import core.contracts.FunctionalsRepository;
 import functionals.contracts.Team;
 import functionals.models.MemberImpl;
@@ -22,15 +21,17 @@ public class AddPersonToTeam extends ConsoleInteraction implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
-        setName("Team");
-        ValidationCommands.checkIfTeamExists(getName(), functionalsRepository);
-        setPersonName();
-        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
-        MemberImpl member = addMemberToTeam(getName(), getPersonName());
-        addToMembersList(getPersonName(), member);
-        return addToActivityHistory(getName(), getPersonName());
+        teamName = asksWhat("Team");
+        teamName = ValidationCommands.checkIfTeamExists(teamName, functionalsRepository);
+        if (isCancel(teamName)) return TYPE_ANOTHER_COMMAND;
+        personName = asksAboutPersonName();
+        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
+        MemberImpl member = addMemberToTeam(teamName, personName);
+        addToMembersList(personName, member);
+        return addToActivityHistory(teamName, personName);
     }
 
     private void addToMembersList(String personName, MemberImpl member) {
@@ -51,3 +52,4 @@ public class AddPersonToTeam extends ConsoleInteraction implements Command {
         return member;
     }
 }
+

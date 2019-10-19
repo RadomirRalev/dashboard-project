@@ -3,6 +3,8 @@ import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import core.FunctionalsRepositoryImpl;
 import java.util.stream.Collectors;
+
+import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
 import static functionals.models.TeamsImpl.getTeamsActivity;
 
 public class TeamActivityHistory extends ConsoleInteraction {
@@ -14,10 +16,11 @@ public class TeamActivityHistory extends ConsoleInteraction {
         this.functionalsRepository = functionalsRepository;
     }
 
-    public String execute() throws Exception {
-        setName();
-        ValidationCommands.checkIfTeamExists(getName(), functionalsRepository);
-        return showActivity(getName());
+    public String execute() {
+        teamName = asksWhat("Team");
+        teamName = ValidationCommands.checkIfTeamExists(teamName, functionalsRepository);
+        if (isCancel(teamName)) return TYPE_ANOTHER_COMMAND;
+        return showActivity(teamName);
     }
 
     private String showActivity(String teamActivityHistory) {

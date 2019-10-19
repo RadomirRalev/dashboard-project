@@ -61,7 +61,7 @@ public class PersonImpl implements Person {
 
     @Override
     public String toString() {
-        return String.format("Person name: %s\n" +
+        return String.format("Person teamName: %s\n" +
                         " Work assigned: %s",
                 getName(),
                 listAssignedWork()

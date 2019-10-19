@@ -7,6 +7,7 @@ import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
+import functionals.contracts.Person;
 import functionals.models.MemberImpl;
 import functionals.models.PersonImpl;
 import functionals.models.TeamsImpl;
@@ -29,9 +30,11 @@ public class RemoveMember extends ConsoleInteraction implements Command {
 
     public String execute(List<String> parameters) throws Exception {
         ConsoleInteraction.validateInput(parameters.size());
-        setPersonName();
-        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
-        return removeMember(getPersonName(), getTheTeamsOfTheMember(getPersonName()));
+        memberName = asksAboutPersonName();
+        memberName = ValidationCommands.checkIfPersonExists(memberName, functionalsRepository);
+        if (isCancel(memberName)) return TYPE_ANOTHER_COMMAND;
+        ArrayList<String> str = getTheTeamsOfTheMember(memberName);
+        return removeMember(memberName, str);
     }
 
     private String removeMember(String memberName, ArrayList<String> str) throws Exception {
@@ -46,9 +49,10 @@ public class RemoveMember extends ConsoleInteraction implements Command {
 
     private ArrayList<String> getTheTeamsOfTheMember(String memberName) {
         System.out.printf(MEMBER_OF_TEAMS, memberName);
-        MemberImpl member = functionalsRepository.getMembers().get(memberName);
-        System.out.println(member.getTheTeamsOfTheMember().toString().replace("[", "").replace("]", ""));
-        return member.getTheTeamsOfTheMember();
+        MemberImpl memberN = functionalsRepository.getMembers().get(memberName);
+        ArrayList<String> str = memberN.getTheTeamsOfTheMember();
+        System.out.println(str.toString(). replace("[", "").replace("]", ""));
+        return str;
     }
 
     private String addToActivityHistory(String teamToRemoveMemberFrom, String memberName) {
@@ -58,3 +62,4 @@ public class RemoveMember extends ConsoleInteraction implements Command {
         return activity;
     }
 }
+

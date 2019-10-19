@@ -79,7 +79,7 @@ public class TeamsImpl implements Team {
 
     @Override
     public String toString() {
-        return String.format("Team name: %s\n" +
+        return String.format("Team teamName: %s\n" +
                         " Members: %s\n" +
                         " Boards: %s",
                 getName(),

@@ -10,7 +10,6 @@ public class MemberImpl extends PersonImpl {
     private final FunctionalsRepository functionalsRepository;
     private List workItems;
 
-
     public MemberImpl(String name, FunctionalsRepository functionalsRepository) {
         super(name);
         this.functionalsRepository = functionalsRepository;

@@ -29,17 +29,18 @@ public class AssignWorkToPerson extends ConsoleInteraction implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
-        setPersonName();
-        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
+        personName = asksAboutPersonName();
+        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
         asksAboutWorkToBeAdded();
         Person person = getPerson();
-        return addsWorkToActivityHistory(getPersonName(), getWorkToBeAdded(), person);
+        return addsWorkToActivityHistory(personName, getWorkToBeAdded(), person);
     }
 
     private Person getPerson() {
-        return addsWorkToPerson(getPersonName(), getWorkToBeAdded());
+        return addsWorkToPerson(personName, getWorkToBeAdded());
     }
 
     private String addsWorkToActivityHistory(String personName, String workToBeAdded, Person person) {
@@ -63,3 +64,4 @@ public class AssignWorkToPerson extends ConsoleInteraction implements Command {
         return workToBeAdded;
     }
 }
+

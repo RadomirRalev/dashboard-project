@@ -15,11 +15,11 @@ public class ShowActivityHistory extends ConsoleInteraction implements Command {
         this.functionalsRepository = functionalsRepository;
     }
 
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         return choose(asksAboutMemberOrBoard());
     }
 
-    private String choose(String str) throws Exception {
+    private String choose(String str) {
         switch (str) {
             case "person":
                 PersonActivityHistory personActivityHistory = new PersonActivityHistory(functionalsRepository);
@@ -36,4 +36,5 @@ public class ShowActivityHistory extends ConsoleInteraction implements Command {
     }
 
 }
+
 

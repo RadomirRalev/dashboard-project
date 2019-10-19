@@ -42,7 +42,7 @@ public class ChangeRating implements Command {
 
         ValidationCommands.checkIfItemContainsAnother(board.listWorkItems(), workitem, workitemName, boardName);
 
-        //checks if the Name passed from the console, actually matches the name of the Item with the passed ID
+        //checks if the Name passed from the console, actually matches the teamName of the Item with the passed ID
         ValidationCommands.checkIfNamesMatch(workitem.getTitle(), workitemName);
 
         return changeRating(workitemName, id, boardName, newRating);

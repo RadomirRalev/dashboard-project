@@ -51,7 +51,7 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
 
     @Override
     public void addPerson(String name, Person person) {
-        this.persons.put(name, person);
+        persons.put(name, person);
     }
 
     @Override

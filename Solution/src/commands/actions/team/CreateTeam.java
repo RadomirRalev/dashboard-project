@@ -24,12 +24,13 @@ public class CreateTeam extends ConsoleInteraction implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
-        setName("Team");
-        ValidationCommands.checkNameOfNewTeam(getName(), functionalsRepository);
-        TeamsImpl.getTeamsActivity().put(getName(), new ArrayList<>());
-        return createTeam(getName());
+        teamName = asksWhat("Team");
+        teamName = ValidationCommands.checkNameOfNewTeam(teamName, functionalsRepository);
+        if (isCancel(teamName)) return TYPE_ANOTHER_COMMAND;
+        TeamsImpl.getTeamsActivity().put(teamName, new ArrayList<>());
+        return createTeam(teamName);
     }
 
     private String createTeam(String name) {
