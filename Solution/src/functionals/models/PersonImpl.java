@@ -1,5 +1,6 @@
 package functionals.models;
 import functionals.contracts.Person;
+import workitems.contracts.WorkItems;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,11 +11,11 @@ import java.util.stream.Collectors;
 public class PersonImpl implements Person {
     private static final Map<String, ArrayList<String>> membersActivity = new HashMap<>();
     private String name;
-    private List<String> assignedWork;
+    private List<WorkItems> workItems;
 
     public PersonImpl(String name) {
         setName(name);
-        assignedWork = new ArrayList<>();
+        workItems = new ArrayList<>();
     }
 
     public static Map<String, ArrayList<String>> getMembersActivity() {
@@ -35,23 +36,25 @@ public class PersonImpl implements Person {
     }
 
     public List getAssignedWork() {
-        return assignedWork;
+        return workItems;
+    }
+
+    public List listWorkItems() {
+        return new ArrayList<>(workItems);
     }
 
     @Override
-    public String listAssignedWork() {
-        return String.valueOf(this.assignedWork.stream()
-                .collect(Collectors.joining( "; " ) ));
-    }
-
-    @Override
-    public void assignWork(String workToBeAdded) {
-            assignedWork.add(workToBeAdded);
+    public <T extends WorkItems> void addWorkItems(T workItem) {
+        String workItemName = workItem.getTitle();
+        if (listWorkItems().contains(workItem.getTitle().equals(workItemName))) {
+            throw new IllegalArgumentException("You cannot add a WorkItem with the same name in the same board");
+        }
+        workItems.add(workItem);
     }
 
     @Override
     public void unassignWork(int workToBeUnassigned) {
-          assignedWork.remove(workToBeUnassigned);
+        workItems.remove(workToBeUnassigned);
     }
 
     @Override
@@ -61,10 +64,14 @@ public class PersonImpl implements Person {
 
     @Override
     public String toString() {
-        return String.format("Person teamName: %s\n" +
-                        " Work assigned: %s",
-                getName(),
-                listAssignedWork()
-        );
+        StringBuilder str = new StringBuilder();
+        str.append(String.format("Board name: %s\n" +
+                        "Activity history: %s\n" +
+                        "Work items:\n",
+                getName(), getMembersActivity()));
+        for (Object object : listWorkItems()) {
+            str.append(String.format("%s\n", object));
+        }
+        return str.toString();
     }
 }

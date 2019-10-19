@@ -8,7 +8,6 @@ import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
 import static functionals.models.BoardImpl.getBoardsActivity;
 
 public class BoardActivityHistory extends ConsoleInteraction {
-    private String boardName;
     private final FunctionalsRepositoryImpl functionalsRepository;
 
     public BoardActivityHistory(FunctionalsRepositoryImpl functionalsRepository) {
@@ -16,9 +15,11 @@ public class BoardActivityHistory extends ConsoleInteraction {
     }
 
     public String execute() {
-        setBoardName();
-        ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
-        if (isCancel(boardName)) return TYPE_ANOTHER_COMMAND;
+        boardName = asksWhat("board");
+        boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
+        if (isCancel(boardName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         return showActivity(getBoardName());
     }
 

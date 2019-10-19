@@ -28,7 +28,9 @@ public class CreateTeam extends ConsoleInteraction implements Command {
         ConsoleInteraction.validateInput(parameters.size());
         teamName = asksWhat("Team");
         teamName = ValidationCommands.checkNameOfNewTeam(teamName, functionalsRepository);
-        if (isCancel(teamName)) return TYPE_ANOTHER_COMMAND;
+        if (isCancel(teamName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         TeamsImpl.getTeamsActivity().put(teamName, new ArrayList<>());
         return createTeam(teamName);
     }

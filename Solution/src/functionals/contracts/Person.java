@@ -1,14 +1,16 @@
 package functionals.contracts;
 
+import workitems.contracts.WorkItems;
+
 import java.util.List;
 
 public interface Person extends Functionals {
 
-    void assignWork(String workToBeAdded);
+    <T extends WorkItems> void addWorkItems(T workItem);
 
     void unassignWork(int workToBeUnassigned);
 
-    String listAssignedWork();
+    List listWorkItems();
 
     List getAssignedWork();
 

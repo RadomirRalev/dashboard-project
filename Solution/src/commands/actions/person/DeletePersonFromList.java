@@ -21,7 +21,9 @@ public class DeletePersonFromList extends ConsoleInteraction implements Command 
         ConsoleInteraction.validateInput(parameters.size());
         personName = asksAboutPersonName();
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
+        if (isCancel(personName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         return deletePerson(personName);
     }
 

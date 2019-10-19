@@ -99,9 +99,18 @@ public class ValidationCommands {
 
     public static String checkIfBoardExists(String boardName, FunctionalsRepository functionalsRepository) {
         while (!functionalsRepository.getBoards().containsKey(boardName)) {
-            System.out.printf(BOARD_DOES_NOT_EXIST_ERROR_MSG, boardName);
+            System.out.printf(BOARD_DOES_NOT_EXIST_MSG, boardName);
             boardName = reader.readLine();
         }
         return boardName;
+    }
+
+    public static String checkBugStoryFeedback (String filterType) {
+        while (!filterType.equalsIgnoreCase("bug") && !filterType.equalsIgnoreCase("story")
+        && !filterType.equalsIgnoreCase("feedback")) {
+            System.out.println(ENTER_BUG_STORY_FEEDBACK);
+            filterType = reader.readLine();
+        }
+        return filterType;
     }
 }

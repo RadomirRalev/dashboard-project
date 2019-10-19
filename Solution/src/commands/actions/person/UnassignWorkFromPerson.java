@@ -27,18 +27,25 @@ public class UnassignWorkFromPerson extends ConsoleInteraction implements Comman
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
         personName = asksAboutPersonName();
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
-        workToBeUnassigned = asksAboutWorkToBeUnassigned();
+        if (isCancel(personName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         Person person = getPerson();
+        assignedWorkListing(person);
+        workToBeUnassigned = asksAboutWorkToBeUnassigned();
         if (ValidationCommands.checkIfWorkExists(workToBeUnassigned, person)) {
             return String.format(WORK_NOT_EXIST_MSG, workToBeUnassigned);
         }
         person.unassignWork(workToBeUnassigned - 1);
         return addUnassignWorkToActivityHistory(personName, workToBeUnassigned, person);
+    }
+
+    private void assignedWorkListing(Person person) {
+        System.out.printf(LIST_ASSIGNEDWORK, personName, NameJoiner.joinerList(person.getAssignedWork()));
     }
 
     private Person getPerson() {
@@ -52,7 +59,7 @@ public class UnassignWorkFromPerson extends ConsoleInteraction implements Comman
     }
 
     private int asksAboutWorkToBeUnassigned() {
-        writer.writeLine("What number of assigned work to be removed?");
+        writer.writeLine("\n" + "===========" + "\n" + NUMBER_ASSIGNEDWORK);
         return Integer.parseInt(reader.readLine());
     }
 }

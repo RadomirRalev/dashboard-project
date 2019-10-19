@@ -1,4 +1,5 @@
 package commands.actions.person;
+
 import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
@@ -7,7 +8,6 @@ import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
-import functionals.contracts.Person;
 import functionals.models.MemberImpl;
 import functionals.models.PersonImpl;
 import functionals.models.TeamsImpl;
@@ -28,16 +28,18 @@ public class RemoveMember extends ConsoleInteraction implements Command {
         writer = new ConsoleWriter();
     }
 
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
         memberName = asksAboutPersonName();
         memberName = ValidationCommands.checkIfPersonExists(memberName, functionalsRepository);
-        if (isCancel(memberName)) return TYPE_ANOTHER_COMMAND;
+        if (isCancel(memberName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         ArrayList<String> str = getTheTeamsOfTheMember(memberName);
         return removeMember(memberName, str);
     }
 
-    private String removeMember(String memberName, ArrayList<String> str) throws Exception {
+    private String removeMember(String memberName, ArrayList<String> str) {
         writer.writeLine(WHICH_TEAM);
         String teamToRemoveMemberFrom = reader.readLine();
         ValidationCommands.checkIfMemberOfTeam(memberName, teamToRemoveMemberFrom, str);

@@ -25,10 +25,14 @@ public class AddPersonToTeam extends ConsoleInteraction implements Command {
         ConsoleInteraction.validateInput(parameters.size());
         teamName = asksWhat("Team");
         teamName = ValidationCommands.checkIfTeamExists(teamName, functionalsRepository);
-        if (isCancel(teamName)) return TYPE_ANOTHER_COMMAND;
+        if (isCancel(teamName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         personName = asksAboutPersonName();
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
+        if (isCancel(personName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         MemberImpl member = addMemberToTeam(teamName, personName);
         addToMembersList(personName, member);
         return addToActivityHistory(teamName, personName);

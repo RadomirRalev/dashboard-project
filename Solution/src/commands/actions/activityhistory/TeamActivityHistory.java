@@ -19,16 +19,14 @@ public class TeamActivityHistory extends ConsoleInteraction {
     public String execute() {
         teamName = asksWhat("Team");
         teamName = ValidationCommands.checkIfTeamExists(teamName, functionalsRepository);
-        if (isCancel(teamName)) return TYPE_ANOTHER_COMMAND;
+        if (isCancel(teamName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         return showActivity(teamName);
     }
 
     private String showActivity(String teamActivityHistory) {
         return String.valueOf(getTeamsActivity().get(teamActivityHistory).stream()
                 .collect( Collectors.joining( "\n" ) ));
-    }
-
-    private void setName() {
-        this.teamName = asksWhat("team");
     }
 }

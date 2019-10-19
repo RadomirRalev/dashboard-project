@@ -1,5 +1,6 @@
 package commands.actions.person;
 
+import com.sun.corba.se.spi.orbutil.threadpool.Work;
 import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
@@ -10,8 +11,9 @@ import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
 import functionals.models.PersonImpl;
+import workitems.contracts.WorkItems;
 
-import java.util.List;
+import java.util.*;
 
 import static commands.actions.CommandsConstants.*;
 
@@ -19,8 +21,8 @@ public class AssignWorkToPerson extends ConsoleInteraction implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
     private Reader reader;
     private Writer writer;
-    private String workToBeAdded;
-
+    private String filterType;
+    private String identifier;
 
     public AssignWorkToPerson(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -33,14 +35,11 @@ public class AssignWorkToPerson extends ConsoleInteraction implements Command {
         ConsoleInteraction.validateInput(parameters.size());
         personName = asksAboutPersonName();
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
+        if (isCancel(personName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         asksAboutWorkToBeAdded();
-        Person person = getPerson();
-        return addsWorkToActivityHistory(personName, getWorkToBeAdded(), person);
-    }
-
-    private Person getPerson() {
-        return addsWorkToPerson(personName, getWorkToBeAdded());
+        return addsWorkToActivityHistory(personName, getWorkToBeAdded().getTitle(), addsWorkToPerson(personName));
     }
 
     private String addsWorkToActivityHistory(String personName, String workToBeAdded, Person person) {
@@ -49,19 +48,44 @@ public class AssignWorkToPerson extends ConsoleInteraction implements Command {
         return activity;
     }
 
-    private Person addsWorkToPerson(String personName, String workToBeAdded) {
+    private Person addsWorkToPerson(String personName) {
         Person person = functionalsRepository.getPersons().get(personName);
-        person.assignWork(workToBeAdded);
+        person.addWorkItems(getWorkToBeAdded());
         return person;
     }
 
-    private void asksAboutWorkToBeAdded() {
-        writer.writeLine("What work will be added?");
-        this.workToBeAdded = reader.readLine();
+    private String asksAboutWorkToBeAdded() {
+        getFilterType();
+        if (isCancel(filterType)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
+        Map<Integer, WorkItems> WS = new HashMap<>();
+        functionalsRepository.getWorkItems().entrySet().stream()
+                .filter(workitem -> workitem.getValue().getItemType().equalsIgnoreCase(filterType))
+                .forEach(element -> WS.put(element.getKey(), element.getValue()));
+        printOptions(WS);
+        writer.writeLine("Please specify the identifier of the work item: \n");
+        identifier = reader.readLine();
+        return identifier;
     }
 
-    private String getWorkToBeAdded() {
-        return workToBeAdded;
+    private void getFilterType() {
+        writer.writeLine("Please select bug, story or feedback:");
+        filterType = reader.readLine();
+        filterType = ValidationCommands.checkBugStoryFeedback(filterType);
+    }
+
+    private void printOptions(Map<Integer, WorkItems> WS) {
+        for (Integer key : WS.keySet()) {
+            WorkItems workItemTitle = WS.get(key);
+            writer.writeLine("Identifier: " + key);
+            writer.writeLine("Title: " + workItemTitle.getTitle());
+            writer.writeLine("===============");
+        }
+    }
+
+    private WorkItems getWorkToBeAdded() {
+        return functionalsRepository.getWorkItems().get(Integer.parseInt(identifier));
     }
 }
 

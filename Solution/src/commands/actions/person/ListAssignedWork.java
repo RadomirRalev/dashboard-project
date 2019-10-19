@@ -23,12 +23,18 @@ public class ListAssignedWork extends ConsoleInteraction implements Command {
         ConsoleInteraction.validateInput(parameters.size());
         personName = asksAboutPersonName();
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
+        if (isCancel(personName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         return prepareAssignedWorkList();
     }
 
     private String prepareAssignedWorkList() {
+        StringBuilder str = new StringBuilder();
         Person person = functionalsRepository.getPersons().get(personName);
-        return person.listAssignedWork();
+        for (int i = 0; i < person.getAssignedWork().size(); i++) {
+            str.append(String.format("%s\n", person.getAssignedWork().get(i).toString()));
+        }
+        return str.toString();
     }
 }

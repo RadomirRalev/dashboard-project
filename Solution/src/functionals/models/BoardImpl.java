@@ -34,7 +34,7 @@ public class BoardImpl implements Board {
     public <T extends WorkItems> void addWorkItems(T workItem) {
         String workItemName = workItem.getTitle();
         if (listWorkItems().contains(workItem.getTitle().equals(workItemName))) {
-            throw new IllegalArgumentException("You cannot add a WorkItem with the same teamName in the same board");
+            throw new IllegalArgumentException("You cannot add a WorkItem with the same name in the same board");
         }
         workItems.add(workItem);
     }
@@ -55,7 +55,7 @@ public class BoardImpl implements Board {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        str.append(String.format("Board teamName: %s\n" +
+        str.append(String.format("Board name: %s\n" +
                         "Activity history: %s\n" +
                         "Work items:\n",
                 getName(), getBoardsActivity()));

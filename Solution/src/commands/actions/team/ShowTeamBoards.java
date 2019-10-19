@@ -19,11 +19,13 @@ public class ShowTeamBoards extends ConsoleInteraction implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
         teamName = asksWhat("Team");
         teamName = ValidationCommands.checkIfTeamExists(teamName, functionalsRepository);
-        if (isCancel(teamName)) return TYPE_ANOTHER_COMMAND;
+        if (isCancel(teamName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         return showTeamBoards();
     }
 

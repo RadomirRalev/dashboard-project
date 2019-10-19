@@ -18,11 +18,13 @@ public class ShowMember extends ConsoleInteraction implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
         personName = asksAboutPersonName();
         personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
-        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
+        if (isCancel(personName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         return showMember(personName);
     }
 

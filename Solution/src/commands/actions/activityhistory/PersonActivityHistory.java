@@ -16,7 +16,9 @@ public class PersonActivityHistory extends ConsoleInteraction {
     public String execute() {
         personName = asksAboutPersonName();
         personName = ValidationCommands.checkIfMemberExists(personName, functionalsRepository);
-        if (isCancel(personName)) return TYPE_ANOTHER_COMMAND;
+        if (isCancel(personName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         return showActivity();
     }
 

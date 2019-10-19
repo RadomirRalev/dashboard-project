@@ -39,13 +39,14 @@ public class EngineImpl implements Engine {
                 }
                 processCommand(commandAsString);
 
-            } catch (Exception ex) {
-                writer.writeLine(ex.getMessage() != null && !ex.getMessage().isEmpty() ? ex.getMessage() : ex.toString());
+            } catch (IllegalArgumentException i) {
+                writer.writeLine("Command does not exist. Please enter a new command or type 'exit' to close " +
+                        "the application.");
             }
         }
     }
 
-    private void processCommand(String commandAsString) throws Exception {
+    private void processCommand(String commandAsString) throws IllegalArgumentException {
         if (commandAsString == null || commandAsString.trim().equals("")) {
             throw new IllegalArgumentException("Command cannot be null or empty.");
         }
