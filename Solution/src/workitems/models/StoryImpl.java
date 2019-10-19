@@ -25,7 +25,7 @@ public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, Wo
     public StoryImpl(String title, String description, Size size) {
         super(title, description);
         setSize(size);
-        setId();
+        setStatus(Status.NOTDONE);
     }
 
     @Override
@@ -42,12 +42,12 @@ public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, Wo
     }
 
     @Override
-    protected String getItemType() {
+    public String getItemType() {
         return ITEM_TYPE;
     }
 
     @Override
-    public EnumSet<Status> getStatus() {
+    public EnumSet<Status> getStatusList() {
         return storyStatus;
     }
 

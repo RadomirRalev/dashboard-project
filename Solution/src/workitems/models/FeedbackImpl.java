@@ -24,7 +24,7 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
     public FeedbackImpl(String title, String description, int rating) {
         super(title, description);
         setRating(rating);
-        setId();
+        setStatus(Status.NEW);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
     public String toString() {
         StringBuilder str = new StringBuilder();
         str.append(super.toString());
-        str.append(String.format("Rating: %d", getRating()));
+        str.append(String.format("Rating: %d\n", getRating()));
         return str.toString();
     }
 
@@ -46,12 +46,12 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
         this.rating = rating;
     }
 
-    public EnumSet<Status> getStatus() {
+    public EnumSet<Status> getStatusList() {
         return feedbackStatus;
     }
 
     @Override
-    protected String getItemType() {
+    public String getItemType() {
         return ITEM_TYPE;
     }
 

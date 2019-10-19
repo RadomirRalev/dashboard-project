@@ -32,10 +32,9 @@ public abstract class WorkItemsImpl implements WorkItems {
 
     //making the constructor protected, so that you cannot create a WorkItemsImpl object (can be created only through sub-classes)
     protected WorkItemsImpl(String title, String description) {
-        //setId();
+        setId();
         setTitle(title);
         setDescription(description);
-        //setStatus(Status.NEW);
         comments = new ArrayList<>();
         history = new ArrayList<>();
         addHistory(String.format(ITEM_CREATED, getItemType()));
@@ -57,10 +56,10 @@ public abstract class WorkItemsImpl implements WorkItems {
     }
 
     @Override
-    public abstract EnumSet<Status> getStatus();
+    public abstract EnumSet<Status> getStatusList();
 
     @Override
-    public Status getCurrentStatus(){
+    public Status getStatus() {
         return status;
     }
 
@@ -70,15 +69,15 @@ public abstract class WorkItemsImpl implements WorkItems {
     }
 
     @Override
-    public String showComments(){
+    public String showComments() {
         StringBuilder str = new StringBuilder();
-        if(getComments().isEmpty()){
+        if (getComments().isEmpty()) {
             throw new IllegalArgumentException(EMPTY_COMMENT_LIST_MSG);
         }
-        for (String element: getComments()) {
+        for (String element : getComments()) {
             str.append(element + "\n");
         }
-        return str.toString();
+        return str.toString().trim();
     }
 
     @Override
@@ -88,15 +87,15 @@ public abstract class WorkItemsImpl implements WorkItems {
 
     @Override
     public void setStatus(Status status) {
-        if(!getStatus().contains(status)){
-            throw new IllegalArgumentException(String.format(INVALID_ENUM_ERROR_MSG,status, getItemType()));
+        if (!getStatusList().contains(status)) {
+            throw new IllegalArgumentException(String.format(INVALID_ENUM_ERROR_MSG, status, getItemType()));
         }
         this.status = status;
     }
 
     @Override
     public void addComment(String comment) {
-        if(comment.isEmpty()){
+        if (comment.isEmpty()) {
             throw new IllegalArgumentException("Cannot add an empty comment");
         }
         comments.add(comment);
@@ -114,15 +113,15 @@ public abstract class WorkItemsImpl implements WorkItems {
                         "Title: %s\n" +
                         "Description: %s\n", getItemType(),
                 getId(), getTitle(), getDescription()));
-        if(getCurrentStatus() != null){
-            str.append(String.format("Status: %s\n", getCurrentStatus()));
+        if (getStatus() != null) {
+            str.append(String.format("Status: %s\n", getStatus()));
         }
         return str.toString();
 
     }
 
     //abstract method that will return the ItemType, so we can pass it as a parameter when an Item is created.
-    protected abstract String getItemType();
+    public abstract String getItemType();
 
     //Id can be an internal parameter, so there is no need to pass it as a parameter in the constructor
     protected void setId() {

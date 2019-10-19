@@ -32,7 +32,7 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
         super(title, description);
         setSeverity(severity);
         setStepsToReproduce(stepsToReproduce);
-        setId();
+        setStatus(Status.ACTIVE);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
         this.severity = severity;
     }
 
-    public EnumSet<Status> getStatus() {
+    public EnumSet<Status> getStatusList() {
         return bugStatus;
     }
 
@@ -69,7 +69,7 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
     }
 
     @Override
-    protected String getItemType() {
+    public String getItemType() {
         return ITEM_TYPE;
     }
 
