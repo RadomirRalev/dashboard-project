@@ -6,4 +6,5 @@ import workitems.contracts.BugAndStory;
 public interface Story extends BugAndStory {
     Size getSize();
     void setSize(Size size);
+    String getSizeSortingValue(Size size);
 }

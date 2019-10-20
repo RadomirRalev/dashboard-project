@@ -7,8 +7,12 @@ import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
+import enums.Size;
+import workitems.contracts.Story;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;
 
@@ -16,7 +20,6 @@ public class ListWorkItems implements Command {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 1;
 
     private FunctionalsRepository functionalsRepository;
-    private String listCommandType;
     private Reader reader;
     private Writer writer;
 
@@ -30,7 +33,7 @@ public class ListWorkItems implements Command {
     public String execute(List<String> parameters) throws Exception {
         ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
 
-        listCommandType = parameters.get(0).toLowerCase();
+        String listCommandType = parameters.get(0).toLowerCase();
 
         switch (listCommandType) {
             case "all":
@@ -39,6 +42,8 @@ public class ListWorkItems implements Command {
                 return listAllByType();
             case "status":
                 return listAllByStatus();
+            case "size":
+                return listAllBySize();
             default:
                 throw new IllegalArgumentException(String.format(INVALID_COMMAND, listCommandType));
         }
@@ -47,7 +52,7 @@ public class ListWorkItems implements Command {
     private String listAllWorkItems() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        functionalsRepository.getWorkItems().entrySet().stream()
+        functionalsRepository.getWorkItems().values().stream()
 //                .sorted((workitem1, workitem2) ->
 //                        workitem1.getValue().getTitle().compareToIgnoreCase(workitem2.getValue().getTitle()))
                 .forEach(element -> stringBuilder.append(element.toString() + "\n"));
@@ -57,12 +62,14 @@ public class ListWorkItems implements Command {
 
     private String listAllByType() {
         writer.writeLine("Choose one of the following filters: Bug / Story / Feedback");
-        String filterType = reader.readLine();
+        String filterType = reader.readLine().toLowerCase();
+
+        ValidationCommands.isFilterTypeValid(filterType);
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        functionalsRepository.getWorkItems().entrySet().stream()
-                .filter(workitem -> workitem.getValue().getItemType().equalsIgnoreCase(filterType))
+        functionalsRepository.getWorkItems().values().stream()
+                .filter(workitem -> workitem.getItemType().equalsIgnoreCase(filterType))
                 .forEach(element -> stringBuilder.append(element.toString() + "\n"));
 
         return stringBuilder.toString().trim();
@@ -75,9 +82,30 @@ public class ListWorkItems implements Command {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        functionalsRepository.getWorkItems().entrySet().stream()
-                .filter(workitem -> workitem.getValue().getStatus().toString().equalsIgnoreCase(filterType))
+        functionalsRepository.getWorkItems().values().stream()
+                .filter(workitem -> workitem.getStatus().toString().equalsIgnoreCase(filterType))
                 .forEach(element -> stringBuilder.append(element.toString() + "\n"));
+
+        return stringBuilder.toString().trim();
+    }
+
+    private String listAllBySize() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+//        functionalsRepository.getWorkItems().values().stream()
+//                .filter(item -> item instanceof Story)
+//                .sorted((item1, item2) ->
+//                        ((Story) item1).getSizeSortingValue(((Story) item1).getSize()).compareToIgnoreCase(
+//                                ((Story) item2).getSizeSortingValue(((Story) item2).getSize())))
+//                .forEach(item -> stringBuilder.append(item.toString() + "\n"));
+
+//        functionalsRepository.getWorkItems().values().stream()
+//                .filter(item -> item.getItemType().equalsIgnoreCase("Story"))
+//                .map(item -> (Story) item)
+//                .collect(Collectors.toList())
+//                .stream()
+//                .sorted()
+//                .forEach(item -> stringBuilder.append(item.toString() + "\n"));
 
         return stringBuilder.toString().trim();
     }

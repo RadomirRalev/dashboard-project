@@ -46,6 +46,7 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
         this.rating = rating;
     }
 
+    @Override
     public EnumSet<Status> getStatusList() {
         return feedbackStatus;
     }
