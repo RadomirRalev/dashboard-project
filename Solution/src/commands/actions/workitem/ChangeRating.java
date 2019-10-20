@@ -14,6 +14,7 @@ public class ChangeRating extends ChangeBase implements Command {
         super(functionalsRepository);
     }
 
+    @Override
     protected String changeCommand(String workitemName, String newRating, WorkItems workitem) {
         Feedback feedback = (Feedback) workitem;
 

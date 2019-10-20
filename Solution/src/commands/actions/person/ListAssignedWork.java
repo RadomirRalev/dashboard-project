@@ -8,6 +8,8 @@ import functionals.contracts.Person;
 
 import java.util.List;
 
+import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
+
 public class ListAssignedWork extends ConsoleInteraction implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
 
@@ -17,15 +19,22 @@ public class ListAssignedWork extends ConsoleInteraction implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
-        setPersonName();
-        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
+        personName = asksAboutPersonName();
+        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        if (isCancel(personName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         return prepareAssignedWorkList();
     }
 
     private String prepareAssignedWorkList() {
-        Person person = functionalsRepository.getPersons().get(getPersonName());
-        return person.listAssignedWork();
+        StringBuilder str = new StringBuilder();
+        Person person = functionalsRepository.getPersons().get(personName);
+        for (int i = 0; i < person.getAssignedWork().size(); i++) {
+            str.append(String.format("%s\n", person.getAssignedWork().get(i).toString()));
+        }
+        return str.toString();
     }
 }

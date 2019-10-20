@@ -14,6 +14,7 @@ public class ChangeSeverity extends ChangeBase implements Command {
         super(functionalsRepository);
     }
 
+    @Override
     protected String changeCommand(String workitemName, String newSeverity, WorkItems workitem) {
         Bug bug = (Bug) workitem;
 

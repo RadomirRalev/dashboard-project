@@ -13,7 +13,8 @@ public class ChangeStatus extends ChangeBase implements Command {
         super(functionalsRepository);
     }
 
-    public String changeCommand(String boardName, String newStatus, WorkItems workItem) {
+    @Override
+    protected String changeCommand(String boardName, String newStatus, WorkItems workItem) {
         workItem.setStatus(getStatus(newStatus));
 
         return String.format(STATUS_SUCCESSFULLY_CHANGED_MSG, workItem.getTitle(), newStatus);

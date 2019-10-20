@@ -8,9 +8,12 @@ import static commands.actions.CommandsConstants.*;
 
 public class ConsoleInteraction {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
-    private String name;
-    private String personName;
+    protected String teamName;
+    protected String boardName;
+    protected String memberName;
+    protected String personName;
     private static Reader reader;
+    protected int workToBeUnassigned;
 
     protected ConsoleInteraction() {
         reader = new ConsoleReader();
@@ -20,22 +23,6 @@ public class ConsoleInteraction {
         if (size != correctArgumentsNumber()) {
             throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
         }
-    }
-
-    protected String getName() {
-        return name;
-    }
-
-    protected void setName(String unit) {
-        this.name = asksWhat(unit);
-    }
-
-    protected String getPersonName() {
-        return personName;
-    }
-
-    protected void setPersonName() {
-        this.personName = asksAboutPersonName();
     }
 
     private static int correctArgumentsNumber() {
@@ -56,5 +43,9 @@ public class ConsoleInteraction {
     protected String asksAboutMemberOrBoard() {
         System.out.println(SHOW_ACTIVITY_HISTORY_QUESTION);
         return reader.readLine().toLowerCase();
+    }
+
+    protected boolean isCancel(String input) {
+        return input.equalsIgnoreCase("cancel");
     }
 }

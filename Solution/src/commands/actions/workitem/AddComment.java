@@ -34,7 +34,7 @@ public class AddComment implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) throws IllegalArgumentException {
         ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
 
         parseParameters(parameters);

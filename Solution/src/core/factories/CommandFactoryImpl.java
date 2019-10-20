@@ -2,7 +2,7 @@ package core.factories;
 
 
 import commands.actions.activityhistory.ShowActivityHistory;
-//import commands.actions.board.AddBoardToTeam;
+//import commands.person.board.AddBoardToTeam;
 import commands.actions.board.CreateBoard;
 import commands.actions.person.ListAllTeamMembers;
 import commands.actions.person.RemoveMember;
@@ -20,7 +20,7 @@ import core.contracts.FunctionalsFactory;
 import enums.CommandType;
 
 public class CommandFactoryImpl implements CommandFactory {
-    private static final String INVALID_COMMAND = "Invalid command name: %s!";
+    private static final String INVALID_COMMAND = "Invalid command teamName: %s!";
 
     public Command createCommand(String commandTypeAsString,
                                  FunctionalsFactory functionalsFactory,
@@ -81,8 +81,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new AddComment(functionalsRepository);
             case SHOWCOMMENTS:
                 return new ShowComments(functionalsRepository);
-            case LISTWORKITEMS:
-                return new ListWorkItems(functionalsRepository);
+            //case LISTWORKITEMS:
+            //    return new ListWorkItems(functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }

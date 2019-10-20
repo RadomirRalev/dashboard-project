@@ -8,8 +8,7 @@ import core.contracts.FunctionalsRepository;
 
 import java.util.List;
 
-import static commands.actions.CommandsConstants.INVALID_NUMBER_OF_ARGUMENTS;
-import static commands.actions.CommandsConstants.TEAM_DOES_NOT_EXIST_ERROR_MSG;
+import static commands.actions.CommandsConstants.*;
 
 public class ShowTeamBoards extends ConsoleInteraction implements Command {
     private final FunctionalsRepository functionalsRepository;
@@ -20,14 +19,18 @@ public class ShowTeamBoards extends ConsoleInteraction implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
-        setName("Team");
-        ValidationCommands.checkIfTeamExists(getName(), functionalsRepository);
+        teamName = asksWhat("Team");
+        teamName = ValidationCommands.checkIfTeamExists(teamName, functionalsRepository);
+        if (isCancel(teamName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
         return showTeamBoards();
     }
 
     private String showTeamBoards() {
-        return functionalsRepository.getTeams().get(getName()).showBoards();
+        return functionalsRepository.getTeams().get(teamName).showBoards();
     }
 }
+

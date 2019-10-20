@@ -2,7 +2,6 @@ package commands.actions.person;
 import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
-import core.FunctionalsRepositoryImpl;
 import core.contracts.FunctionalsFactory;
 import core.contracts.FunctionalsRepository;
 import functionals.contracts.Person;
@@ -22,12 +21,15 @@ public class CreateNewPerson extends ConsoleInteraction implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
-        setPersonName();
-        ValidationCommands.checkNameOfNewPerson(getPersonName(), functionalsRepository);
-        PersonImpl.getMembersActivity().put(getPersonName(), new ArrayList<>());
-        return createPerson(getPersonName());
+        personName = asksAboutPersonName();
+        personName = ValidationCommands.checkNameOfNewPerson(personName, functionalsRepository);
+        if (isCancel(personName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
+        PersonImpl.getMembersActivity().put(personName, new ArrayList<>());
+        return createPerson(personName);
     }
 
     private String createPerson(String name) {

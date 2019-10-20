@@ -18,10 +18,9 @@ import static commands.actions.CommandsConstants.*;
 
 public class ListWorkItems implements Command {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 1;
-
-    private FunctionalsRepository functionalsRepository;
-    private Reader reader;
-    private Writer writer;
+    private  FunctionalsRepository functionalsRepository;
+    private  Reader reader;
+    private  Writer writer;
 
     public ListWorkItems(FunctionalsRepository functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -30,7 +29,7 @@ public class ListWorkItems implements Command {
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) throws IllegalArgumentException {
         ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
 
         String listCommandType = parameters.get(0).toLowerCase();
@@ -61,7 +60,7 @@ public class ListWorkItems implements Command {
     }
 
     private String listAllByType() {
-        writer.writeLine("Choose one of the following filters: Bug / Story / Feedback");
+        System.out.println("Choose one of the following filters: Bug / Story / Feedback:");
         String filterType = reader.readLine().toLowerCase();
 
         ValidationCommands.isFilterTypeValid(filterType);

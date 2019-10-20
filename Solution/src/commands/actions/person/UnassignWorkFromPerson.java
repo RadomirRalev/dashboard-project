@@ -27,21 +27,29 @@ public class UnassignWorkFromPerson extends ConsoleInteraction implements Comman
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
-        setPersonName();
-        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
-        asksAboutWorkToBeUnassigned();
-        Person person = getPerson();
-        if (ValidationCommands.checkIfWorkExists(asksAboutWorkToBeUnassigned(), person)) {
-            return String.format(WORK_NOT_EXIST_MSG, asksAboutWorkToBeUnassigned());
+        personName = asksAboutPersonName();
+        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        if (isCancel(personName)) {
+            return TYPE_ANOTHER_COMMAND;
         }
-        person.unassignWork(asksAboutWorkToBeUnassigned() - 1);
-        return addUnassignWorkToActivityHistory(getPersonName(), asksAboutWorkToBeUnassigned(), person);
+        Person person = getPerson();
+        assignedWorkListing(person);
+        workToBeUnassigned = asksAboutWorkToBeUnassigned();
+        if (ValidationCommands.checkIfWorkExists(workToBeUnassigned, person)) {
+            return String.format(WORK_NOT_EXIST_MSG, workToBeUnassigned);
+        }
+        person.unassignWork(workToBeUnassigned - 1);
+        return addUnassignWorkToActivityHistory(personName, workToBeUnassigned, person);
+    }
+
+    private void assignedWorkListing(Person person) {
+        System.out.printf(LIST_ASSIGNEDWORK, personName, NameJoiner.joinerList(person.getAssignedWork()));
     }
 
     private Person getPerson() {
-        return functionalsRepository.getPersons().get(getPersonName());
+        return functionalsRepository.getPersons().get(personName);
     }
 
     private String addUnassignWorkToActivityHistory(String personName, int workToBeUnassigned, Person person) {
@@ -51,7 +59,7 @@ public class UnassignWorkFromPerson extends ConsoleInteraction implements Comman
     }
 
     private int asksAboutWorkToBeUnassigned() {
-        writer.writeLine("What number of assigned work to be removed?");
+        writer.writeLine("\n" + "===========" + "\n" + NUMBER_ASSIGNEDWORK);
         return Integer.parseInt(reader.readLine());
     }
 }

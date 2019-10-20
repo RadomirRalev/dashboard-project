@@ -17,11 +17,14 @@ public class DeletePersonFromList extends ConsoleInteraction implements Command 
     }
 
     @Override
-    public String execute(List<String> parameters) throws Exception {
+    public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
-        setPersonName();
-        ValidationCommands.checkIfPersonExists(getPersonName(), functionalsRepository);
-        return deletePerson(getPersonName());
+        personName = asksAboutPersonName();
+        personName = ValidationCommands.checkIfPersonExists(personName, functionalsRepository);
+        if (isCancel(personName)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
+        return deletePerson(personName);
     }
 
     private String deletePerson(String name) {
@@ -29,5 +32,6 @@ public class DeletePersonFromList extends ConsoleInteraction implements Command 
         return String.format(PERSON_DELETED_MSG, name);
     }
 }
+
 
 

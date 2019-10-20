@@ -14,7 +14,8 @@ public class ChangeSize extends ChangeBase implements Command {
         super(functionalsRepository);
     }
 
-    public String changeCommand(String workitemName, String newSize, WorkItems workItem) {
+    @Override
+    protected String changeCommand(String workitemName, String newSize, WorkItems workItem) {
         Story story = (Story) workItem;
 
         story.setSize(getSize(newSize));
