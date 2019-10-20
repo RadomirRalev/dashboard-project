@@ -54,7 +54,7 @@ public class ListWorkItems implements Command {
         return stringBuilder.toString().trim();
     }
 
-    public String listAllByType() {
+    private String listAllByType() {
         System.out.println("Choose one of the following filters: Bug / Story / Feedback:");
         String filterType = reader.readLine();
 
