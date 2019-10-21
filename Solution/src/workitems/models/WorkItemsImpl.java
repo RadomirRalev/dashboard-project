@@ -123,8 +123,7 @@ public abstract class WorkItemsImpl implements WorkItems {
     //abstract method that will return the ItemType, so we can pass it as a parameter when an Item is created.
     public abstract String getItemType();
 
-    //Id can be an internal parameter, so there is no need to pass it as a parameter in the constructor
-    protected void setId() {
+    private void setId() {
         this.id = currentId;
         currentId++;
     }

@@ -13,6 +13,7 @@ import java.util.List;
 import static commands.actions.CommandsConstants.*;
 
 public class CreateStory implements Command {
+    //TODO make a validation to check if a workitem with this name already exists in this board.
     //creates a story inside a board object. Cannot create stories outside of boards (just like in Trello)
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 4;
     private final FunctionalsRepository functionalsRepository;

@@ -54,6 +54,7 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
         this.severity = severity;
     }
 
+    @Override
     public EnumSet<Status> getStatusList() {
         return bugStatus;
     }

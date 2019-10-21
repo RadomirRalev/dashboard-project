@@ -59,7 +59,7 @@ public class CommandsConstants {
     public static final String WORKITEM_ID_DOES_NOT_MATCH_NAME_MSG = "The Workitem id does not match the name";
     public static final String STATUS_SUCCESSFULLY_CHANGED_MSG = "The status of %s was successfully changed to %s";
     public static final String PRIORITY_SUCCESSFULLY_CHANGED_MSG = "The priority of %s was successfully changed to %s";
-    public static final String RATING_SUCCESSFULLY_CHANGED_MSG = "The rating of %s was successfully changed to %d";
+    public static final String RATING_SUCCESSFULLY_CHANGED_MSG = "The rating of %s was successfully changed to %s";
     public static final String SEVERITY_SUCCESSFULLY_CHANGED_MSG = "The severity of %s was successfully changed to %s";
     public static final String SIZE_SUCCESSFULLY_CHANGED_MSG = "The size of %s was successfully changed to %s";
     public static final String ITEM_DOES_NOT_EXIST_ERROR_MSG = "Item %s does not exist!";
@@ -71,4 +71,7 @@ public class CommandsConstants {
     public static final String ITEM_DOES_NOT_EXIST_IN_ANOTHER_MSG = "Item %s does not exist in %s!";
     public static final String ADD_COMMENT_MSG = "Please write the comment you wish to add to %s in %s";
     public static final String COMMENT_SUCCESSFULLY_ADDED_MSG = "The comment was successfully added to %s";
+    public static final String BUG = "bug";
+    public static final String STORY = "story";
+    public static final String FEEDBACK = "feedback";
 }

@@ -1,9 +1,11 @@
 package commands.actions;
+
 import commands.actions.person.NameJoiner;
 import core.contracts.FunctionalsRepository;
 import core.contracts.Reader;
 import core.providers.ConsoleReader;
 import functionals.contracts.Person;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -115,9 +117,9 @@ public class ValidationCommands {
         return boardName;
     }
 
-    public static String checkBugStoryFeedback (String filterType) {
+    public static String checkBugStoryFeedback(String filterType) {
         while (!filterType.equalsIgnoreCase("bug") && !filterType.equalsIgnoreCase("story")
-        && !filterType.equalsIgnoreCase("feedback")) {
+                && !filterType.equalsIgnoreCase("feedback")) {
             System.out.println(ENTER_BUG_STORY_FEEDBACK);
             filterType = reader.readLine();
         }
