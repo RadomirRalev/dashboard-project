@@ -18,9 +18,9 @@ import static commands.actions.CommandsConstants.*;
 
 public class ListWorkItems implements Command {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 1;
-    private  FunctionalsRepository functionalsRepository;
-    private  Reader reader;
-    private  Writer writer;
+    private FunctionalsRepository functionalsRepository;
+    private Reader reader;
+    private Writer writer;
 
     public ListWorkItems(FunctionalsRepository functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
@@ -91,20 +91,11 @@ public class ListWorkItems implements Command {
     private String listAllBySize() {
         StringBuilder stringBuilder = new StringBuilder();
 
-//        functionalsRepository.getWorkItems().values().stream()
-//                .filter(item -> item instanceof Story)
-//                .sorted((item1, item2) ->
-//                        ((Story) item1).getSizeSortingValue(((Story) item1).getSize()).compareToIgnoreCase(
-//                                ((Story) item2).getSizeSortingValue(((Story) item2).getSize())))
-//                .forEach(item -> stringBuilder.append(item.toString() + "\n"));
-
-//        functionalsRepository.getWorkItems().values().stream()
-//                .filter(item -> item.getItemType().equalsIgnoreCase("Story"))
-//                .map(item -> (Story) item)
-//                .collect(Collectors.toList())
-//                .stream()
-//                .sorted()
-//                .forEach(item -> stringBuilder.append(item.toString() + "\n"));
+        functionalsRepository.getWorkItems().values().stream()
+                .filter(item -> item.getItemType().equalsIgnoreCase("Story"))
+                .map(item -> (Story) item)
+                .sorted(Comparator.comparingInt(x -> x.getSize().getWeight()))
+                .forEach(item -> stringBuilder.append(item.toString() + "\n"));
 
         return stringBuilder.toString().trim();
     }

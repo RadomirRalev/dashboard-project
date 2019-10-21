@@ -10,20 +10,12 @@ public enum Size {
 
     private final int weight;
 
-    private static Map map = new HashMap<>();
-
-    static {
-        for (Size size : Size.values()) {
-            map.put(size.weight, size);
-        }
-    }
-
-    public static Size valueOf(int sizeTypeWeight){
-        return (Size)map.get(sizeTypeWeight);
-    }
-
     Size(int weight) {
         this.weight = weight;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 
     @Override
