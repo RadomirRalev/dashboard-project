@@ -1,4 +1,4 @@
-package commands.actions.workitem;
+package commands.actions.workitem.Create;
 
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
@@ -23,7 +23,7 @@ public class CreateFeedback implements Command {
     private String description;
     private int rating;
 
-    public CreateFeedback(FunctionalsFactory functionalsFactory, FunctionalsRepository functionalsRepository){
+    public CreateFeedback(FunctionalsFactory functionalsFactory, FunctionalsRepository functionalsRepository) {
         this.functionalsFactory = functionalsFactory;
         this.functionalsRepository = functionalsRepository;
     }
@@ -34,14 +34,14 @@ public class CreateFeedback implements Command {
 
         parseParameters(parameters);
 
-        if(!functionalsRepository.getBoards().containsKey(boardName)){
+        if (!functionalsRepository.getBoards().containsKey(boardName)) {
             throw new IllegalArgumentException(String.format(BOARD_DOES_NOT_EXIST_ERROR_MSG, boardName));
         }
 
         return createFeedback(title, description, rating);
     }
 
-    private String createFeedback(String title, String description, int rating){
+    private String createFeedback(String title, String description, int rating) {
         Feedback feedback = functionalsFactory.createFeedback(title, description, rating);
         functionalsRepository.getBoards().get(boardName).addWorkItems(feedback);
 
@@ -50,13 +50,13 @@ public class CreateFeedback implements Command {
         return String.format(FEEDBACK_CREATED_SUCCESS_MESSAGE, title);
     }
 
-    private void parseParameters(List<String> parameters){
-        try{
+    private void parseParameters(List<String> parameters) {
+        try {
             boardName = parameters.get(0);
             title = parameters.get(1);
             description = parameters.get(2);
             rating = Integer.parseInt(parameters.get(3));
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new IllegalArgumentException(FAILED_TO_PARSE_COMMAND_PARAMETERS);
         }
     }

@@ -1,4 +1,4 @@
-package commands.actions.workitem;
+package commands.actions.workitem.Change;
 
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;

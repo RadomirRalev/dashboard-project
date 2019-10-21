@@ -1,4 +1,4 @@
-package commands.actions.workitem;
+package commands.actions.workitem.ListWorkItems;
 
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;

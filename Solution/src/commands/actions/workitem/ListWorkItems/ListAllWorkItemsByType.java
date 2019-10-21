@@ -1,6 +1,7 @@
-package commands.actions.workitem;
+package commands.actions.workitem.ListWorkItems;
 
 import commands.actions.ValidationCommands;
+import commands.actions.workitem.ListWorkItems.ListWorkItems;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
 

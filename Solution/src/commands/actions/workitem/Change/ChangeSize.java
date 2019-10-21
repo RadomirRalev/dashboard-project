@@ -1,5 +1,6 @@
-package commands.actions.workitem;
+package commands.actions.workitem.Change;
 
+import commands.actions.workitem.Change.ChangeBase;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
 import enums.Size;

@@ -1,4 +1,4 @@
-package commands.actions.workitem;
+package commands.actions.workitem.Change;
 
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
@@ -20,7 +20,7 @@ public class ChangePriority extends ChangeBase implements Command {
         BugAndStory bugAndStory;
         try {
             bugAndStory = (BugAndStory) workitem;
-        } catch (ClassCastException ex){
+        } catch (ClassCastException ex) {
             throw new IllegalArgumentException(WORKITEM_NOT_BUG_OR_STORY);
         }
 
