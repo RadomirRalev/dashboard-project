@@ -137,8 +137,8 @@ public class ValidationCommands {
         return input;
     }
 
-    public static void isFilterTypeValid(String filterType){
-        if(!filterType.equalsIgnoreCase(BUG) && !filterType.equalsIgnoreCase(STORY) && !filterType.equalsIgnoreCase(FEEDBACK)){
+    public static void isFilterTypeValid(String filterType) {
+        if (!filterType.equalsIgnoreCase(BUG) && !filterType.equalsIgnoreCase(STORY) && !filterType.equalsIgnoreCase(FEEDBACK)) {
             throw new IllegalArgumentException(String.format(INVALID_COMMAND, filterType));
         }
     }

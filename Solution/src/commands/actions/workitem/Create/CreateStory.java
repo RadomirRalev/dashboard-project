@@ -13,7 +13,6 @@ import java.util.List;
 import static commands.actions.CommandsConstants.*;
 
 public class CreateStory implements Command {
-    //TODO make a validation to check if a workitem with this name already exists in this board.
     //creates a story inside a board object. Cannot create stories outside of boards (just like in Trello)
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 4;
     private final FunctionalsRepository functionalsRepository;
@@ -35,9 +34,11 @@ public class CreateStory implements Command {
 
         parseParameters(parameters);
 
-        if (!functionalsRepository.getBoards().containsKey(boardName)) {
-            throw new IllegalArgumentException(String.format(BOARD_DOES_NOT_EXIST_ERROR_MSG, boardName));
-        }
+        ValidationCommands.checkIfItemExists(functionalsRepository.getBoards(), boardName);
+
+//        if (!functionalsRepository.getBoards().containsKey(boardName)) {
+//            throw new IllegalArgumentException(String.format(BOARD_DOES_NOT_EXIST_ERROR_MSG, boardName));
+//        }
 
         return createStory(title, description, size);
     }
