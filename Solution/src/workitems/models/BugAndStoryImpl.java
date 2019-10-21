@@ -11,7 +11,7 @@ import java.util.EnumSet;
 import static workitems.Constants.INVALID_ENUM_ERROR_MSG;
 
 public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndStory, WorkItems {
-    private static EnumSet<Priority> possiblePriorities;
+    private static final EnumSet<Priority> possiblePriorities;
 
     private Priority priority;
     private Person asignee;

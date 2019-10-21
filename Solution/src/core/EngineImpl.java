@@ -39,9 +39,11 @@ public class EngineImpl implements Engine {
                 }
                 processCommand(commandAsString);
 
-            } catch (IllegalArgumentException i) {
+            } /*catch (IllegalArgumentException i) {
                 writer.writeLine("Command does not exist. Please enter a new command or type 'exit' to close " +
                         "the application.");
+            } */catch (Exception ex) {
+                writer.writeLine(ex.getMessage() != null && !ex.getMessage().isEmpty() ? ex.getMessage() : ex.toString());
             }
         }
     }

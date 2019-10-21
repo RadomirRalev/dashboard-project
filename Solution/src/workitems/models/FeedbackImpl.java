@@ -13,7 +13,7 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
     private static final int MIN_RATING_VALUE = 1;
     private static final int MAX_RATING_VALUE = 5;
 
-    private static EnumSet<Status> feedbackStatus;
+    private static final EnumSet<Status> feedbackStatus;
 
     private int rating;
 

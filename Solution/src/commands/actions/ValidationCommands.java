@@ -4,9 +4,11 @@ import commands.actions.person.NameJoiner;
 import core.contracts.FunctionalsRepository;
 import core.contracts.Reader;
 import core.providers.ConsoleReader;
+import enums.Size;
 import functionals.contracts.Person;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 
@@ -143,4 +145,16 @@ public class ValidationCommands {
         }
     }
 
+    public static <T extends Enum<T>> String checkIfEnumValueIsValid(String enumValue, EnumSet<T> enumSet
+            , String enumType, String enumFilters) {
+        while (true) {
+            for (T t : enumSet) {
+                if (t.toString().equalsIgnoreCase(enumValue)) {
+                    return enumValue;
+                }
+            }
+            System.out.println(String.format("Not a valid %s. Please choose from %s", enumType, enumFilters));
+            enumValue = reader.readLine();
+        }
+    }
 }

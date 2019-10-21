@@ -17,8 +17,8 @@ import static workitems.Constants.INVALID_ENUM_ERROR_MSG;
 public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkItems {
     private static final String ITEM_TYPE = "Bug";
 
-    private static EnumSet<Status> bugStatus;
-    private static EnumSet<Severity> severities;
+    private static final EnumSet<Status> bugStatus;
+    private static final EnumSet<Severity> severities;
 
     private Severity severity;
     private List<String> stepsToReproduce;

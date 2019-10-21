@@ -83,4 +83,15 @@ public class CommandsConstants {
     public static final String CHOOSE_WORKITEM_STATUS_FILTER = "Choose one of the following filters: Active / Fixed / NotDone / InProgress / Done / New " +
             "/ Unscheduled / Scheduled";
     public static final String CHOOSE_WORKITEM_ASSIGNEE = "Choose a person that you wish to filter by";
+    public static final String WHAT_WILL_IT_BE = "What will the %s be?";
+    public static final String SIZE = "Size";
+    public static final String SEVERITY = "Severity";
+    public static final String PRIORITY = "Priority";
+    public static final String STATUS = "Status";
+    public static final String SIZES = "Large / Medium / Small";
+    public static final String SEVERITIES = "Critical / Major / Minor";
+    public static final String PRIORITIES = "High / Medium / Low";
+    public static final String BUG_STATUSES = "Active / Fixed";
+    public static final String STORY_STATUSES = "NotDone / InProgress / Done";
+    public static final String FEEDBACK_STATUSES = "New / Unscheduled / Scheduled / Done";
 }

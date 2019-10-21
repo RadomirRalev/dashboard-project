@@ -1,5 +1,6 @@
 package commands.actions.workitem.Create;
 
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.contracts.FunctionalsFactory;
@@ -12,9 +13,9 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class CreateStory implements Command {
+public class CreateStory extends ConsoleInteraction implements Command {
     //creates a story inside a board object. Cannot create stories outside of boards (just like in Trello)
-    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 4;
+//    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 4;
     private final FunctionalsRepository functionalsRepository;
     private final FunctionalsFactory functionalsFactory;
 
@@ -30,15 +31,15 @@ public class CreateStory implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
+        ConsoleInteraction.validateInput(parameters.size());
 
-        parseParameters(parameters);
+        boardName = ConsoleInteraction.asksWhich("board");
+        boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
 
-        ValidationCommands.checkIfItemExists(functionalsRepository.getBoards(), boardName);
-
-//        if (!functionalsRepository.getBoards().containsKey(boardName)) {
-//            throw new IllegalArgumentException(String.format(BOARD_DOES_NOT_EXIST_ERROR_MSG, boardName));
-//        }
+        title = asksWhatWillItBe("title");
+        description = asksWhatWillItBe("description");
+        size = asksWhatWillItBe("size");
+        size = ValidationCommands.checkIfEnumValueIsValid(size, StoryImpl.getSizeList(), SIZE, SIZES);
 
         return createStory(title, description, size);
     }
@@ -54,14 +55,14 @@ public class CreateStory implements Command {
         return String.format(STORY_CREATED_SUCCESS_MESSAGE, title);
     }
 
-    private void parseParameters(List<String> parameters) {
-        try {
-            boardName = parameters.get(0);
-            title = parameters.get(1);
-            description = parameters.get(2);
-            size = parameters.get(3);
-        } catch (Exception e) {
-            throw new IllegalArgumentException(FAILED_TO_PARSE_COMMAND_PARAMETERS);
-        }
-    }
+//    private void parseParameters(List<String> parameters) {
+//        try {
+//            boardName = parameters.get(0);
+//            title = parameters.get(1);
+//            description = parameters.get(2);
+//            size = parameters.get(3);
+//        } catch (Exception e) {
+//            throw new IllegalArgumentException(FAILED_TO_PARSE_COMMAND_PARAMETERS);
+//        }
+//    }
 }
