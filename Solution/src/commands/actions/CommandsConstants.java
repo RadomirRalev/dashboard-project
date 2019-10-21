@@ -80,7 +80,51 @@ public class CommandsConstants {
     public static final String WORKITEM_NOT_BUG = "The workitem is not a bug";
     public static final String WORKITEM_NOT_STORY = "The workitem is not a story";
     public static final String CHOOSE_WORKITEM_TYPE = "Choose one of the following filters: Bug / Story / Feedback:";
-    public static final String CHOOSE_WORKITEM_STATUS_FILTER = "Choose one of the following filters: Active / Fixed / NotDone / InProgress / Done / New " +
+    public static final String CHOOSE_WORKITEM_STATUS_FILTER = "Choose one of the following filters: Active / Fixed / " +
+            "NotDone / InProgress / Done / New " +
             "/ Unscheduled / Scheduled";
     public static final String CHOOSE_WORKITEM_ASSIGNEE = "Choose a person that you wish to filter by";
+    public static final String COMMANDS_LIST = "Createperson - Creates person\n" +
+            "Listpersons - Lists all persons\n" +
+            "Deleteperson - Feletes a person\n" +
+            "Assignwork - Adds work item to person\n" +
+            "Listassignedwork - Lists assigned work of a person\n" +
+            "Createteam - Creates team\n" +
+            "Unassignwork - Deletes work item from a person\n" +
+            "Addmember - Adds member to team\n" +
+            "Listteams - Lists all teams\n" +
+            "Createboard X Y - Creates board where X is the name of the board and Y is the name of the team " +
+            "it is assigned to\n" +
+            "Showteamboards - Shows boards of a team\n" +
+            "Listallmembers - Lists all team members\n" +
+            "Createbug X Y Z A - Creates bug where X is its board name, Y is its title, Z is description and " +
+            "A is severity\n" +
+            "Showactivityhistory - Shows activity history\n" +
+            "Createfeedback X Y Z A - Creates bug where X is its board name, Y is its title, Z is description and " +
+            "A is rating\n" +
+            "Removeworkitem - Removes work item\n" +
+            "Showperson - Shows a specific person\n" +
+            "Showmember - Shows a specific team member\n" +
+            "Changestatus - Changes status\n" +
+            "Changerating - Changes rating\n" +
+            "Changesize - Changes size\n" +
+            "Addcomment X Y Z A - Adds comment where X is board name, Y is its title, Z is description and " +
+            "A is rating\n" +
+            "Showcomment - Shows comments\n" +
+            "Listallworkitems - Lists all work items\n" +
+            "Listallworkitemsbytype - Lists all work items by type\n" +
+            "Listallworkitemsbyasignee - Lists all work items by assignee\n" +
+            "Listallworkitemsbystatus - Lists all work items by status\n" +
+            "Sortallworkitemsbytitle - Sorts all work items by title\n" +
+            "Sortallstoriesbysize - Sorts all stories by size\n" +
+            "Sortallstoriesbyseverity - Sorts all stories by severity\n" +
+            "Sortallstoriesbypriority - Sorts all stories by priority\n" +
+            "Sortallfeedbackbyrating - Sorts all feedback by rating\n" +
+            "Showcommands - Shows commands";
+
+
+    public static final String CONSOLE_INTRODUCTION = "Hello! You can start by creating a person or " +
+            "a team through 'createperson' or 'createteam' and type 'exit' to leave this app.\n" +
+            "You can check the available commands via 'showcommands.";
+
 }

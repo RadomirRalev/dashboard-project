@@ -1,6 +1,8 @@
 package core.factories;
 
 
+import commands.actions.ConsoleInteraction;
+import commands.actions.ShowCommands;
 import commands.actions.activityhistory.ShowActivityHistory;
 //import commands.person.board.AddBoardToTeam;
 import commands.actions.board.CreateBoard;
@@ -24,6 +26,7 @@ import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.CommandFactory;
 import core.contracts.FunctionalsFactory;
+import core.contracts.FunctionalsRepository;
 import enums.CommandType;
 
 public class CommandFactoryImpl implements CommandFactory {
@@ -106,6 +109,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new SortAllWorkItemsByPriority(functionalsRepository);
             case SORTALLFEEDBACKBYRATING:
                 return new SortAllFeedbackByRating(functionalsRepository);
+            case SHOWCOMMANDS:
+                return new ShowCommands(functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }

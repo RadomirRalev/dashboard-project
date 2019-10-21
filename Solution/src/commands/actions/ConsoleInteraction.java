@@ -1,8 +1,14 @@
 package commands.actions;
 
 import commands.actions.person.NameJoiner;
+import commands.contracts.Command;
+import core.contracts.FunctionalsRepository;
 import core.contracts.Reader;
+import core.contracts.Writer;
 import core.providers.ConsoleReader;
+import core.providers.ConsoleWriter;
+
+import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 import static commands.actions.ValidationCommands.trimInputAndCheckIfStringIsEmpty;
@@ -50,5 +56,9 @@ public class ConsoleInteraction {
 
     protected boolean isCancel(String input) {
         return input.equalsIgnoreCase("cancel");
+    }
+
+    public static void printsIntroduction() {
+        System.out.println(CONSOLE_INTRODUCTION);
     }
 }

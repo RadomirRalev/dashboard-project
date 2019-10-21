@@ -36,7 +36,9 @@ public enum CommandType {
     SORTALLSTORIESBYSIZE("Sort all stories by size"),
     SORTALLBUGSBYSEVERITY("Sort all bugs by severity"),
     SORTALLWORKITEMSBYPRIORITY("Sort all workitems by priority"),
-    SORTALLFEEDBACKBYRATING("Sort all feedback by rating");
+    SORTALLFEEDBACKBYRATING("Sort all feedback by rating"),
+    SHOWCOMMANDS("Show commands");
+
 
     private final String command;
 
