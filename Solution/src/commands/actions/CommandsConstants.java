@@ -78,4 +78,7 @@ public class CommandsConstants {
     public static final String WORKITEM_NOT_FEEDBACK = "The workitem is not a feedback";
     public static final String WORKITEM_NOT_BUG = "The workitem is not a bug";
     public static final String WORKITEM_NOT_STORY = "The workitem is not a story";
+    public static final String CHOOSE_WORKITEM_TYPE = "Choose one of the following filters: Bug / Story / Feedback:";
+    public static final String CHOOSE_WORKITEM_STATUS_FILTER = "Choose one of the following filters: Active / Fixed / NotDone / InProgress / Done / New " +
+            "/ Unscheduled / Scheduled";
 }

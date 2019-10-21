@@ -53,36 +53,15 @@ public abstract class ListWorkItems implements Command {
         return functionalsRepository;
     }
 
+    protected Reader getReader() {
+        return reader;
+    }
+
+    protected Writer getWriter() {
+        return writer;
+    }
+
     protected abstract String listCommand(StringBuilder stringBuilder);
-
-    private String listAllByType() {
-        System.out.println("Choose one of the following filters: Bug / Story / Feedback:");
-        String filterType = reader.readLine().toLowerCase();
-
-        ValidationCommands.isFilterTypeValid(filterType);
-
-        StringBuilder stringBuilder = new StringBuilder();
-
-        functionalsRepository.getWorkItems().values().stream()
-                .filter(workitem -> workitem.getItemType().equalsIgnoreCase(filterType))
-                .forEach(element -> stringBuilder.append(element.toString() + "\n"));
-
-        return stringBuilder.toString().trim();
-    }
-
-    private String listAllByStatus() {
-        writer.writeLine("Choose one of the following filters: Active / Fixed / NotDone / InProgress / Done / New " +
-                "/ Unscheduled / Scheduled");
-        String filterType = reader.readLine();
-
-        StringBuilder stringBuilder = new StringBuilder();
-
-        functionalsRepository.getWorkItems().values().stream()
-                .filter(workitem -> workitem.getStatus().toString().equalsIgnoreCase(filterType))
-                .forEach(element -> stringBuilder.append(element.toString() + "\n"));
-
-        return stringBuilder.toString().trim();
-    }
 
     private String listAllBySize() {
         StringBuilder stringBuilder = new StringBuilder();

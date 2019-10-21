@@ -29,7 +29,9 @@ public enum CommandType {
     ADDCOMMENT("Add comment"),
     SHOWCOMMENTS("Show comments"),
     LISTWORKITEMS("List workitems"),
-    LISTALLWORKITEMS("List all workitems");
+    LISTALLWORKITEMS("List all workitems"),
+    LISTALLWORKITEMSBYTYPE("List all workitems by type"),
+    LISTALLWORKITEMSBYSTATUS("List all workitems by status");
 
     private final String command;
 

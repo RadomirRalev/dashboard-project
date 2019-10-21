@@ -85,6 +85,10 @@ public class CommandFactoryImpl implements CommandFactory {
 //                return new ListWorkItems(functionalsRepository);
             case LISTALLWORKITEMS:
                 return new ListAllWorkItems(functionalsRepository);
+            case LISTALLWORKITEMSBYTYPE:
+                return new ListAllWorkItemsByType(functionalsRepository);
+            case LISTALLWORKITEMSBYSTATUS:
+                return new ListAllWorkItemsByStatus(functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }
