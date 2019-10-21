@@ -5,6 +5,7 @@ import core.contracts.Reader;
 import core.providers.ConsoleReader;
 
 import static commands.actions.CommandsConstants.*;
+import static commands.actions.ValidationCommands.trimInputAndCheckIfStringIsEmpty;
 
 public class ConsoleInteraction {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
@@ -36,8 +37,10 @@ public class ConsoleInteraction {
 
     protected static String asksAboutPersonName() {
         System.out.printf(WHAT, "Person");
-        String[] personName = reader.readLine().split(" ");
-        return NameJoiner.joinerArr(personName);
+        String personName = reader.readLine();
+        personName = trimInputAndCheckIfStringIsEmpty(personName);
+        String[] name = personName.split(" ");
+        return NameJoiner.joinerArr(name);
     }
 
     protected String asksAboutMemberOrBoard() {

@@ -49,7 +49,9 @@ public class ValidationCommands {
     public static String checkIfPersonExists(String personName, FunctionalsRepository functionalsRepository) {
         while (!functionalsRepository.getPersons().containsKey(personName)) {
             System.out.printf(PERSON_DOES_NOT_EXIST_MSG, personName);
-            String[] name = reader.readLine().split(" ");
+            personName = reader.readLine();
+            personName = trimInputAndCheckIfStringIsEmpty(personName);
+            String[] name = personName.split(" ");
             personName = NameJoiner.joinerArr(name);
         }
         return personName;
@@ -58,25 +60,30 @@ public class ValidationCommands {
     public static String checkIfMemberExists(String memberName, FunctionalsRepository functionalsRepository) {
         while (!functionalsRepository.getPersons().containsKey(memberName)) {
             System.out.printf(MEMBER_DOES_NOT_EXIST_MSG, memberName);
-            String[] name = reader.readLine().split(" ");
+            memberName = reader.readLine();
+            memberName = trimInputAndCheckIfStringIsEmpty(memberName);
+            String[] name = memberName.split(" ");
             memberName = NameJoiner.joinerArr(name);
         }
         return memberName;
     }
 
     public static String checkNameOfNewPerson(String personName, FunctionalsRepository functionalsRepository) {
-        while (functionalsRepository.getPersons().containsKey(personName) || personName.isEmpty()) {
+        while (functionalsRepository.getPersons().containsKey(personName)) {
             System.out.printf(PERSON_EXISTS_ERROR_MSG, personName);
-            String[] name = reader.readLine().split(" ");
+            personName = reader.readLine();
+            personName = trimInputAndCheckIfStringIsEmpty(personName);
+            String[] name = personName.split(" ");
             personName = NameJoiner.joinerArr(name);
         }
         return personName;
     }
 
     public static String checkNameOfNewTeam(String name, FunctionalsRepository functionalsRepository) {
-        while (functionalsRepository.getTeams().containsKey(name) || name.isEmpty()) {
+        while (functionalsRepository.getTeams().containsKey(name)) {
             System.out.printf(TEAM_EXISTS_ERROR_MSG, name);
             name = reader.readLine();
+            name = trimInputAndCheckIfStringIsEmpty(name);
         }
         return name;
     }
@@ -85,6 +92,7 @@ public class ValidationCommands {
         while (!str.contains(teamToRemoveMemberFrom)) {
             System.out.printf(NOT_A_MEMBER_OF_THIS_TEAM, memberName);
             teamToRemoveMemberFrom = reader.readLine();
+            teamToRemoveMemberFrom = trimInputAndCheckIfStringIsEmpty(teamToRemoveMemberFrom);
         }
         return teamToRemoveMemberFrom;
     }
@@ -93,6 +101,7 @@ public class ValidationCommands {
         while (!functionalsRepository.getTeams().containsKey(teamName)) {
             System.out.printf(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamName);
             teamName = reader.readLine();
+            teamName = trimInputAndCheckIfStringIsEmpty(teamName);
         }
         return teamName;
     }
@@ -101,6 +110,7 @@ public class ValidationCommands {
         while (!functionalsRepository.getBoards().containsKey(boardName)) {
             System.out.printf(BOARD_DOES_NOT_EXIST_MSG, boardName);
             boardName = reader.readLine();
+            boardName = trimInputAndCheckIfStringIsEmpty(boardName);
         }
         return boardName;
     }
@@ -112,5 +122,13 @@ public class ValidationCommands {
             filterType = reader.readLine();
         }
         return filterType;
+    }
+
+    public static String trimInputAndCheckIfStringIsEmpty(String input) {
+        while (input.trim().isEmpty()) {
+            System.out.println("Input cannot be empty! Please write another name: ");
+            input = reader.readLine();
+        }
+        return input;
     }
 }

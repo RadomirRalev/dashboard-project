@@ -12,9 +12,17 @@ import core.contracts.Writer;
 import core.factories.FunctionalsFactoryImpl;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
+import functionals.contracts.Board;
+import functionals.contracts.Person;
+import functionals.contracts.Team;
+import functionals.models.BoardImpl;
+import functionals.models.PersonImpl;
+import functionals.models.TeamsImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import workitems.contracts.Bug;
+import workitems.contracts.WorkItems;
 
 import javax.swing.*;
 import java.io.*;
@@ -50,4 +58,15 @@ public class CreatePersonTests {
         testCommand.execute(testList);
     }
 
+    @Test
+    public void check_If_PersonCreatedWhenInputIsValid() {
+        // Arrange
+        Person person = new PersonImpl("Name");
+
+        //Act
+        functionalsRepository.addPerson("Name", person);
+
+        //Assert
+        Assert.assertEquals(1, functionalsRepository.getPersons().size());
+    }
 }

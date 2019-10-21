@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab50e2d-88c8-4a45-a321-903196db6f87" name="Default Changelist" comment="&quot;Adds functions for assignment of work to persons, resolves git conflicts&quot;">
-      <change afterPath="$PROJECT_DIR$/src/tests/commands/person/AddPersonToTeamTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/commands/person/AssignWorkToPersonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/commands/person/DeletePersonFromListTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/commands/person/ListAllTeamMembersTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/commands/person/ListAssignedWorkTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/commands/person/ListPersonsTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/commands/person/NameJoinerTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/commands/person/RemoveMemberTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/commands/person/ShowMemberTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/commands/person/ShowPersonTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/commands/person/UnassignWorkTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/actions/workitem/ListWorkItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/actions/workitem/ListWorkItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/actions/ConsoleInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/actions/ConsoleInteraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/actions/ValidationCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/actions/ValidationCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/commands/person/AddPersonToTeamTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/commands/person/AddPersonToTeamTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/commands/person/AssignWorkToPersonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/commands/person/AssignWorkToPersonTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/commands/person/CreatePersonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/commands/person/CreatePersonTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/commands/person/DeletePersonFromListTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/commands/person/DeletePersonFromListTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/commands/person/NameJoinerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/commands/person/NameJoinerTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="240" />
+    <option name="myElementSize" value="349" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -33,91 +27,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commands/actions/board/CreateBoard.java">
+        <entry file="file://$PROJECT_DIR$/src/commands/actions/ValidationCommands.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="52" column="29" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/functionals/models/BoardImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1001">
-              <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+            <state relative-caret-position="209">
+              <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/tests/commands/person/NameJoinerTests.java">
+        <entry file="file://$PROJECT_DIR$/src/commands/actions/ConsoleInteraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="56" column="29" lean-forward="true" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+            <state relative-caret-position="209">
+              <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#524#525#0" expanded="true" />
+                <element signature="e#568#569#0" expanded="true" />
+                <element signature="e#813#814#0" expanded="true" />
+                <element signature="e#863#864#0" expanded="true" />
+                <element signature="e#1417#1418#0" expanded="true" />
+                <element signature="e#1472#1473#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commands/actions/workitem/ListWorkItems.java">
+        <entry file="file://$PROJECT_DIR$/src/commands/actions/person/DeletePersonFromList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commands/actions/person/ListAssignedWork.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commands/actions/workitem/CreateBug.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commands/actions/person/NameJoiner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="12" column="40" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commands/actions/person/UnassignWorkFromPerson.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commands/actions/person/AssignWorkToPerson.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-391">
-              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state relative-caret-position="489">
+              <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -125,20 +68,59 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/FunctionalsRepositoryImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="62" column="24" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="24" />
+            <state relative-caret-position="646">
+              <caret line="38" column="43" lean-forward="true" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#856#857#0" expanded="true" />
                 <element signature="e#901#902#0" expanded="true" />
                 <element signature="e#958#959#0" expanded="true" />
                 <element signature="e#1001#1002#0" expanded="true" />
-                <element signature="e#1060#1061#0" expanded="true" />
                 <element signature="e#1104#1105#0" expanded="true" />
                 <element signature="e#1171#1172#0" expanded="true" />
                 <element signature="e#1218#1219#0" expanded="true" />
                 <element signature="e#1269#1270#0" expanded="true" />
                 <element signature="e#1314#1315#0" expanded="true" />
+                <element signature="e#1491#1492#0" expanded="true" />
+                <element signature="e#1533#1534#0" expanded="true" />
+                <element signature="e#1704#1705#0" expanded="true" />
+                <element signature="e#1745#1746#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/commands/person/NameJoinerTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="58" column="28" lean-forward="true" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/commands/actions/person/CreateNewPerson.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/commands/person/ListAllTeamMembersTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="569">
+              <caret line="30" column="38" lean-forward="true" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -182,7 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/commands/actions/person/ListAllTeamMembers.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/person/ListPersons.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/team/ListTeams.java" />
         <option value="$PROJECT_DIR$/src/core/FunctionalsRepositoryImpl.java" />
@@ -202,7 +183,6 @@
         <option value="$PROJECT_DIR$/src/commands/actions/team/ShowTeamBoards.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/activityhistory/PersonActivityHistory.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/activityhistory/TeamActivityHistory.java" />
-        <option value="$PROJECT_DIR$/src/commands/actions/person/CreateNewPerson.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/person/AddPersonToTeam.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/person/DeletePersonFromList.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/activityhistory/BoardActivityHistory.java" />
@@ -211,17 +191,12 @@
         <option value="$PROJECT_DIR$/src/functionals/models/PersonImpl.java" />
         <option value="$PROJECT_DIR$/src/functionals/models/MemberImpl.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/CommandsConstants.java" />
-        <option value="$PROJECT_DIR$/src/commands/actions/ValidationCommands.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/workitem/AssignWorkToPerson.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/person/AssignWorkToPerson.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/person/NameJoiner.java" />
         <option value="$PROJECT_DIR$/src/core/factories/CommandFactoryImpl.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/person/ListAssignedWork.java" />
         <option value="$PROJECT_DIR$/src/tests/commands/person/AskerTest.java" />
-        <option value="$PROJECT_DIR$/src/commands/actions/ConsoleInteraction.java" />
-        <option value="$PROJECT_DIR$/src/tests/commands/person/CreatePersonTests.java" />
-        <option value="$PROJECT_DIR$/src/tests/commands/person/AssignWorkToPersonTest.java" />
-        <option value="$PROJECT_DIR$/src/tests/commands/person/DeletePersonFromListTests.java" />
         <option value="$PROJECT_DIR$/src/tests/commands/person/ListAllTeamMembersTests.java" />
         <option value="$PROJECT_DIR$/src/tests/commands/person/ListAssignedWorkTests.java" />
         <option value="$PROJECT_DIR$/src/tests/commands/person/ListPersonsTests.java" />
@@ -229,14 +204,21 @@
         <option value="$PROJECT_DIR$/src/tests/commands/person/ShowMemberTests.java" />
         <option value="$PROJECT_DIR$/src/tests/commands/person/ShowPersonTests.java" />
         <option value="$PROJECT_DIR$/src/tests/commands/person/UnassignWorkTests.java" />
-        <option value="$PROJECT_DIR$/src/tests/commands/person/AddPersonToTeamTests.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/workitem/ListWorkItems.java" />
         <option value="$PROJECT_DIR$/src/commands/actions/person/UnassignWorkFromPerson.java" />
         <option value="$PROJECT_DIR$/src/tests/commands/person/NameJoinerTests.java" />
+        <option value="$PROJECT_DIR$/src/tests/commands/person/ConsoleTests.java" />
+        <option value="$PROJECT_DIR$/src/tests/commands/person/AddPersonToTeamTests.java" />
+        <option value="$PROJECT_DIR$/src/tests/commands/person/CreatePersonTests.java" />
+        <option value="$PROJECT_DIR$/src/tests/commands/person/AssignWorkToPersonTest.java" />
+        <option value="$PROJECT_DIR$/src/tests/commands/person/DeletePersonFromListTests.java" />
+        <option value="$PROJECT_DIR$/src/commands/actions/ConsoleInteraction.java" />
+        <option value="$PROJECT_DIR$/src/commands/actions/ValidationCommands.java" />
+        <option value="$PROJECT_DIR$/src/commands/actions/person/CreateNewPerson.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="265" />
     <option name="y" value="210" />
     <option name="width" value="1350" />
@@ -437,23 +419,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.tests in Solution">
-    <configuration name="NameJoinerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Startup">
+    <configuration name="Startup" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Startup" />
       <module name="Solution" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.commands.person.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.commands.person" />
-      <option name="MAIN_CLASS_NAME" value="tests.commands.person.NameJoinerTests" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NameJoinerTests.execute_should_throwException_when_passedMoreThanZeroArguments" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AddPersonToTeamTests.check_If_PersonIsAddedToTeamWhenInputIsValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Solution" />
       <extension name="coverage">
         <pattern>
@@ -462,14 +436,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests.commands.person" />
-      <option name="MAIN_CLASS_NAME" value="tests.commands.person.NameJoinerTests" />
-      <option name="METHOD_NAME" value="execute_should_throwException_when_passedMoreThanZeroArguments" />
+      <option name="MAIN_CLASS_NAME" value="tests.commands.person.AddPersonToTeamTests" />
+      <option name="METHOD_NAME" value="check_If_PersonIsAddedToTeamWhenInputIsValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NameJoinerTests.nameJoinerOfList_should_produceStringStartingWithWorkItemNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AssignWorkToPersonTest.check_If_WorkIsAddedToPersonWhenInputIsValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Solution" />
       <extension name="coverage">
         <pattern>
@@ -478,8 +452,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests.commands.person" />
-      <option name="MAIN_CLASS_NAME" value="tests.commands.person.NameJoinerTests" />
-      <option name="METHOD_NAME" value="nameJoinerOfList_should_produceStringStartingWithWorkItemNumber" />
+      <option name="MAIN_CLASS_NAME" value="tests.commands.person.AssignWorkToPersonTest" />
+      <option name="METHOD_NAME" value="check_If_WorkIsAddedToPersonWhenInputIsValid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeletePersonFromListTests.check_If_PersonIsAddedToTeamWhenInputIsValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Solution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.commands.person.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.commands.person" />
+      <option name="MAIN_CLASS_NAME" value="tests.commands.person.DeletePersonFromListTests" />
+      <option name="METHOD_NAME" value="check_If_PersonIsAddedToTeamWhenInputIsValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -499,27 +489,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="tests.commands.person in Solution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Solution" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.commands.person.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.commands.person" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Startup" />
         <item itemvalue="JUnit.tests in Solution" />
-        <item itemvalue="JUnit.NameJoinerTests.nameJoinerOfList_should_produceStringStartingWithWorkItemNumber" />
-        <item itemvalue="JUnit.NameJoinerTests.execute_should_throwException_when_passedMoreThanZeroArguments" />
-        <item itemvalue="JUnit.NameJoinerTests" />
-        <item itemvalue="JUnit.tests.commands.person in Solution" />
+        <item itemvalue="JUnit.DeletePersonFromListTests.check_If_PersonIsAddedToTeamWhenInputIsValid" />
+        <item itemvalue="JUnit.AssignWorkToPersonTest.check_If_WorkIsAddedToPersonWhenInputIsValid" />
+        <item itemvalue="JUnit.AddPersonToTeamTests.check_If_PersonIsAddedToTeamWhenInputIsValid" />
       </list>
     </recent_temporary>
   </component>
@@ -587,34 +563,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RemoveMemberTests_execute_should_throwException_when_passedMoreThanZeroArguments - 2019.10.20 at 14h 07m 22s.xml">
-      <configuration name="RemoveMemberTests.execute_should_throwException_when_passedMoreThanZeroArguments" configurationId="JUnit" />
+    <history-entry file="AddPersonToTeamTests_check_If_PersonIsAddedToTeamWhenInputIsValid - 2019.10.20 at 17h 11m 55s.xml">
+      <configuration name="AddPersonToTeamTests.check_If_PersonIsAddedToTeamWhenInputIsValid" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ShowMemberTests_execute_should_throwException_when_passedMoreThanZeroArguments - 2019.10.20 at 14h 07m 48s.xml">
-      <configuration name="ShowMemberTests.execute_should_throwException_when_passedMoreThanZeroArguments" configurationId="JUnit" />
+    <history-entry file="AddPersonToTeamTests_check_If_PersonIsAddedToTeamWhenInputIsValid - 2019.10.20 at 17h 12m 57s.xml">
+      <configuration name="AddPersonToTeamTests.check_If_PersonIsAddedToTeamWhenInputIsValid" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ShowPersonTests_execute_should_throwException_when_passedMoreThanZeroArguments - 2019.10.20 at 14h 08m 14s.xml">
-      <configuration name="ShowPersonTests.execute_should_throwException_when_passedMoreThanZeroArguments" configurationId="JUnit" />
+    <history-entry file="AssignWorkToPersonTest_check_If_WorkIsAddedToPersonWhenInputIsValid - 2019.10.20 at 17h 16m 34s.xml">
+      <configuration name="AssignWorkToPersonTest.check_If_WorkIsAddedToPersonWhenInputIsValid" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnassignWorkTests_execute_should_throwException_when_passedMoreThanZeroArguments - 2019.10.20 at 14h 08m 49s.xml">
-      <configuration name="UnassignWorkTests.execute_should_throwException_when_passedMoreThanZeroArguments" configurationId="JUnit" />
+    <history-entry file="DeletePersonFromListTests_check_If_PersonIsAddedToTeamWhenInputIsValid - 2019.10.20 at 17h 20m 42s.xml">
+      <configuration name="DeletePersonFromListTests.check_If_PersonIsAddedToTeamWhenInputIsValid" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="tests_commands_person_in_Solution - 2019.10.20 at 14h 09m 27s.xml">
-      <configuration name="tests.commands.person in Solution" configurationId="JUnit" />
+    <history-entry file="tests_in_Solution - 2019.10.20 at 17h 21m 17s.xml">
+      <configuration name="tests in Solution" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NameJoinerTests_execute_should_throwException_when_passedMoreThanZeroArguments - 2019.10.20 at 14h 19m 31s.xml">
-      <configuration name="NameJoinerTests.execute_should_throwException_when_passedMoreThanZeroArguments" configurationId="JUnit" />
+    <history-entry file="tests_in_Solution - 2019.10.20 at 17h 21m 57s.xml">
+      <configuration name="tests in Solution" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NameJoinerTests_execute_should_throwException_when_passedMoreThanZeroArguments - 2019.10.20 at 14h 50m 37s.xml">
-      <configuration name="NameJoinerTests.execute_should_throwException_when_passedMoreThanZeroArguments" configurationId="JUnit" />
+    <history-entry file="tests_in_Solution - 2019.10.20 at 17h 22m 45s.xml">
+      <configuration name="tests in Solution" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NameJoinerTests_nameJoinerOfList_should_produceStringStartingWithWorkItemNumber - 2019.10.20 at 15h 14m 31s.xml">
-      <configuration name="NameJoinerTests.nameJoinerOfList_should_produceStringStartingWithWorkItemNumber" configurationId="JUnit" />
+    <history-entry file="tests_in_Solution - 2019.10.20 at 17h 23m 07s.xml">
+      <configuration name="tests in Solution" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NameJoinerTests_nameJoinerOfList_should_produceStringStartingWithWorkItemNumber - 2019.10.20 at 15h 16m 03s.xml">
-      <configuration name="NameJoinerTests.nameJoinerOfList_should_produceStringStartingWithWorkItemNumber" configurationId="JUnit" />
+    <history-entry file="tests_in_Solution - 2019.10.20 at 17h 25m 37s.xml">
+      <configuration name="tests in Solution" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="tests_in_Solution - 2019.10.20 at 15h 17m 19s.xml">
+    <history-entry file="tests_in_Solution - 2019.10.20 at 17h 25m 59s.xml">
       <configuration name="tests in Solution" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -628,7 +604,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49903288" visible="true" weight="0.21108742" />
@@ -640,7 +616,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32577905" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.26868907" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.26868907" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -756,7 +732,7 @@
     <SUITE FILE_PATH="coverage/Solution$CreatePersonTests_execute_should_throwException_when_passedMoreThanZeroArguments.ic" NAME="CreatePersonTests.execute_should_throwException_when_passedMoreThanZeroArguments Coverage Results" MODIFIED="1571343044589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.commands.person.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Solution$tests_in_Solution.ic" NAME="tests in Solution Coverage Results" MODIFIED="1571573828448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Solution$tests_in_Solution.ic" NAME="tests in Solution Coverage Results" MODIFIED="1571581548454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Solution$CreatePersonTests_execute_should_CreatePerson_when_passedCorrectArguments.ic" NAME="CreatePersonTests.execute_should_CreatePerson_when_passedCorrectArguments Coverage Results" MODIFIED="1571569000274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -767,135 +743,6 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/functionals/contracts/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionals/models/MemberImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/actions/workitem/ChangeSeverity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/providers/CommandParserImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/EngineImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/enums/CommandType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1131#1132#0" expanded="true" />
-            <element signature="e#1177#1178#0" expanded="true" />
-            <element signature="e#1207#1208#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/providers/ConsoleWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#256#257#0" expanded="true" />
-            <element signature="e#299#300#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="395" column="10" selection-start-line="395" selection-start-column="10" selection-end-line="395" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/workitems/contracts/WorkItems.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/enums/Status.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#411#412#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/workitems/models/WorkItemsImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
-          <folding>
-            <element signature="e#1402#1403#0" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
-            <element signature="e#1473#1474#0" expanded="true" />
-            <element signature="e#1501#1502#0" expanded="true" />
-            <element signature="e#1553#1554#0" expanded="true" />
-            <element signature="e#1587#1588#0" expanded="true" />
-            <element signature="e#1702#1703#0" expanded="true" />
-            <element signature="e#1731#1732#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/workitems/models/BugAndStoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="e#858#859#0" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
-            <element signature="e#938#939#0" expanded="true" />
-            <element signature="e#969#970#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/enums/Severity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#292#293#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/commands/actions/team/ListTeams.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-192">
@@ -907,18 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
           <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/providers/ConsoleReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#193#194#0" expanded="true" />
-            <element signature="e#241#242#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -940,16 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/factories/CommandFactoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="38" column="67" lean-forward="true" selection-start-line="38" selection-start-column="67" selection-end-line="38" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -984,16 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/actions/ValidationCommands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/commands/actions/workitem/ShowComments.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1015,56 +830,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/actions/ConsoleInteraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="38" column="59" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#813#814#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
-            <element signature="e#1417#1418#0" expanded="true" />
-            <element signature="e#1472#1473#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/commands/actions/person/AddPersonToTeam.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="33" column="40" lean-forward="true" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/AssignWorkToPersonTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/DeletePersonFromListTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/ListAllTeamMembersTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1131,33 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/AddPersonToTeamTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/actions/person/CreateNewPerson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/CreatePersonTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="50" column="5" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="50" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/Assert.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1220,26 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/FunctionalsRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="62" column="24" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#856#857#0" expanded="true" />
-            <element signature="e#901#902#0" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
-            <element signature="e#1001#1002#0" expanded="true" />
-            <element signature="e#1060#1061#0" expanded="true" />
-            <element signature="e#1104#1105#0" expanded="true" />
-            <element signature="e#1171#1172#0" expanded="true" />
-            <element signature="e#1218#1219#0" expanded="true" />
-            <element signature="e#1269#1270#0" expanded="true" />
-            <element signature="e#1314#1315#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/commands/actions/person/NameJoiner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
@@ -1250,12 +972,257 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/NameJoinerTests.java">
+    <entry file="file://$PROJECT_DIR$/src/core/factories/FunctionalsFactoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="56" column="29" lean-forward="true" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+        <state relative-caret-position="187">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#832#833#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/providers/ConsoleWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#256#257#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enums/CommandType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1131#1132#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1207#1208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/factories/CommandFactoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/providers/CommandParserImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#239#240#0" expanded="true" />
+            <element signature="e#287#288#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/EngineImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commands/actions/team/CreateTeam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/providers/ConsoleReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#193#194#0" expanded="true" />
+            <element signature="e#241#242#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commands/actions/person/RemoveMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="44" column="44" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/requests/FilterRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/ConsoleTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/functionals/models/TeamsImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="45" column="31" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="31" />
+          <folding>
+            <element signature="e#753#754#0" expanded="true" />
+            <element signature="e#789#790#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#862#863#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+            <element signature="e#1447#1448#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/AssignWorkToPersonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="50" column="40" lean-forward="true" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commands/actions/person/DeletePersonFromList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/FunctionalsRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="43" lean-forward="true" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#901#902#0" expanded="true" />
+            <element signature="e#958#959#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+            <element signature="e#1104#1105#0" expanded="true" />
+            <element signature="e#1171#1172#0" expanded="true" />
+            <element signature="e#1218#1219#0" expanded="true" />
+            <element signature="e#1269#1270#0" expanded="true" />
+            <element signature="e#1314#1315#0" expanded="true" />
+            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1533#1534#0" expanded="true" />
+            <element signature="e#1704#1705#0" expanded="true" />
+            <element signature="e#1745#1746#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/CreatePersonTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="66" column="19" selection-start-line="66" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/DeletePersonFromListTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/AddPersonToTeamTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="51" column="5" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="51" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/NameJoinerTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="58" column="28" lean-forward="true" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/coverage-error.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/commands/person/ListAllTeamMembersTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="30" column="38" lean-forward="true" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/util/TreeMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="346" column="18" selection-start-line="346" selection-start-column="18" selection-end-line="346" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commands/actions/ValidationCommands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commands/actions/person/CreateNewPerson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commands/actions/ConsoleInteraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#568#569#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#1417#1418#0" expanded="true" />
+            <element signature="e#1472#1473#0" expanded="true" />
           </folding>
         </state>
       </provider>
