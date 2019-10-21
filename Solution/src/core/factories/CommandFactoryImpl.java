@@ -81,14 +81,14 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new AddComment(functionalsRepository);
             case SHOWCOMMENTS:
                 return new ShowComments(functionalsRepository);
-//            case LISTWORKITEMS:
-//                return new ListWorkItems(functionalsRepository);
             case LISTALLWORKITEMS:
                 return new ListAllWorkItems(functionalsRepository);
             case LISTALLWORKITEMSBYTYPE:
                 return new ListAllWorkItemsByType(functionalsRepository);
             case LISTALLWORKITEMSBYSTATUS:
                 return new ListAllWorkItemsByStatus(functionalsRepository);
+            case LISTALLWORKITEMSBYASSIGNEE:
+                return new ListAllWorkItemsByAsignee(functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }

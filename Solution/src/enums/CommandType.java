@@ -28,11 +28,10 @@ public enum CommandType {
     CHANGESIZE("Change size"),
     ADDCOMMENT("Add comment"),
     SHOWCOMMENTS("Show comments"),
-    LISTWORKITEMS("List workitems"),
     LISTALLWORKITEMS("List all workitems"),
     LISTALLWORKITEMSBYTYPE("List all workitems by type"),
-    LISTALLWORKITEMSBYSTATUS("List all workitems by status");
-
+    LISTALLWORKITEMSBYSTATUS("List all workitems by status"),
+    LISTALLWORKITEMSBYASSIGNEE("List all workitems by assignee");
     private final String command;
 
     CommandType(String command) {

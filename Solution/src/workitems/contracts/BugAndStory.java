@@ -10,9 +10,9 @@ public interface BugAndStory extends WorkItems {
 
     EnumSet<Priority> getPossiblePriorities();
 
-    Person getAssignee();
+    Person getAsignee();
 
-    void setAssignee(Person assignee);
+    void setAsignee(Person asignee);
 
     void setPriority(Priority priority);
 }

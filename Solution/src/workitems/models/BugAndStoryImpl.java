@@ -14,7 +14,7 @@ public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndSto
     private static EnumSet<Priority> possiblePriorities;
 
     private Priority priority;
-    private Person assignee;
+    private Person asignee;
 
     static {
         possiblePriorities = EnumSet.allOf(Priority.class);
@@ -35,15 +35,15 @@ public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndSto
     }
 
     @Override
-    public Person getAssignee() {
-        return assignee;
+    public Person getAsignee() {
+        return asignee;
     }
 
-    //setAssignee can be public so that you can set it after the WorkItems has been created;
+    //setAsignee can be public so that you can set it after the WorkItems has been created;
     @Override
-    public void setAssignee(Person assignee) {
-        ValidationHelper.checkIfNull(assignee);
-        this.assignee = assignee;
+    public void setAsignee(Person asignee) {
+        ValidationHelper.checkIfNull(asignee);
+        this.asignee = asignee;
     }
 
     //setPriority can be public so that you can set it after the WorkItems has been created;
@@ -62,8 +62,8 @@ public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndSto
         if (getPriority() != null) {
             str.append(String.format("Priority: %s\n", getPriority()));
         }
-        if (getAssignee() != null) {
-            str.append(String.format("Person assigned: %s\n", assignee.getName()));
+        if (getAsignee() != null) {
+            str.append(String.format("Person assigned: %s\n", asignee.getName()));
         }
         return str.toString();
     }

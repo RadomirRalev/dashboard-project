@@ -81,4 +81,5 @@ public class CommandsConstants {
     public static final String CHOOSE_WORKITEM_TYPE = "Choose one of the following filters: Bug / Story / Feedback:";
     public static final String CHOOSE_WORKITEM_STATUS_FILTER = "Choose one of the following filters: Active / Fixed / NotDone / InProgress / Done / New " +
             "/ Unscheduled / Scheduled";
+    public static final String CHOOSE_WORKITEM_ASSIGNEE = "Choose a person that you wish to filter by";
 }
