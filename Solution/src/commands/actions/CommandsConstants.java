@@ -94,6 +94,7 @@ public class CommandsConstants {
     public static final String SEVERITY = "Severity";
     public static final String PRIORITY = "Priority";
     public static final String STATUS = "Status";
+    public static final String RATING = "Rating";
     public static final String SIZES = "Large / Medium / Small";
     public static final String SEVERITIES = "Critical / Major / Minor";
     public static final String PRIORITIES = "High / Medium / Low";

@@ -33,7 +33,7 @@ public class CreateStory extends CreateWorkItem implements Command {
     @Override
     protected void parseParameters() {
         super.parseParameters();
-        setChangeableParameter(asksWhatWillItBe("size"));
+        setChangeableParameter(asksWhatWillItBe(SIZE));
         setChangeableParameter(ValidationCommands.checkIfEnumValueIsValid(getChangeableParameter()
                 , StoryImpl.getSizeList()
                 , SIZE

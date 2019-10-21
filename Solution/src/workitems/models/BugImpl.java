@@ -60,6 +60,10 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
         return bugStatus;
     }
 
+    public static EnumSet<Severity> getSeverityList(){
+        return severities;
+    }
+
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();

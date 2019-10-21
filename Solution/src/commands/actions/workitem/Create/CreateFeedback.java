@@ -6,8 +6,6 @@ import core.contracts.FunctionalsFactory;
 import core.contracts.FunctionalsRepository;
 import workitems.contracts.Feedback;
 
-import java.util.List;
-
 import static commands.actions.CommandsConstants.*;
 
 public class CreateFeedback extends CreateWorkItem implements Command {
@@ -34,7 +32,7 @@ public class CreateFeedback extends CreateWorkItem implements Command {
     @Override
     protected void parseParameters() {
         super.parseParameters();
-        setChangeableParameter(asksWhatWillItBe("rating"));
+        setChangeableParameter(asksWhatWillItBe(RATING));
         setChangeableParameter(ValidationCommands.checkIfRatingIsValid(getChangeableParameter()));
     }
 }
