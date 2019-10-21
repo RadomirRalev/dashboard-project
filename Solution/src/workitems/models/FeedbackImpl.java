@@ -25,6 +25,7 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
         super(title, description);
         setRating(rating);
         setStatus(Status.NEW);
+        setId();
     }
 
     @Override

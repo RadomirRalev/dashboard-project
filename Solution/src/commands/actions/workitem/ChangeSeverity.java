@@ -16,7 +16,12 @@ public class ChangeSeverity extends ChangeBase implements Command {
 
     @Override
     protected String changeCommand(String workitemName, String newSeverity, WorkItems workitem) {
-        Bug bug = (Bug) workitem;
+        Bug bug;
+        try {
+            bug = (Bug) workitem;
+        } catch (ClassCastException ex) {
+            throw new IllegalArgumentException(WORKITEM_NOT_BUG);
+        }
 
         bug.setSeverity(getSeverity(newSeverity));
 

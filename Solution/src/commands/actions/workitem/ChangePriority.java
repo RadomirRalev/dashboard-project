@@ -7,6 +7,7 @@ import workitems.contracts.BugAndStory;
 import workitems.contracts.WorkItems;
 
 import static commands.actions.CommandsConstants.PRIORITY_SUCCESSFULLY_CHANGED_MSG;
+import static commands.actions.CommandsConstants.WORKITEM_NOT_BUG_OR_STORY;
 
 public class ChangePriority extends ChangeBase implements Command {
 
@@ -16,7 +17,12 @@ public class ChangePriority extends ChangeBase implements Command {
 
     @Override
     protected String changeCommand(String workitemName, String changeableParameter, WorkItems workitem) {
-        BugAndStory bugAndStory = (BugAndStory) workitem;
+        BugAndStory bugAndStory;
+        try {
+            bugAndStory = (BugAndStory) workitem;
+        } catch (ClassCastException ex){
+            throw new IllegalArgumentException(WORKITEM_NOT_BUG_OR_STORY);
+        }
 
         bugAndStory.setPriority(getPriority(changeableParameter));
 

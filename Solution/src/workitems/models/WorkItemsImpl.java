@@ -32,7 +32,6 @@ public abstract class WorkItemsImpl implements WorkItems {
 
     //making the constructor protected, so that you cannot create a WorkItemsImpl object (can be created only through sub-classes)
     protected WorkItemsImpl(String title, String description) {
-        setId();
         setTitle(title);
         setDescription(description);
         comments = new ArrayList<>();
@@ -123,7 +122,7 @@ public abstract class WorkItemsImpl implements WorkItems {
     //abstract method that will return the ItemType, so we can pass it as a parameter when an Item is created.
     public abstract String getItemType();
 
-    private void setId() {
+    protected void setId() {
         this.id = currentId;
         currentId++;
     }

@@ -26,23 +26,12 @@ public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, Wo
         super(title, description);
         setSize(size);
         setStatus(Status.NOTDONE);
+        setId();
     }
 
     @Override
     public Size getSize() {
         return size;
-    }
-
-    public String getSizeSortingValue(Size size){
-        switch (size.toString()){
-            case "Large":
-                return "3";
-            case "Medium":
-                return "2";
-            case "Small":
-                return "1";
-                default: throw new IllegalArgumentException();
-        }
     }
 
     @Override

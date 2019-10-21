@@ -16,7 +16,12 @@ public class ChangeSize extends ChangeBase implements Command {
 
     @Override
     protected String changeCommand(String workitemName, String newSize, WorkItems workItem) {
-        Story story = (Story) workItem;
+        Story story;
+        try {
+            story = (Story) workItem;
+        } catch (ClassCastException ex) {
+            throw new IllegalArgumentException(WORKITEM_NOT_STORY);
+        }
 
         story.setSize(getSize(newSize));
 

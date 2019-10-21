@@ -74,4 +74,8 @@ public class CommandsConstants {
     public static final String BUG = "bug";
     public static final String STORY = "story";
     public static final String FEEDBACK = "feedback";
+    public static final String WORKITEM_NOT_BUG_OR_STORY = "The workitem is not a bug or a story";
+    public static final String WORKITEM_NOT_FEEDBACK = "The workitem is not a feedback";
+    public static final String WORKITEM_NOT_BUG = "The workitem is not a bug";
+    public static final String WORKITEM_NOT_STORY = "The workitem is not a story";
 }

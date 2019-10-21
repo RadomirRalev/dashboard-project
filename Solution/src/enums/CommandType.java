@@ -28,7 +28,8 @@ public enum CommandType {
     CHANGESIZE("Change size"),
     ADDCOMMENT("Add comment"),
     SHOWCOMMENTS("Show comments"),
-    LISTWORKITEMS("List workitems");
+    LISTWORKITEMS("List workitems"),
+    LISTALLWORKITEMS("List all workitems");
 
     private final String command;
 
