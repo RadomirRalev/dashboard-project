@@ -89,6 +89,16 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ListAllWorkItemsByStatus(functionalsRepository);
             case LISTALLWORKITEMSBYASSIGNEE:
                 return new ListAllWorkItemsByAsignee(functionalsRepository);
+            case SORTALLWORKITEMSBYTITLE:
+                return new SortAllWorkItemsByTitle(functionalsRepository);
+            case SORTALLSTORIESBYSIZE:
+                return new SortAllStoriesBySize(functionalsRepository);
+            case SORTALLBUGSBYSEVERITY:
+                return new SortAllBugsBySeverity(functionalsRepository);
+            case SORTALLWORKITEMSBYPRIORITY:
+                return new SortAllWorkItemsByPriority(functionalsRepository);
+            case SORTALLFEEDBACKBYRATING:
+                return new SortAllFeedbackByRating(functionalsRepository);
         }
         throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandTypeAsString));
     }

@@ -1,17 +1,16 @@
 package enums;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public enum Size {
-    LARGE(3),
-    MEDIUM(2),
-    SMALL(1);
+    LARGE(3, "Large"),
+    MEDIUM(2, "Medium"),
+    SMALL(1, "Small");
 
     private final int weight;
+    private final String size;
 
-    Size(int weight) {
+    Size(int weight, String size) {
         this.weight = weight;
+        this.size = size;
     }
 
     public int getWeight() {
@@ -20,16 +19,7 @@ public enum Size {
 
     @Override
     public String toString() {
-        switch (this) {
-            case LARGE:
-                return "Large";
-            case MEDIUM:
-                return "Medium";
-            case SMALL:
-                return "Small";
-            default:
-                throw new IllegalArgumentException();
-        }
+       return size;
     }
 
 }

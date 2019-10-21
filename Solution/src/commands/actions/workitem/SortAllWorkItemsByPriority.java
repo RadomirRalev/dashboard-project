@@ -4,27 +4,25 @@ import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
 import workitems.contracts.BugAndStory;
 
-import static commands.actions.CommandsConstants.*;
+import java.util.Comparator;
 
-public class ListAllWorkItemsByAsignee extends ListWorkItems implements Command {
+import static commands.actions.CommandsConstants.FEEDBACK;
 
-    public ListAllWorkItemsByAsignee(FunctionalsRepository functionalsRepository) {
+public class SortAllWorkItemsByPriority extends ListWorkItems implements Command {
+    public SortAllWorkItemsByPriority(FunctionalsRepository functionalsRepository) {
         super(functionalsRepository);
     }
 
     @Override
     protected String listCommand(StringBuilder stringBuilder) {
-        getWriter().writeLine(CHOOSE_WORKITEM_ASSIGNEE);
-        String filterType = getReader().readLine();
-
         getFunctionalsRepository()
                 .getWorkItems()
                 .values()
                 .stream()
                 .filter(workitem -> !workitem.getItemType().equalsIgnoreCase(FEEDBACK))
                 .map(workitem -> (BugAndStory) workitem)
-                .filter(workitem -> workitem.getAsignee().getName().equalsIgnoreCase(filterType))
-                .forEach(element -> stringBuilder.append(element.toString() + "\n"));
+                .sorted(Comparator.comparingInt(workitem -> workitem.getPriority().getWeight()))
+                .forEach(item -> stringBuilder.append(item.toString() + "\n"));
 
         return stringBuilder.toString().trim();
     }

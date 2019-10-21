@@ -23,8 +23,7 @@ public class ListAllWorkItemsByStatusAndAsignee extends ListWorkItems implements
                 .getWorkItems()
                 .values()
                 .stream()
-                .filter(workitem -> workitem.getItemType().equalsIgnoreCase(BUG) ||
-                        workitem.getItemType().equalsIgnoreCase(STORY))
+                .filter(workitem -> !workitem.getItemType().equalsIgnoreCase(FEEDBACK))
                 .map(workitem -> (BugAndStory) workitem)
                 .filter(workitem -> workitem.getStatus().toString().equalsIgnoreCase(filterTypeStatus))
                 .filter(workitem -> workitem.getAsignee().getName().equalsIgnoreCase(filterTypeAsignee))

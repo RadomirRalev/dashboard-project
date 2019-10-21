@@ -22,6 +22,7 @@ public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndSto
 
     protected BugAndStoryImpl(String title, String description) {
         super(title, description);
+        setPriority(Priority.NOTASSIGNED);
     }
 
     @Override

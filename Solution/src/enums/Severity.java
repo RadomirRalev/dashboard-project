@@ -1,14 +1,20 @@
 package enums;
 
 public enum Severity {
-    CRITICAL ("Critical"),
-    MAJOR ("Major"),
-    MINOR ("Minor");
+    CRITICAL(3, "Critical"),
+    MAJOR(2, "Major"),
+    MINOR(1, "Minor");
 
     private final String severity;
+    private final int weight;
 
-    Severity(String severity) {
+    Severity(int weight, String severity) {
+        this.weight = weight;
         this.severity = severity;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 
     @Override

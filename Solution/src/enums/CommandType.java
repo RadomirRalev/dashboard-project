@@ -31,7 +31,13 @@ public enum CommandType {
     LISTALLWORKITEMS("List all workitems"),
     LISTALLWORKITEMSBYTYPE("List all workitems by type"),
     LISTALLWORKITEMSBYSTATUS("List all workitems by status"),
-    LISTALLWORKITEMSBYASSIGNEE("List all workitems by assignee");
+    LISTALLWORKITEMSBYASSIGNEE("List all workitems by assignee"),
+    SORTALLWORKITEMSBYTITLE("Sort all workitems by title"),
+    SORTALLSTORIESBYSIZE("Sort all stories by size"),
+    SORTALLBUGSBYSEVERITY("Sort all bugs by severity"),
+    SORTALLWORKITEMSBYPRIORITY("Sort all workitems by priority"),
+    SORTALLFEEDBACKBYRATING("Sort all feedback by rating");
+
     private final String command;
 
     CommandType(String command) {
