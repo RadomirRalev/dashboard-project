@@ -15,5 +15,5 @@ public interface FunctionalsFactory {
     Board createBoard(String name);
     Bug createBug(String name, String description, String severity, List<String> steps);
     Story createStory(String title, String description, String size);
-    Feedback createFeedback(String title, String decription, int rating);
+    Feedback createFeedback(String title, String decription, String rating);
 }

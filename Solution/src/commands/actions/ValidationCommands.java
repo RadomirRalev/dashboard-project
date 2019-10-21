@@ -5,6 +5,7 @@ import core.contracts.FunctionalsRepository;
 import core.contracts.Reader;
 import core.providers.ConsoleReader;
 import functionals.contracts.Person;
+import functionals.models.ValidationHelper;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -139,7 +140,9 @@ public class ValidationCommands {
     }
 
     public static void isFilterTypeValid(String filterType) {
-        if (!filterType.equalsIgnoreCase(BUG) && !filterType.equalsIgnoreCase(STORY) && !filterType.equalsIgnoreCase(FEEDBACK)) {
+        if (!filterType.equalsIgnoreCase(BUG)
+                && !filterType.equalsIgnoreCase(STORY)
+                && !filterType.equalsIgnoreCase(FEEDBACK)) {
             throw new IllegalArgumentException(String.format(INVALID_COMMAND, filterType));
         }
     }
@@ -154,6 +157,20 @@ public class ValidationCommands {
             }
             System.out.println(String.format("Not a valid %s. Please choose from %s", enumType, enumFilters));
             enumValue = reader.readLine();
+        }
+    }
+
+    public static String checkIfRatingIsValid(String rating) {
+        while (true) {
+            try {
+                int ratingInt = Integer.parseInt(rating);
+                ValidationHelper.checkNumberInBounds(ratingInt, RATING_MIN_VALUE, RATING_MAX_VALUE);
+                return rating;
+            } catch (Exception ex) {
+                System.out.println(String.format("This value is not valid. Please note that the rating" +
+                        " can only be an integer between %d and %d", RATING_MIN_VALUE, RATING_MAX_VALUE));
+            }
+            rating = reader.readLine();
         }
     }
 }

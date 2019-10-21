@@ -1,50 +1,25 @@
 package commands.actions.workitem.Create;
 
-import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.contracts.FunctionalsFactory;
 import core.contracts.FunctionalsRepository;
 import workitems.contracts.Story;
 import workitems.models.StoryImpl;
-import workitems.models.WorkItemsImpl;
-
-import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class CreateStory extends ConsoleInteraction implements Command {
-    //creates a story inside a board object. Cannot create stories outside of boards (just like in Trello)
-//    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 4;
-    private final FunctionalsRepository functionalsRepository;
-    private final FunctionalsFactory functionalsFactory;
-
-    private String boardName;
-    private String title;
-    private String description;
-    private String size;
-
+public class CreateStory extends CreateWorkItem implements Command {
     public CreateStory(FunctionalsFactory functionalsFactory, FunctionalsRepository functionalsRepository) {
-        this.functionalsFactory = functionalsFactory;
-        this.functionalsRepository = functionalsRepository;
+        super(functionalsFactory, functionalsRepository);
     }
 
-    @Override
-    public String execute(List<String> parameters) {
-        ConsoleInteraction.validateInput(parameters.size());
-
-        boardName = ConsoleInteraction.asksWhich("board");
-        boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
-
-        title = asksWhatWillItBe("title");
-        description = asksWhatWillItBe("description");
-        size = asksWhatWillItBe("size");
-        size = ValidationCommands.checkIfEnumValueIsValid(size, StoryImpl.getSizeList(), SIZE, SIZES);
-
-        return createStory(title, description, size);
-    }
-
-    private String createStory(String title, String description, String size) {
+    protected String createCommand(String title
+            , String description
+            , String boardName
+            , String size
+            , FunctionalsFactory functionalsFactory
+            , FunctionalsRepository functionalsRepository) {
         //adding the Story to a specific board
         Story story = functionalsFactory.createStory(title, description, size);
         functionalsRepository.getBoards().get(boardName).addWorkItems(story);
@@ -55,14 +30,13 @@ public class CreateStory extends ConsoleInteraction implements Command {
         return String.format(STORY_CREATED_SUCCESS_MESSAGE, title);
     }
 
-//    private void parseParameters(List<String> parameters) {
-//        try {
-//            boardName = parameters.get(0);
-//            title = parameters.get(1);
-//            description = parameters.get(2);
-//            size = parameters.get(3);
-//        } catch (Exception e) {
-//            throw new IllegalArgumentException(FAILED_TO_PARSE_COMMAND_PARAMETERS);
-//        }
-//    }
+    @Override
+    protected void parseParameters() {
+        super.parseParameters();
+        setChangeableParameter(asksWhatWillItBe("size"));
+        setChangeableParameter(ValidationCommands.checkIfEnumValueIsValid(getChangeableParameter()
+                , StoryImpl.getSizeList()
+                , SIZE
+                , SIZES));
+    }
 }
