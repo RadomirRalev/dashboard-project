@@ -2,8 +2,12 @@ package tests.commands.person;
 
 import commands.actions.person.AssignWorkToPerson;
 import commands.actions.person.ListPersons;
+import commands.actions.person.NameJoiner;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
+import functionals.contracts.Person;
+import functionals.models.PersonImpl;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 

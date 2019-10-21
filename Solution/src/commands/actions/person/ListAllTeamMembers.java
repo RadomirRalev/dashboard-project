@@ -24,7 +24,7 @@ public class ListAllTeamMembers extends ConsoleInteraction implements Command {
 
     private StringJoiner prepareMembersList() {
         StringJoiner str = new StringJoiner(", ");
-        Set<String> keys = functionalsRepository.getPersons().keySet();
+        Set<String> keys = functionalsRepository.getMembers().keySet();
         keys.forEach (e -> str.add(e) );
         return str;
     }

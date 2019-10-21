@@ -45,6 +45,7 @@ public class RemoveMember extends ConsoleInteraction implements Command {
         ValidationCommands.checkIfMemberOfTeam(memberName, teamToRemoveMemberFrom, str);
         MemberImpl member = functionalsRepository.getMembers().get(memberName);
         functionalsRepository.getTeams().get(teamToRemoveMemberFrom).removeMember(member);
+        functionalsRepository.removeMember(memberName);
         addToActivityHistory(teamToRemoveMemberFrom, memberName);
         return String.format(MEMBER_REMOVED_FROM_TEAM, memberName, teamToRemoveMemberFrom);
     }

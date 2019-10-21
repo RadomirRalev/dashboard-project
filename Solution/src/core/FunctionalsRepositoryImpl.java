@@ -74,6 +74,10 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
         this.members.put(name, member);
     }
 
+    public void removeMember(String name) {
+        this.members.remove(name);
+    }
+
     @Override
     public void addWorkItem(Integer id, WorkItems workItems) {
         this.workItems.put(id, workItems);

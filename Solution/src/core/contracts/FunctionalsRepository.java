@@ -21,5 +21,6 @@ public interface FunctionalsRepository {
     void addPerson(String name, Person person);
     void deletePerson(String name);
     void addMember(String name, MemberImpl member);
+    void removeMember(String name);
     void removeWorkItem(Integer id);
 }

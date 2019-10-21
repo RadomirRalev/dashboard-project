@@ -65,6 +65,5 @@ public class AssignWorkToPersonTest {
 
         //Assert
         Assert.assertEquals(1, person.listWorkItems().size());
-
     }
 }
