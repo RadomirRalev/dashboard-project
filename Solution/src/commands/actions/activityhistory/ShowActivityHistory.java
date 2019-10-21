@@ -16,6 +16,7 @@ public class ShowActivityHistory extends ConsoleInteraction implements Command {
     }
 
     public String execute(List<String> parameters) {
+        ConsoleInteraction.validateInput(parameters.size());
         return choose(asksAboutMemberOrBoard());
     }
 
