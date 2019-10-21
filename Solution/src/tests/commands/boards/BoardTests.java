@@ -1,8 +1,12 @@
-package tests.commands.person;
+package tests.commands.boards;
 
-import commands.actions.person.DeletePersonFromList;
+import commands.actions.board.CreateBoard;
+import commands.actions.person.CreateNewPerson;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
+import core.contracts.Reader;
+import core.factories.FunctionalsFactoryImpl;
+import core.providers.ConsoleReader;
 import functionals.contracts.Person;
 import functionals.contracts.Team;
 import functionals.models.PersonImpl;
@@ -14,38 +18,29 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeletePersonFromListTests {
+public class BoardTests {
     private Command testCommand;
+    private FunctionalsFactoryImpl functionalsFactory;
     private FunctionalsRepositoryImpl functionalsRepository;
+    private static Reader reader;
 
     @Before
     public void before() {
+        functionalsFactory = new FunctionalsFactoryImpl();
         functionalsRepository = new FunctionalsRepositoryImpl();
-        testCommand = new DeletePersonFromList(functionalsRepository);
+        testCommand = new CreateBoard(functionalsFactory, functionalsRepository);
+        reader = new ConsoleReader();
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void execute_should_throwException_when_passedMoreThanZeroArguments() {
+    public void execute_should_throwException_when_passedZeroArguments() {
         // Arrange
+        Team team = new TeamsImpl("X");
+        functionalsRepository.getTeams().put("X", team);
         List<String> testList = new ArrayList<>();
-        testList.add("name");
-        testList.add("number");
 
         // Act & Assert
         testCommand.execute(testList);
     }
 
-    @Test
-    public void check_If_PersonIsRemovedFromPersonsListWhenInputIsValid() {
-        // Arrange
-        Person person = new PersonImpl("Name");
-        functionalsRepository.addPerson("Name", person);
-
-        //Act
-        functionalsRepository.deletePerson("Name");
-
-        //Assert
-        Assert.assertEquals(0, functionalsRepository.getPersons().size());
-
-    }
 }

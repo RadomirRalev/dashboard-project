@@ -8,7 +8,7 @@ import functionals.contracts.Person;
 
 import java.util.List;
 
-import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
+import static commands.actions.CommandsConstants.*;
 
 public class ListAssignedWork extends ConsoleInteraction implements Command {
     private final FunctionalsRepositoryImpl functionalsRepository;
@@ -34,6 +34,9 @@ public class ListAssignedWork extends ConsoleInteraction implements Command {
         Person person = functionalsRepository.getPersons().get(personName);
         for (int i = 0; i < person.getAssignedWork().size(); i++) {
             str.append(String.format("%s\n", person.getAssignedWork().get(i).toString()));
+        }
+        if (functionalsRepository.getMembers().size() == 0) {
+            return WORKITEMSLIST_IS_EMPTY;
         }
         return str.toString();
     }

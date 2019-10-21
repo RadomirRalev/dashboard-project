@@ -30,4 +30,15 @@ public class ListAllTeamMembersTests {
         // Act & Assert
         testCommand.execute(testList);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_IncreaseMembersListWhenPersonAddedToTeam() {
+        // Arrange
+        List<String> testList = new ArrayList<>();
+        testList.add("name");
+        testList.add("number");
+
+        // Act & Assert
+        testCommand.execute(testList);
+    }
 }

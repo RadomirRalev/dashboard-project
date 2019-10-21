@@ -37,8 +37,6 @@ public class CreatePersonTests {
     private FunctionalsRepositoryImpl functionalsRepository;
     private static Reader reader;
 
-
-
     @Before
     public void before() {
         functionalsFactory = new FunctionalsFactoryImpl();

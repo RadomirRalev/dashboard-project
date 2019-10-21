@@ -52,6 +52,9 @@ public class ValidationCommands {
         while (!functionalsRepository.getPersons().containsKey(personName)) {
             System.out.printf(PERSON_DOES_NOT_EXIST_MSG, personName);
             personName = reader.readLine();
+            if (personName.equalsIgnoreCase("cancel")) {
+                return personName;
+            }
             personName = trimInputAndCheckIfStringIsEmpty(personName);
             String[] name = personName.split(" ");
             personName = NameJoiner.joinerArr(name);

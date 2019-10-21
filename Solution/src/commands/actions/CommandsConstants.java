@@ -30,6 +30,7 @@ public class CommandsConstants {
     public static final String INVALID_NUMBER_OF_ARGUMENTS = "Invalid number of arguments!";
     public static final String PERSONSLIST_IS_EMPTY = "Persons list is empty!";
     public static final String MEMBERSLIST_IS_EMPTY = "Persons list is empty!";
+    public static final String WORKITEMSLIST_IS_EMPTY = "Work items list is empty!";
     public static final String PERSONSLIST_INCLUDES = "Persons list includes: \n%s";
     public static final String TEAM_CREATED_MSG = "Team %s was created!";
     public static final String WORK_ADDED_MSG = "Work %s was added to %s!";
