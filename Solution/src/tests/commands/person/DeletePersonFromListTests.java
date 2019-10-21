@@ -3,6 +3,11 @@ package tests.commands.person;
 import commands.actions.person.DeletePersonFromList;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
+import functionals.contracts.Person;
+import functionals.contracts.Team;
+import functionals.models.PersonImpl;
+import functionals.models.TeamsImpl;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,5 +33,20 @@ public class DeletePersonFromListTests {
 
         // Act & Assert
         testCommand.execute(testList);
+    }
+
+    @Test
+    public void check_If_PersonIsAddedToTeamWhenInputIsValid() {
+        // Arrange
+        List<String> testList = new ArrayList<>();
+        Person person = new PersonImpl("Name");
+        functionalsRepository.addPerson("Name", person);
+
+        //Act
+        functionalsRepository.deletePerson("Name");
+
+        //Assert
+        Assert.assertEquals(0, functionalsRepository.getPersons().size());
+
     }
 }

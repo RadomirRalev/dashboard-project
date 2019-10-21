@@ -3,6 +3,11 @@ package tests.commands.person;
 import commands.actions.person.AddPersonToTeam;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
+import functionals.contracts.Person;
+import functionals.contracts.Team;
+import functionals.models.PersonImpl;
+import functionals.models.TeamsImpl;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,5 +33,21 @@ public class AddPersonToTeamTests {
 
         // Act & Assert
         testCommand.execute(testList);
+    }
+
+    @Test
+    public void check_If_PersonIsAddedToTeamWhenInputIsValid() {
+        // Arrange
+        Person person = new PersonImpl("Name");
+        functionalsRepository.addPerson("Name", person);
+        Team team = new TeamsImpl("Team");
+        functionalsRepository.addTeam("Team", team);
+
+        //Act
+        team.addMember(person);
+
+        //Assert
+        Assert.assertEquals(1, team.showTeamMembers().size());
+
     }
 }

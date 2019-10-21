@@ -65,7 +65,7 @@ public class NameJoinerTests {
         person.addWorkItems(bug);
         List<WorkItems> parameters = person.getAssignedWork();
 
-        // Act & Assert
+        // Act
         String check = NameJoiner.joinerList(parameters);
 
         //Assert
