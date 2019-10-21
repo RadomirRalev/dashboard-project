@@ -4,7 +4,6 @@ import commands.actions.person.NameJoiner;
 import core.contracts.FunctionalsRepository;
 import core.contracts.Reader;
 import core.providers.ConsoleReader;
-import enums.Size;
 import functionals.contracts.Person;
 
 import java.util.ArrayList;

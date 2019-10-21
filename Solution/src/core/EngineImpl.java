@@ -1,5 +1,6 @@
 package core;
 
+import commands.actions.ConsoleInteraction;
 import commands.contracts.Command;
 import core.contracts.*;
 import core.factories.CommandFactoryImpl;
@@ -31,6 +32,7 @@ public class EngineImpl implements Engine {
 
     @Override
     public void start() {
+        ConsoleInteraction.printsIntroduction();
         while (true) {
             try {
                 String commandAsString = reader.readLine();
