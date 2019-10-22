@@ -13,6 +13,9 @@ import java.util.List;
 
 public class EngineImpl implements Engine {
     private static final String TERMINATION_COMMAND = "Exit";
+    private static final String CONSOLE_INTRODUCTION = "Hello! You can start by creating a person or " +
+            "a team through 'createperson' or 'createteam' and type 'exit' to leave this app.\n" +
+            "You can check the available commands via 'showcommands'.";
     private Reader reader;
     private Writer writer;
     private CommandParser commandParser;
@@ -20,6 +23,10 @@ public class EngineImpl implements Engine {
     private FunctionalsFactory functionalsFactory;
     private FunctionalsRepositoryImpl functionalsRepository;
 
+    static
+    {
+        System.out.println(CONSOLE_INTRODUCTION);
+    }
 
     public EngineImpl() {
         reader = new ConsoleReader();
@@ -32,7 +39,6 @@ public class EngineImpl implements Engine {
 
     @Override
     public void start() {
-        ConsoleInteraction.printsIntroduction();
         while (true) {
             try {
                 String commandAsString = reader.readLine();

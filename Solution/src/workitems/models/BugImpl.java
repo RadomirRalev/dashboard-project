@@ -82,7 +82,7 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
     }
 
     private void setStepsToReproduce(List<String> stepsToReproduce) {
-        ValidationHelper.checkIfNull(stepsToReproduce);
+//        ValidationHelper.checkIfNull(stepsToReproduce);
         this.stepsToReproduce = stepsToReproduce;
     }
 }

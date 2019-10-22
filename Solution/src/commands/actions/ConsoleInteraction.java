@@ -70,8 +70,5 @@ public class ConsoleInteraction {
     protected boolean isCancel(String input) {
         return input.equalsIgnoreCase("cancel");
     }
-
-    public static void printsIntroduction() {
-        System.out.println(CONSOLE_INTRODUCTION);
-    }
+    
 }
