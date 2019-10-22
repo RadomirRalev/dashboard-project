@@ -25,8 +25,7 @@ public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndSto
         setPriority(Priority.NOTASSIGNED);
     }
 
-    @Override
-    public EnumSet<Priority> getPriorityList() {
+    public static EnumSet<Priority> getPriorityList() {
         return possiblePriorities;
     }
 

@@ -88,7 +88,7 @@ public class ValidationCommands {
     }
 
     public static String checkNameLengthOfNewPerson(String personName, FunctionalsRepository functionalsRepository) {
-        while (personName.length() < 5 || personName.length() >15) {
+        while (personName.length() < 5 || personName.length() > 15) {
             System.out.println(PERSON_NAME_LENGTH);
             personName = reader.readLine();
             personName = trimInputAndCheckIfStringIsEmpty(personName);
@@ -132,6 +132,14 @@ public class ValidationCommands {
             boardName = trimInputAndCheckIfStringIsEmpty(boardName);
         }
         return boardName;
+    }
+
+    public static int checkIfWorkItemExists(int id, FunctionalsRepository functionalsRepository) {
+        while (!functionalsRepository.getWorkItems().containsKey(id)) {
+            System.out.printf(WORKITEM_DOES_NOT_EXIST_MSG, id);
+            id = checkIfStringCanBeParsed(reader.readLine());
+        }
+        return id;
     }
 
     public static String checkBugStoryFeedback(String filterType) {
@@ -183,6 +191,19 @@ public class ValidationCommands {
                         " can only be an integer between %d and %d", RATING_MIN_VALUE, RATING_MAX_VALUE));
             }
             rating = reader.readLine();
+        }
+    }
+
+    public static int checkIfStringCanBeParsed(String idString) {
+        int id;
+        while (true) {
+            try {
+                id = Integer.parseInt(idString);
+                return id;
+            } catch (Exception ex) {
+                System.out.println("ID must be an integer. Please enter a valid one");
+            }
+            idString = reader.readLine();
         }
     }
 }

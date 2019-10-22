@@ -25,6 +25,9 @@ public class CommandsConstants {
     public static final String BOARD_DOES_NOT_EXIST_MSG = "Board %s does not exist in the database " +
             "but you can write a new board name to correct your search. " +
             "Please type cancel to abort or change board name: \n";
+    public static final String WORKITEM_DOES_NOT_EXIST_MSG = "Workitem with ID %s does not exist in the database " +
+            "but you can write a new ID name to correct your search. " +
+            "Please type cancel to abort or change the ID number: \n";
     public static final String NUMBER_ASSIGNEDWORK = "What number of assigned work to be removed?";
     public static final String LIST_ASSIGNEDWORK = "%s has the following assigned work: \n" +
             "%s";
@@ -100,7 +103,5 @@ public class CommandsConstants {
     public static final String SIZES = "Large / Medium / Small";
     public static final String SEVERITIES = "Critical / Major / Minor";
     public static final String PRIORITIES = "High / Medium / Low";
-    public static final String BUG_STATUSES = "Active / Fixed";
-    public static final String STORY_STATUSES = "NotDone / InProgress / Done";
-    public static final String FEEDBACK_STATUSES = "New / Unscheduled / Scheduled / Done";
+
 }

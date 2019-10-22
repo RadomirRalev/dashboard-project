@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
+import static workitems.Constants.BUG_STATUSES;
+
 public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkItems {
     private static final String ITEM_TYPE = "Bug";
 
@@ -57,6 +59,11 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
 
     public static EnumSet<Severity> getSeverityList() {
         return severities;
+    }
+
+    @Override
+    public String getStatusFilters(){
+        return BUG_STATUSES;
     }
 
     @Override

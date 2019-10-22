@@ -8,8 +8,8 @@ public enum Status {
     UNSCHEDULED ("Unscheduled"),
     SCHEDULED ("Scheduled"),
     DONE ("Done"),
-    NOTDONE ("Not done"),
-    IN_PROGRESS ("In progress");
+    NOTDONE ("NotDone"),
+    INPROGRESS("InProgress");
 
     private final String status;
 

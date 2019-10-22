@@ -1,12 +1,12 @@
 package commands.actions.workitem.Change;
 
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
 import workitems.contracts.Feedback;
 import workitems.contracts.WorkItems;
 
-import static commands.actions.CommandsConstants.RATING_SUCCESSFULLY_CHANGED_MSG;
-import static commands.actions.CommandsConstants.WORKITEM_NOT_FEEDBACK;
+import static commands.actions.CommandsConstants.*;
 
 public class ChangeRating extends ChangeBase implements Command {
     public ChangeRating(FunctionalsRepository functionalsRepository) {
@@ -27,7 +27,18 @@ public class ChangeRating extends ChangeBase implements Command {
         return String.format(RATING_SUCCESSFULLY_CHANGED_MSG, workitemName, newRating);
     }
 
+    @Override
+    protected void parseParameters() {
+        super.parseParameters();
+        setChangeableParameter(ValidationCommands.checkIfRatingIsValid(getChangeableParameter()));
+    }
+
+
     private int getRating(String newRating) {
         return Integer.parseInt(newRating);
+    }
+
+    protected String getChangeableParamterType(){
+        return RATING;
     }
 }
