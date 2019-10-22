@@ -3,6 +3,7 @@ import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
+import functionals.contracts.Person;
 
 
 import java.util.List;
@@ -28,7 +29,8 @@ public class DeletePersonFromList extends ConsoleInteraction implements Command 
     }
 
     private String deletePerson(String name) {
-        functionalsRepository.deletePerson(name);
+        Person person = functionalsRepository.getPersons().get(name);
+        functionalsRepository.deletePerson(person.getName());
         return String.format(PERSON_DELETED_MSG, name);
     }
 }

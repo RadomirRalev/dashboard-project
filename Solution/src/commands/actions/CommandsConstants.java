@@ -88,9 +88,6 @@ public class CommandsConstants {
             "NotDone / InProgress / Done / New " +
             "/ Unscheduled / Scheduled";
     public static final String CHOOSE_WORKITEM_ASSIGNEE = "Choose a person that you wish to filter by";
-    public static final String CONSOLE_INTRODUCTION = "Hello! You can start by creating a person or " +
-            "a team through 'createperson' or 'createteam' and type 'exit' to leave this app.\n" +
-            "You can check the available commands via 'showcommands'.";
     public static final String WHAT_WILL_IT_BE = "What will the %s be?";
     public static final String SIZE = "Size";
     public static final String SEVERITY = "Severity";

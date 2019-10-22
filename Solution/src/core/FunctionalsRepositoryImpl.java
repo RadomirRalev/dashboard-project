@@ -56,26 +56,24 @@ public class FunctionalsRepositoryImpl implements FunctionalsRepository {
 
     @Override
     public void addTeam(String name, Team team) {
-        this.teams.put(name, team);
+        teams.put(name, team);
     }
 
     @Override
     public void addBoard(String name, Board board) {
-        this.boards.put(name, board);
+        boards.put(name, board);
     }
 
     @Override
-    public void deletePerson(String name) {
-        this.persons.remove(name);
-    }
+    public void deletePerson(String name) { persons.remove(name); }
 
     @Override
     public void addMember(String name, MemberImpl member) {
-        this.members.put(name, member);
+        members.put(name, member);
     }
 
     public void removeMember(String name) {
-        this.members.remove(name);
+        members.remove(name);
     }
 
     @Override
