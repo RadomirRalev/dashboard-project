@@ -80,6 +80,18 @@ public class ValidationCommands {
             personName = trimInputAndCheckIfStringIsEmpty(personName);
             String[] name = personName.split(" ");
             personName = NameJoiner.joinerArr(name);
+            personName = ValidationCommands.checkNameLengthOfNewPerson(personName, functionalsRepository);
+        }
+        return personName;
+    }
+
+    public static String checkNameLengthOfNewPerson(String personName, FunctionalsRepository functionalsRepository) {
+        while (personName.length() < 5 || personName.length() >15) {
+            System.out.println(PERSON_NAME_LENGTH);
+            personName = reader.readLine();
+            personName = trimInputAndCheckIfStringIsEmpty(personName);
+            String[] name = personName.split(" ");
+            personName = NameJoiner.joinerArr(name);
         }
         return personName;
     }
