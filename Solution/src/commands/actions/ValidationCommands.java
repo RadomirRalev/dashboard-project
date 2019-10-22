@@ -5,8 +5,10 @@ import core.contracts.FunctionalsRepository;
 import core.contracts.Reader;
 import core.providers.ConsoleReader;
 import functionals.contracts.Person;
+import functionals.models.ValidationHelper;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 
@@ -149,10 +151,38 @@ public class ValidationCommands {
         return input;
     }
 
-    public static void isFilterTypeValid(String filterType){
-        if(!filterType.equalsIgnoreCase(BUG) && !filterType.equalsIgnoreCase(STORY) && !filterType.equalsIgnoreCase(FEEDBACK)){
+    public static void isFilterTypeValid(String filterType) {
+        if (!filterType.equalsIgnoreCase(BUG)
+                && !filterType.equalsIgnoreCase(STORY)
+                && !filterType.equalsIgnoreCase(FEEDBACK)) {
             throw new IllegalArgumentException(String.format(INVALID_COMMAND, filterType));
         }
     }
 
+    public static <T extends Enum<T>> String checkIfEnumValueIsValid(String enumValue, EnumSet<T> enumSet
+            , String enumType, String enumFilters) {
+        while (true) {
+            for (T t : enumSet) {
+                if (t.toString().equalsIgnoreCase(enumValue)) {
+                    return enumValue;
+                }
+            }
+            System.out.println(String.format("Not a valid %s. Please choose from %s", enumType, enumFilters));
+            enumValue = reader.readLine();
+        }
+    }
+
+    public static String checkIfRatingIsValid(String rating) {
+        while (true) {
+            try {
+                int ratingInt = Integer.parseInt(rating);
+                ValidationHelper.checkNumberInBounds(ratingInt, RATING_MIN_VALUE, RATING_MAX_VALUE);
+                return rating;
+            } catch (Exception ex) {
+                System.out.println(String.format("This value is not valid. Please note that the rating" +
+                        " can only be an integer between %d and %d", RATING_MIN_VALUE, RATING_MAX_VALUE));
+            }
+            rating = reader.readLine();
+        }
+    }
 }

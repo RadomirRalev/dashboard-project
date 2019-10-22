@@ -1,16 +1,12 @@
 package commands.actions;
 
 import commands.actions.person.NameJoiner;
-import commands.contracts.Command;
-import core.contracts.FunctionalsRepository;
-import core.contracts.Reader;
+import commands.contracts.Command;import core.contracts.FunctionalsRepository;import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 
-import java.util.List;
-
-import static commands.actions.CommandsConstants.*;
+import java.util.Map;import java.util.List;import static commands.actions.CommandsConstants.*;
 import static commands.actions.ValidationCommands.trimInputAndCheckIfStringIsEmpty;
 
 public class ConsoleInteraction {
@@ -52,6 +48,16 @@ public class ConsoleInteraction {
     protected String asksAboutMemberOrBoard() {
         System.out.println(SHOW_ACTIVITY_HISTORY_QUESTION);
         return reader.readLine().toLowerCase();
+    }
+
+    protected static String asksWhich(String unit) {
+        System.out.printf(WHICH, unit);
+        return reader.readLine();
+    }
+
+    protected static String asksWhatWillItBe(String unit) {
+        System.out.println(String.format(WHAT_WILL_IT_BE, unit));
+        return reader.readLine();
     }
 
     protected boolean isCancel(String input) {

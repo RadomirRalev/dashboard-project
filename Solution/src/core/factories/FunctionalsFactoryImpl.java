@@ -41,13 +41,13 @@ public class FunctionalsFactoryImpl implements FunctionalsFactory {
     }
 
     @Override
-    public Story createStory(String title, String description, String size){
+    public Story createStory(String title, String description, String size) {
         return new StoryImpl(title, description, getSize(size));
     }
 
     @Override
-    public Feedback createFeedback(String title, String description, int rating){
-        return new FeedbackImpl(title, description, rating);
+    public Feedback createFeedback(String title, String description, String rating) {
+        return new FeedbackImpl(title, description, getRating(rating));
     }
 
     private Severity getSeverity(String severity) {
@@ -56,6 +56,10 @@ public class FunctionalsFactoryImpl implements FunctionalsFactory {
 
     private Size getSize(String size) {
         return Size.valueOf(size.toUpperCase());
+    }
+
+    private int getRating(String rating) {
+        return Integer.parseInt(rating);
     }
 }
 

@@ -12,8 +12,8 @@ public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, Wo
     //TODO validation for Size
     private static final String ITEM_TYPE = "Story";
 
-    private static EnumSet<Status> storyStatus;
-    private static EnumSet<Size> storySize;
+    private static final EnumSet<Status> storyStatus;
+    private static final EnumSet<Size> storySize;
 
     private Size size;
 
@@ -52,13 +52,12 @@ public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, Wo
         return storyStatus;
     }
 
+    public static EnumSet<Size> getSizeList() {
+        return storySize;
+    }
+
     @Override
     public void setSize(Size size) {
         this.size = size;
     }
-
-//    @Override
-//    public int compareTo(Story story) {
-//        return story.get
-//    }
 }

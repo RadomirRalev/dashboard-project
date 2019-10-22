@@ -1,6 +1,8 @@
 package commands.actions;
 
 public class CommandsConstants {
+    public static final int RATING_MIN_VALUE = 1;
+    public static final int RATING_MAX_VALUE = 5;
     public static final String INVALID_COMMAND = "Invalid command name: %s!";
     public static final String PERSON_CREATED_MSG = "Person %s was created!";
     public static final String PERSON_DELETED_MSG = "Person %s was deleted!";
@@ -89,5 +91,16 @@ public class CommandsConstants {
     public static final String CONSOLE_INTRODUCTION = "Hello! You can start by creating a person or " +
             "a team through 'createperson' or 'createteam' and type 'exit' to leave this app.\n" +
             "You can check the available commands via 'showcommands'.";
-
+    public static final String WHAT_WILL_IT_BE = "What will the %s be?";
+    public static final String SIZE = "Size";
+    public static final String SEVERITY = "Severity";
+    public static final String PRIORITY = "Priority";
+    public static final String STATUS = "Status";
+    public static final String RATING = "Rating";
+    public static final String SIZES = "Large / Medium / Small";
+    public static final String SEVERITIES = "Critical / Major / Minor";
+    public static final String PRIORITIES = "High / Medium / Low";
+    public static final String BUG_STATUSES = "Active / Fixed";
+    public static final String STORY_STATUSES = "NotDone / InProgress / Done";
+    public static final String FEEDBACK_STATUSES = "New / Unscheduled / Scheduled / Done";
 }
