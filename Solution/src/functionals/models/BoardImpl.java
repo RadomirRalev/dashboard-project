@@ -9,13 +9,13 @@ import java.util.Map;
 
 public class BoardImpl implements Board {
     private static final Map<String, ArrayList<String>> boardsActivity = new HashMap<>();
+    private static final int NAME_MIN_LENGTH = 5;
+    private static final int NAME_MAX_LENGTH = 10;
     private String name;
-    private List<String> activityHistory;
     private List<WorkItems> workItems;
 
     public BoardImpl(String name) {
         setName(name);
-        activityHistory = new ArrayList<>();
         workItems = new ArrayList<>();
     }
 
@@ -25,10 +25,6 @@ public class BoardImpl implements Board {
 
     public static void addActivity(String activity, String name) {
         getBoardsActivity().get(name).add(activity);
-    }
-
-    private void setName(String name) {
-        this.name = name;
     }
 
     public <T extends WorkItems> void addWorkItems(T workItem) {
@@ -63,5 +59,10 @@ public class BoardImpl implements Board {
             str.append(String.format("%s\n", object));
         }
         return str.toString();
+    }
+
+    private void setName(String name) {
+        ValidationHelper.checkStringLengthInBounds(name, NAME_MIN_LENGTH, NAME_MAX_LENGTH);
+        this.name = name;
     }
 }

@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 
 public class PersonImpl implements Person {
     private static final Map<String, ArrayList<String>> membersActivity = new HashMap<>();
+    private static final int NAME_MIN_LENGTH = 5;
+    private static final int NAME_MAX_LENGTH = 15;
     private String name;
     private List<WorkItems> workItems;
 
@@ -26,13 +28,9 @@ public class PersonImpl implements Person {
         getMembersActivity().get(name).add(activity);
     }
 
-    private void setName(String name) {
-        this.name = name;
-    }
 
     public String showActivity(String name) {
-        return String.valueOf(getMembersActivity().get(name).stream()
-                .collect( Collectors.joining( "\n" ) ));
+        return String.join("\n", getMembersActivity().get(name));
     }
 
     public List getAssignedWork() {
@@ -73,5 +71,10 @@ public class PersonImpl implements Person {
             str.append(String.format("%s\n", object));
         }
         return str.toString();
+    }
+
+    private void setName(String name) {
+        ValidationHelper.checkStringLengthInBounds(name, NAME_MIN_LENGTH, NAME_MAX_LENGTH);
+        this.name = name;
     }
 }

@@ -47,8 +47,8 @@ public class UnassignWorkTests {
     @Test
     public void check_If_WorkIsRemovedFromPersonWhenInputIsValid() {
         // Arrange
-        Person person = new PersonImpl("Name");
-        functionalsRepository.getPersons().put("Name", person);
+        Person person = new PersonImpl("Sample Name");
+        functionalsRepository.getPersons().put("Sample Name", person);
         Team team = new TeamsImpl("X");
         functionalsRepository.getTeams().put("X", team);
         Board bord1 = new BoardImpl("bord1");

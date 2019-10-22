@@ -41,11 +41,11 @@ public class RemoveMemberTests {
     @Test
     public void check_If_PersonIsAddedToTeamWhenInputIsValid() {
         // Arrange
-        MemberImpl member = new MemberImpl("Name", functionalsRepository);
-        functionalsRepository.addMember("Name", member);
+        MemberImpl member = new MemberImpl("Sample Name", functionalsRepository);
+        functionalsRepository.addMember("Sample Name", member);
 
         //Act
-        functionalsRepository.removeMember("Name");
+        functionalsRepository.removeMember("Sample Name");
 
         //Assert
         Assert.assertEquals(0, functionalsRepository.getMembers().size());

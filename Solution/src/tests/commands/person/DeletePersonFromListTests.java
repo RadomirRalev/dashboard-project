@@ -38,11 +38,11 @@ public class DeletePersonFromListTests {
     @Test
     public void check_If_PersonIsRemovedFromPersonsListWhenInputIsValid() {
         // Arrange
-        Person person = new PersonImpl("Name");
-        functionalsRepository.addPerson("Name", person);
+        Person person = new PersonImpl("Sample Name");
+        functionalsRepository.addPerson("Sample Name", person);
 
         //Act
-        functionalsRepository.deletePerson("Name");
+        functionalsRepository.deletePerson("Sample Name");
 
         //Assert
         Assert.assertEquals(0, functionalsRepository.getPersons().size());
