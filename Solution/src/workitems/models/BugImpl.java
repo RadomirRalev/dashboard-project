@@ -1,6 +1,5 @@
 package workitems.models;
 
-import enums.Priority;
 import enums.Severity;
 import enums.Status;
 import workitems.contracts.Bug;
@@ -60,7 +59,7 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
         return bugStatus;
     }
 
-    public static EnumSet<Severity> getSeverityList(){
+    public static EnumSet<Severity> getSeverityList() {
         return severities;
     }
 

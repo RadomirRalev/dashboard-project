@@ -128,7 +128,7 @@ public abstract class WorkItemsImpl implements WorkItems {
     }
 
     private void setTitle(String title) {
-        ValidationHelper.checkIfNull(title);
+//        ValidationHelper.checkIfNull(title);
         ValidationHelper.checkStringLengthInBounds(title, TITLE_LENGTH_MIN_VALUE, TITLE_LENGTH_MAX_VALUE);
         this.title = title;
     }
