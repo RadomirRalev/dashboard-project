@@ -2,6 +2,7 @@ package workitems.models;
 
 import enums.Size;
 import enums.Status;
+import functionals.models.ValidationHelper;
 import workitems.contracts.BugAndStory;
 import workitems.contracts.Story;
 import workitems.contracts.WorkItems;
@@ -9,7 +10,6 @@ import workitems.contracts.WorkItems;
 import java.util.EnumSet;
 
 public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, WorkItems {
-    //TODO validation for Size
     private static final String ITEM_TYPE = "Story";
 
     private static final EnumSet<Status> storyStatus;
@@ -58,6 +58,7 @@ public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, Wo
 
     @Override
     public void setSize(Size size) {
+        ValidationHelper.checkIfEnumValueIsValid(size, getSizeList());
         this.size = size;
     }
 }

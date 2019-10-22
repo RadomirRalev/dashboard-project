@@ -26,7 +26,7 @@ public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndSto
     }
 
     @Override
-    public EnumSet<Priority> getPossiblePriorities() {
+    public EnumSet<Priority> getPriorityList() {
         return possiblePriorities;
     }
 
@@ -43,16 +43,14 @@ public abstract class BugAndStoryImpl extends WorkItemsImpl implements BugAndSto
     //setAsignee can be public so that you can set it after the WorkItems has been created;
     @Override
     public void setAsignee(Person asignee) {
-        ValidationHelper.checkIfNull(asignee);
+//        ValidationHelper.checkIfNull(asignee);
         this.asignee = asignee;
     }
 
     //setPriority can be public so that you can set it after the WorkItems has been created;
     @Override
     public void setPriority(Priority priority) {
-        if (!possiblePriorities.contains(priority)) {
-            throw new IllegalArgumentException(String.format(INVALID_ENUM_ERROR_MSG, priority, getItemType()));
-        }
+        ValidationHelper.checkIfEnumValueIsValid(priority, getPriorityList());
         this.priority = priority;
     }
 

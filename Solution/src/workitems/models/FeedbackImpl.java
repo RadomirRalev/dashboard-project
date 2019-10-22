@@ -1,6 +1,5 @@
 package workitems.models;
 
-import enums.Severity;
 import enums.Status;
 import workitems.contracts.Feedback;
 import workitems.contracts.WorkItems;

@@ -9,7 +9,6 @@ import java.util.EnumSet;
 import java.util.List;
 
 import static workitems.Constants.EMPTY_COMMENT_LIST_MSG;
-import static workitems.Constants.INVALID_ENUM_ERROR_MSG;
 
 public abstract class WorkItemsImpl implements WorkItems {
     private static final int TITLE_LENGTH_MIN_VALUE = 10;
@@ -86,9 +85,7 @@ public abstract class WorkItemsImpl implements WorkItems {
 
     @Override
     public void setStatus(Status status) {
-        if (!getStatusList().contains(status)) {
-            throw new IllegalArgumentException(String.format(INVALID_ENUM_ERROR_MSG, status, getItemType()));
-        }
+        ValidationHelper.checkIfEnumValueIsValid(status, getStatusList());
         this.status = status;
     }
 
@@ -134,7 +131,7 @@ public abstract class WorkItemsImpl implements WorkItems {
     }
 
     private void setDescription(String description) {
-        ValidationHelper.checkIfNull(description);
+//        ValidationHelper.checkIfNull(description);
         ValidationHelper.checkStringLengthInBounds(description, DESCRIPTION_LENGTH_MIN_VALUE, DESCRIPTION_LENGTH_MAX_VALUE);
         this.description = description;
     }

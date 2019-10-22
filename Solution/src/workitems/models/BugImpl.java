@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
-import static workitems.Constants.INVALID_ENUM_ERROR_MSG;
-
 public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkItems {
     private static final String ITEM_TYPE = "Bug";
 
@@ -48,9 +46,7 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
     //setSeverity can be public so it can be changed after creation;
     @Override
     public void setSeverity(Severity severity) {
-        if (!severities.contains(severity)) {
-            throw new IllegalArgumentException(String.format(INVALID_ENUM_ERROR_MSG, severity, getItemType()));
-        }
+        ValidationHelper.checkIfEnumValueIsValid(severity, getSeverityList());
         this.severity = severity;
     }
 

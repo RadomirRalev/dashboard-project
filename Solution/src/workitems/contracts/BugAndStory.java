@@ -8,7 +8,7 @@ import java.util.EnumSet;
 public interface BugAndStory extends WorkItems {
     Priority getPriority();
 
-    EnumSet<Priority> getPossiblePriorities();
+    EnumSet<Priority> getPriorityList();
 
     Person getAsignee();
 

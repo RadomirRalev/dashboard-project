@@ -1,8 +1,11 @@
 package functionals.models;
 
+import java.util.EnumSet;
+
 public class ValidationHelper {
     private static final String NULL_ERROR = "Value cannot be null!";
     private static final String VALUE_OUT_OF_BOUNDS_ERROR = "Value is out of bounds!";
+    private static final String ILLEGAL_ENUM_VALUE = "Illegal Enum value";
 
     public static void checkIfNull(Object object) {
         if (object == null) {
@@ -19,6 +22,13 @@ public class ValidationHelper {
     public static void checkNumberInBounds(int number, int minValue, int maxValue) {
         if (number < minValue || number > maxValue) {
             throw new IllegalArgumentException(VALUE_OUT_OF_BOUNDS_ERROR);
+        }
+    }
+
+    public static <T extends Enum<T>> void checkIfEnumValueIsValid(Enum<T> enumValue
+            , EnumSet<T> enumSet){
+        if (!enumSet.contains(enumValue)){
+            throw new IllegalArgumentException(ILLEGAL_ENUM_VALUE);
         }
     }
 
