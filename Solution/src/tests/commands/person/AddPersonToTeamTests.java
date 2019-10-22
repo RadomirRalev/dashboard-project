@@ -38,8 +38,8 @@ public class AddPersonToTeamTests {
     @Test
     public void check_If_PersonIsAddedToTeamWhenInputIsValid() {
         // Arrange
-        Person person = new PersonImpl("Name");
-        functionalsRepository.addPerson("Name", person);
+        Person person = new PersonImpl("Sample Name");
+        functionalsRepository.addPerson("Sample Name", person);
         Team team = new TeamsImpl("Team");
         functionalsRepository.addTeam("Team", team);
 

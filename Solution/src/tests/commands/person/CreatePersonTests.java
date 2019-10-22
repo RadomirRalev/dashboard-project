@@ -59,7 +59,7 @@ public class CreatePersonTests {
     @Test
     public void check_If_PersonCreatedWhenInputIsValid() {
         // Arrange
-        Person person = new PersonImpl("Name");
+        Person person = new PersonImpl("Sample Name");
 
         //Act
         functionalsRepository.addPerson("Name", person);

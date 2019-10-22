@@ -14,22 +14,15 @@ public class TeamsImpl implements Team {
     private String name;
     private List<Person> members;
     private List<Board> boards;
-    private List<String> activityHistory;
-
 
     public TeamsImpl(String name) {
         setName(name);
         members = new ArrayList<>();
         boards = new ArrayList<>();
-        activityHistory = new ArrayList();
     }
 
     public static Map<String, ArrayList<String>> getTeamsActivity() {
         return teamsActivity;
-    }
-
-    private void setName(String name) {
-        this.name = name;
     }
 
     @Override
@@ -67,7 +60,7 @@ public class TeamsImpl implements Team {
         str.append(String.format("Team - %s has the following boards:\n", getName()));
 
         for (Board board: boards) {
-            str.append(board + System.lineSeparator());
+            str.append(board).append(System.lineSeparator());
         }
         return str.toString().trim();
     }
@@ -85,5 +78,9 @@ public class TeamsImpl implements Team {
                 getName(),
                 showTeamMembers(),
                 showBoards());
+    }
+
+    private void setName(String name) {
+        this.name = name;
     }
 }

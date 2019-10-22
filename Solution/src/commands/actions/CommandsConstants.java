@@ -9,6 +9,8 @@ public class CommandsConstants {
     public static final String PERSON_EXISTS_ERROR_MSG = "Name %s already exists in the database " +
             "but you can add a family name or some identifier to create this person. " +
             "Please type cancel to abort or change name: \n";
+    public static final String PERSON_NAME_LENGTH = "The length of a person name should be between 5 and 15 symbols. " +
+            "Please type cancel to abort or change name:";
     public static final String TEAM_EXISTS_ERROR_MSG = "Team %s already exists in the database " +
             "Please type cancel to abort or change name: \n";
     public static final String BOARD_EXISTS_ERROR_MSG = "Board %s already exists in the database.";

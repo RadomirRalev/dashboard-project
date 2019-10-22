@@ -48,8 +48,8 @@ public class NameJoinerTests {
     @Test
     public void nameJoinerOfList_should_produceStringStartingWithWorkItemNumber() {
         // Arrange
-        Person person = new PersonImpl("Name");
-        functionalsRepository.getPersons().put("Name", person);
+        Person person = new PersonImpl("Sample Name");
+        functionalsRepository.getPersons().put("Sample Name", person);
         Team team = new TeamsImpl("X");
         functionalsRepository.getTeams().put("X", team);
         Board bord1 = new BoardImpl("bord1");

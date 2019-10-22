@@ -24,6 +24,7 @@ public class CreateNewPerson extends ConsoleInteraction implements Command {
     public String execute(List<String> parameters) {
         ConsoleInteraction.validateInput(parameters.size());
         personName = asksAboutPersonName();
+        personName = ValidationCommands.checkNameLengthOfNewPerson(personName, functionalsRepository);
         personName = ValidationCommands.checkNameOfNewPerson(personName, functionalsRepository);
         if (isCancel(personName)) {
             return TYPE_ANOTHER_COMMAND;
