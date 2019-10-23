@@ -163,7 +163,7 @@ public class ValidationCommands {
     }
 
 
-    public static int checkIfWorkItemExists(int id, FunctionalsRepository functionalsRepository) {
+    public static int checkIfWorkItemExists (int id, FunctionalsRepository functionalsRepository) {
         while (!functionalsRepository.getWorkItems().containsKey(id)
                 && id != 0) {
             writer.writeLine(String.format(WORKITEM_DOES_NOT_EXIST_MSG, id));
@@ -181,7 +181,7 @@ public class ValidationCommands {
         return filterType;
     }
 
-    public static String checkIfTitleLengthIsValid(String title) {
+        public static String checkIfTitleLengthIsValid(String title) {
         while ((title.length() < WORKITEM_TITLE_MIN_LENGTH || title.length() > WORKITEM_TITLE_MAX_LENGTH)
                 && !title.equalsIgnoreCase("cancel")) {
             writer.write(String.format(TITLE_LENGTH_OUT_OF_BOUNDS, title));

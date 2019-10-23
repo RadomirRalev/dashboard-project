@@ -1,5 +1,6 @@
 package commands.actions.workitem.ListWorkItems;
 
+import commands.actions.ConsoleInteraction;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
 import core.contracts.Reader;
@@ -9,7 +10,7 @@ import core.providers.ConsoleWriter;
 
 import java.util.List;
 
-public abstract class ListWorkItems implements Command {
+public abstract class ListWorkItems extends ConsoleInteraction implements Command {
     private FunctionalsRepository functionalsRepository;
     private Reader reader;
     private Writer writer;
@@ -22,6 +23,7 @@ public abstract class ListWorkItems implements Command {
 
     @Override
     public String execute(List<String> parameters) throws IllegalArgumentException {
+        ConsoleInteraction.validateInput(parameters.size());
 
         StringBuilder stringBuilder = new StringBuilder();
 
