@@ -34,6 +34,8 @@ public class CommandsConstants {
     public static final String ENTER_BUG_STORY_FEEDBACK = "Wrong input! Please enter bug, story or feedback " +
             "or type cancel to abort.";
     public static final String TYPE_ANOTHER_COMMAND = "Please type command.";
+    public static final String WORK_ALREADY_ADDED = "This work has already been added to the person. " +
+            "Please type another command.";
     public static final String ALREADY_MEMBER = "Already a member of this team. Please type another command.";
     public static final String INVALID_NUMBER_OF_ARGUMENTS = "Invalid number of arguments!";
     public static final String PERSONSLIST_IS_EMPTY = "Persons list is empty!";

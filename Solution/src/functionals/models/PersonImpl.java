@@ -65,10 +65,15 @@ public class PersonImpl implements Person {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        str.append(String.format("Board name: %s\n" +
+        str.append(String.format("Name: %s\n" +
                         "Activity history: %s\n" +
                         "Work items:\n",
-                getName(), getMembersActivity()));
+                getName(),
+                getMembersActivity()
+                        .values()
+                        .toString()
+                        .replace("[", "")
+                        .replace("]", "")));
         for (Object object : listWorkItems()) {
             str.append(String.format("%s\n", object));
         }

@@ -13,7 +13,6 @@ import static commands.actions.CommandsConstants.*;
 public class ListPersons extends ConsoleInteraction implements Command{
     private final FunctionalsRepositoryImpl functionalsRepository;
 
-
     public ListPersons(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
     }

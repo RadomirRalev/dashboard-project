@@ -12,11 +12,11 @@ import static commands.actions.ValidationCommands.trimInputAndCheckIfStringIsEmp
 
 public class ConsoleInteraction {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
+    private static Reader reader;
     protected String teamName;
     protected String boardName;
     protected String memberName;
     protected String personName;
-    private static Reader reader;
     protected int workToBeUnassigned;
 
     protected ConsoleInteraction() {

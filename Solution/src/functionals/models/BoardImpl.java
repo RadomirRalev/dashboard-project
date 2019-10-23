@@ -57,7 +57,8 @@ public class BoardImpl implements Board {
         str.append(String.format("Board name: %s\n" +
                         "Activity history: %s\n" +
                         "Work items:\n",
-                getName(), getBoardsActivity()));
+                getName(),
+                getBoardsActivity()));
         for (Object object : listWorkItems()) {
             str.append(String.format("%s\n", object));
         }

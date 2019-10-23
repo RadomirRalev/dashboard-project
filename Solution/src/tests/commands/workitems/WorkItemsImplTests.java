@@ -63,7 +63,6 @@ public class WorkItemsImplTests {
         story.addHistory("sadads");
         story.addHistory("23aslkd");
 
-
         //Act and Assert
         Assert.assertEquals(3, story.getHistory().size());
     }

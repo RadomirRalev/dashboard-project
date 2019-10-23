@@ -1,6 +1,5 @@
 package commands.actions.person;
 
-import com.sun.corba.se.spi.orbutil.threadpool.Work;
 import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
@@ -38,7 +37,17 @@ public class AssignWorkToPerson extends ConsoleInteraction implements Command {
         if (isCancel(personName)) {
             return TYPE_ANOTHER_COMMAND;
         }
-        asksAboutWorkToBeAdded();
+        getFilterType();
+        if (isCancel(filterType)) {
+            return TYPE_ANOTHER_COMMAND;
+        }
+        printOptions();
+        writer.writeLine("Please specify the identifier of the work item: \n");
+        identifier = reader.readLine();
+        Person person = functionalsRepository.getPersons().get(personName);
+        if (person.getAssignedWork().contains(getWorkToBeAdded())) {
+            return WORK_ALREADY_ADDED;
+        }
         return addsWorkToActivityHistory(personName, getWorkToBeAdded().getTitle(), addsWorkToPerson(personName));
     }
 
@@ -54,28 +63,17 @@ public class AssignWorkToPerson extends ConsoleInteraction implements Command {
         return person;
     }
 
-    private String asksAboutWorkToBeAdded() {
-        getFilterType();
-        if (isCancel(filterType)) {
-            return TYPE_ANOTHER_COMMAND;
-        }
-        Map<Integer, WorkItems> WS = new HashMap<>();
-        functionalsRepository.getWorkItems().entrySet().stream()
-                .filter(workitem -> workitem.getValue().getItemType().equalsIgnoreCase(filterType))
-                .forEach(element -> WS.put(element.getKey(), element.getValue()));
-        printOptions(WS);
-        writer.writeLine("Please specify the identifier of the work item: \n");
-        identifier = reader.readLine();
-        return identifier;
-    }
-
     private void getFilterType() {
         writer.writeLine("Please select bug, story or feedback:");
         filterType = reader.readLine();
         filterType = ValidationCommands.checkBugStoryFeedback(filterType);
     }
 
-    private void printOptions(Map<Integer, WorkItems> WS) {
+    private void printOptions() {
+        Map<Integer, WorkItems> WS = new HashMap<>();
+        functionalsRepository.getWorkItems().entrySet().stream()
+                .filter(workitem -> workitem.getValue().getItemType().equalsIgnoreCase(filterType))
+                .forEach(element -> WS.put(element.getKey(), element.getValue()));
         for (Integer key : WS.keySet()) {
             WorkItems workItemTitle = WS.get(key);
             writer.writeLine("Identifier: " + key);
