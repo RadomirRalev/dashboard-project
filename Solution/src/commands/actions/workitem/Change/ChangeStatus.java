@@ -1,6 +1,6 @@
 package commands.actions.workitem.Change;
 
-import commands.actions.workitem.Change.ChangeBase;
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
 import enums.Status;
@@ -21,8 +21,21 @@ public class ChangeStatus extends ChangeBase implements Command {
         return String.format(STATUS_SUCCESSFULLY_CHANGED_MSG, workItem.getTitle(), newStatus);
     }
 
+    @Override
+    protected void parseParameters() {
+        super.parseParameters();
+        setChangeableParameter((ValidationCommands.checkIfEnumValueIsValid(getChangeableParameter()
+                , getWorkItem().getStatusList()
+                , STATUS
+                , getWorkItem().getStatusFilters())));
+    }
+
     private Status getStatus(String newStatus) {
         return Status.valueOf(newStatus.toUpperCase());
+    }
+
+    protected String getChangeableParamterType() {
+        return STATUS;
     }
 }
 

@@ -61,6 +61,8 @@ public abstract class WorkItemsImpl implements WorkItems {
         return status;
     }
 
+    public abstract String getStatusFilters();
+
     @Override
     public List<String> getComments() {
         return new ArrayList<>(comments);
