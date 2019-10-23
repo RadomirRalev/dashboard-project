@@ -46,6 +46,7 @@ public class TeamsImpl implements Team {
 
     @Override
     public void addBoard(Board board) {
+        ValidationHelper.checkIfBoardExistsInTeam(board, this);
         boards.add(board);
     }
 
@@ -54,7 +55,7 @@ public class TeamsImpl implements Team {
         StringBuilder str = new StringBuilder();
         str.append(String.format("Team - %s has the following boards:\n", getName()));
 
-        for (Board board: boards) {
+        for (Board board : boards) {
             str.append(board).append(System.lineSeparator());
         }
         return str.toString().trim();
@@ -63,6 +64,11 @@ public class TeamsImpl implements Team {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public List<Board> getBoards() {
+        return new ArrayList<>(boards);
     }
 
     @Override

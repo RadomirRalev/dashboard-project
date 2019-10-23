@@ -33,11 +33,12 @@ public class BoardTests {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void execute_should_throwException_when_passedZeroArguments() {
+    public void execute_should_throwException_when_passedMoreArguments() {
         // Arrange
         Team team = new TeamsImpl("X");
         functionalsRepository.getTeams().put("X", team);
         List<String> testList = new ArrayList<>();
+        testList.add("1");
 
         // Act & Assert
         testCommand.execute(testList);

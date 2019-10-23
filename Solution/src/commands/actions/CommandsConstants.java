@@ -3,6 +3,10 @@ package commands.actions;
 public class CommandsConstants {
     public static final int RATING_MIN_VALUE = 1;
     public static final int RATING_MAX_VALUE = 5;
+    public static final int WORKITEM_TITLE_MIN_LENGTH = 10;
+    public static final int WORKITEM_TITLE_MAX_LENGTH = 50;
+    public static final int WORKITEM_DESCRIPTION_MIN_LENGTH = 10;
+    public static final int WORKITEM_DESCRIPTION_MAX_LENGTH = 500;
     public static final String INVALID_COMMAND = "Invalid command name: %s!";
     public static final String PERSON_CREATED_MSG = "Person %s was created!";
     public static final String PERSON_DELETED_MSG = "Person %s was deleted!";
@@ -14,6 +18,8 @@ public class CommandsConstants {
     public static final String TEAM_EXISTS_ERROR_MSG = "Team %s already exists in the database " +
             "Please type cancel to abort or change name: \n";
     public static final String BOARD_EXISTS_ERROR_MSG = "Board %s already exists in the database.";
+    public static final String BOARD_ALREADY_EXISTS_IN_TEAM = "Board %s already exists in team %s. Please use" +
+            " another board name or type in cancel to abort.";
     public static final String MEMBER_DOES_NOT_EXIST_MSG = "Member %s does not exist in the database " +
             "but you can write a new name to correct your search. " +
             "Please type cancel to abort or change name: \n";
@@ -119,4 +125,10 @@ public class CommandsConstants {
     public static final String PERSON_ASSIGNED_TO_WORKITEM = "Person %s assigned to workitem";
     public static final String WORKITEM_NOT_A = "Workitem not a %s";
     public static final String WORKITEM_NOT_A_OR = "Workitem not a %s or %s";
+    public static final String TITLE_LENGTH_OUT_OF_BOUNDS = "Length of %s is out of bounds." +
+            " Please make sure the length is between 10 and 50 symbols long. " +
+            "Try again or type cancel to abort.";
+    public static final String DESCRIPTION_LENGTH_OUT_OF_BOUNDS = "Length of %s is out of bounds." +
+            " Please make sure the length is between 10 and 500 symbols long. " +
+            "Try again or type cancel to abort.";
 }

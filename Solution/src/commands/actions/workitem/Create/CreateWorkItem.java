@@ -8,9 +8,6 @@ import core.contracts.FunctionalsRepository;
 
 import java.util.List;
 
-import static commands.actions.CommandsConstants.COMMAND_CANCELLED;
-import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
-
 public abstract class CreateWorkItem extends ConsoleInteraction implements Command {
     private final FunctionalsRepository functionalsRepository;
     private final FunctionalsFactory functionalsFactory;
@@ -49,8 +46,14 @@ public abstract class CreateWorkItem extends ConsoleInteraction implements Comma
         boardName = ConsoleInteraction.asksWhich("board");
         boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
         checkIfCommandCancelled(isCancel(boardName));
+
         title = asksWhatWillItBe("title");
+        title = ValidationCommands.checkIfTitleLengthIsValid(title);
+        checkIfCommandCancelled(isCancel(title));
+
         description = asksWhatWillItBe("description");
+        description = ValidationCommands.checkIfDescriptionLengthIsValid(description);
+        checkIfCommandCancelled(isCancel(description));
     }
 
     protected void setChangeableParameter(String changeableParameter) {

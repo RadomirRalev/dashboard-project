@@ -151,10 +151,22 @@ public class ValidationCommands {
         return boardName;
     }
 
+    public static String checkIfBoardAlreadyExistsInTeam(String boardName, String teamName, FunctionalsRepository functionalsRepository) {
+        while (functionalsRepository.getTeams().get(teamName).getBoards().contains(
+                functionalsRepository.getBoards().get(boardName))
+                && !boardName.equalsIgnoreCase("cancel")) {
+            writer.writeLine(String.format(BOARD_ALREADY_EXISTS_IN_TEAM, boardName, teamName));
+            boardName = reader.readLine();
+            boardName = trimInputAndCheckIfStringIsEmpty(boardName);
+        }
+        return boardName;
+    }
+
+
     public static int checkIfWorkItemExists(int id, FunctionalsRepository functionalsRepository) {
         while (!functionalsRepository.getWorkItems().containsKey(id)
                 && id != 0) {
-            writer.write(String.format(WORKITEM_DOES_NOT_EXIST_MSG, id));
+            writer.writeLine(String.format(WORKITEM_DOES_NOT_EXIST_MSG, id));
             id = checkIfStringCanBeParsed(reader.readLine());
         }
         return id;
@@ -168,6 +180,27 @@ public class ValidationCommands {
         }
         return filterType;
     }
+
+    public static String checkIfTitleLengthIsValid(String title) {
+        while ((title.length() < WORKITEM_TITLE_MIN_LENGTH || title.length() > WORKITEM_TITLE_MAX_LENGTH)
+                && !title.equalsIgnoreCase("cancel")) {
+            writer.write(String.format(TITLE_LENGTH_OUT_OF_BOUNDS, title));
+            title = reader.readLine();
+            title = trimInputAndCheckIfStringIsEmpty(title);
+        }
+        return title;
+    }
+
+    public static String checkIfDescriptionLengthIsValid(String description) {
+        while ((description.length() < WORKITEM_DESCRIPTION_MIN_LENGTH || description.length() > WORKITEM_DESCRIPTION_MAX_LENGTH)
+                && !description.equalsIgnoreCase("cancel")) {
+            writer.write(String.format(DESCRIPTION_LENGTH_OUT_OF_BOUNDS, description));
+            description = reader.readLine();
+            description = trimInputAndCheckIfStringIsEmpty(description);
+        }
+        return description;
+    }
+
 
     public static String trimInputAndCheckIfStringIsEmpty(String input) {
         while (input.trim().isEmpty()) {

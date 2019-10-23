@@ -1,6 +1,7 @@
 package functionals.contracts;
 
 import functionals.models.MemberImpl;
+
 import java.util.List;
 
 public interface Team extends Functionals {
@@ -15,4 +16,5 @@ public interface Team extends Functionals {
 
     String showBoards();
 
+    List<Board> getBoards();
 }
