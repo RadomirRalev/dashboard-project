@@ -1,12 +1,17 @@
 package commands.actions;
 
 import commands.actions.person.NameJoiner;
-import commands.contracts.Command;import core.contracts.FunctionalsRepository;import core.contracts.Reader;
+import commands.contracts.Command;
+import core.contracts.FunctionalsRepository;
+import core.contracts.Reader;
 import core.contracts.Writer;
 import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 
-import java.util.Map;import java.util.List;import static commands.actions.CommandsConstants.*;
+import java.util.Map;
+import java.util.List;
+
+import static commands.actions.CommandsConstants.*;
 import static commands.actions.ValidationCommands.checkIfStringCanBeParsed;
 import static commands.actions.ValidationCommands.trimInputAndCheckIfStringIsEmpty;
 
@@ -17,12 +22,14 @@ public class ConsoleInteraction {
     protected String memberName;
     protected String personName;
     private static Reader reader;
+    private static Writer writer;
     protected int workToBeUnassigned;
 
-    protected ConsoleInteraction() {
+    static {
+        writer = new ConsoleWriter();
         reader = new ConsoleReader();
     }
-
+    
     protected static void validateInput(int size) {
         if (size != correctArgumentsNumber()) {
             throw new IllegalArgumentException(INVALID_NUMBER_OF_ARGUMENTS);
@@ -34,18 +41,18 @@ public class ConsoleInteraction {
     }
 
     protected static String asksWhat(String unit) {
-        System.out.printf(WHAT, unit);
+        writer.write(String.format(WHAT, unit));
         return reader.readLine();
     }
 
-    protected static int asksWhatInt(String unit){
-        System.out.printf(WHICH, unit);
+    protected static int asksWhatInt(String unit) {
+        writer.write(String.format(WHICH, unit));
         String idString = reader.readLine();
         return checkIfStringCanBeParsed(idString);
     }
 
     protected static String asksAboutPersonName() {
-        System.out.printf(WHAT, "Person");
+        writer.write(String.format(WHAT, "Person"));
         String personName = reader.readLine();
         personName = trimInputAndCheckIfStringIsEmpty(personName);
         String[] name = personName.split(" ");
@@ -53,17 +60,17 @@ public class ConsoleInteraction {
     }
 
     protected String asksAboutMemberOrBoard() {
-        System.out.println(SHOW_ACTIVITY_HISTORY_QUESTION);
+        writer.writeLine(SHOW_ACTIVITY_HISTORY_QUESTION);
         return reader.readLine().toLowerCase();
     }
 
     protected static String asksWhich(String unit) {
-        System.out.printf(WHICH, unit);
+        writer.write(String.format(WHICH, unit));
         return reader.readLine();
     }
 
     protected static String asksWhatWillItBe(String unit) {
-        System.out.println(String.format(WHAT_WILL_IT_BE, unit));
+        writer.writeLine(String.format(WHAT_WILL_IT_BE, unit));
         return reader.readLine();
     }
 
@@ -71,12 +78,12 @@ public class ConsoleInteraction {
         return input.equalsIgnoreCase("cancel");
     }
 
-    protected boolean isCancel(int id){
+    protected boolean isCancel(int id) {
         return id == 0;
     }
 
-    protected void checkIfCommandCancelled(boolean isCancel){
-        if(isCancel){
+    protected void checkIfCommandCancelled(boolean isCancel) {
+        if (isCancel) {
             throw new IllegalArgumentException(COMMAND_CANCELLED);
         }
     }
