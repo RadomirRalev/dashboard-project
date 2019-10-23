@@ -27,6 +27,7 @@ public class BoardImpl implements Board {
         getBoardsActivity().get(name).add(activity);
     }
 
+    @Override
     public <T extends WorkItems> void addWorkItems(T workItem) {
         String workItemName = workItem.getTitle();
         if (listWorkItems().contains(workItem.getTitle().equals(workItemName))) {
@@ -35,10 +36,12 @@ public class BoardImpl implements Board {
         workItems.add(workItem);
     }
 
+    @Override
     public <T extends WorkItems> void removeWorkItems(T workItem) {
         workItems.remove(workItem);
     }
 
+    @Override
     public List listWorkItems() {
         return new ArrayList<>(workItems);
     }

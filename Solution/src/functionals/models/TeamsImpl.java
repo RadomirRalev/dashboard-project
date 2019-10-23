@@ -25,6 +25,10 @@ public class TeamsImpl implements Team {
         return teamsActivity;
     }
 
+    public static void addActivity(String activity, String name) {
+        getTeamsActivity().get(name).add(activity);
+    }
+
     @Override
     public void addMember(Person member) {
         members.add(member);
@@ -43,15 +47,6 @@ public class TeamsImpl implements Team {
     @Override
     public void addBoard(Board board) {
         boards.add(board);
-    }
-
-    @Override
-    public void removeBoard(Board board) {
-        boards.remove(board);
-    }
-
-    public static void addActivity(String activity, String name) {
-        getTeamsActivity().get(name).add(activity);
     }
 
     @Override

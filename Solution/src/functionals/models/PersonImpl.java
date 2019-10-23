@@ -1,11 +1,11 @@
 package functionals.models;
+
 import functionals.contracts.Person;
 import workitems.contracts.WorkItems;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 
 public class PersonImpl implements Person {
@@ -28,15 +28,17 @@ public class PersonImpl implements Person {
         getMembersActivity().get(name).add(activity);
     }
 
-
+    @Override
     public String showActivity(String name) {
         return String.join("\n", getMembersActivity().get(name));
     }
 
+    @Override
     public List getAssignedWork() {
         return workItems;
     }
 
+    @Override
     public List listWorkItems() {
         return new ArrayList<>(workItems);
     }

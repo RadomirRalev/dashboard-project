@@ -63,5 +63,5 @@ public class ConsoleInteraction {
     protected boolean isCancel(String input) {
         return input.equalsIgnoreCase("cancel");
     }
-    
+
 }

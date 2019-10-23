@@ -5,12 +5,11 @@ import core.contracts.FunctionalsRepository;
 import core.contracts.Reader;
 import core.providers.ConsoleReader;
 import functionals.contracts.Person;
+import functionals.models.MemberImpl;
 import functionals.models.ValidationHelper;
 
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;
 
@@ -116,8 +115,17 @@ public class ValidationCommands {
         return teamToRemoveMemberFrom;
     }
 
+    public static boolean checkIfTeamMemberExists(String personName, List<MemberImpl> str) {
+        List<String> membersOfTeam = new ArrayList<>();
+        str.forEach(member -> membersOfTeam.add(member.getName()));
+        return membersOfTeam.contains(personName);
+    }
+
     public static String checkIfTeamExists(String teamName, FunctionalsRepository functionalsRepository) {
         while (!functionalsRepository.getTeams().containsKey(teamName)) {
+            if (teamName.equalsIgnoreCase("cancel")) {
+                return teamName;
+            }
             System.out.printf(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamName);
             teamName = reader.readLine();
             teamName = trimInputAndCheckIfStringIsEmpty(teamName);

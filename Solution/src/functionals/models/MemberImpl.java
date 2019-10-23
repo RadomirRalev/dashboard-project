@@ -1,8 +1,7 @@
 package functionals.models;
+
 import core.contracts.FunctionalsRepository;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
-
 
 public class MemberImpl extends PersonImpl {
     private final FunctionalsRepository functionalsRepository;
