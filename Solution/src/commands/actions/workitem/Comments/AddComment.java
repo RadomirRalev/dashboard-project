@@ -15,6 +15,7 @@ public class AddComment extends CommentBase implements Command {
 
     protected String commentCommand(String workitemName, int id, WorkItems workitem) {
         workitem.addComment(comment);
+        workitem.addHistory(COMMENT_ADDED_HISTORY_CHANGE);
 
         return String.format(COMMENT_SUCCESSFULLY_ADDED_MSG, workitemName);
     }

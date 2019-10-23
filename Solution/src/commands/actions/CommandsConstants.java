@@ -102,5 +102,17 @@ public class CommandsConstants {
     public static final String SEVERITIES = "Critical / Major / Minor";
     public static final String PRIORITIES = "High / Medium / Low";
     public static final String COMMAND_CANCELLED = "Command cancelled";
-
+    public static final String INVALID_RATING_ERROR_MSG = "This value is not valid. Please note that the rating" +
+            " can only be an integer between %d and %d";
+    public static final String PLEASE_ENTER_VALID_INTEGER = "ID must be an integer. Please enter a valid one";
+    public static final String NO_WORKITEMS_MEET_CRITERIA = "There are no workitems that meet this criteria.";
+    public static final String ENUM_NOT_VALID_PLEASE_CHOOSE_FROM_FILTER = "Not a valid %s. Please choose from %s";
+    public static final String INPUT_EMPTY_ERROR_WRITE_ANOTHER_NAME = "Input cannot be empty! Please write another name: ";
+    public static final String PRIORITY_CHANGED_TO = "Priority changed to %s";
+    public static final String RATING_CHANGED_TO = "Rating changed to %s";
+    public static final String SEVERITY_CHANGED_TO = "Severity changed to %s";
+    public static final String SIZE_CHANGED_TO = "Size changed to %s";
+    public static final String STATUS_CHANGED_TO = "Status changed to %s";
+    public static final String COMMENT_ADDED_HISTORY_CHANGE = "A comment was added to the workitem";
+    public static final String PERSON_ASSIGNED_TO_WORKITEM = "Person %s assigned to workitem";
 }

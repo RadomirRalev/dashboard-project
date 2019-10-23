@@ -26,6 +26,7 @@ public class ChangeSize extends ChangeBase implements Command {
         }
 
         story.setSize(getSize(newSize));
+        story.addHistory(String.format(SIZE_CHANGED_TO, newSize));
 
         return String.format(SIZE_SUCCESSFULLY_CHANGED_MSG, workitemName, newSize);
     }

@@ -1,7 +1,6 @@
 package core.factories;
 
 
-import commands.actions.ConsoleInteraction;
 import commands.actions.ShowCommands;
 import commands.actions.activityhistory.ShowActivityHistory;
 //import commands.person.board.AddBoardToTeam;
@@ -26,7 +25,6 @@ import commands.contracts.Command;
 import core.FunctionalsRepositoryImpl;
 import core.contracts.CommandFactory;
 import core.contracts.FunctionalsFactory;
-import core.contracts.FunctionalsRepository;
 import enums.CommandType;
 
 public class CommandFactoryImpl implements CommandFactory {
@@ -97,7 +95,7 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ListAllWorkItemsByType(functionalsRepository);
             case LISTALLWORKITEMSBYSTATUS:
                 return new ListAllWorkItemsByStatus(functionalsRepository);
-            case LISTALLWORKITEMSBYASSIGNEE:
+            case LISTALLWORKITEMSBYASIGNEE:
                 return new ListAllWorkItemsByAsignee(functionalsRepository);
             case SORTALLWORKITEMSBYTITLE:
                 return new SortAllWorkItemsByTitle(functionalsRepository);

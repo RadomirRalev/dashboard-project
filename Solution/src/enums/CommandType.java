@@ -36,7 +36,9 @@ public enum CommandType {
     LISTALLWORKITEMS("Listallworkitems - Lists all work items\n"),
     LISTALLWORKITEMSBYTYPE("Listallworkitemsbytype - Lists all work items by type\n"),
     LISTALLWORKITEMSBYSTATUS("Listallworkitemsbystatus - Lists all work items by status\n"),
-    LISTALLWORKITEMSBYASSIGNEE("Listallworkitemsbyasignee - Lists all work items by assignee\n"),
+    LISTALLWORKITEMSBYASIGNEE("Listallworkitemsbyasignee - Lists all work items by assignee\n"),
+    LISTALLWORKITEMSBYASIGNEEANDSTATUS("ListallworkitemsbyasigneeAndStatus - Lists all work items filtered by" +
+            " assignee and status at the same time\n"),
     SORTALLWORKITEMSBYTITLE("Sortallworkitemsbytitle - Sorts all work items by title\n"),
     SORTALLSTORIESBYSIZE("Sortallstoriesbysize - Sorts all stories by size\n"),
     SORTALLBUGSBYSEVERITY("Sortallstoriesbyseverity - Sorts all stories by severity\n"),

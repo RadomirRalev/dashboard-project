@@ -26,6 +26,7 @@ public class ChangeSeverity extends ChangeBase implements Command {
         }
 
         bug.setSeverity(getSeverity(newSeverity));
+        bug.addHistory(String.format(SEVERITY_CHANGED_TO, newSeverity));
 
         return String.format(SEVERITY_SUCCESSFULLY_CHANGED_MSG, workitemName, newSeverity);
     }

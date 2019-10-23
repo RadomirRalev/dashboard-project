@@ -33,7 +33,7 @@ public class CreateBoard implements Command {
         teamName = parameters.get(1);
 
         if(!functionalsRepository.getTeams().containsKey(teamName)){
-            throw new IllegalArgumentException(TEAM_DOES_NOT_EXIST_ERROR_MSG);
+            throw new IllegalArgumentException(String.format(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamName));
         }
         BoardImpl.getBoardsActivity().put(boardName, new ArrayList<>());
 

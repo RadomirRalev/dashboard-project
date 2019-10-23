@@ -18,7 +18,7 @@ public class ChangePriority extends ChangeBase implements Command {
     }
 
     @Override
-    protected String changeCommand(String workitemName, String changeableParameter, WorkItems workitem) {
+    protected String changeCommand(String workitemName, String newPriority, WorkItems workitem) {
         BugAndStory bugAndStory;
         try {
             bugAndStory = (BugAndStory) workitem;
@@ -26,9 +26,10 @@ public class ChangePriority extends ChangeBase implements Command {
             throw new IllegalArgumentException(WORKITEM_NOT_BUG_OR_STORY);
         }
 
-        bugAndStory.setPriority(getPriority(changeableParameter));
+        bugAndStory.setPriority(getPriority(newPriority));
+        bugAndStory.addHistory(String.format(PRIORITY_CHANGED_TO,newPriority));
 
-        return String.format(PRIORITY_SUCCESSFULLY_CHANGED_MSG, workitemName, changeableParameter);
+        return String.format(PRIORITY_SUCCESSFULLY_CHANGED_MSG, workitemName, newPriority);
     }
 
     @Override

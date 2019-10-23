@@ -3,18 +3,25 @@ package commands.actions;
 import commands.actions.person.NameJoiner;
 import core.contracts.FunctionalsRepository;
 import core.contracts.Reader;
+import core.contracts.Writer;
 import core.providers.ConsoleReader;
+import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
 import functionals.models.MemberImpl;
 import functionals.models.ValidationHelper;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static commands.actions.CommandsConstants.*;
 
 public class ValidationCommands {
-    private static Reader reader = new ConsoleReader();
+    private static Writer writer;
+    private static Reader reader;
+
+    static {
+        writer = new ConsoleWriter();
+        reader = new ConsoleReader();
+    }
 
     public static void validateInput(List<String> parameters, int expectedNumber) {
         if (parameters.size() != expectedNumber) {
@@ -51,7 +58,7 @@ public class ValidationCommands {
 
     public static String checkIfPersonExists(String personName, FunctionalsRepository functionalsRepository) {
         while (!functionalsRepository.getPersons().containsKey(personName)) {
-            System.out.printf(PERSON_DOES_NOT_EXIST_MSG, personName);
+            writer.write(String.format(PERSON_DOES_NOT_EXIST_MSG, personName));
             personName = reader.readLine();
             if (personName.equalsIgnoreCase("cancel")) {
                 return personName;
@@ -65,7 +72,7 @@ public class ValidationCommands {
 
     public static String checkIfMemberExists(String memberName, FunctionalsRepository functionalsRepository) {
         while (!functionalsRepository.getPersons().containsKey(memberName)) {
-            System.out.printf(MEMBER_DOES_NOT_EXIST_MSG, memberName);
+            writer.write(String.format(MEMBER_DOES_NOT_EXIST_MSG, memberName));
             memberName = reader.readLine();
             memberName = trimInputAndCheckIfStringIsEmpty(memberName);
             String[] name = memberName.split(" ");
@@ -76,7 +83,7 @@ public class ValidationCommands {
 
     public static String checkNameOfNewPerson(String personName, FunctionalsRepository functionalsRepository) {
         while (functionalsRepository.getPersons().containsKey(personName)) {
-            System.out.printf(PERSON_EXISTS_ERROR_MSG, personName);
+            writer.write(String.format(PERSON_EXISTS_ERROR_MSG, personName));
             personName = reader.readLine();
             personName = trimInputAndCheckIfStringIsEmpty(personName);
             String[] name = personName.split(" ");
@@ -88,7 +95,7 @@ public class ValidationCommands {
 
     public static String checkNameLengthOfNewPerson(String personName, FunctionalsRepository functionalsRepository) {
         while (personName.length() < 5 || personName.length() > 15) {
-            System.out.println(PERSON_NAME_LENGTH);
+            writer.writeLine(PERSON_NAME_LENGTH);
             personName = reader.readLine();
             personName = trimInputAndCheckIfStringIsEmpty(personName);
             String[] name = personName.split(" ");
@@ -99,7 +106,7 @@ public class ValidationCommands {
 
     public static String checkNameOfNewTeam(String name, FunctionalsRepository functionalsRepository) {
         while (functionalsRepository.getTeams().containsKey(name)) {
-            System.out.printf(TEAM_EXISTS_ERROR_MSG, name);
+            writer.write(String.format(TEAM_EXISTS_ERROR_MSG, name));
             name = reader.readLine();
             name = trimInputAndCheckIfStringIsEmpty(name);
         }
@@ -108,7 +115,7 @@ public class ValidationCommands {
 
     public static String checkIfMemberOfTeam(String memberName, String teamToRemoveMemberFrom, ArrayList<String> str) {
         while (!str.contains(teamToRemoveMemberFrom)) {
-            System.out.printf(NOT_A_MEMBER_OF_THIS_TEAM, memberName);
+            writer.write(String.format(NOT_A_MEMBER_OF_THIS_TEAM, memberName));
             teamToRemoveMemberFrom = reader.readLine();
             teamToRemoveMemberFrom = trimInputAndCheckIfStringIsEmpty(teamToRemoveMemberFrom);
         }
@@ -126,7 +133,7 @@ public class ValidationCommands {
             if (teamName.equalsIgnoreCase("cancel")) {
                 return teamName;
             }
-            System.out.printf(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamName);
+            writer.write(String.format(TEAM_DOES_NOT_EXIST_ERROR_MSG, teamName));
             teamName = reader.readLine();
             teamName = trimInputAndCheckIfStringIsEmpty(teamName);
         }
@@ -136,7 +143,7 @@ public class ValidationCommands {
     public static String checkIfBoardExists(String boardName, FunctionalsRepository functionalsRepository) {
         while (!functionalsRepository.getBoards().containsKey(boardName)
                 && !boardName.equalsIgnoreCase("cancel")) {
-            System.out.printf(BOARD_DOES_NOT_EXIST_MSG, boardName);
+            writer.write(String.format(BOARD_DOES_NOT_EXIST_MSG, boardName));
             boardName = reader.readLine();
             boardName = trimInputAndCheckIfStringIsEmpty(boardName);
         }
@@ -146,16 +153,16 @@ public class ValidationCommands {
     public static int checkIfWorkItemExists(int id, FunctionalsRepository functionalsRepository) {
         while (!functionalsRepository.getWorkItems().containsKey(id)
                 && id != 0) {
-            System.out.printf(WORKITEM_DOES_NOT_EXIST_MSG, id);
+            writer.write(String.format(WORKITEM_DOES_NOT_EXIST_MSG, id));
             id = checkIfStringCanBeParsed(reader.readLine());
         }
         return id;
     }
 
     public static String checkBugStoryFeedback(String filterType) {
-        while (!filterType.equalsIgnoreCase("bug") && !filterType.equalsIgnoreCase("story")
-                && !filterType.equalsIgnoreCase("feedback")) {
-            System.out.println(ENTER_BUG_STORY_FEEDBACK);
+        while (!filterType.equalsIgnoreCase(BUG) && !filterType.equalsIgnoreCase(STORY)
+                && !filterType.equalsIgnoreCase(FEEDBACK)) {
+            writer.writeLine(ENTER_BUG_STORY_FEEDBACK);
             filterType = reader.readLine();
         }
         return filterType;
@@ -163,7 +170,7 @@ public class ValidationCommands {
 
     public static String trimInputAndCheckIfStringIsEmpty(String input) {
         while (input.trim().isEmpty()) {
-            System.out.println("Input cannot be empty! Please write another name: ");
+            writer.writeLine(INPUT_EMPTY_ERROR_WRITE_ANOTHER_NAME);
             input = reader.readLine();
         }
         return input;
@@ -185,7 +192,7 @@ public class ValidationCommands {
                     return enumValue;
                 }
             }
-            System.out.println(String.format("Not a valid %s. Please choose from %s", enumType, enumFilters));
+            writer.writeLine(String.format(ENUM_NOT_VALID_PLEASE_CHOOSE_FROM_FILTER, enumType, enumFilters));
             enumValue = reader.readLine();
         }
     }
@@ -197,8 +204,7 @@ public class ValidationCommands {
                 ValidationHelper.checkNumberInBounds(ratingInt, RATING_MIN_VALUE, RATING_MAX_VALUE);
                 return rating;
             } catch (Exception ex) {
-                System.out.println(String.format("This value is not valid. Please note that the rating" +
-                        " can only be an integer between %d and %d", RATING_MIN_VALUE, RATING_MAX_VALUE));
+                writer.writeLine(String.format(INVALID_RATING_ERROR_MSG, RATING_MIN_VALUE, RATING_MAX_VALUE));
             }
             rating = reader.readLine();
         }
@@ -211,17 +217,17 @@ public class ValidationCommands {
                 id = Integer.parseInt(idString);
                 return id;
             } catch (Exception ex) {
-                System.out.println("ID must be an integer. Please enter a valid one");
+                writer.writeLine(PLEASE_ENTER_VALID_INTEGER);
             }
             idString = reader.readLine();
         }
     }
 
-    public static StringBuilder isStringBuilderEmpty(StringBuilder stringBuilder){
-        if(!stringBuilder.toString().isEmpty()){
+    public static StringBuilder isStringBuilderEmpty(StringBuilder stringBuilder) {
+        if (!stringBuilder.toString().isEmpty()) {
             return stringBuilder;
         } else {
-            stringBuilder.append("There are no workitems that meet this criteria.");
+            stringBuilder.append(NO_WORKITEMS_MEET_CRITERIA);
             return stringBuilder;
         }
     }
