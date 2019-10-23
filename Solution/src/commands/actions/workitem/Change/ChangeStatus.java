@@ -17,6 +17,7 @@ public class ChangeStatus extends ChangeBase implements Command {
     @Override
     protected String changeCommand(String boardName, String newStatus, WorkItems workItem) {
         workItem.setStatus(getStatus(newStatus));
+        workItem.addHistory(String.format(STATUS_CHANGED_TO, newStatus));
 
         return String.format(STATUS_SUCCESSFULLY_CHANGED_MSG, workItem.getTitle(), newStatus);
     }
@@ -30,12 +31,12 @@ public class ChangeStatus extends ChangeBase implements Command {
                 , getWorkItem().getStatusFilters())));
     }
 
-    private Status getStatus(String newStatus) {
-        return Status.valueOf(newStatus.toUpperCase());
-    }
-
     protected String getChangeableParamterType() {
         return STATUS;
+    }
+
+    private Status getStatus(String newStatus) {
+        return Status.valueOf(newStatus.toUpperCase());
     }
 }
 

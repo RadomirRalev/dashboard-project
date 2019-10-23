@@ -26,6 +26,7 @@ public class ListAllWorkItemsByType extends ListWorkItems implements Command {
                 .filter(workitem -> workitem.getItemType().equalsIgnoreCase(filterType))
                 .forEach(element -> stringBuilder.append(element.toString() + "\n"));
 
+        ValidationCommands.isStringBuilderEmpty(stringBuilder);
         return stringBuilder.toString().trim();
     }
 }

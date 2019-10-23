@@ -26,6 +26,7 @@ public class ChangeSeverity extends ChangeBase implements Command {
         }
 
         bug.setSeverity(getSeverity(newSeverity));
+        bug.addHistory(String.format(SEVERITY_CHANGED_TO, newSeverity));
 
         return String.format(SEVERITY_SUCCESSFULLY_CHANGED_MSG, workitemName, newSeverity);
     }
@@ -39,11 +40,11 @@ public class ChangeSeverity extends ChangeBase implements Command {
                 , SEVERITIES)));
     }
 
-    private Severity getSeverity(String newSeverity) {
-        return Severity.valueOf(newSeverity.toUpperCase());
-    }
-
     protected String getChangeableParamterType(){
         return SEVERITY;
+    }
+
+    private Severity getSeverity(String newSeverity) {
+        return Severity.valueOf(newSeverity.toUpperCase());
     }
 }

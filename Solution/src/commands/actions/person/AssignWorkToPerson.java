@@ -10,6 +10,7 @@ import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
 import functionals.models.PersonImpl;
+import workitems.contracts.BugAndStory;
 import workitems.contracts.WorkItems;
 
 import java.util.*;
@@ -54,6 +55,11 @@ public class AssignWorkToPerson extends ConsoleInteraction implements Command {
     private String addsWorkToActivityHistory(String personName, String workToBeAdded, Person person) {
         String activity = String.format(WORK_ADDED_MSG, workToBeAdded, personName);
         PersonImpl.addActivity(activity, personName);
+
+        BugAndStory bugAndStory = (BugAndStory) getWorkToBeAdded();
+        bugAndStory.setAsignee(person);
+        bugAndStory.addHistory(String.format(PERSON_ASSIGNED_TO_WORKITEM,person.getName()));
+
         return activity;
     }
 

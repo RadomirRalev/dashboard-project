@@ -1,5 +1,6 @@
 package commands.actions.workitem.ListWorkItems;
 
+import commands.actions.ValidationCommands;
 import commands.actions.workitem.ListWorkItems.ListWorkItems;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
@@ -21,6 +22,7 @@ public class SortAllWorkItemsByTitle extends ListWorkItems implements Command {
                 .sorted(Comparator.comparing(WorkItems::getTitle))
                 .forEach(workitem -> stringBuilder.append(workitem.toString() + "\n"));
 
+        ValidationCommands.isStringBuilderEmpty(stringBuilder);
         return stringBuilder.toString().trim();
     }
 }

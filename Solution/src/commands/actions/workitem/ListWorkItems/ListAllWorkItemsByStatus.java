@@ -1,5 +1,6 @@
 package commands.actions.workitem.ListWorkItems;
 
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
 
@@ -22,6 +23,7 @@ public class ListAllWorkItemsByStatus extends ListWorkItems implements Command {
                 .filter(workitem -> workitem.getStatus().toString().equalsIgnoreCase(filterType))
                 .forEach(element -> stringBuilder.append(element.toString() + "\n"));
 
+        ValidationCommands.isStringBuilderEmpty(stringBuilder);
         return stringBuilder.toString().trim();
     }
 }

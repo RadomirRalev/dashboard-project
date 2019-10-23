@@ -23,6 +23,7 @@ public class ChangeRating extends ChangeBase implements Command {
         }
 
         feedback.setRating(getRating(newRating));
+        feedback.addHistory(String.format(RATING_CHANGED_TO, newRating));
 
         return String.format(RATING_SUCCESSFULLY_CHANGED_MSG, workitemName, newRating);
     }
@@ -33,12 +34,11 @@ public class ChangeRating extends ChangeBase implements Command {
         setChangeableParameter(ValidationCommands.checkIfRatingIsValid(getChangeableParameter()));
     }
 
+    protected String getChangeableParamterType() {
+        return RATING;
+    }
 
     private int getRating(String newRating) {
         return Integer.parseInt(newRating);
-    }
-
-    protected String getChangeableParamterType(){
-        return RATING;
     }
 }

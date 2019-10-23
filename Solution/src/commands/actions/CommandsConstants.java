@@ -27,15 +27,19 @@ public class CommandsConstants {
             "Please type cancel to abort or change board name: \n";
     public static final String WORKITEM_DOES_NOT_EXIST_MSG = "Workitem with ID %s does not exist in the database " +
             "but you can write a new ID name to correct your search. " +
-            "Please type cancel to abort or change the ID number: \n";
+            "Please type 0 to abort or change the ID number to a valid one: \n";
     public static final String NUMBER_ASSIGNEDWORK = "What number of assigned work to be removed?";
     public static final String LIST_ASSIGNEDWORK = "%s has the following assigned work: \n" +
             "%s";
     public static final String ENTER_BUG_STORY_FEEDBACK = "Wrong input! Please enter bug, story or feedback " +
             "or type cancel to abort.";
+<<<<<<< HEAD
     public static final String TYPE_ANOTHER_COMMAND = "Please type command.";
     public static final String WORK_ALREADY_ADDED = "This work has already been added to the person. " +
             "Please type another command.";
+=======
+    public static final String TYPE_ANOTHER_COMMAND = "Please type another command.";
+>>>>>>> 36d91a305174ba3513299e3d4203e4f3bc35b5bd
     public static final String ALREADY_MEMBER = "Already a member of this team. Please type another command.";
     public static final String INVALID_NUMBER_OF_ARGUMENTS = "Invalid number of arguments!";
     public static final String PERSONSLIST_IS_EMPTY = "Persons list is empty!";
@@ -103,5 +107,18 @@ public class CommandsConstants {
     public static final String SIZES = "Large / Medium / Small";
     public static final String SEVERITIES = "Critical / Major / Minor";
     public static final String PRIORITIES = "High / Medium / Low";
-
+    public static final String COMMAND_CANCELLED = "Command cancelled";
+    public static final String INVALID_RATING_ERROR_MSG = "This value is not valid. Please note that the rating" +
+            " can only be an integer between %d and %d";
+    public static final String PLEASE_ENTER_VALID_INTEGER = "ID must be an integer. Please enter a valid one";
+    public static final String NO_WORKITEMS_MEET_CRITERIA = "There are no workitems that meet this criteria.";
+    public static final String ENUM_NOT_VALID_PLEASE_CHOOSE_FROM_FILTER = "Not a valid %s. Please choose from %s";
+    public static final String INPUT_EMPTY_ERROR_WRITE_ANOTHER_NAME = "Input cannot be empty! Please write another name: ";
+    public static final String PRIORITY_CHANGED_TO = "Priority changed to %s";
+    public static final String RATING_CHANGED_TO = "Rating changed to %s";
+    public static final String SEVERITY_CHANGED_TO = "Severity changed to %s";
+    public static final String SIZE_CHANGED_TO = "Size changed to %s";
+    public static final String STATUS_CHANGED_TO = "Status changed to %s";
+    public static final String COMMENT_ADDED_HISTORY_CHANGE = "A comment was added to the workitem";
+    public static final String PERSON_ASSIGNED_TO_WORKITEM = "Person %s assigned to workitem";
 }

@@ -1,5 +1,6 @@
 package commands.actions.workitem.ListWorkItems;
 
+import commands.actions.ValidationCommands;
 import commands.actions.workitem.ListWorkItems.ListWorkItems;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
@@ -25,6 +26,7 @@ public class SortAllFeedbackByRating extends ListWorkItems implements Command {
                 .sorted(Comparator.comparingInt(Feedback::getRating))
                 .forEach(item -> stringBuilder.append(item.toString() + "\n"));
 
+        ValidationCommands.isStringBuilderEmpty(stringBuilder);
         return stringBuilder.toString().trim();
     }
 }
