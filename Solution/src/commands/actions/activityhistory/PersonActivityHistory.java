@@ -6,14 +6,14 @@ import functionals.contracts.Person;
 import functionals.models.MemberImpl;
 import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
 
-public class PersonActivityHistory extends ConsoleInteraction {
+class PersonActivityHistory extends ConsoleInteraction {
     private final FunctionalsRepositoryImpl functionalsRepository;
 
-    public PersonActivityHistory(FunctionalsRepositoryImpl functionalsRepository) {
+    PersonActivityHistory(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
     }
 
-    public String execute() {
+    String execute() {
         personName = asksAboutPersonName();
         personName = ValidationCommands.checkIfMemberExists(personName, functionalsRepository);
         if (isCancel(personName)) {

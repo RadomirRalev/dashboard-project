@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class NameJoiner {
     private static AtomicInteger counter = new AtomicInteger(1);
+
     public static String joinerList(List<WorkItems> parameters) {
         StringJoiner str = new StringJoiner("===========\n");
         parameters.forEach(parameter -> str.add("Work item number: " + counter.getAndIncrement() + "\n" + parameter));
@@ -18,7 +19,6 @@ public class NameJoiner {
     public static String joinerArr(String[] personNameArr) {
         StringJoiner str = new StringJoiner(" ");
         Arrays.stream(personNameArr).forEach(name -> {
-            //name.toLowerCase();
             str.add(StringUtils.capitalize(name.toLowerCase()));
         });
         return str.toString();

@@ -7,14 +7,14 @@ import java.util.stream.Collectors;
 import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
 import static functionals.models.BoardImpl.getBoardsActivity;
 
-public class BoardActivityHistory extends ConsoleInteraction {
+class BoardActivityHistory extends ConsoleInteraction {
     private final FunctionalsRepositoryImpl functionalsRepository;
 
-    public BoardActivityHistory(FunctionalsRepositoryImpl functionalsRepository) {
+    BoardActivityHistory(FunctionalsRepositoryImpl functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
     }
 
-    public String execute() {
+    String execute() {
         boardName = asksWhat("board");
         boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
         if (isCancel(boardName)) {
@@ -24,15 +24,10 @@ public class BoardActivityHistory extends ConsoleInteraction {
     }
 
     private String showActivity(String boardActivityHistory) {
-        return String.valueOf(getBoardsActivity().get(boardActivityHistory).stream()
-                .collect( Collectors.joining( "\n" ) ));
+        return String.join("\n", getBoardsActivity().get(boardActivityHistory));
     }
 
     private String getBoardName() {
         return boardName;
-    }
-
-    private void setBoardName() {
-        this.boardName = asksWhat("board");
     }
 }

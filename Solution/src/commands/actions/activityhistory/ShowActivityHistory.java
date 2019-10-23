@@ -35,7 +35,6 @@ public class ShowActivityHistory extends ConsoleInteraction implements Command {
                 return HISTORY_UNAVAILABLE;
         }
     }
-
 }
 
 
