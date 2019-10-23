@@ -13,15 +13,13 @@ import static commands.actions.ValidationCommands.trimInputAndCheckIfStringIsEmp
 public class ConsoleInteraction {
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 0;
     private static Reader reader;
+    private static Writer writer;
+
     protected String teamName;
     protected String boardName;
     protected String memberName;
     protected String personName;
-<<<<<<< HEAD
-=======
-    private static Reader reader;
-    private static Writer writer;
->>>>>>> 36d91a305174ba3513299e3d4203e4f3bc35b5bd
+
     protected int workToBeUnassigned;
 
     static {
