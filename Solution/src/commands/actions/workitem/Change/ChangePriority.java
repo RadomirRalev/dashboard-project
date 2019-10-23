@@ -19,15 +19,10 @@ public class ChangePriority extends ChangeBase implements Command {
 
     @Override
     protected String changeCommand(String workitemName, String newPriority, WorkItems workitem) {
-        BugAndStory bugAndStory;
-        try {
-            bugAndStory = (BugAndStory) workitem;
-        } catch (ClassCastException ex) {
-            throw new IllegalArgumentException(WORKITEM_NOT_BUG_OR_STORY);
-        }
+        BugAndStory bugAndStory = ValidationCommands.castBugAndStory(workitem);
 
         bugAndStory.setPriority(getPriority(newPriority));
-        bugAndStory.addHistory(String.format(PRIORITY_CHANGED_TO,newPriority));
+        bugAndStory.addHistory(String.format(PRIORITY_CHANGED_TO, newPriority));
 
         return String.format(PRIORITY_SUCCESSFULLY_CHANGED_MSG, workitemName, newPriority);
     }

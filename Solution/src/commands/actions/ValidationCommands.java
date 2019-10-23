@@ -9,6 +9,7 @@ import core.providers.ConsoleWriter;
 import functionals.contracts.Person;
 import functionals.models.MemberImpl;
 import functionals.models.ValidationHelper;
+import workitems.contracts.*;
 
 import java.util.*;
 
@@ -229,6 +230,42 @@ public class ValidationCommands {
         } else {
             stringBuilder.append(NO_WORKITEMS_MEET_CRITERIA);
             return stringBuilder;
+        }
+    }
+
+    public static BugAndStory castBugAndStory(WorkItems workitem) {
+        try {
+            BugAndStory bugAndStory = (BugAndStory) workitem;
+            return bugAndStory;
+        } catch (ClassCastException ex) {
+            throw new IllegalArgumentException(String.format(WORKITEM_NOT_A_OR, BUG, STORY));
+        }
+    }
+
+    public static Bug castBug(WorkItems workitem) {
+        try {
+            Bug bug = (Bug) workitem;
+            return bug;
+        } catch (ClassCastException ex) {
+            throw new IllegalArgumentException(String.format(WORKITEM_NOT_A, BUG));
+        }
+    }
+
+    public static Feedback castFeedback(WorkItems workitem) {
+        try {
+            Feedback feedback = (Feedback) workitem;
+            return feedback;
+        } catch (ClassCastException ex) {
+            throw new IllegalArgumentException(String.format(WORKITEM_NOT_A, FEEDBACK));
+        }
+    }
+
+    public static Story castStory(WorkItems workitem) {
+        try {
+            Story story = (Story) workitem;
+            return story;
+        } catch (ClassCastException ex) {
+            throw new IllegalArgumentException(String.format(WORKITEM_NOT_A, STORY));
         }
     }
 }

@@ -15,12 +15,7 @@ public class ChangeRating extends ChangeBase implements Command {
 
     @Override
     protected String changeCommand(String workitemName, String newRating, WorkItems workitem) {
-        Feedback feedback;
-        try {
-            feedback = (Feedback) workitem;
-        } catch (ClassCastException ex) {
-            throw new IllegalArgumentException(WORKITEM_NOT_FEEDBACK);
-        }
+        Feedback feedback = ValidationCommands.castFeedback(workitem);
 
         feedback.setRating(getRating(newRating));
         feedback.addHistory(String.format(RATING_CHANGED_TO, newRating));

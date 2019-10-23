@@ -18,12 +18,7 @@ public class ChangeSize extends ChangeBase implements Command {
 
     @Override
     protected String changeCommand(String workitemName, String newSize, WorkItems workItem) {
-        Story story;
-        try {
-            story = (Story) workItem;
-        } catch (ClassCastException ex) {
-            throw new IllegalArgumentException(WORKITEM_NOT_STORY);
-        }
+        Story story = ValidationCommands.castStory(workItem);
 
         story.setSize(getSize(newSize));
         story.addHistory(String.format(SIZE_CHANGED_TO, newSize));
@@ -40,7 +35,7 @@ public class ChangeSize extends ChangeBase implements Command {
                 , SIZES)));
     }
 
-    protected String getChangeableParamterType(){
+    protected String getChangeableParamterType() {
         return SIZE;
     }
 

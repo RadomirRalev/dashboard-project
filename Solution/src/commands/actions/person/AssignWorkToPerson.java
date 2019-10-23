@@ -46,9 +46,9 @@ public class AssignWorkToPerson extends ConsoleInteraction implements Command {
         String activity = String.format(WORK_ADDED_MSG, workToBeAdded, personName);
         PersonImpl.addActivity(activity, personName);
 
-        BugAndStory bugAndStory = (BugAndStory) getWorkToBeAdded();
+        BugAndStory bugAndStory = ValidationCommands.castBugAndStory(getWorkToBeAdded());
         bugAndStory.setAsignee(person);
-        bugAndStory.addHistory(String.format(PERSON_ASSIGNED_TO_WORKITEM,person.getName()));
+        bugAndStory.addHistory(String.format(PERSON_ASSIGNED_TO_WORKITEM, person.getName()));
 
         return activity;
     }

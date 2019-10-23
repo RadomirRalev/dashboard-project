@@ -97,6 +97,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ListAllWorkItemsByStatus(functionalsRepository);
             case LISTALLWORKITEMSBYASIGNEE:
                 return new ListAllWorkItemsByAsignee(functionalsRepository);
+            case LISTALLWORKITEMSBYASIGNEEANDSTATUS:
+                return new ListAllWorkItemsByStatusAndAsignee(functionalsRepository);
             case SORTALLWORKITEMSBYTITLE:
                 return new SortAllWorkItemsByTitle(functionalsRepository);
             case SORTALLSTORIESBYSIZE:

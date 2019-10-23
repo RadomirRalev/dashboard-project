@@ -18,12 +18,7 @@ public class ChangeSeverity extends ChangeBase implements Command {
 
     @Override
     protected String changeCommand(String workitemName, String newSeverity, WorkItems workitem) {
-        Bug bug;
-        try {
-            bug = (Bug) workitem;
-        } catch (ClassCastException ex) {
-            throw new IllegalArgumentException(WORKITEM_NOT_BUG);
-        }
+        Bug bug = ValidationCommands.castBug(workitem);
 
         bug.setSeverity(getSeverity(newSeverity));
         bug.addHistory(String.format(SEVERITY_CHANGED_TO, newSeverity));
@@ -40,7 +35,7 @@ public class ChangeSeverity extends ChangeBase implements Command {
                 , SEVERITIES)));
     }
 
-    protected String getChangeableParamterType(){
+    protected String getChangeableParamterType() {
         return SEVERITY;
     }
 

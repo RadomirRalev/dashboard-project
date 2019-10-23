@@ -115,4 +115,6 @@ public class CommandsConstants {
     public static final String STATUS_CHANGED_TO = "Status changed to %s";
     public static final String COMMENT_ADDED_HISTORY_CHANGE = "A comment was added to the workitem";
     public static final String PERSON_ASSIGNED_TO_WORKITEM = "Person %s assigned to workitem";
+    public static final String WORKITEM_NOT_A = "Workitem not a %s";
+    public static final String WORKITEM_NOT_A_OR = "Workitem not a %s or %s";
 }
