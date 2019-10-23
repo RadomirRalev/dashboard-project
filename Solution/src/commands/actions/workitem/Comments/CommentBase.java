@@ -1,4 +1,4 @@
-package commands.actions.workitem.Change;
+package commands.actions.workitem.Comments;
 
 import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
@@ -9,18 +9,15 @@ import workitems.contracts.WorkItems;
 
 import java.util.List;
 
-import static commands.actions.CommandsConstants.FAILED_TO_PARSE_COMMAND_PARAMETERS;
-
-public abstract class ChangeBase extends ConsoleInteraction implements Command {
+public abstract class CommentBase extends ConsoleInteraction implements Command {
     private final FunctionalsRepository functionalsRepository;
 
     private String workitemName;
     private int id;
     private String boardName;
-    private String changeableParameter;
     private WorkItems workitem;
 
-    public ChangeBase(FunctionalsRepository functionalsRepository) {
+    public CommentBase(FunctionalsRepository functionalsRepository) {
         this.functionalsRepository = functionalsRepository;
     }
 
@@ -35,13 +32,12 @@ public abstract class ChangeBase extends ConsoleInteraction implements Command {
         //checks if this board contains this workitem
         ValidationCommands.checkIfItemContainsAnother(board.listWorkItems(), workitem, workitemName, boardName);
 
-        //checks if the work item name passed from the console matches the work item name in the repository
         ValidationCommands.checkIfNamesMatch(workitem.getTitle(), workitemName);
 
-        return changeCommand(workitemName, changeableParameter, workitem);
+        return commentCommand(workitemName, id, workitem);
     }
 
-    protected abstract String changeCommand(String workitemName, String changeableParameter, WorkItems workitem);
+    protected abstract String commentCommand(String workitemName, int id, WorkItems workitem);
 
     protected void parseParameters() {
         workitemName = asksWhat("workitem");
@@ -49,21 +45,6 @@ public abstract class ChangeBase extends ConsoleInteraction implements Command {
         id = ValidationCommands.checkIfWorkItemExists(id, functionalsRepository);
         boardName = asksWhat("board");
         boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
-        changeableParameter = asksWhatWillItBe(getChangeableParamterType());
         workitem = functionalsRepository.getWorkItems().get(id);
-    }
-
-    protected abstract String getChangeableParamterType();
-
-    protected WorkItems getWorkItem() {
-        return workitem;
-    }
-
-    public String getChangeableParameter() {
-        return changeableParameter;
-    }
-
-    protected void setChangeableParameter(String changeableParameter) {
-        this.changeableParameter = changeableParameter;
     }
 }
