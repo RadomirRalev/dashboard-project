@@ -7,6 +7,7 @@ import core.providers.ConsoleReader;
 import core.providers.ConsoleWriter;
 
 import java.util.Map;import java.util.List;import static commands.actions.CommandsConstants.*;
+import static commands.actions.ValidationCommands.checkIfStringCanBeParsed;
 import static commands.actions.ValidationCommands.trimInputAndCheckIfStringIsEmpty;
 
 public class ConsoleInteraction {
@@ -35,6 +36,12 @@ public class ConsoleInteraction {
     protected static String asksWhat(String unit) {
         System.out.printf(WHAT, unit);
         return reader.readLine();
+    }
+
+    protected static int asksWhatInt(String unit){
+        System.out.printf(WHICH, unit);
+        String idString = reader.readLine();
+        return checkIfStringCanBeParsed(idString);
     }
 
     protected static String asksAboutPersonName() {

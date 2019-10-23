@@ -16,6 +16,8 @@ public interface WorkItems {
 
     Status getStatus();
 
+    String getStatusFilters();
+
     List<String> getComments();
 
     List<String> getHistory();

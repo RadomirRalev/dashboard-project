@@ -11,6 +11,7 @@ import java.util.List;
 import static commands.actions.CommandsConstants.*;
 
 public class RemoveWorkItem implements Command {
+    //TODO make command interact with consoles
     private static final int CORRECT_NUMBER_OF_ARGUMENTS = 3;
 
     private final FunctionalsRepository functionalsRepository;

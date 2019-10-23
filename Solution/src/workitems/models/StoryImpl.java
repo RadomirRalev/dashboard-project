@@ -9,6 +9,8 @@ import workitems.contracts.WorkItems;
 
 import java.util.EnumSet;
 
+import static workitems.Constants.STORY_STATUSES;
+
 public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, WorkItems {
     private static final String ITEM_TYPE = "Story";
 
@@ -18,7 +20,7 @@ public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, Wo
     private Size size;
 
     static {
-        storyStatus = EnumSet.of(Status.NOTDONE, Status.IN_PROGRESS, Status.DONE);
+        storyStatus = EnumSet.of(Status.NOTDONE, Status.INPROGRESS, Status.DONE);
         storySize = EnumSet.allOf(Size.class);
     }
 
@@ -54,6 +56,11 @@ public class StoryImpl extends BugAndStoryImpl implements Story, BugAndStory, Wo
 
     public static EnumSet<Size> getSizeList() {
         return storySize;
+    }
+
+    @Override
+    public String getStatusFilters(){
+        return STORY_STATUSES;
     }
 
     @Override

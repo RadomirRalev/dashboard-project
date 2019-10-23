@@ -7,6 +7,8 @@ import functionals.models.ValidationHelper;
 
 import java.util.EnumSet;
 
+import static workitems.Constants.FEEDBACK_STATUSES;
+
 public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
     private static final String ITEM_TYPE = "Feedback";
     private static final int MIN_RATING_VALUE = 1;
@@ -49,6 +51,11 @@ public class FeedbackImpl extends WorkItemsImpl implements Feedback, WorkItems {
     @Override
     public EnumSet<Status> getStatusList() {
         return feedbackStatus;
+    }
+
+    @Override
+    public String getStatusFilters(){
+        return FEEDBACK_STATUSES;
     }
 
     @Override

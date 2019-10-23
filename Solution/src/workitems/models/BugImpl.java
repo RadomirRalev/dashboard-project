@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
+import static workitems.Constants.BUG_STATUSES;
+
 public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkItems {
     private static final String ITEM_TYPE = "Bug";
 
@@ -60,6 +62,11 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
     }
 
     @Override
+    public String getStatusFilters(){
+        return BUG_STATUSES;
+    }
+
+    @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
         str.append(super.toString());
@@ -75,7 +82,7 @@ public class BugImpl extends BugAndStoryImpl implements Bug, BugAndStory, WorkIt
     }
 
     private void setStepsToReproduce(List<String> stepsToReproduce) {
-        ValidationHelper.checkIfNull(stepsToReproduce);
+//        ValidationHelper.checkIfNull(stepsToReproduce);
         this.stepsToReproduce = stepsToReproduce;
     }
 }
