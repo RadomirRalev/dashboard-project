@@ -1,5 +1,6 @@
 package commands.actions.workitem;
 
+import commands.actions.ConsoleInteraction;
 import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
@@ -10,14 +11,11 @@ import java.util.List;
 
 import static commands.actions.CommandsConstants.*;
 
-public class RemoveWorkItem implements Command {
-    //TODO make command interact with consoles
-    private static final int CORRECT_NUMBER_OF_ARGUMENTS = 3;
-
+public class RemoveWorkItem extends ConsoleInteraction implements Command {
     private final FunctionalsRepository functionalsRepository;
 
     private int id;
-    private String workItemName;
+    private String workitemName;
     private String boardName;
 
     public RemoveWorkItem(FunctionalsRepository functionalsRepository) {
@@ -26,50 +24,35 @@ public class RemoveWorkItem implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        ValidationCommands.validateInput(parameters, CORRECT_NUMBER_OF_ARGUMENTS);
+        ConsoleInteraction.validateInput(parameters.size());
 
-        parseParameters(parameters);
-
-        if (!functionalsRepository.getBoards().containsKey(boardName)) {
-            throw new IllegalArgumentException(String.format(BOARD_DOES_NOT_EXIST_ERROR_MSG, boardName));
-        }
-
-        if (!functionalsRepository.getWorkItems().containsKey(id)) {
-            throw new IllegalArgumentException(String.format(WORKITEM_DOES_NOT_EXIST_ERROR_MSG, workItemName, id));
-        }
+        parseParameters();
 
         WorkItems workitem = functionalsRepository.getWorkItems().get(id);
-
-        if (!functionalsRepository.getBoards().get(boardName).listWorkItems().contains(workitem)) {
-            throw new IllegalArgumentException(String.format(WORKITEM_DOES_NOT_EXIST_IN_BOARD_MSG, workItemName, id,
-                    boardName));
-        }
-
-        if(!workitem.getTitle().equals(workItemName)){
-            throw new IllegalArgumentException(WORKITEM_ID_DOES_NOT_MATCH_NAME_MSG);
-        }
-
-        return removeWorkItem();
-    }
-
-    private String removeWorkItem() {
-        WorkItems workItem = functionalsRepository.getWorkItems().get(id);
         Board board = functionalsRepository.getBoards().get(boardName);
 
-        board.removeWorkItems(workItem);
+        ValidationCommands.checkIfItemContainsAnother(board.listWorkItems(), workitem, workitemName, boardName);
+
+        ValidationCommands.checkIfNamesMatch(workitem.getTitle(), workitemName);
+
+        return removeWorkItem(workitem, board);
+    }
+
+    private String removeWorkItem(WorkItems workitem, Board board) {
+        board.removeWorkItems(workitem);
 
         functionalsRepository.removeWorkItem(id);
 
-        return String.format(WORK_ITEM_SUCCESS_REMOVAL_MESSAGE, workItemName, id);
+        return String.format(WORK_ITEM_SUCCESS_REMOVAL_MESSAGE, workitemName, id);
     }
 
-    private void parseParameters(List<String> parameters) {
-        try {
-            boardName = parameters.get(0);
-            workItemName = parameters.get(1);
-            id = Integer.parseInt(parameters.get(2));
-        } catch (Exception e) {
-            throw new IllegalArgumentException(FAILED_TO_PARSE_COMMAND_PARAMETERS);
-        }
+    private void parseParameters() {
+        workitemName = asksWhat("workitem");
+        id = asksWhatInt("id");
+        id = ValidationCommands.checkIfWorkItemExists(id, functionalsRepository);
+        checkIfCommandCancelled(isCancel(id));
+        boardName = asksWhat("board");
+        boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
+        checkIfCommandCancelled(isCancel(boardName));
     }
 }

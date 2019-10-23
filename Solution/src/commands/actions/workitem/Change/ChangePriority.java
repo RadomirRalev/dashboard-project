@@ -40,11 +40,11 @@ public class ChangePriority extends ChangeBase implements Command {
                 , PRIORITIES)));
     }
 
-    private Priority getPriority(String newPriority) {
-        return Priority.valueOf(newPriority.toUpperCase());
-    }
-
     protected String getChangeableParamterType() {
         return PRIORITY;
+    }
+
+    private Priority getPriority(String newPriority) {
+        return Priority.valueOf(newPriority.toUpperCase());
     }
 }

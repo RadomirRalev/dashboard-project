@@ -30,12 +30,12 @@ public class ChangeStatus extends ChangeBase implements Command {
                 , getWorkItem().getStatusFilters())));
     }
 
-    private Status getStatus(String newStatus) {
-        return Status.valueOf(newStatus.toUpperCase());
-    }
-
     protected String getChangeableParamterType() {
         return STATUS;
+    }
+
+    private Status getStatus(String newStatus) {
+        return Status.valueOf(newStatus.toUpperCase());
     }
 }
 

@@ -43,8 +43,10 @@ public abstract class CommentBase extends ConsoleInteraction implements Command 
         workitemName = asksWhat("workitem");
         id = asksWhatInt("id");
         id = ValidationCommands.checkIfWorkItemExists(id, functionalsRepository);
+        checkIfCommandCancelled(isCancel(id));
         boardName = asksWhat("board");
         boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
+        checkIfCommandCancelled(isCancel(boardName));
         workitem = functionalsRepository.getWorkItems().get(id);
     }
 }

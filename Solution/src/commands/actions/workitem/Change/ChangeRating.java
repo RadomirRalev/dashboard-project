@@ -33,12 +33,11 @@ public class ChangeRating extends ChangeBase implements Command {
         setChangeableParameter(ValidationCommands.checkIfRatingIsValid(getChangeableParameter()));
     }
 
+    protected String getChangeableParamterType(){
+        return RATING;
+    }
 
     private int getRating(String newRating) {
         return Integer.parseInt(newRating);
-    }
-
-    protected String getChangeableParamterType(){
-        return RATING;
     }
 }

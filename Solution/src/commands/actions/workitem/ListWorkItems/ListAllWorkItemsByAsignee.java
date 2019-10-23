@@ -1,5 +1,6 @@
 package commands.actions.workitem.ListWorkItems;
 
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
 import workitems.contracts.BugAndStory;
@@ -26,6 +27,7 @@ public class ListAllWorkItemsByAsignee extends ListWorkItems implements Command 
                 .filter(workitem -> workitem.getAsignee().getName().equalsIgnoreCase(filterType))
                 .forEach(element -> stringBuilder.append(element.toString() + "\n"));
 
+        ValidationCommands.isStringBuilderEmpty(stringBuilder);
         return stringBuilder.toString().trim();
     }
 }

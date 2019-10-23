@@ -8,6 +8,9 @@ import core.contracts.FunctionalsRepository;
 
 import java.util.List;
 
+import static commands.actions.CommandsConstants.COMMAND_CANCELLED;
+import static commands.actions.CommandsConstants.TYPE_ANOTHER_COMMAND;
+
 public abstract class CreateWorkItem extends ConsoleInteraction implements Command {
     private final FunctionalsRepository functionalsRepository;
     private final FunctionalsFactory functionalsFactory;
@@ -31,7 +34,7 @@ public abstract class CreateWorkItem extends ConsoleInteraction implements Comma
         return createCommand(title, description, boardName, changeableParameter, functionalsFactory, functionalsRepository);
     }
 
-    public String getChangeableParameter() {
+    protected String getChangeableParameter() {
         return changeableParameter;
     }
 
@@ -45,7 +48,7 @@ public abstract class CreateWorkItem extends ConsoleInteraction implements Comma
     protected void parseParameters() {
         boardName = ConsoleInteraction.asksWhich("board");
         boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
-
+        checkIfCommandCancelled(isCancel(boardName));
         title = asksWhatWillItBe("title");
         description = asksWhatWillItBe("description");
     }

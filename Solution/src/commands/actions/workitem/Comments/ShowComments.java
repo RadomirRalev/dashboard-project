@@ -14,5 +14,4 @@ public class ShowComments extends CommentBase implements Command {
     protected String commentCommand(String workitemName, int id, WorkItems workitem) {
         return workitem.showComments();
     }
-
 }

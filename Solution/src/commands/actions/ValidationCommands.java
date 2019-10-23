@@ -134,7 +134,8 @@ public class ValidationCommands {
     }
 
     public static String checkIfBoardExists(String boardName, FunctionalsRepository functionalsRepository) {
-        while (!functionalsRepository.getBoards().containsKey(boardName)) {
+        while (!functionalsRepository.getBoards().containsKey(boardName)
+                && !boardName.equalsIgnoreCase("cancel")) {
             System.out.printf(BOARD_DOES_NOT_EXIST_MSG, boardName);
             boardName = reader.readLine();
             boardName = trimInputAndCheckIfStringIsEmpty(boardName);
@@ -143,7 +144,8 @@ public class ValidationCommands {
     }
 
     public static int checkIfWorkItemExists(int id, FunctionalsRepository functionalsRepository) {
-        while (!functionalsRepository.getWorkItems().containsKey(id)) {
+        while (!functionalsRepository.getWorkItems().containsKey(id)
+                && id != 0) {
             System.out.printf(WORKITEM_DOES_NOT_EXIST_MSG, id);
             id = checkIfStringCanBeParsed(reader.readLine());
         }
@@ -212,6 +214,15 @@ public class ValidationCommands {
                 System.out.println("ID must be an integer. Please enter a valid one");
             }
             idString = reader.readLine();
+        }
+    }
+
+    public static StringBuilder isStringBuilderEmpty(StringBuilder stringBuilder){
+        if(!stringBuilder.toString().isEmpty()){
+            return stringBuilder;
+        } else {
+            stringBuilder.append("There are no workitems that meet this criteria.");
+            return stringBuilder;
         }
     }
 }

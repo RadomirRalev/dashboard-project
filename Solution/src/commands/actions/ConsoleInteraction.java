@@ -71,4 +71,14 @@ public class ConsoleInteraction {
         return input.equalsIgnoreCase("cancel");
     }
 
+    protected boolean isCancel(int id){
+        return id == 0;
+    }
+
+    protected void checkIfCommandCancelled(boolean isCancel){
+        if(isCancel){
+            throw new IllegalArgumentException(COMMAND_CANCELLED);
+        }
+    }
+
 }

@@ -7,7 +7,6 @@ import workitems.contracts.WorkItems;
 import static commands.actions.CommandsConstants.*;
 
 public class AddComment extends CommentBase implements Command {
-    //TODO make command interact with the console
     private String comment;
 
     public AddComment(FunctionalsRepository functionalsRepository) {

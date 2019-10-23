@@ -39,11 +39,11 @@ public class ChangeSeverity extends ChangeBase implements Command {
                 , SEVERITIES)));
     }
 
-    private Severity getSeverity(String newSeverity) {
-        return Severity.valueOf(newSeverity.toUpperCase());
-    }
-
     protected String getChangeableParamterType(){
         return SEVERITY;
+    }
+
+    private Severity getSeverity(String newSeverity) {
+        return Severity.valueOf(newSeverity.toUpperCase());
     }
 }

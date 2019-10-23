@@ -27,13 +27,13 @@ public class CommandsConstants {
             "Please type cancel to abort or change board name: \n";
     public static final String WORKITEM_DOES_NOT_EXIST_MSG = "Workitem with ID %s does not exist in the database " +
             "but you can write a new ID name to correct your search. " +
-            "Please type cancel to abort or change the ID number: \n";
+            "Please type 0 to abort or change the ID number to a valid one: \n";
     public static final String NUMBER_ASSIGNEDWORK = "What number of assigned work to be removed?";
     public static final String LIST_ASSIGNEDWORK = "%s has the following assigned work: \n" +
             "%s";
     public static final String ENTER_BUG_STORY_FEEDBACK = "Wrong input! Please enter bug, story or feedback " +
             "or type cancel to abort.";
-    public static final String TYPE_ANOTHER_COMMAND = "Please type command.";
+    public static final String TYPE_ANOTHER_COMMAND = "Please type another command.";
     public static final String ALREADY_MEMBER = "Already a member of this team. Please type another command.";
     public static final String INVALID_NUMBER_OF_ARGUMENTS = "Invalid number of arguments!";
     public static final String PERSONSLIST_IS_EMPTY = "Persons list is empty!";
@@ -101,5 +101,6 @@ public class CommandsConstants {
     public static final String SIZES = "Large / Medium / Small";
     public static final String SEVERITIES = "Critical / Major / Minor";
     public static final String PRIORITIES = "High / Medium / Low";
+    public static final String COMMAND_CANCELLED = "Command cancelled";
 
 }

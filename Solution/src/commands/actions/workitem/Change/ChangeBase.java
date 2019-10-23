@@ -47,8 +47,10 @@ public abstract class ChangeBase extends ConsoleInteraction implements Command {
         workitemName = asksWhat("workitem");
         id = asksWhatInt("id");
         id = ValidationCommands.checkIfWorkItemExists(id, functionalsRepository);
+        checkIfCommandCancelled(isCancel(id));
         boardName = asksWhat("board");
         boardName = ValidationCommands.checkIfBoardExists(boardName, functionalsRepository);
+        checkIfCommandCancelled(isCancel(boardName));
         changeableParameter = asksWhatWillItBe(getChangeableParamterType());
         workitem = functionalsRepository.getWorkItems().get(id);
     }
@@ -59,7 +61,7 @@ public abstract class ChangeBase extends ConsoleInteraction implements Command {
         return workitem;
     }
 
-    public String getChangeableParameter() {
+    protected String getChangeableParameter() {
         return changeableParameter;
     }
 

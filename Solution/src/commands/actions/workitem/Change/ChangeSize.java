@@ -39,11 +39,11 @@ public class ChangeSize extends ChangeBase implements Command {
                 , SIZES)));
     }
 
-    private Size getSize(String newSize) {
-        return Size.valueOf(newSize.toUpperCase());
-    }
-
     protected String getChangeableParamterType(){
         return SIZE;
+    }
+
+    private Size getSize(String newSize) {
+        return Size.valueOf(newSize.toUpperCase());
     }
 }

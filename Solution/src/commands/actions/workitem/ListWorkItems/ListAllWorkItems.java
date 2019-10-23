@@ -1,5 +1,6 @@
 package commands.actions.workitem.ListWorkItems;
 
+import commands.actions.ValidationCommands;
 import commands.contracts.Command;
 import core.contracts.FunctionalsRepository;
 
@@ -16,6 +17,7 @@ public class ListAllWorkItems extends ListWorkItems implements Command {
                 .stream()
                 .forEach(element -> stringBuilder.append(element.toString() + "\n"));
 
+        ValidationCommands.isStringBuilderEmpty(stringBuilder);
         return stringBuilder.toString().trim();
     }
 
