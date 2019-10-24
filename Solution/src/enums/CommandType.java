@@ -10,17 +10,13 @@ public enum CommandType {
     UNASSIGNWORK("Unassignwork - Deletes work item from a person\n"),
     ADDMEMBER("Addmember - Adds member to team\n"),
     LISTTEAMS("Listteams - Lists all teams\n"),
-    CREATEBOARD("Createboard X Y - Creates board where X is the name of the board and Y is the name of the team " +
-            "it is assigned to\n"),
+    CREATEBOARD("Createboard - Creates a board in a team\n"),
     SHOWTEAMBOARDS("Showteamboards - Shows boards of a team\n"),
     LISTALLMEMBERS("Listallmembers - Lists all team members\n"),
-    CREATEBUG("Createbug X Y Z A - Creates bug where X is its board name, Y is its title, Z is description and " +
-            "A is severity\n"),
-    CREATESTORY("Createstory X Y Z A - Creates story where X is its board name, Y is its title, Z is description and " +
-            "A is size\n"),
+    CREATEBUG("Createbug - Creates a bug in a board\n"),
+    CREATESTORY("Createstory - Creates story in a board\n"),
     SHOWACTIVITYHISTORY("Showactivityhistory - shows activity history\n"),
-    CREATEFEEDBACK("Createfeedback X Y Z A - Creates bug where X is its name, Y is its title, Z is description and " +
-            "A is rating\n"),
+    CREATEFEEDBACK("Createfeedback - Creates a feedback in a board\n"),
     REMOVEWORKITEM("Removeworkitem - Removes work item\n"),
     SHOWPERSON("Showperson - Shows a specific person\n"),
     SHOWMEMBER("Showmember - Shows a specific team member\n"),
@@ -30,21 +26,20 @@ public enum CommandType {
     CHANGERATING("Changerating - Changes rating\n"),
     CHANGESEVERITY("Changeseverity - Changes severity\n"),
     CHANGESIZE("Changesize - Changes size\n"),
-    ADDCOMMENT("Addcomment X Y Z A - Adds comment where X is board name, Y is its title, Z is description and " +
-            "A is rating\n"),
+    ADDCOMMENT("Addcomment - Adds a comment to a workitem\n"),
     SHOWCOMMENTS("Showcomment - Shows comments\n"),
-    LISTALLWORKITEMS("Listallworkitems - Lists all work items\n"),
-    LISTALLWORKITEMSBYTYPE("Listallworkitemsbytype - Lists all work items by type\n"),
-    LISTALLWORKITEMSBYSTATUS("Listallworkitemsbystatus - Lists all work items by status\n"),
-    LISTALLWORKITEMSBYASIGNEE("Listallworkitemsbyasignee - Lists all work items by assignee\n"),
-    LISTALLWORKITEMSBYASIGNEEANDSTATUS("ListallworkitemsbyasigneeAndStatus - Lists all work items filtered by" +
+    LISTALLWORKITEMS("ListAllWorkitems - Lists all work items\n"),
+    LISTALLWORKITEMSBYTYPE("ListAllWorkitemsByType - Lists all work items filtered by type\n"),
+    LISTALLWORKITEMSBYSTATUS("ListAllWorkitemsByStatus - Lists all work items filtered by status\n"),
+    LISTALLWORKITEMSBYASIGNEE("ListAllWorkitemsByAsignee - Lists all work items filtered by assignee\n"),
+    LISTALLWORKITEMSBYASIGNEEANDSTATUS("ListAllWorkitemsByAsigneeAndStatus - Lists all work items filtered by" +
             " assignee and status at the same time\n"),
-    SORTALLWORKITEMSBYTITLE("Sortallworkitemsbytitle - Sorts all work items by title\n"),
-    SORTALLSTORIESBYSIZE("Sortallstoriesbysize - Sorts all stories by size\n"),
-    SORTALLBUGSBYSEVERITY("Sortallstoriesbyseverity - Sorts all stories by severity\n"),
-    SORTALLWORKITEMSBYPRIORITY("Sortallstoriesbypriority - Sorts all stories by priority\n"),
-    SORTALLFEEDBACKBYRATING("Sortallfeedbackbyrating - Sorts all feedback by rating\n"),
-    SHOWCOMMANDS("Showcommands - shows commands\n");
+    SORTALLWORKITEMSBYTITLE("SortAllWorkitemsByTitle - Sorts all work items by title\n"),
+    SORTALLSTORIESBYSIZE("SortAllStoriesBySize - Sorts all stories by size\n"),
+    SORTALLBUGSBYSEVERITY("SortAllStoriesBySeverity - Sorts all stories by severity\n"),
+    SORTALLWORKITEMSBYPRIORITY("SortAllStoriesByPriority - Sorts all stories by priority\n"),
+    SORTALLFEEDBACKBYRATING("SortAllFeedbackByRating - Sorts all feedback by rating\n"),
+    SHOWCOMMANDS("ShowCommands - shows commands\n");
 
 
     private final String command;
