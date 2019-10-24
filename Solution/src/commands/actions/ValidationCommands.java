@@ -184,7 +184,17 @@ public class ValidationCommands {
         public static String checkIfTitleLengthIsValid(String title) {
         while ((title.length() < WORKITEM_TITLE_MIN_LENGTH || title.length() > WORKITEM_TITLE_MAX_LENGTH)
                 && !title.equalsIgnoreCase("cancel")) {
-            writer.write(String.format(TITLE_LENGTH_OUT_OF_BOUNDS, title));
+            writer.writeLine(String.format(TITLE_LENGTH_OUT_OF_BOUNDS, title));
+            title = reader.readLine();
+            title = trimInputAndCheckIfStringIsEmpty(title);
+        }
+        return title;
+    }
+
+    public static String checkIfBoardNameLengthIsValid(String title) {
+        while ((title.length() < BOARD_TITLE_MIN_LENGTH || title.length() > BOARD_TITLE_MAX_LENGTH)
+                && !title.equalsIgnoreCase("cancel")) {
+            writer.writeLine(String.format(BOARD_NAME_LENGTH_OUT_OF_BOUNDS, title));
             title = reader.readLine();
             title = trimInputAndCheckIfStringIsEmpty(title);
         }
@@ -194,7 +204,7 @@ public class ValidationCommands {
     public static String checkIfDescriptionLengthIsValid(String description) {
         while ((description.length() < WORKITEM_DESCRIPTION_MIN_LENGTH || description.length() > WORKITEM_DESCRIPTION_MAX_LENGTH)
                 && !description.equalsIgnoreCase("cancel")) {
-            writer.write(String.format(DESCRIPTION_LENGTH_OUT_OF_BOUNDS, description));
+            writer.writeLine(String.format(DESCRIPTION_LENGTH_OUT_OF_BOUNDS, description));
             description = reader.readLine();
             description = trimInputAndCheckIfStringIsEmpty(description);
         }

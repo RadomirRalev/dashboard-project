@@ -5,6 +5,8 @@ public class CommandsConstants {
     public static final int RATING_MAX_VALUE = 5;
     public static final int WORKITEM_TITLE_MIN_LENGTH = 10;
     public static final int WORKITEM_TITLE_MAX_LENGTH = 50;
+    public static final int BOARD_TITLE_MIN_LENGTH = 5;
+    public static final int BOARD_TITLE_MAX_LENGTH = 10;
     public static final int WORKITEM_DESCRIPTION_MIN_LENGTH = 10;
     public static final int WORKITEM_DESCRIPTION_MAX_LENGTH = 500;
     public static final String INVALID_COMMAND = "Invalid command name: %s!";
@@ -130,5 +132,8 @@ public class CommandsConstants {
             "Try again or type cancel to abort.";
     public static final String DESCRIPTION_LENGTH_OUT_OF_BOUNDS = "Length of %s is out of bounds." +
             " Please make sure the length is between 10 and 500 symbols long. " +
+            "Try again or type cancel to abort.";
+    public static final String BOARD_NAME_LENGTH_OUT_OF_BOUNDS = "Length of %s is out of bounds." +
+            " Please make sure the length is between 5 and 10 symbols long. " +
             "Try again or type cancel to abort.";
 }

@@ -33,7 +33,7 @@ public class BoardImplTests {
         functionalsRepository = new FunctionalsRepositoryImpl();
         testCommand = new BoardImpl("bord1");
         story = new StoryImpl("name12345123131", "asjdjkasdjasijdiadijiaj", Size.MEDIUM);
-        bug = new BugImpl(  "name12345123131", "asjdjkasdjasijdiadijiaj", Severity.CRITICAL, steps);
+        bug = new BugImpl("name12345123131", "asjdjkasdjasijdiadijiaj", Severity.CRITICAL, steps);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -137,11 +137,12 @@ public class BoardImplTests {
         // Arrange
         BoardImpl board = new BoardImpl("bord1");
         Feedback feedback = new FeedbackImpl("name12345123131", "kasdjkasdkjaskjdkj", 4);
-        board.addWorkItems(feedback);
+
         Map<String, ArrayList<String>> boardsActivity = new HashMap<>();
 
         //Act
         board.addWorkItems(feedback);
+        //board.addWorkItems(feedback);
 
         //Assert
         Assert.assertEquals(boardsActivity, getBoardsActivity());

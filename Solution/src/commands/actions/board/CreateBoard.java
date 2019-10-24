@@ -64,6 +64,7 @@ public class CreateBoard extends ConsoleInteraction implements Command {
         checkIfCommandCancelled(isCancel(teamName));
 
         boardName = asksWhat("Board");
+        boardName = ValidationCommands.checkIfBoardNameLengthIsValid(boardName);
         boardName = ValidationCommands.checkIfBoardAlreadyExistsInTeam(boardName, teamName, functionalsRepository);
         checkIfCommandCancelled(isCancel(boardName));
     }

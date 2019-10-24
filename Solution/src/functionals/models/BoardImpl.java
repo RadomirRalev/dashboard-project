@@ -2,6 +2,7 @@ package functionals.models;
 
 import functionals.contracts.Board;
 import workitems.contracts.WorkItems;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,15 +30,12 @@ public class BoardImpl implements Board {
 
     @Override
     public <T extends WorkItems> void addWorkItems(T workItem) {
-        String workItemName = workItem.getTitle();
-        if (listWorkItems().contains(workItem.getTitle().equals(workItemName))) {
-            throw new IllegalArgumentException("You cannot add a WorkItem with the same name in the same board");
-        }
         workItems.add(workItem);
     }
 
     @Override
     public <T extends WorkItems> void removeWorkItems(T workItem) {
+        ValidationHelper.checkIfWorkItemDoesntExistsInBoard(this, workItem);
         workItems.remove(workItem);
     }
 
